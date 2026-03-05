@@ -158,7 +158,7 @@
     let initIsotope;
     imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
       initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
+        itemSelector: '.portfolio-item',
         layoutMode: layout,
         filter: filter,
         sortBy: sort
