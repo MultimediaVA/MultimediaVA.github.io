@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VA Career Pipeline | MultimediaVA</title>
+<meta name="description" content="Explore VA career paths based on your background — BPO, Video Editing, or Fresh Graduate. See salary ranges and upskill roadmaps."/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f7f4;
+    --bg2: #ffffff;
+    --bg3: #f1efe8;
+    --text: #1a1a18;
+    --text2: #5f5e5a;
+    --text3: #888780;
+    --border: rgba(0,0,0,0.12);
+    --border2: rgba(0,0,0,0.22);
+    --teal: #1D9E75; --teal-bg: #E1F5EE; --teal-text: #085041;
+    --blue: #378ADD; --blue-bg: #E6F1FB; --blue-text: #0C447C;
+    --amber: #EF9F27; --amber-bg: #FAEEDA; --amber-text: #633806;
+    --purple: #7F77DD; --purple-bg: #EEEDFE; --purple-text: #3C3489;
+    --coral: #D85A30; --coral-bg: #FAECE7; --coral-text: #4A1B0C;
+    --radius: 10px; --radius-lg: 14px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--bg2);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { font-size: 15px; font-weight: 600; color: var(--text); text-decoration: none; }
+  .nav-back { font-size: 13px; color: var(--text2); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+  .nav-back:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    background: var(--bg2);
+    border-bottom: 0.5px solid var(--border);
+    padding: 3.5rem 2rem 3rem;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--teal-text); background: var(--teal-bg);
+    padding: 4px 14px; border-radius: 999px; margin-bottom: 1rem;
+  }
+  .hero h1 { font-size: clamp(26px, 5vw, 40px); font-weight: 700; letter-spacing: -.02em; margin-bottom: .75rem; }
+  .hero p { font-size: 16px; color: var(--text2); max-width: 540px; margin: 0 auto 2rem; }
+  .stat-row { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 22px; font-weight: 700; color: var(--text); }
+  .stat-label { font-size: 12px; color: var(--text3); margin-top: 2px; }
+
+  /* MAIN */
+  .container { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+  /* SECTION HEADER */
+  .section-header { margin-bottom: 1.5rem; }
+  .section-title { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+  .section-sub { font-size: 13px; color: var(--text2); }
+
+  /* TABS */
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .tab {
+    padding: 8px 18px; border-radius: var(--radius);
+    border: 0.5px solid var(--border2); background: var(--bg2);
+    font-size: 13px; font-weight: 500; cursor: pointer; color: var(--text2);
+    transition: all .15s; user-select: none;
+  }
+  .tab:hover { border-color: var(--text3); color: var(--text); }
+  .tab.active { background: var(--text); color: #fff; border-color: var(--text); }
+  .panel { display: none; } .panel.active { display: block; }
+
+  /* PIPELINE TRACK */
+  .track { display: flex; flex-direction: column; }
+  .step { display: flex; gap: 0; }
+  .step-left { display: flex; flex-direction: column; align-items: center; width: 44px; flex-shrink: 0; }
+  .step-dot { width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid; flex-shrink: 0; margin-top: 3px; z-index: 1; }
+  .step-line { width: 2px; flex: 1; min-height: 20px; }
+  .step-body { padding: 0 0 28px 14px; flex: 1; min-width: 0; }
+  .step-tier { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
+
+  /* COLORS */
+  .dot-teal { border-color: var(--teal); background: var(--teal-bg); }
+  .dot-blue { border-color: var(--blue); background: var(--blue-bg); }
+  .dot-amber { border-color: var(--amber); background: var(--amber-bg); }
+  .dot-purple { border-color: var(--purple); background: var(--purple-bg); }
+  .line-teal { background: #9FE1CB; }
+  .line-blue { background: #B5D4F4; }
+  .line-amber { background: #FAC775; }
+  .line-purple { background: #CECBF6; }
+
+  /* CARDS ROW */
+  .cards-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .card {
+    flex: 1; min-width: 150px; max-width: 280px;
+    background: var(--bg2); border: 0.5px solid var(--border2);
+    border-radius: var(--radius); padding: 12px 14px;
+    cursor: pointer; transition: all .15s; box-shadow: var(--shadow);
+  }
+  .card:hover { border-color: var(--text3); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .card.selected { box-shadow: 0 0 0 2px var(--blue); border-color: var(--blue); background: var(--blue-bg); }
+  .card-accent-teal { border-left: 3px solid var(--teal); }
+  .card-accent-blue { border-left: 3px solid var(--blue); }
+  .card-accent-amber { border-left: 3px solid var(--amber); }
+  .card-accent-purple { border-left: 3px solid var(--purple); }
+  .card-accent-coral { border-left: 3px solid var(--coral); }
+  .card-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .card-salary { font-size: 11px; color: var(--text2); margin-bottom: 6px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+  .stag { font-size: 10px; padding: 2px 8px; border-radius: 999px; font-weight: 500; }
+  .stag-t { background: var(--teal-bg); color: var(--teal-text); }
+  .stag-b { background: var(--blue-bg); color: var(--blue-text); }
+  .stag-a { background: var(--amber-bg); color: var(--amber-text); }
+  .stag-p { background: var(--purple-bg); color: var(--purple-text); }
+  .stag-c { background: var(--coral-bg); color: var(--coral-text); }
+
+  /* UPSKILL HINT */
+  .upskill-hint {
+    padding: 10px 14px; border-radius: var(--radius);
+    background: var(--bg3); border: 0.5px solid var(--border);
+    font-size: 12px; color: var(--text2); line-height: 1.7;
+  }
+  .hint-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); margin-bottom: 5px; }
+  .hint-row { display: flex; gap: 6px; margin-bottom: 2px; }
+  .hint-arr { color: var(--text3); flex-shrink: 0; }
+
+  /* DETAIL PANEL */
+  .detail-panel {
+    margin-top: 1.5rem; padding: 1.25rem 1.5rem;
+    background: var(--bg2); border: 0.5px solid var(--border2);
+    border-radius: var(--radius-lg); box-shadow: var(--shadow);
+    display: none;
+  }
+  .detail-panel.open { display: block; }
+  .detail-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
+  .detail-title { font-size: 17px; font-weight: 600; }
+  .detail-salary { font-size: 12px; color: var(--text2); background: var(--bg3); padding: 4px 12px; border-radius: 999px; }
+  .detail-desc { font-size: 13px; color: var(--text2); line-height: 1.7; margin: 10px 0 14px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+  .badge { font-size: 11px; padding: 3px 11px; border-radius: var(--radius); font-weight: 500; }
+  .badge-t { background: var(--teal-bg); color: var(--teal-text); }
+  .badge-b { background: var(--blue-bg); color: var(--blue-text); }
+  .badge-a { background: var(--amber-bg); color: var(--amber-text); }
+  .badge-p { background: var(--purple-bg); color: var(--purple-text); }
+
+  /* ROADMAP */
+  .roadmap-box {
+    background: var(--bg3); border-radius: var(--radius);
+    border: 0.5px solid var(--border); padding: 14px 16px;
+  }
+  .roadmap-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); margin-bottom: 10px; }
+  .cert-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; font-size: 13px; color: var(--text2); line-height: 1.5; }
+  .cert-dot-wrap { margin-top: 4px; flex-shrink: 0; }
+  .cert-dot { width: 8px; height: 8px; border-radius: 50%; display: block; }
+  .cert-dot.free { background: var(--teal); }
+  .cert-dot.paid { background: var(--amber); }
+  .cert-dot.skill { background: var(--purple); }
+  .cert-strong { font-weight: 600; color: var(--text); }
+  .legend { display: flex; gap: 16px; margin-top: 12px; padding-top: 10px; border-top: 0.5px solid var(--border); flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text3); }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg2); border-top: 0.5px solid var(--border);
+    text-align: center; padding: 1.5rem;
+    font-size: 12px; color: var(--text3);
+  }
+  footer a { color: var(--text2); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 600px) {
+    .hero { padding: 2.5rem 1.25rem 2rem; }
+    .container { padding: 1.5rem 1rem 3rem; }
+    nav { padding: 0 1rem; }
+    .stat-row { gap: 1.25rem; }
+    .cards-row { flex-direction: column; }
+    .card { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">MultimediaVA</a>
+  <a class="nav-back" href="index.html">← Back to Home</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Free Resource</div>
+  <h1>VA Career Pipeline</h1>
+  <p>Find your VA path based on your current background. See salary ranges, required skills, and the exact certs to level up.</p>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Career tracks</div></div>
+    <div class="stat"><div class="stat-num">24+</div><div class="stat-label">VA niches mapped</div></div>
+    <div class="stat"><div class="stat-num">$300–$4K</div><div class="stat-label">Monthly salary range</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-header">
+    <div class="section-title">Choose your starting background</div>
+    <div class="section-sub">Click a role card to see the full upskill roadmap.</div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('bpo',this)">📞 BPO Experience</div>
+    <div class="tab" onclick="switchTab('video',this)">🎬 Video Editing</div>
+    <div class="tab" onclick="switchTab('fresh',this)">🎓 Fresh / HS Graduate</div>
+  </div>
+
+  <!-- ===== BPO PANEL ===== -->
+  <div class="panel active" id="panel-bpo">
+  <div class="track">
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-teal"></div><div class="step-line line-teal"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Your current background</div>
+        <div class="cards-row">
+          <div class="card card-accent-teal" onclick="showDetail('bpo-start',this)">
+            <div class="card-title">BPO / Call Center Professional</div>
+            <div class="card-salary">$300–$600/mo on-site</div>
+            <div class="skill-tags"><span class="stag stag-t">Calls</span><span class="stag stag-t">CRM use</span><span class="stag stag-t">English</span></div>
+          </div>
+        </div>
+        <div class="upskill-hint">
+          <div class="hint-label">Break into VA — do these first</div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Get Zendesk or Freshdesk free cert (2–4 hrs)</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Build a 1-page portfolio PDF with CSAT %, AHT, ticket volume</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Create Upwork / OnlineJobs.ph profile highlighting tools + fluency</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-blue"></div><div class="step-line line-blue"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Tier 1 — Entry VA (0–12 months)</div>
+        <div class="cards-row">
+          <div class="card card-accent-blue" onclick="showDetail('bpo-csr',this)"><div class="card-title">Customer Support VA</div><div class="card-salary">$400–$700/mo</div><div class="skill-tags"><span class="stag stag-b">Zendesk</span><span class="stag stag-b">Freshdesk</span></div></div>
+          <div class="card card-accent-blue" onclick="showDetail('bpo-email',this)"><div class="card-title">Email & Chat Support VA</div><div class="card-salary">$350–$600/mo</div><div class="skill-tags"><span class="stag stag-b">Gorgias</span><span class="stag stag-b">Shopify</span></div></div>
+          <div class="card card-accent-blue" onclick="showDetail('bpo-appt',this)"><div class="card-title">Appointment Setter</div><div class="card-salary">$500–$900/mo</div><div class="skill-tags"><span class="stag stag-b">Cold outreach</span><span class="stag stag-b">GoHighLevel</span></div></div>
+        </div>
+        <div class="upskill-hint">
+          <div class="hint-label">Upskill to reach Tier 2</div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>HubSpot CRM cert — free, 6 hrs (academy.hubspot.com)</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Shopify Partner free training for e-commerce clients</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Learn Notion + ClickUp basics for task tracking</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-amber"></div><div class="step-line line-amber"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Tier 2 — Intermediate VA (1–3 years)</div>
+        <div class="cards-row">
+          <div class="card card-accent-amber" onclick="showDetail('bpo-ecomm',this)"><div class="card-title">E-commerce VA</div><div class="card-salary">$600–$1,000/mo</div><div class="skill-tags"><span class="stag stag-a">Shopify</span><span class="stag stag-a">Amazon FBA</span></div></div>
+          <div class="card card-accent-amber" onclick="showDetail('bpo-crm',this)"><div class="card-title">CRM / Tech Support VA</div><div class="card-salary">$700–$1,200/mo</div><div class="skill-tags"><span class="stag stag-a">Salesforce</span><span class="stag stag-a">HubSpot</span></div></div>
+          <div class="card card-accent-amber" onclick="showDetail('bpo-sdr',this)"><div class="card-title">Sales Development VA</div><div class="card-salary">$800–$1,400/mo</div><div class="skill-tags"><span class="stag stag-a">Apollo.io</span><span class="stag stag-a">Cold email</span></div></div>
+        </div>
+        <div class="upskill-hint">
+          <div class="hint-label">Upskill to reach Tier 3</div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Salesforce Admin cert or HubSpot Sales Hub cert</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Learn team management: Slack, Loom, Asana, Monday.com</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Take an OBM/Online Business Manager course (Tara Newman)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-purple"></div><div class="step-line line-purple"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Tier 3 — Senior / Specialist (3+ years)</div>
+        <div class="cards-row">
+          <div class="card card-accent-purple" onclick="showDetail('bpo-ops',this)"><div class="card-title">Operations Manager VA</div><div class="card-salary">$1,500–$3,000/mo</div><div class="skill-tags"><span class="stag stag-p">SOPs</span><span class="stag stag-p">OBM</span></div></div>
+          <div class="card card-accent-purple" onclick="showDetail('bpo-smgr',this)"><div class="card-title">Sales Manager VA</div><div class="card-salary">$1,200–$2,500/mo</div><div class="skill-tags"><span class="stag stag-p">Team lead</span><span class="stag stag-p">KPIs</span></div></div>
+          <div class="card card-accent-purple" onclick="showDetail('bpo-cx',this)"><div class="card-title">CX Team Lead / Trainer</div><div class="card-salary">$1,000–$2,000/mo</div><div class="skill-tags"><span class="stag stag-p">QA</span><span class="stag stag-p">Coaching</span></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+  <!-- ===== VIDEO PANEL ===== -->
+  <div class="panel" id="panel-video">
+  <div class="track">
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-teal"></div><div class="step-line line-teal"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Your current background</div>
+        <div class="cards-row">
+          <div class="card card-accent-teal" onclick="showDetail('vid-start',this)">
+            <div class="card-title">Video Editor (local/freelance)</div>
+            <div class="card-salary">$200–$500/mo freelance</div>
+            <div class="skill-tags"><span class="stag stag-t">Premiere</span><span class="stag stag-t">DaVinci</span><span class="stag stag-t">CapCut</span></div>
+          </div>
+        </div>
+        <div class="upskill-hint">
+          <div class="hint-label">Break into VA — do these first</div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Build a 60–90 sec showreel — short, varied, fast-paced cuts</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Learn CapCut vertical format for Reels/Shorts (highest demand)</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Set up Upwork/Contra profile as "YouTube + Reels Editor"</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-blue"></div><div class="step-line line-blue"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Tier 1 — Entry VA (0–12 months)</div>
+        <div class="cards-row">
+          <div class="card card-accent-blue" onclick="showDetail('vid-basic',this)"><div class="card-title">Video Editor VA</div><div class="card-salary">$400–$800/mo</div><div class="skill-tags"><span class="stag stag-b">Premiere</span><span class="stag stag-b">Captions</span></div></div>
+          <div class="card card-accent-blue" onclick="showDetail('vid-reels',this)"><div class="card-title">Reels / Shorts Cutter VA</div><div class="card-salary">$350–$700/mo</div><div class="skill-tags"><span class="stag stag-b">CapCut</span><span class="stag stag-b">Hook cuts</span></div></div>
+          <div class="card card-accent-blue" onclick="showDetail('vid-thumb',this)"><div class="card-title">Thumbnail Designer VA</div><div class="card-salary">$300–$600/mo</div><div class="skill-tags"><span class="stag stag-b">Photoshop</span><span class="stag stag-b">Canva</span></div></div>
+        </div>
+        <div class="upskill-hint">
+          <div class="hint-label">Upskill to reach Tier 2</div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Learn YouTube SEO: TubeBuddy or vidIQ free plans</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Study After Effects fundamentals — lower thirds, intros</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Learn Buffer or Later for social content scheduling</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-amber"></div><div class="step-line line-amber"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Tier 2 — Intermediate VA (1–3 years)</div>
+        <div class="cards-row">
+          <div class="card card-accent-amber" onclick="showDetail('vid-yt',this)"><div class="card-title">YouTube Channel VA</div><div class="card-salary">$800–$1,500/mo</div><div class="skill-tags"><span class="stag stag-a">SEO</span><span class="stag stag-a">TubeBuddy</span></div></div>
+          <div class="card card-accent-amber" onclick="showDetail('vid-social',this)"><div class="card-title">Social Media Manager VA</div><div class="card-salary">$700–$1,200/mo</div><div class="skill-tags"><span class="stag stag-a">Content cal.</span><span class="stag stag-a">Analytics</span></div></div>
+          <div class="card card-accent-amber" onclick="showDetail('vid-motion',this)"><div class="card-title">Motion Graphics VA</div><div class="card-salary">$1,000–$1,800/mo</div><div class="skill-tags"><span class="stag stag-a">After Effects</span><span class="stag stag-a">Lottie</span></div></div>
+        </div>
+        <div class="upskill-hint">
+          <div class="hint-label">Upskill to reach Tier 3</div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Learn brand strategy and Meta/Google ad video formats</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Study podcast production: multitrack editing in Descript</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Learn LMS platforms — Kajabi, Teachable, Thinkific</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-purple"></div><div class="step-line line-purple"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Tier 3 — Senior / Specialist (3+ years)</div>
+        <div class="cards-row">
+          <div class="card card-accent-purple" onclick="showDetail('vid-brand',this)"><div class="card-title">Brand Video Strategist</div><div class="card-salary">$1,500–$3,500/mo</div><div class="skill-tags"><span class="stag stag-p">Ad creatives</span><span class="stag stag-p">Strategy</span></div></div>
+          <div class="card card-accent-purple" onclick="showDetail('vid-podcast',this)"><div class="card-title">Podcast Video Producer</div><div class="card-salary">$1,200–$2,500/mo</div><div class="skill-tags"><span class="stag stag-p">Descript</span><span class="stag stag-p">Repurposing</span></div></div>
+          <div class="card card-accent-purple" onclick="showDetail('vid-course',this)"><div class="card-title">Course / LMS Video VA</div><div class="card-salary">$1,500–$3,000/mo</div><div class="skill-tags"><span class="stag stag-p">Kajabi</span><span class="stag stag-p">Teachable</span></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+  <!-- ===== FRESH PANEL ===== -->
+  <div class="panel" id="panel-fresh">
+  <div class="track">
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-teal"></div><div class="step-line line-teal"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Your starting point</div>
+        <div class="cards-row">
+          <div class="card card-accent-teal" onclick="showDetail('fresh-start',this)">
+            <div class="card-title">Fresh / HS Graduate</div>
+            <div class="card-salary">No VA income yet</div>
+            <div class="skill-tags"><span class="stag stag-t">Basic computer</span><span class="stag stag-t">English</span></div>
+          </div>
+        </div>
+        <div class="upskill-hint">
+          <div class="hint-label">Before you apply — all free</div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Google Digital Garage: Fundamentals of Digital Marketing (free cert)</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Master Google Workspace — Docs, Sheets, Drive, Meet, Calendar</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Aim for 50+ WPM typing speed before applying</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-blue"></div><div class="step-line line-blue"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Tier 1 — Entry VA (0–12 months)</div>
+        <div class="cards-row">
+          <div class="card card-accent-blue" onclick="showDetail('fresh-gen',this)"><div class="card-title">General VA</div><div class="card-salary">$300–$500/mo</div><div class="skill-tags"><span class="stag stag-b">Admin</span><span class="stag stag-b">Scheduling</span></div></div>
+          <div class="card card-accent-blue" onclick="showDetail('fresh-data',this)"><div class="card-title">Data Entry VA</div><div class="card-salary">$250–$450/mo</div><div class="skill-tags"><span class="stag stag-b">Sheets</span><span class="stag stag-b">Accuracy</span></div></div>
+          <div class="card card-accent-blue" onclick="showDetail('fresh-smm',this)"><div class="card-title">Social Media VA</div><div class="card-salary">$400–$700/mo</div><div class="skill-tags"><span class="stag stag-b">Canva</span><span class="stag stag-b">Scheduling</span></div></div>
+        </div>
+        <div class="upskill-hint">
+          <div class="hint-label">Upskill to reach Tier 2 — pick a niche</div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>WRITING: HubSpot Content Marketing cert + Semrush Writing course (free)</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>BOOKKEEPING: QuickBooks Online ProAdvisor cert (free)</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>REAL ESTATE: Study US terms + learn CINC/KVCore CRM</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-amber"></div><div class="step-line line-amber"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Tier 2 — Niche VA (1–2 years + upskilling)</div>
+        <div class="cards-row">
+          <div class="card card-accent-amber" onclick="showDetail('fresh-content',this)"><div class="card-title">Content Writer VA</div><div class="card-salary">$500–$1,200/mo</div><div class="skill-tags"><span class="stag stag-a">SEO</span><span class="stag stag-a">Surfer SEO</span></div></div>
+          <div class="card card-accent-amber" onclick="showDetail('fresh-real',this)"><div class="card-title">Real Estate VA</div><div class="card-salary">$500–$1,000/mo</div><div class="skill-tags"><span class="stag stag-a">MLS</span><span class="stag stag-a">Cold calling</span></div></div>
+          <div class="card card-accent-amber" onclick="showDetail('fresh-book',this)"><div class="card-title">Bookkeeping VA</div><div class="card-salary">$600–$1,200/mo</div><div class="skill-tags"><span class="stag stag-a">QuickBooks</span><span class="stag stag-a">Xero</span></div></div>
+          <div class="card card-accent-amber" onclick="showDetail('fresh-smm2',this)"><div class="card-title">Social Media Manager VA</div><div class="card-salary">$600–$1,100/mo</div><div class="skill-tags"><span class="stag stag-a">Meta Ads</span><span class="stag stag-a">Analytics</span></div></div>
+        </div>
+        <div class="upskill-hint">
+          <div class="hint-label">Upskill to reach Tier 3</div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Google Ads cert + Meta Ads cert (both free at Skillshop + Blueprint)</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Google Project Management Certificate (Coursera — audit free)</span></div>
+          <div class="hint-row"><span class="hint-arr">→</span><span>Take a paid OBM course — understand how online businesses scale</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-dot dot-purple"></div><div class="step-line line-purple"></div></div>
+      <div class="step-body">
+        <div class="step-tier">Tier 3 — Senior / Specialist (3–4 years)</div>
+        <div class="cards-row">
+          <div class="card card-accent-purple" onclick="showDetail('fresh-pm',this)"><div class="card-title">Project Manager VA</div><div class="card-salary">$1,200–$2,500/mo</div><div class="skill-tags"><span class="stag stag-p">Scrum</span><span class="stag stag-p">ClickUp</span></div></div>
+          <div class="card card-accent-purple" onclick="showDetail('fresh-digital',this)"><div class="card-title">Digital Marketing VA</div><div class="card-salary">$1,000–$2,000/mo</div><div class="skill-tags"><span class="stag stag-p">Google Ads</span><span class="stag stag-p">SEO</span></div></div>
+          <div class="card card-accent-purple" onclick="showDetail('fresh-exec',this)"><div class="card-title">Executive VA / OBM</div><div class="card-salary">$1,500–$4,000/mo</div><div class="skill-tags"><span class="stag stag-p">Operations</span><span class="stag stag-p">OBM cert</span></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+  <!-- DETAIL PANEL -->
+  <div class="detail-panel" id="detail-panel">
+    <div class="detail-header">
+      <div class="detail-title" id="d-title"></div>
+      <div class="detail-salary" id="d-salary"></div>
+    </div>
+    <div class="badges" id="d-badges"></div>
+    <div class="detail-desc" id="d-desc"></div>
+    <div class="roadmap-box">
+      <div class="roadmap-title">Upskill roadmap for this role</div>
+      <div id="d-certs"></div>
+      <div class="legend">
+        <div class="legend-item"><span class="cert-dot free" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);"></span>Free cert/resource</div>
+        <div class="legend-item"><span class="cert-dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);"></span>Paid course</div>
+        <div class="legend-item"><span class="cert-dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--purple);"></span>Skill to practice</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>Built by <a href="index.html">MultimediaVA</a> · Helping Filipino VAs find their career path · <a href="index.html">Back to home</a></p>
+</footer>
+
+<script>
+const D = {
+  'bpo-start':{ title:'BPO Professional — Starting Point', salary:'$300–$600/mo → $400–$700/mo VA', badges:[['b','Call handling'],['b','CRM tools'],['b','English fluency']], desc:'You already have the most valuable VA asset: proven professional English communication. The gap is repositioning your resume for remote clients and showing platform-specific skills.', certs:[['free','Zendesk Customer Service free cert (app.zendesk.com/training)'],['free','HubSpot Service Hub cert — free, recognized widely'],['skill','Portfolio PDF with BPO metrics: CSAT %, AHT, ticket volume'],['skill','Set up Upwork + OnlineJobs.ph profile as "Customer Support VA"'],['paid','Filipino VA Academy for client-finding strategy']] },
+  'bpo-csr':{ title:'Customer Support VA', salary:'$400–$700/mo • ₱22,000–₱39,000/mo', badges:[['b','Zendesk'],['b','Freshdesk'],['b','Intercom']], desc:'Handle inbound tickets, live chat, and email queues for US/AU/UK clients fully remote. BPO experience gives instant credibility. Upskill to e-com or CRM to break the $700 ceiling.', certs:[['free','Zendesk Support Administrator cert (free via Zendesk Learn)'],['free','Freshdesk Academy — free platform training'],['skill','Practice Intercom and Gorgias — most e-com brands use these'],['free','Google Workspace certs — shows async remote work competency'],['skill','Build a sample SOP for ticket triage to show initiative']] },
+  'bpo-email':{ title:'Email & Chat Support VA', salary:'$350–$600/mo • ₱19,000–₱34,000/mo', badges:[['b','Gorgias'],['b','Reamaze'],['b','Shopify']], desc:'Manages email inbox and chat queues for Shopify or WooCommerce stores. Learn Gorgias (used by most DTC brands) to access higher-paying clients.', certs:[['free','Shopify Partner free training (shopify.com/partners)'],['free','Gorgias Academy — free certification course'],['skill','Set up a free Shopify test store and practice order management'],['skill','Learn email template writing and macros for fast responses']] },
+  'bpo-appt':{ title:'Appointment Setter', salary:'$500–$900/mo + commission', badges:[['b','GoHighLevel'],['b','Apollo.io'],['b','Cold outreach']], desc:'Books sales calls for coaches, agencies, and SaaS companies. Your BPO outbound cold-calling skills are a perfect match. Commission structures add $300–$600/mo on top of base.', certs:[['free','GoHighLevel free trial — CRM pipeline and appointment booking'],['free','Apollo.io free plan — lead scraping and sequencing'],['skill','Write 5 cold email templates and practice A/B testing subject lines'],['paid','Patrick Dang sales training on YouTube/Udemy'],['skill','Track booked-call rate — include it in your portfolio']] },
+  'bpo-ecomm':{ title:'E-commerce VA', salary:'$600–$1,000/mo • ₱34,000–₱56,000/mo', badges:[['a','Shopify'],['a','Amazon Seller Central'],['a','Order mgmt']], desc:'Manages product listings, inventory tracking, order fulfillment, refunds, and supplier communication. Higher-value than basic support because you touch revenue-generating operations.', certs:[['free','Shopify Partner Program — free, referral potential'],['free','Amazon Seller University (free training on Seller Central)'],['skill','Learn Canva for product image editing and listing graphics'],['paid','E-commerce VA course via VA Bootcamp'],['skill','Create a full product listing with SEO-optimized title + bullets']] },
+  'bpo-crm':{ title:'CRM / Tech Support VA', salary:'$700–$1,200/mo • ₱39,000–₱67,000/mo', badges:[['a','Salesforce'],['a','HubSpot'],['a','Tier 2 support']], desc:'Manages CRM data, handles escalations, creates workflows, and provides Tier 2 tech troubleshooting. Requires platform certifications that most VAs skip — which is why pay is higher.', certs:[['free','HubSpot CRM cert — free, widely recognized (academy.hubspot.com)'],['free','HubSpot Sales Hub cert — pairs with CRM cert'],['paid','Salesforce Admin cert ($200 exam) — significant pay bump'],['skill','Build a sample HubSpot CRM pipeline with contacts, deals, tasks'],['skill','Document a sample escalation SOP']] },
+  'bpo-sdr':{ title:'Sales Development VA', salary:'$800–$1,400/mo • ₱45,000–₱78,000/mo', badges:[['a','Apollo.io'],['a','Lemlist'],['a','Cold email']], desc:'Manages outbound lead generation, builds prospecting lists, writes cold email sequences, and tracks pipeline metrics. Higher-skill version of appointment setter.', certs:[['free','Apollo.io Academy — free outbound training'],['free','HubSpot Sales Enablement cert (free)'],['skill','Build a 5-step cold email sequence with follow-ups in Lemlist'],['paid','Alex Berman or Josh Braun sales dev training'],['skill','Track reply rates and meeting rates — present as case studies']] },
+  'bpo-ops':{ title:'Operations Manager VA', salary:'$1,500–$3,000/mo • ₱84,000–₱168,000/mo', badges:[['p','SOPs'],['p','OBM'],['p','Remote team mgmt']], desc:'Oversees day-to-day business operations — builds SOPs, manages tools, coordinates departments, and drives efficiency. The most transferable role from senior BPO ops.', certs:[['paid','OBM Certification by Tara Newman (~$500–$1,500)'],['free','ClickUp University — free project management training'],['skill','Build 3 sample SOPs (onboarding, weekly reporting, CRM cleanup)'],['skill','Learn Zapier or Make (Integromat) for automation'],['free','Notion template building — ops managers who build workspaces earn more']] },
+  'bpo-smgr':{ title:'Sales Manager VA', salary:'$1,200–$2,500/mo • ₱67,000–₱140,000/mo', badges:[['p','Team leadership'],['p','Revenue KPIs'],['p','CRM strategy']], desc:'Leads a remote sales team, tracks revenue metrics, coaches reps, and reports to founders. Requires proven team lead/supervisor background from BPO.', certs:[['free','HubSpot Sales Management cert (free)'],['paid','Sandler Sales training or SPIN Selling methodology'],['skill','Build a sample sales team KPI dashboard in Google Sheets'],['skill','Document a team coaching framework to include in proposals']] },
+  'bpo-cx':{ title:'CX Team Lead / Trainer VA', salary:'$1,000–$2,000/mo • ₱56,000–₱112,000/mo', badges:[['p','QA scorecards'],['p','Training design'],['p','Coaching']], desc:'Trains new VAs, designs QA evaluation frameworks, monitors team performance, and runs coaching sessions. Your BPO QA analyst or TL experience is a direct credential.', certs:[['free','Coursera: Coaching Skills for Managers by UC Davis (audit free)'],['skill','Build a sample QA scorecard with 10+ evaluation criteria'],['skill','Create a 30-min onboarding training deck for mock support team'],['paid','Instructional Design basics course — Udemy under $20']] },
+  'vid-start':{ title:'Video Editor — Starting Point', salary:'$200–$500/mo local → $400–$800/mo VA', badges:[['t','Premiere Pro'],['t','DaVinci Resolve'],['t','CapCut']], desc:'Your editing skills are immediately monetizable online. A strong 60-second showreel and a Upwork profile can land your first client within 2–4 weeks.', certs:[['skill','Build a 60–90 sec showreel — best 3 projects, varied styles'],['free','CapCut Academy (free) — vertical editing for Reels/Shorts'],['skill','Set up Upwork: headline "YouTube + Reels Video Editor"'],['free','Descript free plan — AI-powered editing for talking-head content'],['skill','Study top-performing YouTube/Reels hooks']] },
+  'vid-basic':{ title:'Video Editor VA', salary:'$400–$800/mo • ₱22,000–₱45,000/mo', badges:[['b','Premiere Pro'],['b','Auto captions'],['b','Color grade']], desc:'Core video editing for content creators, coaches, and brands. Handles cuts, color, captions, music sync, and delivery. Fast path to YouTube Channel VA.', certs:[['free','Adobe Premiere tutorials (Adobe YouTube channel)'],['skill','Master auto-caption tools: Captions.ai, Descript, or CapCut'],['skill','Build a style guide sample for a fictional YouTube channel'],['free','DaVinci Resolve free training (Blackmagic Design website)']] },
+  'vid-reels':{ title:'Reels / Shorts Cutter VA', salary:'$350–$700/mo • ₱19,000–₱39,000/mo', badges:[['b','CapCut'],['b','Vertical format'],['b','Hook timing']], desc:'Cuts long-form content into viral short clips for TikTok, Reels, and YouTube Shorts. Fastest-growing entry VA niche. Study hook psychology to add strategy value.', certs:[['free','CapCut for Business (free training on CapCut site)'],['skill','Study 20 viral Reels/Shorts — document hook formats and cut patterns'],['skill','Practice repurposing a 30-min podcast episode into 5 short clips'],['free','YouTube Creator Academy — free Shorts format training']] },
+  'vid-thumb':{ title:'Thumbnail Designer VA', salary:'$300–$600/mo • ₱17,000–₱34,000/mo', badges:[['b','Photoshop'],['b','Canva Pro'],['b','CTR design']], desc:'Creates YouTube thumbnails and social preview images. Study CTR psychology — color contrast, face expressions, text hierarchy. Best paired with editing for a package retainer.', certs:[['free','Canva Design School (free at canva.com/design-school)'],['skill','Analyze top 50 thumbnails in 3 niches — document design patterns'],['skill','Build a portfolio of 15 mock thumbnails across fitness, business, gaming'],['paid','Photoshop Masterclass on Udemy (~$15–$20) if not fluent yet']] },
+  'vid-yt':{ title:'YouTube Channel VA', salary:'$800–$1,500/mo • ₱45,000–₱84,000/mo', badges:[['a','TubeBuddy'],['a','vidIQ'],['a','SEO titles'],['a','Analytics']], desc:'Manages entire channel workflow: editing, SEO optimization, thumbnail creation, upload scheduling, and performance reporting. Most coveted retainer in the video VA niche.', certs:[['free','TubeBuddy free plan — learn YouTube SEO in the dashboard'],['free','vidIQ free Academy (academy.vidiq.com)'],['skill','Create a mock channel audit report for an existing YouTube channel'],['skill','Build a content calendar template and upload workflow SOP'],['free','YouTube Creator Academy (creatoracademy.youtube.com)']] },
+  'vid-social':{ title:'Social Media Manager VA', salary:'$700–$1,200/mo • ₱39,000–₱67,000/mo', badges:[['a','Content calendar'],['a','Buffer/Later'],['a','Meta analytics']], desc:'Plans, creates, and schedules video-led content across Instagram, TikTok, LinkedIn, and YouTube. Your editing skill makes your deliverables far superior to text-only SMMs.', certs:[['free','Meta Blueprint free courses (facebook.com/business/learn)'],['free','HubSpot Social Media Marketing cert (free)'],['skill','Build a 30-day content calendar for a fictional brand on 3 platforms'],['free','Buffer/Later free plans — practice scheduling and analytics'],['skill','Learn basic paid boosting on Meta Ads Manager to upsell clients']] },
+  'vid-motion':{ title:'Motion Graphics VA', salary:'$1,000–$1,800/mo • ₱56,000–₱101,000/mo', badges:[['a','After Effects'],['a','Lottie'],['a','Brand animations']], desc:'Creates animated logos, lower thirds, explainer animations, and intros/outros. Even basic After Effects separates you from 90% of video editors.', certs:[['paid','Motion Array After Effects course or School of Motion ($100–$500)'],['free','LottieFiles.com free animations to study and adapt'],['skill','Create 3 animated lower thirds and 2 branded intros for portfolio'],['skill','Learn to export Lottie JSON animations for web clients'],['paid','Envato Elements subscription ($16.50/mo) for template study']] },
+  'vid-brand':{ title:'Brand Video Strategist', salary:'$1,500–$3,500/mo • ₱84,000–₱196,000/mo', badges:[['p','Ad creative strategy'],['p','Brand storytelling'],['p','ROAS tracking']], desc:'Develops video content strategy, oversees ad creatives, aligns video production with marketing funnels, and measures video ROAS. Position yourself as a strategist who also executes.', certs:[['free','Meta Blueprint: Video Creative Best Practices (free)'],['paid','Justin Rondeau or Dennis Yu video marketing courses'],['skill','Build a brand video strategy deck for a fictional client'],['skill','Learn Wistia and Vidyard for B2B video hosting + analytics'],['paid','Coursera: Digital Marketing by U of Illinois (audit free)']] },
+  'vid-podcast':{ title:'Podcast Video Producer VA', salary:'$1,200–$2,500/mo • ₱67,000–₱140,000/mo', badges:[['p','Descript'],['p','Multitrack edit'],['p','Repurposing system']], desc:'Full podcast production: video + audio editing, show notes, clip repurposing, RSS management, and growth strategy. Steady retainer model with strong client loyalty.', certs:[['free','Descript Academy — free comprehensive training'],['free','Buzzsprout free plan — learn RSS and podcast hosting'],['skill','Build a "repurposing system" SOP: 1 episode → 5 clips + show notes + email'],['skill','Learn Riverside.fm to advise clients on recording quality'],['free','Podchaser + Listen Notes — learn podcast analytics']] },
+  'vid-course':{ title:'Course / LMS Video VA', salary:'$1,500–$3,000/mo • ₱84,000–₱168,000/mo', badges:[['p','Kajabi'],['p','Teachable'],['p','Screencasting']], desc:'Records, edits, and uploads course content; manages LMS platforms; and supports course launch workflows. Coaches and educators pay premium for this niche.', certs:[['free','Kajabi University (free at kajabi.com/university)'],['free','Teachable free Partner training'],['skill','Learn Loom for screencasting — core course skill'],['skill','Build a mock mini-course on Kajabi with 3 lessons, quiz, landing page'],['paid','Thinkific Plus partner training — opens high-ticket clients']] },
+  'fresh-start':{ title:'Fresh / HS Graduate — Starting Point', salary:'$0 now → $300–$500/mo within 3 months', badges:[['t','English'],['t','Computer basics'],['t','Internet access']], desc:'All foundational VA skills can be learned free in 4–6 weeks. Focus on earning certifications over just making claims. Your first cert signals that you take this seriously.', certs:[['free','Google Digital Garage: Fundamentals of Digital Marketing (40 hrs, free cert)'],['free','Google Workspace Learning Center — master Docs, Sheets, Drive, Meet'],['free','Canva Design School (canva.com/design-school)'],['skill','Type 50+ WPM daily at keybr.com or typing.com (free)'],['skill','Create a free Notion portfolio page with certs, skills, and sample work']] },
+  'fresh-gen':{ title:'General VA', salary:'$300–$500/mo • ₱17,000–₱28,000/mo', badges:[['b','Google Workspace'],['b','Trello'],['b','Calendar mgmt']], desc:'Handles scheduling, inbox management, research, document formatting, and task tracking. Use this as a 3–6 month learning phase, then pick a niche.', certs:[['free','Trello free training (trello.com/guide)'],['free','Asana Academy (free at asana.com/academy)'],['free','HubSpot VA Fundamentals (free short course)'],['skill','Document 3 repeatable tasks you do as SOPs'],['skill','Ask client for a testimonial or Upwork review after 4 weeks']] },
+  'fresh-data':{ title:'Data Entry VA', salary:'$250–$450/mo • ₱14,000–₱25,000/mo', badges:[['b','Google Sheets'],['b','Excel'],['b','Airtable']], desc:'Lowest barrier entry. Add Excel formulas and pivot tables within the first month to double your rates. Airtable + Notion opens higher-paying clients.', certs:[['free','Google Sheets training (Google Workspace Learning Center)'],['free','Microsoft Excel free training (Microsoft Learn platform)'],['free','Airtable free tutorials (airtable.com/guides)'],['skill','Build a sample database in Airtable for fictional e-com inventory'],['skill','Learn VLOOKUP, pivot tables, and data validation in Google Sheets']] },
+  'fresh-smm':{ title:'Social Media VA (Entry)', salary:'$400–$700/mo • ₱22,000–₱39,000/mo', badges:[['b','Canva'],['b','Buffer'],['b','Scheduling']], desc:'Creates and schedules social posts, manages comment responses, and tracks basic engagement metrics. Learn Meta analytics within 60 days to grow fast.', certs:[['free','Meta Blueprint free courses (facebook.com/business/learn)'],['free','Buffer Academy free social media training'],['skill','Create a 30-day sample content calendar for a fitness or food brand'],['free','Canva Design School (free) — elevate your graphic quality'],['skill','Learn basic Reels editing in CapCut — video SMMs earn more']] },
+  'fresh-content':{ title:'Content Writer VA', salary:'$500–$1,200/mo • ₱28,000–₱67,000/mo', badges:[['a','SEO writing'],['a','Surfer SEO'],['a','Blogging']], desc:'Writes SEO blog posts, email sequences, website copy, and social captions. SEO knowledge is the biggest pay multiplier — clients pay premium for writers who understand search intent.', certs:[['free','HubSpot Content Marketing cert (free, highly respected)'],['free','Semrush Writing & SEO free course (semrush.com/academy)'],['paid','Surfer SEO Content Editor — $29/mo, recovers in 1–2 writing gigs'],['skill','Write 3 SEO-optimized blog posts with keyword research notes'],['free','Coursera: Write Professional Emails in English (audit free)']] },
+  'fresh-real':{ title:'Real Estate VA', salary:'$500–$1,000/mo • ₱28,000–₱56,000/mo', badges:[['a','MLS research'],['a','CINC/KVCore'],['a','Cold calling']], desc:'Supports US/AU real estate agents with lead generation, CRM data, MLS research, appointment setting, and transaction coordination. Niche knowledge = premium pay.', certs:[['free','Real estate terminology study (Investopedia, NAR resources)'],['free','CINC training (free with client access) or KVCore certification'],['paid','Virtual Assistant Internship Real Estate VA course (~$97–$297)'],['skill','Learn US time zones and calling hours for real estate clients'],['skill','Practice creating a CMA (Comparative Market Analysis) template']] },
+  'fresh-book':{ title:'Bookkeeping VA', salary:'$600–$1,200/mo • ₱34,000–₱67,000/mo', badges:[['a','QuickBooks Online'],['a','Xero'],['a','Reconciliation']], desc:'Records transactions, reconciles bank accounts, categorizes expenses, and prepares basic reports. Business/accounting course grads have a head start — but anyone can learn.', certs:[['free','QuickBooks Online ProAdvisor cert (free at quickbooks.intuit.com/accountants)'],['free','Xero Advisor Certification (free at xero.com/partners)'],['paid','Bookkeeper Launch course ($300–$500) — worth it for positioning'],['skill','Reconcile 3 months of mock transactions in QuickBooks'],['free','Coursera: Intuit Academy Bookkeeping Certificate (audit free)']] },
+  'fresh-smm2':{ title:'Social Media Manager VA (Intermediate)', salary:'$600–$1,100/mo • ₱34,000–₱62,000/mo', badges:[['a','Meta Ads'],['a','Content strategy'],['a','Analytics reporting']], desc:'Moves beyond posting into strategy, paid ads management, content creation, and analytics reporting. At this tier you manage brand presence, not just a schedule.', certs:[['free','Meta Blueprint: Advanced certifications (free)'],['free','HubSpot Social Media Marketing cert (free)'],['paid','Rachel Pedersen paid SMM courses — niche-specific strategies'],['skill','Build a sample social media audit report for a real brand'],['skill','Run a $5 test Meta ad boost — screenshots are portfolio proof']] },
+  'fresh-pm':{ title:'Project Manager VA', salary:'$1,200–$2,500/mo • ₱67,000–₱140,000/mo', badges:[['p','ClickUp'],['p','Asana'],['p','Scrum'],['p','Reporting']], desc:'Coordinates cross-functional remote teams, manages project timelines, runs stand-ups, and keeps deliverables on track. Requires accumulated VA experience plus formal PM methodology.', certs:[['free','Google Project Management Certificate (Coursera — audit free)'],['paid','PMI CAPM cert ($225 exam) or Scrum.org PSM I cert ($150)'],['free','ClickUp University and Asana Academy (both free)'],['skill','Build a sample project plan in ClickUp for a fictional product launch'],['paid','RICE or MoSCoW prioritization training — PM frameworks clients respect']] },
+  'fresh-digital':{ title:'Digital Marketing VA', salary:'$1,000–$2,000/mo • ₱56,000–₱112,000/mo', badges:[['p','Google Ads'],['p','SEO'],['p','Email marketing'],['p','Analytics']], desc:'Runs paid ad campaigns, manages SEO strategy, executes email automations, and tracks full-funnel performance metrics. Broad specialist niche — high demand, high ceiling.', certs:[['free','Google Ads Search cert (free at skillshop.google.com)'],['free','Google Analytics 4 cert (free at skillshop.google.com)'],['free','HubSpot Email Marketing + Digital Marketing certs (free)'],['free','Meta Blueprint ads certs (free)'],['paid','Ahrefs Academy or Moz SEO training — $100–$200, major pay bump']] },
+  'fresh-exec':{ title:'Executive VA / OBM', salary:'$1,500–$4,000/mo • ₱84,000–₱224,000/mo', badges:[['p','C-suite support'],['p','Operations'],['p','OBM cert'],['p','Hiring']], desc:'Acts as the right hand of a CEO or founder — manages operations, leads team hiring and onboarding, oversees projects, and often manages other VAs. The highest-earning VA role.', certs:[['paid','OBM Certification by Tara Newman or IAOBM (~$500–$2,000)'],['free','ClickUp + Notion advanced training — OBMs build workspaces from scratch'],['skill','Create a sample "Founder OS" in Notion showing how you run an executive workflow'],['skill','Learn hiring: write a job description and build a VA interview scorecard'],['paid','BELAY VA Summit — networking + positioning for exec clients']] }
+};
+
+const bmap = {t:'badge-t',b:'badge-b',a:'badge-a',p:'badge-p'};
+const cmap = {free:'free',paid:'paid',skill:'skill'};
+const clabel = {free:'Free',paid:'Paid',skill:'Skill'};
+
+function switchTab(id, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('panel-' + id).classList.add('active');
+  document.getElementById('detail-panel').classList.remove('open');
+}
+
+function showDetail(key, el) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  const d = D[key]; if (!d) return;
+  document.getElementById('d-title').textContent = d.title;
+  document.getElementById('d-salary').textContent = d.salary;
+  document.getElementById('d-desc').textContent = d.desc;
+  document.getElementById('d-badges').innerHTML = d.badges.map(([c,l]) =>
+    `<span class="badge ${bmap[c]}">${l}</span>`).join('');
+  document.getElementById('d-certs').innerHTML = d.certs.map(([type, text]) =>
+    `<div class="cert-item"><div class="cert-dot-wrap"><span class="cert-dot ${cmap[type]}"></span></div><span><span class="cert-strong">${clabel[type]}:</span> ${text}</span></div>`
+  ).join('');
+  const panel = document.getElementById('detail-panel');
+  panel.classList.add('open');
+  setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+}
+</script>
+</body>
+</html>
