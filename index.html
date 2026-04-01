@@ -23,11 +23,7 @@
     :root{--p:#2563eb;--pd:#1d4ed8;--dk:#0f172a;--dk2:#1e293b;--gd:#f59e0b;--gn:#059669;--rd:#dc2626;--pr:#7c3aed;--gr:#6b7280;--lt:#f8fafc;--bd:#e5e7eb;--ft:'Poppins',sans-serif}
 
     /* NETWORK BACKGROUND */
-    .net-bg{position:relative;overflow:hidden !important}
-    .net-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(37,99,235,0.03) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(124,58,237,0.03) 0%,transparent 50%),radial-gradient(circle at 50% 80%,rgba(5,150,105,0.03) 0%,transparent 50%) !important;pointer-events:none;z-index:0}
-    .net-bg::after{content:'';position:absolute;inset:0;opacity:0.4 !important;background-image:radial-gradient(circle,#cbd5e1 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0;animation:netDrift 20s linear infinite}
-    @keyframes netDrift{0%{background-position:0 0}100%{background-position:32px 32px}}
-    .net-bg>*{position:relative;z-index:1}
+    .net-bg{background-color:#f8fafc !important;background-image:radial-gradient(circle,rgba(203,213,225,0.5) 1px,transparent 1px),radial-gradient(circle at 20% 50%,rgba(37,99,235,0.03) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(124,58,237,0.03) 0%,transparent 50%),radial-gradient(circle at 50% 80%,rgba(5,150,105,0.03) 0%,transparent 50%) !important;background-size:32px 32px,100% 100%,100% 100%,100% 100% !important}
 
     /* ABOUT */
     .about-highlight{background:linear-gradient(135deg,#1e3a5f 0%,var(--dk) 100%) !important;color:#fff !important;border-radius:16px !important;padding:40px !important}
@@ -65,8 +61,8 @@
     @keyframes csPulse{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,0.3) !important}50%{box-shadow:0 0 0 10px rgba(37,99,235,0) !important}}
     .case-study-card:hover .cs-review-trigger,.case-study-card.active .cs-review-trigger{background:var(--p) !important;animation:none}
     .case-study-card:hover .cs-review-trigger i,.case-study-card.active .cs-review-trigger i{color:#fff !important}
-    .cs-review{max-height:0 !important;overflow:hidden !important;opacity:0 !important;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1),opacity 0.4s ease,margin-top 0.4s ease;margin-top:0}
-    .cs-review.show{max-height:500px !important;opacity:1 !important;margin-top:20px}
+    .cs-review{max-height:0;overflow:hidden;opacity:0;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1),opacity 0.4s ease,margin-top 0.4s ease;margin-top:0}
+    .cs-review.show{max-height:500px;opacity:1;margin-top:20px}
     .cs-review-inner{background:linear-gradient(135deg,#f8fafc,#f1f5f9) !important;border:1px solid #e2e8f0 !important;border-radius:10px !important;padding:22px !important;position:relative}
     .cs-review-inner::before{content:'';position:absolute;top:-8px;left:30px;width:16px;height:16px;background:#f8fafc !important;border-left:1px solid #e2e8f0;border-top:1px solid #e2e8f0;transform:rotate(45deg) !important}
     .cs-review-header{display:flex !important;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px}
@@ -74,16 +70,16 @@
     .cs-review-header h5{font-size:14px !important;font-weight:700 !important;margin-bottom:1px;color:#111827 !important}
     .cs-review-header>span{font-size:12px !important;color:var(--gr) !important}
     .cs-review-stars{margin-left:auto;display:flex !important;gap:2px}
-    .cs-review-stars i{color:var(--gd) !important;font-size:14px !important;opacity:0 !important;transform:scale(0) translateY(10px) !important}
+    .cs-review-stars i{color:var(--gd) !important;font-size:14px !important;opacity:0;transform:scale(0) translateY(10px)}
     .cs-review.show .cs-review-stars i{animation:starPop 0.4s ease forwards}
     .cs-review.show .cs-review-stars i:nth-child(1){animation-delay:0.1s}
     .cs-review.show .cs-review-stars i:nth-child(2){animation-delay:0.25s}
     .cs-review.show .cs-review-stars i:nth-child(3){animation-delay:0.4s}
     .cs-review.show .cs-review-stars i:nth-child(4){animation-delay:0.55s}
     .cs-review.show .cs-review-stars i:nth-child(5){animation-delay:0.7s}
-    @keyframes starPop{0%{opacity:0 !important;transform:scale(0) translateY(10px) !important}60%{transform:scale(1.3) translateY(-2px) !important}100%{opacity:1 !important;transform:scale(1) translateY(0) !important}}
-    .cs-review-text{font-size:13.5px !important;color:#374151 !important;line-height:1.7;margin:0;font-style:italic;opacity:0 !important;transform:translateY(8px) !important;transition:all 0.4s ease 0.8s}
-    .cs-review.show .cs-review-text{opacity:1 !important;transform:translateY(0) !important}
+    @keyframes starPop{0%{opacity:0;transform:scale(0) translateY(10px)}60%{opacity:1;transform:scale(1.3) translateY(-2px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+    .cs-review-text{font-size:13.5px !important;color:#374151 !important;line-height:1.7;margin:0;font-style:italic;opacity:0;transform:translateY(8px);transition:all 0.4s ease 0.8s}
+    .cs-review.show .cs-review-text{opacity:1;transform:translateY(0)}
 
     /* REVIEWS MARQUEE */
     .reviews-marquee{overflow:hidden !important;padding:20px 0 !important}
@@ -366,7 +362,7 @@
         <div class="marquee-item"><img src="https://cdn.simpleicons.org/make/6D00CC" alt="Make"><span>Make.com</span></div>
         <div class="marquee-item"><img src="https://cdn.simpleicons.org/zapier/FF4A00" alt="Zapier"><span>Zapier</span></div>
         <div class="marquee-item"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n"><span>n8n</span></div>
-        <div class="marquee-item"><img src="https://cdn.simpleicons.org/openai/412991" alt="OpenAI"><span>ChatGPT</span></div>
+        <div class="marquee-item"><div class="marquee-icon" style="background:#10a37f;">G</div><span>ChatGPT</span></div>
         <div class="marquee-item"><img src="https://cdn.simpleicons.org/anthropic/191919" alt="Claude"><span>Claude AI</span></div>
         <div class="marquee-item"><img src="https://cdn.simpleicons.org/google/4285F4" alt="Gemini"><span>Gemini Pro</span></div>
         <div class="marquee-item"><div class="marquee-icon" style="background:#0066FF;">11</div><span>ElevenLabs</span></div>
@@ -661,6 +657,96 @@
               <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Agency Fulfillment System</h3>
               <p style="font-size:13px;color:var(--gr);line-height:1.6;">The moment a client pays, a DocuSign contract goes out, a ClickUp board spins up, a Slack channel opens, and Google Drive plus GHL get configured.</p>
               <div class="auto-pitch" id="ap9"><div class="auto-pitch-inner"><p>If you're running an agency and still onboarding clients by hand, you're the bottleneck. This system gets new clients from payment to fully operational in under 3 minutes. Your team stays focused on delivery, not admin.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="auto-card" onclick="toggleAutoPitch('ap10')">
+              <div style="margin-bottom:12px;"><i class="bi bi-currency-dollar" style="font-size:2rem;color:#6C3AFF;"></i></div>
+              <span style="display:inline-block;background:#6C3AFF18;color:#6C3AFF;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$500-$1,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Fanbasis Monetization System</h3>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">Automated fan monetization pipeline with tiered access, payment triggers, content drip sequences, and subscriber engagement tracking via Fanbasis and GHL.</p>
+              <div class="auto-pitch" id="ap10"><div class="auto-pitch-inner"><p>Your fans want to support you but you're leaving money on the table without a proper monetization system. I build the full pipeline so every subscriber gets nurtured, every payment gets processed, and your content drips automatically.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="auto-card" onclick="toggleAutoPitch('ap11')">
+              <div style="margin-bottom:12px;"><i class="bi bi-megaphone" style="font-size:2rem;color:#e11d48;"></i></div>
+              <span style="display:inline-block;background:#e11d4818;color:#e11d48;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$400-$1,200</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Social Media Content Engine</h3>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">AI generates captions, hashtags, and image suggestions from a content calendar. Posts get auto-scheduled to Instagram, TikTok, Facebook, LinkedIn, and X.</p>
+              <div class="auto-pitch" id="ap11"><div class="auto-pitch-inner"><p>Posting manually across 5 platforms eats your entire day. This engine plans, writes, and schedules everything from one content calendar. You approve, it posts. Consistent content without the burnout.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="auto-card" onclick="toggleAutoPitch('ap12')">
+              <div style="margin-bottom:12px;"><i class="bi bi-pencil-square" style="font-size:2rem;color:#0d9488;"></i></div>
+              <span style="display:inline-block;background:#0d948818;color:#0d9488;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$600-$2,000</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">AI Blog & SEO Engine</h3>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">AI researches keywords, writes SEO-optimized blog posts, generates meta tags, and publishes to WordPress or Webflow on a weekly schedule automatically.</p>
+              <div class="auto-pitch" id="ap12"><div class="auto-pitch-inner"><p>Organic traffic is free but nobody has time to write 4 blog posts a week. This system does the research, writes the content, optimizes for SEO, and publishes on autopilot. Your site ranks while you sleep.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="auto-card" onclick="toggleAutoPitch('ap13')">
+              <div style="margin-bottom:12px;"><i class="bi bi-mic" style="font-size:2rem;color:#7c3aed;"></i></div>
+              <span style="display:inline-block;background:#7c3aed18;color:#7c3aed;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$800-$2,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Podcast Production Pipeline</h3>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">Upload a raw recording and the system transcribes it, generates show notes, creates audiograms, writes social posts, and distributes to Spotify, Apple, and YouTube.</p>
+              <div class="auto-pitch" id="ap13"><div class="auto-pitch-inner"><p>Recording is the easy part. Editing, show notes, clips, and distribution take 10x longer. This pipeline handles everything after you hit stop, so one recording becomes 20+ pieces of content automatically.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="auto-card" onclick="toggleAutoPitch('ap14')">
+              <div style="margin-bottom:12px;"><i class="bi bi-box-seam" style="font-size:2rem;color:#2563eb;"></i></div>
+              <span style="display:inline-block;background:#2563eb18;color:#2563eb;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$800-$2,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Multi-Store Inventory Sync</h3>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">Real-time inventory sync across Shopify, Amazon, Etsy, and WooCommerce. Stock updates, price changes, and order routing all handled automatically.</p>
+              <div class="auto-pitch" id="ap14"><div class="auto-pitch-inner"><p>Selling on multiple platforms without synced inventory means overselling, angry customers, and lost reviews. This system keeps every store in sync in real-time so you never sell what you don't have.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="auto-card" onclick="toggleAutoPitch('ap15')">
+              <div style="margin-bottom:12px;"><i class="bi bi-person-lines-fill" style="font-size:2rem;color:#db2777;"></i></div>
+              <span style="display:inline-block;background:#db277718;color:#db2777;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$600-$2,000</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Influencer Outreach Automation</h3>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">Scrapes and qualifies influencers by niche, sends personalized outreach via email or DM, tracks responses, and manages the entire creator partnership pipeline.</p>
+              <div class="auto-pitch" id="ap15"><div class="auto-pitch-inner"><p>Finding and reaching out to influencers manually is a full-time job. This system finds creators in your niche, sends personalized pitches, follows up automatically, and tracks who said yes. Your influencer program runs itself.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="auto-card" onclick="toggleAutoPitch('ap16')">
+              <div style="margin-bottom:12px;"><i class="bi bi-envelope-paper" style="font-size:2rem;color:#1e40af;"></i></div>
+              <span style="display:inline-block;background:#1e40af18;color:#1e40af;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$1,000-$3,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Cold Outreach B2B System</h3>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">Apollo and LinkedIn scraping, Clearbit enrichment, AI-personalized emails via Instantly.ai, multi-step follow-ups, and hot lead routing into GHL CRM.</p>
+              <div class="auto-pitch" id="ap16"><div class="auto-pitch-inner"><p>Cold outreach only works at scale with personalization. This system finds your ideal prospects, writes unique emails for each one, follows up 3 to 5 times, and routes every warm reply straight to your sales team.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="auto-card" onclick="toggleAutoPitch('ap17')">
+              <div style="margin-bottom:12px;"><i class="bi bi-house-door" style="font-size:2rem;color:#059669;"></i></div>
+              <span style="display:inline-block;background:#05966918;color:#059669;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$800-$2,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Real Estate Lead Machine</h3>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">Captures leads from Zillow, Facebook Ads, and landing pages. Auto-assigns to agents, triggers SMS/email drips, books showings, and follows up post-viewing.</p>
+              <div class="auto-pitch" id="ap17"><div class="auto-pitch-inner"><p>Real estate leads go cold in minutes. This machine captures every lead from every source, responds instantly, books showings, and follows up until they convert. Your agents only talk to ready buyers.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="auto-card" onclick="toggleAutoPitch('ap18')">
+              <div style="margin-bottom:12px;"><i class="bi bi-bag-check" style="font-size:2rem;color:#d97706;"></i></div>
+              <span style="display:inline-block;background:#d9770618;color:#d97706;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$500-$1,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Shopify Order Automation</h3>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">When an order comes in, the customer gets a branded confirmation email, tracking updates fire automatically, review requests send post-delivery, and returns get processed.</p>
+              <div class="auto-pitch" id="ap18"><div class="auto-pitch-inner"><p>Every Shopify order should trigger a seamless post-purchase experience. Confirmation, shipping updates, review requests, and return handling. All automated. Your customers feel like they bought from a Fortune 500 brand.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
             </div>
           </div>
 
@@ -1023,8 +1109,11 @@
 
 
 
+  <!-- MARQUEE DUPLICATION (standalone, no dependencies) -->
+  <script>["techMarquee","autoReviewsTrack","clientReviewsTrack"].forEach(function(e){var t=document.getElementById(e);t&&!t.dataset.duped&&(t.innerHTML+=t.innerHTML,t.dataset.duped="1")});</script>
+
   <!-- MAIN SITE INIT (single instance) -->
-  <script>function initSite(){if("undefined"!=typeof AOS&&"undefined"!=typeof Typed&&"undefined"!=typeof PureCounter){var e=d("#navmenu a",!0);f(),document.addEventListener("scroll",f),u("click",".mobile-nav-toggle",function(){document.body.classList.toggle("mobile-nav-active"),this.classList.toggle("bi-list"),this.classList.toggle("bi-x")}),u("click","#navmenu a",function(){if(document.body.classList.contains("mobile-nav-active")){document.body.classList.remove("mobile-nav-active");var e=d(".mobile-nav-toggle");e&&(e.classList.toggle("bi-list"),e.classList.toggle("bi-x"))}},!0);var t=d("#header");if(t){var o=function(){window.scrollY>100?t.classList.add("header-scrolled"):t.classList.remove("header-scrolled")};o(),document.addEventListener("scroll",o)}var n=d("#preloader");n&&n.remove(),AOS.init({duration:600,easing:"ease-in-out",once:!0,mirror:!1});var i=document.querySelector(".typed");i&&new Typed(".typed",{strings:i.getAttribute("data-typed-items").split(","),loop:!0,typeSpeed:50,backSpeed:25,backDelay:2e3}),new PureCounter,GLightbox({selector:".glightbox"}),d(".isotope-layout",!0).forEach(function(e){var t=e.querySelector(".isotope-container");t&&imagesLoaded(t,function(){var e=new Isotope(t,{itemSelector:".isotope-item",layoutMode:"masonry"});document.querySelectorAll(".port-filter-btn").forEach(function(t){t.addEventListener("click",function(){document.querySelectorAll(".port-filter-btn").forEach(function(e){e.classList.remove("active")}),this.classList.add("active"),e.arrange({filter:this.getAttribute("data-filter")}),"undefined"!=typeof AOS&&AOS.refresh()})})})}),["techMarquee","autoReviewsTrack","clientReviewsTrack"].forEach(function(e){var t=document.getElementById(e);t&&!t.dataset.duped&&(t.innerHTML+=t.innerHTML,t.dataset.duped="1")});var r=!1,a=document.getElementById("case-studies");if(a)new IntersectionObserver(function(e){e.forEach(function(e){e.isIntersecting&&!r&&(r=!0,setTimeout(function(){toggleReview("apex")},1e3))})},{threshold:.25}).observe(a);var c=new IntersectionObserver(function(e){e.forEach(function(e){e.isIntersecting&&(e.target.querySelectorAll(".result-stat").forEach(function(e,t){e.style.opacity="0",e.style.transform="translateY(10px)",setTimeout(function(){e.style.transition="all 0.4s ease",e.style.opacity="1",e.style.transform="translateY(0)"},150*t)}),c.unobserve(e.target))})},{threshold:.3});document.querySelectorAll(".case-study-card").forEach(function(e){c.observe(e)});var s=document.getElementById("cta-funnel");if(s){var l=new IntersectionObserver(function(e){e.forEach(function(e){e.isIntersecting&&(s.querySelectorAll(".col-auto").forEach(function(e,t){e.style.opacity="0",e.style.transform="scale(0.9)",setTimeout(function(){e.style.transition="all 0.4s ease",e.style.opacity="1",e.style.transform="scale(1)"},200*t)}),l.unobserve(s))})},{threshold:.3});l.observe(s)}document.querySelectorAll('a[href^="#"]').forEach(function(e){e.addEventListener("click",function(e){var t=document.querySelector(this.getAttribute("href"));t&&(e.preventDefault(),window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-70,behavior:"smooth"}))})}),document.querySelectorAll(".decode-text").forEach(function(e){e.textContent=atob(e.dataset.v)}),document.querySelectorAll(".decode-href").forEach(function(e){e.addEventListener("click",function(e){e.preventDefault(),window.location.href=atob(this.dataset.h)})})}else setTimeout(initSite,100);function d(e,t){return e=e.trim(),t?[...document.querySelectorAll(e)]:document.querySelector(e)}function u(e,t,o,n){var i=d(t,n);i&&(n?i.forEach(function(t){t.addEventListener(e,o)}):i.addEventListener(e,o))}function f(){e.forEach(function(e){if(e.hash){var t=d(e.hash);if(t){var o=window.scrollY+200;o>=t.offsetTop&&o<=t.offsetTop+t.offsetHeight?e.classList.add("active"):e.classList.remove("active")}}})}}"complete"===document.readyState?initSite():window.addEventListener("load",initSite);</script>
+  <script>function initSite(){if("undefined"!=typeof AOS&&"undefined"!=typeof Typed&&"undefined"!=typeof PureCounter){var e=u("#navmenu a",!0);f(),document.addEventListener("scroll",f),d("click",".mobile-nav-toggle",function(){document.body.classList.toggle("mobile-nav-active"),this.classList.toggle("bi-list"),this.classList.toggle("bi-x")}),d("click","#navmenu a",function(){if(document.body.classList.contains("mobile-nav-active")){document.body.classList.remove("mobile-nav-active");var e=u(".mobile-nav-toggle");e&&(e.classList.toggle("bi-list"),e.classList.toggle("bi-x"))}},!0);var t=u("#header");if(t){var o=function(){window.scrollY>100?t.classList.add("header-scrolled"):t.classList.remove("header-scrolled")};o(),document.addEventListener("scroll",o)}var n=u("#preloader");n&&n.remove(),AOS.init({duration:600,easing:"ease-in-out",once:!0,mirror:!1});var i=document.querySelector(".typed");i&&new Typed(".typed",{strings:i.getAttribute("data-typed-items").split(","),loop:!0,typeSpeed:50,backSpeed:25,backDelay:2e3}),new PureCounter,GLightbox({selector:".glightbox"}),u(".isotope-layout",!0).forEach(function(e){var t=e.querySelector(".isotope-container");t&&imagesLoaded(t,function(){var e=new Isotope(t,{itemSelector:".isotope-item",layoutMode:"masonry"});document.querySelectorAll(".port-filter-btn").forEach(function(t){t.addEventListener("click",function(){document.querySelectorAll(".port-filter-btn").forEach(function(e){e.classList.remove("active")}),this.classList.add("active"),e.arrange({filter:this.getAttribute("data-filter")}),"undefined"!=typeof AOS&&AOS.refresh()})})})});var r=!1,c=document.getElementById("case-studies");if(c)new IntersectionObserver(function(e){e.forEach(function(e){e.isIntersecting&&!r&&(r=!0,setTimeout(function(){toggleReview("apex")},1e3))})},{threshold:.25}).observe(c);var s=new IntersectionObserver(function(e){e.forEach(function(e){e.isIntersecting&&(e.target.querySelectorAll(".result-stat").forEach(function(e,t){e.style.opacity="0",e.style.transform="translateY(10px)",setTimeout(function(){e.style.transition="all 0.4s ease",e.style.opacity="1",e.style.transform="translateY(0)"},150*t)}),s.unobserve(e.target))})},{threshold:.3});document.querySelectorAll(".case-study-card").forEach(function(e){s.observe(e)});var a=document.getElementById("cta-funnel");if(a){var l=new IntersectionObserver(function(e){e.forEach(function(e){e.isIntersecting&&(a.querySelectorAll(".col-auto").forEach(function(e,t){e.style.opacity="0",e.style.transform="scale(0.9)",setTimeout(function(){e.style.transition="all 0.4s ease",e.style.opacity="1",e.style.transform="scale(1)"},200*t)}),l.unobserve(a))})},{threshold:.3});l.observe(a)}document.querySelectorAll('a[href^="#"]').forEach(function(e){e.addEventListener("click",function(e){var t=document.querySelector(this.getAttribute("href"));t&&(e.preventDefault(),window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-70,behavior:"smooth"}))})}),document.querySelectorAll(".decode-text").forEach(function(e){e.textContent=atob(e.dataset.v)}),document.querySelectorAll(".decode-href").forEach(function(e){e.addEventListener("click",function(e){e.preventDefault(),window.location.href=atob(this.dataset.h)})})}else setTimeout(initSite,100);function u(e,t){return e=e.trim(),t?[...document.querySelectorAll(e)]:document.querySelector(e)}function d(e,t,o,n){var i=u(t,n);i&&(n?i.forEach(function(t){t.addEventListener(e,o)}):i.addEventListener(e,o))}function f(){e.forEach(function(e){if(e.hash){var t=u(e.hash);if(t){var o=window.scrollY+200;o>=t.offsetTop&&o<=t.offsetTop+t.offsetHeight?e.classList.add("active"):e.classList.remove("active")}}})}}"complete"===document.readyState?initSite():window.addEventListener("load",initSite);</script>
 
   <!-- MODAL LOGIC (single instance) -->
   <script>!function(){var e=atob("aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J3SG9Ec1cxVDM0aTJVTnBEbVhpMlFjdjZob1JLazY1Wmt0VEJlb0cxSENabXU1aWpza0JvOGhfSUpFeU5razFCS2YvZXhlYw=="),t=1,n={};function o(e){document.querySelectorAll(".kp-step").forEach(function(e){e.classList.remove("active")});var n,o=document.querySelector('.kp-step[data-step="'+e+'"]');o&&(o.classList.add("active"),t=e,l(),n=document.getElementById("kpBack"),t>1&&t<=6?n.classList.add("show"):n.classList.remove("show"))}function l(){var e=Math.min(Math.round((t-1)/6*100),100);document.getElementById("kpBar").style.width=e+"%"}window.kpPrev=function(){t>1&&o(t-1)},window.kpPick=function(e,l,s){e.parentElement.querySelectorAll(".kp-opt,.kp-card").forEach(function(e){e.classList.remove("selected")}),e.classList.add("selected"),n[l]=s,setTimeout(function(){o(t+1)},400)},window.kpSubmit=function(){var t=document.getElementById("kp_fname"),l=document.getElementById("kp_lname"),s=document.getElementById("kp_email"),a=document.getElementById("kp_phone"),i=document.getElementById("kp_notes"),c=!0;if(t.value.trim().length<1?(document.getElementById("kp_e_fname").style.display="block",t.style.borderColor="#dc2626",c=!1):(document.getElementById("kp_e_fname").style.display="none",t.style.borderColor=""),l.value.trim().length<1?(document.getElementById("kp_e_lname").style.display="block",l.style.borderColor="#dc2626",c=!1):(document.getElementById("kp_e_lname").style.display="none",l.style.borderColor=""),/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.value.trim())?(document.getElementById("kp_e_email").style.display="none",s.style.borderColor=""):(document.getElementById("kp_e_email").style.display="block",s.style.borderColor="#dc2626",c=!1),c){var d=document.getElementById("kpSubmitBtn");d.disabled=!0,d.textContent="Submitting...",n.first_name=t.value.trim(),n.last_name=l.value.trim(),n.email=s.value.trim(),n.phone=a.value.trim(),n.additional_notes=i.value.trim(),n.source="Portfolio Modal",n.how_found_us="Website",fetch(e,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify(n)}).then(function(e){return e.json()}).then(function(e){o(7)}).catch(function(e){o(7)})}},setTimeout(function(){sessionStorage.getItem("kp_modal_shown")||(kpOpen(),sessionStorage.setItem("kp_modal_shown","1"))},4e3),document.addEventListener("keydown",function(e){"Escape"===e.key&&kpClose()});var s=document.getElementById("kp_phone");s&&s.addEventListener("input",function(){var e=this.value.replace(/\D/g,"");e.length>10&&(e=e.slice(0,10)),e.length>=7?this.value="("+e.slice(0,3)+") "+e.slice(3,6)+"-"+e.slice(6):e.length>=4?this.value="("+e.slice(0,3)+") "+e.slice(3):e.length>0&&(this.value="("+e)}),document.querySelectorAll(".kp-input").forEach(function(e){e.addEventListener("keydown",function(e){if("Enter"===e.key){e.preventDefault();var t=this.closest(".kp-step").querySelector(".kp-btn");t&&t.click()}})}),l()}();</script>
