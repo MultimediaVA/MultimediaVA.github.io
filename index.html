@@ -81,6 +81,41 @@
     }
     .workflow-card img { width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #e5e7eb; }
     .workflow-card .card-body { padding: 20px 24px 24px; }
+    .review-card {
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+      padding: 28px; height: 100%;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    }
+    .review-header {
+      display: flex; align-items: center; margin-bottom: 14px;
+    }
+    .review-header img {
+      width: 52px; height: 52px; border-radius: 50%; object-fit: cover;
+      margin-right: 14px; border: 2px solid #e5e7eb;
+    }
+    .review-header h5 {
+      font-size: 15px; font-weight: 700; margin-bottom: 2px; color: #111827;
+    }
+    .review-header span {
+      font-size: 12.5px; color: #6b7280;
+    }
+    .review-stars {
+      margin-bottom: 10px;
+    }
+    .review-stars i {
+      color: #f59e0b; font-size: 14px; margin-right: 2px;
+    }
+    .review-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px; margin-bottom: 12px;
+    }
+    .review-card p {
+      font-size: 13.5px; color: #374151; line-height: 1.7; margin-bottom: 0;
+    }
   </style>
 </head>
 
@@ -340,88 +375,148 @@
       </div>
     </section>
 
-    <!-- AUTOMATION CLIENT REVIEWS -->
-    <section id="automation-reviews" class="testimonials section accent-background">
-      <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-title text-center" style="margin-bottom: 30px;">
-          <h2 style="color:#fff;">What Automation Clients Say</h2>
-          <p style="color:#ffffffcc;">Feedback from brands and agencies I've built GoHighLevel, Make.com, and n8n systems for.</p>
-        </div>
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": { "delay": 5000 },
-              "slidesPerView": "auto",
-              "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
-            }
-          </script>
-          <div class="swiper-wrapper">
+    <!-- AUTOMATION CLIENT REVIEWS (Modern Cards) -->
+    <section id="automation-reviews" class="section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>What Automation Clients Say</h2>
+        <p>Feedback from brands and agencies I've built GoHighLevel, Make.com, and n8n systems for.</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/n.jpg" class="testimonial-img" alt="Dr. Marcus Rivera">
-                <h3>Dr. Marcus Rivera</h3>
-                <h4>Owner, Apex Dental Group (GoHighLevel CRM)</h4>
-                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                <p><i class="bi bi-quote quote-icon-left"></i>Ken completely transformed how we handle leads. Before him, we were losing patients left and right because nobody followed up fast enough. He built our entire GoHighLevel system from scratch. The pipelines, the missed-call text-back, the review automation, all of it. Our Google reviews went from 47 to over 210 in four months. I honestly don't know how we ran the practice without this.<i class="bi bi-quote quote-icon-right"></i></p>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="review-card">
+              <div class="review-header">
+                <img src="assets/img/testimonials/marcus.jpg" alt="Dr. Marcus Rivera">
+                <div>
+                  <h5>Dr. Marcus Rivera</h5>
+                  <span>Owner, Apex Dental Group</span>
+                </div>
               </div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <span class="review-tag" style="background:#d9770618;color:#d97706;">GoHighLevel CRM</span>
+              <p>"Ken completely transformed how we handle leads. Before him, we were losing patients left and right because nobody followed up fast enough. He built our entire GoHighLevel system from scratch. The pipelines, the missed-call text-back, the review automation, all of it. Our Google reviews went from 47 to over 210 in four months."</p>
             </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/m.jpg" class="testimonial-img" alt="Jake Holloway">
-                <h3>Jake Holloway</h3>
-                <h4>Founder, Vaultline Agency (GHL + Make.com + n8n)</h4>
-                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                <p><i class="bi bi-quote quote-icon-left"></i>Kenneth saved our agency. We were drowning in 12 client sub-accounts with broken workflows everywhere. He came in, audited every single one, built us a standardized template we now clone for every new client, and set up automated weekly reporting through Make.com that used to take us 15 hours a week by hand. Our client retention went up 25% just because communication got way faster. Absolute weapon.<i class="bi bi-quote quote-icon-right"></i></p>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/d.jpg" class="testimonial-img" alt="Tyler Briggs">
-                <h3>Tyler Briggs</h3>
-                <h4>Founder, EliteForm Coaching (GHL + Stripe)</h4>
-                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                <p><i class="bi bi-quote quote-icon-left"></i>Before Kenneth, I was running my entire coaching business out of Instagram DMs and a Google Sheet. He built me a full GHL funnel with a VSL page, application form, booking calendar, nurture sequences, even a membership area for my clients. I went from 8 clients to over 30 in 90 days and my show-up rate on discovery calls hit 82%. Ken doesn't just set things up, he actually thinks about the whole system. Can't recommend him enough.<i class="bi bi-quote quote-icon-right"></i></p>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/k.jpg" class="testimonial-img" alt="Sophie Aldridge">
-                <h3>Sophie Aldridge</h3>
-                <h4>Operations Manager, Greenline Property (GoHighLevel)</h4>
-                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                <p><i class="bi bi-quote quote-icon-left"></i>Our tenant inquiries were all over the place. Email, phone, Facebook, our website, with no central system tying it together. Kenneth set up GoHighLevel with a unified inbox, auto-responders, and follow-up sequences for every stage of the tenant journey. Our average response time dropped from 6 hours to under 2 minutes and viewing bookings jumped 55%. He was professional, fast, and barely needed any hand-holding. Would hire again in a heartbeat.<i class="bi bi-quote quote-icon-right"></i></p>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/a.jpg" class="testimonial-img" alt="Rachel Nguyen">
-                <h3>Rachel Nguyen</h3>
-                <h4>CMO, BrightPath Supplements (Make.com + AI)</h4>
-                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                <p><i class="bi bi-quote quote-icon-left"></i>We manage over 40 UGC creators and it was a total nightmare keeping track of briefs, deadlines, and deliverables. Ken built a Make.com automation that handles all of it. It assigns briefs through Airtable, sends Slack reminders, and even has an AI script generator that drafts hooks based on our winning ads. Our content ops time dropped 70% and creator output literally doubled in a month. He thinks like a systems engineer, not just a VA.<i class="bi bi-quote quote-icon-right"></i></p>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/no.jpg" class="testimonial-img" alt="Daniel Okoro">
-                <h3>Daniel Okoro</h3>
-                <h4>CEO, Noma Studios (Zapier + n8n + Notion)</h4>
-                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                <p><i class="bi bi-quote quote-icon-left"></i>Onboarding freelance editors used to take us nearly a week per person. Kenneth built a Zapier and n8n automation that takes them from application to fully set up in Slack, Notion, and DocuSign in under 8 hours, completely hands-free. He also built a performance dashboard that tracks delivery speed and revision counts so we always know who's performing. Editor churn dropped 40%. Kenneth is sharp, fast, and delivers exactly what he promises.<i class="bi bi-quote quote-icon-right"></i></p>
-              </div>
-            </div>
-
           </div>
-          <div class="swiper-pagination"></div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="review-card">
+              <div class="review-header">
+                <img src="assets/img/testimonials/jake.jpg" alt="Jake Holloway">
+                <div>
+                  <h5>Jake Holloway</h5>
+                  <span>Founder, Vaultline Agency</span>
+                </div>
+              </div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <span class="review-tag" style="background:#2563eb18;color:#2563eb;">GHL + Make.com + n8n</span>
+              <p>"Kenneth saved our agency. We were drowning in 12 client sub-accounts with broken workflows everywhere. He audited every single one, built us a standardized template we now clone for new clients, and set up automated weekly reporting through Make.com that used to take 15 hours a week by hand. Client retention went up 25%."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="review-card">
+              <div class="review-header">
+                <img src="assets/img/testimonials/tyler.jpg" alt="Tyler Briggs">
+                <div>
+                  <h5>Tyler Briggs</h5>
+                  <span>Founder, EliteForm Coaching</span>
+                </div>
+              </div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <span class="review-tag" style="background:#05966918;color:#059669;">GHL + Stripe</span>
+              <p>"Before Kenneth, I was running my entire coaching business out of Instagram DMs and a Google Sheet. He built me a full GHL funnel with a VSL page, application form, booking calendar, nurture sequences, even a membership area. I went from 8 clients to over 30 in 90 days. Ken doesn't just set things up, he actually thinks about the whole system."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="review-card">
+              <div class="review-header">
+                <img src="assets/img/testimonials/sophie.jpg" alt="Sophie Aldridge">
+                <div>
+                  <h5>Sophie Aldridge</h5>
+                  <span>Ops Manager, Greenline Property</span>
+                </div>
+              </div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <span class="review-tag" style="background:#d9770618;color:#d97706;">GoHighLevel</span>
+              <p>"Our tenant inquiries were all over the place. Email, phone, Facebook, our website, with no central system. Kenneth set up GoHighLevel with a unified inbox, auto-responders, and follow-up sequences for every stage. Response time dropped from 6 hours to under 2 minutes and viewing bookings jumped 55%. Would hire again in a heartbeat."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="review-card">
+              <div class="review-header">
+                <img src="assets/img/testimonials/rachel.jpg" alt="Rachel Nguyen">
+                <div>
+                  <h5>Rachel Nguyen</h5>
+                  <span>CMO, BrightPath Supplements</span>
+                </div>
+              </div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <span class="review-tag" style="background:#7c3aed18;color:#7c3aed;">Make.com + AI</span>
+              <p>"We manage over 40 UGC creators and it was a total nightmare. Ken built a Make.com automation that handles all of it. Assigns briefs through Airtable, sends Slack reminders, and even has an AI script generator that drafts hooks based on our winning ads. Content ops time dropped 70% and output literally doubled in a month."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="review-card">
+              <div class="review-header">
+                <img src="assets/img/testimonials/daniel.jpg" alt="Daniel Okoro">
+                <div>
+                  <h5>Daniel Okoro</h5>
+                  <span>CEO, Noma Studios</span>
+                </div>
+              </div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <span class="review-tag" style="background:#be185d18;color:#be185d;">Zapier + n8n + Notion</span>
+              <p>"Onboarding freelance editors used to take us nearly a week per person. Kenneth built a Zapier and n8n automation that takes them from application to fully set up in Slack, Notion, and DocuSign in under 8 hours. He also built a performance dashboard tracking delivery speed and revision counts. Editor churn dropped 40%."</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FUNNEL SECTION -->
+    <section id="cta-funnel" class="section" style="background:linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%); padding: 80px 0;">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 style="color:#fff;font-size:2.2rem;font-weight:700;margin-bottom:16px;">Ready to Stop Doing Everything Manually?</h2>
+            <p style="color:#94a3b8;font-size:1.1rem;line-height:1.8;margin-bottom:12px;">Whether you need a GoHighLevel CRM built from scratch, a Make.com automation that saves you 15+ hours a week, or a full UGC production pipeline, I can build the system your business needs to scale.</p>
+            <p style="color:#cbd5e1;font-size:0.95rem;margin-bottom:32px;">Most projects are delivered within 3 to 7 days. Let's talk about yours.</p>
+
+            <div class="row gy-3 justify-content-center" style="margin-bottom:40px;">
+              <div class="col-auto">
+                <div style="display:inline-flex;align-items:center;background:#ffffff10;border:1px solid #ffffff20;border-radius:10px;padding:14px 22px;">
+                  <i class="bi bi-check-circle-fill" style="color:#22c55e;font-size:1.2rem;margin-right:10px;"></i>
+                  <span style="color:#e2e8f0;font-size:14px;font-weight:500;">GHL Full CRM Buildout</span>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div style="display:inline-flex;align-items:center;background:#ffffff10;border:1px solid #ffffff20;border-radius:10px;padding:14px 22px;">
+                  <i class="bi bi-check-circle-fill" style="color:#22c55e;font-size:1.2rem;margin-right:10px;"></i>
+                  <span style="color:#e2e8f0;font-size:14px;font-weight:500;">AI Automation Systems</span>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div style="display:inline-flex;align-items:center;background:#ffffff10;border:1px solid #ffffff20;border-radius:10px;padding:14px 22px;">
+                  <i class="bi bi-check-circle-fill" style="color:#22c55e;font-size:1.2rem;margin-right:10px;"></i>
+                  <span style="color:#e2e8f0;font-size:14px;font-weight:500;">UGC Production Pipelines</span>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div style="display:inline-flex;align-items:center;background:#ffffff10;border:1px solid #ffffff20;border-radius:10px;padding:14px 22px;">
+                  <i class="bi bi-check-circle-fill" style="color:#22c55e;font-size:1.2rem;margin-right:10px;"></i>
+                  <span style="color:#e2e8f0;font-size:14px;font-weight:500;">Funnel & Website Builds</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="#contact" class="btn btn-primary" style="font-size:16px;padding:14px 40px;border-radius:8px;font-weight:600;letter-spacing:0.3px;">Get a Free Consultation</a>
+            <p style="color:#64748b;font-size:13px;margin-top:14px;">No commitment. Just a quick chat about what you need.</p>
+          </div>
         </div>
       </div>
     </section>
