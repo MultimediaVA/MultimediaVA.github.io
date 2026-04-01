@@ -1540,6 +1540,326 @@
     </div>
   </footer>
 
+  <!-- ══════════════════════════════════════════════════════════
+       MULTI-STEP LEAD CAPTURE MODAL
+       Floating trigger + 6-step qualification form
+       Submits to Google Sheets via Apps Script
+  ══════════════════════════════════════════════════════════════ -->
+  <style>
+    .kp-overlay{position:fixed;inset:0;background:rgba(10,25,60,0.85);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity 0.35s ease;backdrop-filter:blur(6px)}
+    .kp-overlay.active{opacity:1;pointer-events:all}
+    .kp-modal{background:#fff;border-radius:20px;width:100%;max-width:560px;max-height:90vh;overflow:hidden;position:relative;transform:translateY(30px) scale(0.96);transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 32px 80px rgba(10,25,60,0.35);display:flex;flex-direction:column}
+    .kp-overlay.active .kp-modal{transform:translateY(0) scale(1)}
+    .kp-close{position:absolute;top:16px;right:20px;width:36px;height:36px;background:rgba(0,0,0,0.06);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:#555;z-index:100;transition:all 0.2s}
+    .kp-close:hover{background:rgba(0,0,0,0.12);transform:rotate(90deg)}
+    .kp-header{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%);padding:32px 32px 28px;text-align:center}
+    .kp-header h3{color:#fff;font-size:22px;font-weight:800;margin:0 0 6px;font-family:'Poppins',sans-serif}
+    .kp-header p{color:rgba(255,255,255,0.7);font-size:13px;margin:0;font-family:'Poppins',sans-serif}
+    .kp-body{padding:28px 32px 32px;overflow-y:auto}
+    .kp-progress{width:100%;height:5px;background:#e5e7eb;border-radius:3px;margin-bottom:20px;overflow:hidden}
+    .kp-progress-fill{height:100%;background:linear-gradient(90deg,#2563eb,#3b82f6);border-radius:3px;width:0%;transition:width 0.5s ease}
+    .kp-step{display:none;animation:kpSlide 0.35s ease both}
+    .kp-step.active{display:block}
+    @keyframes kpSlide{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .kp-question{font-size:18px;font-weight:700;color:#111827;margin-bottom:4px;font-family:'Poppins',sans-serif}
+    .kp-subtitle{font-size:13px;color:#6b7280;margin-bottom:20px;font-family:'Poppins',sans-serif}
+    .kp-options{display:flex;flex-direction:column;gap:10px}
+    .kp-options.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .kp-opt{display:flex;align-items:center;justify-content:center;text-align:center;padding:14px 18px;background:#f8fafc;color:#111827;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Poppins',sans-serif}
+    .kp-opt:hover{border-color:#2563eb;background:#eff6ff;transform:translateY(-2px)}
+    .kp-opt.selected{border-color:#2563eb;background:#2563eb;color:#fff}
+    .kp-input-group{margin-bottom:14px}
+    .kp-label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#374151;margin-bottom:5px;font-family:'Poppins',sans-serif}
+    .kp-input{width:100%;padding:12px 14px;font-size:14px;border:2px solid #e5e7eb;border-radius:10px;outline:none;color:#111827;transition:border-color 0.2s;font-family:'Poppins',sans-serif;box-sizing:border-box}
+    .kp-input:focus{border-color:#2563eb}
+    .kp-input::placeholder{color:#9ca3af}
+    .kp-error{color:#dc2626;font-size:12px;margin-top:3px;display:none;font-family:'Poppins',sans-serif}
+    .kp-btn{display:block;width:100%;padding:14px;background:#2563eb;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;margin-top:16px;font-family:'Poppins',sans-serif}
+    .kp-btn:hover{background:#1d4ed8;transform:translateY(-1px)}
+    .kp-btn:disabled{background:#94a3b8;cursor:not-allowed;transform:none}
+    .kp-back{position:absolute;top:16px;left:20px;width:36px;height:36px;background:rgba(255,255,255,0.15);border:none;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:20px;color:#fff;z-index:100;transition:all 0.2s}
+    .kp-back.show{display:flex}
+    .kp-back:hover{background:rgba(255,255,255,0.25)}
+    .kp-secure{text-align:center;margin-top:12px;font-size:11px;color:#9ca3af;font-family:'Poppins',sans-serif}
+    .kp-success{text-align:center;padding:20px 0}
+    .kp-success-icon{font-size:56px;margin-bottom:16px}
+    .kp-success h3{font-size:22px;font-weight:800;color:#111827;margin-bottom:8px;font-family:'Poppins',sans-serif}
+    .kp-success p{font-size:14px;color:#6b7280;line-height:1.6;margin-bottom:20px;font-family:'Poppins',sans-serif}
+    .kp-trigger{position:fixed;bottom:100px;right:24px;z-index:9998;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;padding:14px 22px;border-radius:100px;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:10px;box-shadow:0 8px 28px rgba(37,99,235,0.4);transition:all 0.25s;animation:kpTriggerIn 0.5s ease 3s both;font-family:'Poppins',sans-serif}
+    @keyframes kpTriggerIn{from{transform:translateX(120px);opacity:0}to{transform:translateX(0);opacity:1}}
+    .kp-trigger:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(37,99,235,0.5)}
+    .kp-trigger-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:kpBlink 1.5s infinite}
+    @keyframes kpBlink{0%,100%{opacity:1}50%{opacity:0.3}}
+    @media(max-width:600px){
+      .kp-modal{border-radius:14px;max-height:95vh}
+      .kp-header{padding:24px 20px 20px}
+      .kp-header h3{font-size:19px}
+      .kp-body{padding:20px}
+      .kp-question{font-size:16px}
+      .kp-options.grid{grid-template-columns:1fr}
+      .kp-trigger{bottom:80px;right:16px;font-size:13px;padding:12px 18px}
+    }
+  </style>
+
+  <!-- FLOATING TRIGGER -->
+  <button class="kp-trigger" onclick="kpOpen()">
+    <div class="kp-trigger-dot"></div>
+    Get a Free Quote
+  </button>
+
+  <!-- MODAL -->
+  <div class="kp-overlay" id="kpOverlay" onclick="if(event.target===this)kpClose()">
+    <div class="kp-modal">
+      <button class="kp-back" id="kpBack" onclick="kpPrev()">&#8249;</button>
+      <button class="kp-close" onclick="kpClose()">&#10005;</button>
+
+      <div class="kp-header">
+        <h3>Let's Find the Right Service for You</h3>
+        <p>Answer a few quick questions and I'll get back to you within 24 hours</p>
+      </div>
+
+      <div class="kp-body">
+        <div class="kp-progress"><div class="kp-progress-fill" id="kpBar"></div></div>
+
+        <!-- Step 1: Business Type -->
+        <div class="kp-step active" data-step="1">
+          <div class="kp-question">What best describes your business?</div>
+          <div class="kp-subtitle">This helps me recommend the right service</div>
+          <div class="kp-options grid">
+            <div class="kp-opt" onclick="kpPick(this,'business_type','eCommerce / DTC Brand')">eCommerce / DTC Brand</div>
+            <div class="kp-opt" onclick="kpPick(this,'business_type','Marketing Agency')">Marketing Agency</div>
+            <div class="kp-opt" onclick="kpPick(this,'business_type','Coach / Consultant')">Coach / Consultant</div>
+            <div class="kp-opt" onclick="kpPick(this,'business_type','Content Creator')">Content Creator</div>
+            <div class="kp-opt" onclick="kpPick(this,'business_type','Real Estate')">Real Estate</div>
+            <div class="kp-opt" onclick="kpPick(this,'business_type','Local Business')">Local Business</div>
+            <div class="kp-opt" onclick="kpPick(this,'business_type','SaaS / Tech')">SaaS / Tech</div>
+            <div class="kp-opt" onclick="kpPick(this,'business_type','Other')">Other</div>
+          </div>
+        </div>
+
+        <!-- Step 2: Biggest Challenge -->
+        <div class="kp-step" data-step="2">
+          <div class="kp-question">What's your biggest challenge right now?</div>
+          <div class="kp-subtitle">Pick the one that's costing you the most time or money</div>
+          <div class="kp-options">
+            <div class="kp-opt" onclick="kpPick(this,'biggest_challenge','Everything is manual, no automation')">Everything is manual, no automation</div>
+            <div class="kp-opt" onclick="kpPick(this,'biggest_challenge','Leads are falling through the cracks')">Leads are falling through the cracks</div>
+            <div class="kp-opt" onclick="kpPick(this,'biggest_challenge','Need UGC or video content at scale')">Need UGC or video content at scale</div>
+            <div class="kp-opt" onclick="kpPick(this,'biggest_challenge','No CRM or follow-up system')">No CRM or follow-up system</div>
+            <div class="kp-opt" onclick="kpPick(this,'biggest_challenge','Website or funnel not converting')">Website or funnel not converting</div>
+            <div class="kp-opt" onclick="kpPick(this,'biggest_challenge','Need help with Shopify or listings')">Need help with Shopify or listings</div>
+          </div>
+        </div>
+
+        <!-- Step 3: Service Interest -->
+        <div class="kp-step" data-step="3">
+          <div class="kp-question">Which service are you most interested in?</div>
+          <div class="kp-subtitle">Don't worry if you're not sure yet, we can figure it out together</div>
+          <div class="kp-options">
+            <div class="kp-opt" onclick="kpPick(this,'service_interested','GoHighLevel CRM Setup')">GoHighLevel CRM Setup</div>
+            <div class="kp-opt" onclick="kpPick(this,'service_interested','AI Automation / Workflows')">AI Automation / Workflows</div>
+            <div class="kp-opt" onclick="kpPick(this,'service_interested','UGC / Video Editing')">UGC / Video Editing</div>
+            <div class="kp-opt" onclick="kpPick(this,'service_interested','Funnel or Website Build')">Funnel or Website Build</div>
+            <div class="kp-opt" onclick="kpPick(this,'service_interested','eCommerce / Shopify Support')">eCommerce / Shopify Support</div>
+            <div class="kp-opt" onclick="kpPick(this,'service_interested','Not sure yet')">Not sure yet</div>
+          </div>
+        </div>
+
+        <!-- Step 4: Budget -->
+        <div class="kp-step" data-step="4">
+          <div class="kp-question">What's your budget range for this project?</div>
+          <div class="kp-subtitle">Just a rough idea so I can tailor my recommendation</div>
+          <div class="kp-options grid">
+            <div class="kp-opt" onclick="kpPick(this,'budget_range','Under $300')">Under $300</div>
+            <div class="kp-opt" onclick="kpPick(this,'budget_range','$300 to $800')">$300 to $800</div>
+            <div class="kp-opt" onclick="kpPick(this,'budget_range','$800 to $2,000')">$800 to $2,000</div>
+            <div class="kp-opt" onclick="kpPick(this,'budget_range','$2,000+')">$2,000+</div>
+            <div class="kp-opt" onclick="kpPick(this,'budget_range','Flexible / Ongoing')" style="grid-column:1/-1">Flexible / Ongoing</div>
+          </div>
+        </div>
+
+        <!-- Step 5: Timeline -->
+        <div class="kp-step" data-step="5">
+          <div class="kp-question">When do you need this done?</div>
+          <div class="kp-subtitle"></div>
+          <div class="kp-options">
+            <div class="kp-opt" onclick="kpPick(this,'timeline','ASAP, this week')">ASAP, this week</div>
+            <div class="kp-opt" onclick="kpPick(this,'timeline','Within 2 weeks')">Within 2 weeks</div>
+            <div class="kp-opt" onclick="kpPick(this,'timeline','Within a month')">Within a month</div>
+            <div class="kp-opt" onclick="kpPick(this,'timeline','Just exploring options')">Just exploring options</div>
+          </div>
+        </div>
+
+        <!-- Step 6: Contact Info + Submit -->
+        <div class="kp-step" data-step="6">
+          <div class="kp-question">Last step! How can I reach you?</div>
+          <div class="kp-subtitle">I'll send you a personalized recommendation within 24 hours</div>
+          <div class="kp-input-group">
+            <label class="kp-label">First Name *</label>
+            <input class="kp-input" type="text" id="kp_fname" placeholder="First name" autocomplete="given-name">
+            <div class="kp-error" id="kp_e_fname">Please enter your first name</div>
+          </div>
+          <div class="kp-input-group">
+            <label class="kp-label">Last Name *</label>
+            <input class="kp-input" type="text" id="kp_lname" placeholder="Last name" autocomplete="family-name">
+            <div class="kp-error" id="kp_e_lname">Please enter your last name</div>
+          </div>
+          <div class="kp-input-group">
+            <label class="kp-label">Email *</label>
+            <input class="kp-input" type="email" id="kp_email" placeholder="your@email.com" autocomplete="email">
+            <div class="kp-error" id="kp_e_email">Please enter a valid email</div>
+          </div>
+          <div class="kp-input-group">
+            <label class="kp-label">Phone (optional)</label>
+            <input class="kp-input" type="tel" id="kp_phone" placeholder="(555) 123-4567" autocomplete="tel">
+          </div>
+          <div class="kp-input-group">
+            <label class="kp-label">Anything else you want me to know?</label>
+            <textarea class="kp-input" id="kp_notes" rows="3" placeholder="Tell me a bit about your project..." style="resize:vertical"></textarea>
+          </div>
+          <button class="kp-btn" id="kpSubmitBtn" onclick="kpSubmit()">Submit My Request</button>
+          <div class="kp-secure">Your info is secure and never shared with anyone.</div>
+        </div>
+
+        <!-- Success Screen -->
+        <div class="kp-step" data-step="7">
+          <div class="kp-success">
+            <div class="kp-success-icon">&#10003;</div>
+            <h3>You're all set!</h3>
+            <p>Thanks for reaching out. I'll review your request and get back to you within 24 hours with a personalized recommendation. If you'd like to book a call right now, click below.</p>
+            <a href="https://calendly.com/emailpinedakenneth/30min" target="_blank" class="kp-btn" style="display:inline-block;max-width:300px;text-decoration:none;text-align:center">Book a Call Now</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var KP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxQjbSUsPovnVBHxzmgkeAuAjUt39i0stViVZ2w8NnxxI9Y8XGTWs0MgW5EiUyGylFS/exec';
+    var kpStep = 1;
+    var kpTotal = 6;
+    var kpData = {};
+
+    function kpGoTo(n) {
+      document.querySelectorAll('.kp-step').forEach(function(s){s.classList.remove('active')});
+      var el = document.querySelector('.kp-step[data-step="'+n+'"]');
+      if(el){el.classList.add('active');kpStep=n;kpUpdateBar();kpUpdateBack()}
+    }
+
+    function kpUpdateBar() {
+      var pct = Math.min(Math.round(((kpStep-1)/kpTotal)*100),100);
+      document.getElementById('kpBar').style.width = pct+'%';
+    }
+
+    function kpUpdateBack() {
+      var btn = document.getElementById('kpBack');
+      if(kpStep>1 && kpStep<=kpTotal){btn.classList.add('show')}else{btn.classList.remove('show')}
+    }
+
+    window.kpOpen = function(){
+      document.getElementById('kpOverlay').classList.add('active');
+      document.body.style.overflow='hidden';
+    };
+
+    window.kpClose = function(){
+      document.getElementById('kpOverlay').classList.remove('active');
+      document.body.style.overflow='';
+    };
+
+    window.kpPrev = function(){if(kpStep>1)kpGoTo(kpStep-1)};
+
+    window.kpPick = function(el,field,value){
+      el.parentElement.querySelectorAll('.kp-opt').forEach(function(o){o.classList.remove('selected')});
+      el.classList.add('selected');
+      kpData[field]=value;
+      setTimeout(function(){kpGoTo(kpStep+1)},300);
+    };
+
+    window.kpSubmit = function(){
+      var fname=document.getElementById('kp_fname');
+      var lname=document.getElementById('kp_lname');
+      var email=document.getElementById('kp_email');
+      var phone=document.getElementById('kp_phone');
+      var notes=document.getElementById('kp_notes');
+      var ok=true;
+
+      if(fname.value.trim().length<1){document.getElementById('kp_e_fname').style.display='block';fname.style.borderColor='#dc2626';ok=false}
+      else{document.getElementById('kp_e_fname').style.display='none';fname.style.borderColor=''}
+      if(lname.value.trim().length<1){document.getElementById('kp_e_lname').style.display='block';lname.style.borderColor='#dc2626';ok=false}
+      else{document.getElementById('kp_e_lname').style.display='none';lname.style.borderColor=''}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){document.getElementById('kp_e_email').style.display='block';email.style.borderColor='#dc2626';ok=false}
+      else{document.getElementById('kp_e_email').style.display='none';email.style.borderColor=''}
+
+      if(!ok)return;
+
+      var btn=document.getElementById('kpSubmitBtn');
+      btn.disabled=true;
+      btn.textContent='Submitting...';
+
+      kpData.first_name=fname.value.trim();
+      kpData.last_name=lname.value.trim();
+      kpData.email=email.value.trim();
+      kpData.phone=phone.value.trim();
+      kpData.additional_notes=notes.value.trim();
+      kpData.source='Portfolio Modal';
+      kpData.how_found_us='Website';
+
+      fetch(KP_SCRIPT_URL,{
+        method:'POST',
+        headers:{'Content-Type':'text/plain'},
+        body:JSON.stringify(kpData)
+      })
+      .then(function(r){return r.json()})
+      .then(function(d){
+        console.log('Lead submitted:',d);
+        kpGoTo(7);
+      })
+      .catch(function(err){
+        console.error('Submit error:',err);
+        kpGoTo(7);
+      });
+    };
+
+    // Auto-popup after 15 seconds (once per session)
+    setTimeout(function(){
+      if(!sessionStorage.getItem('kp_modal_shown')){
+        kpOpen();
+        sessionStorage.setItem('kp_modal_shown','1');
+      }
+    },15000);
+
+    // ESC to close
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')kpClose()});
+
+    // Phone formatting
+    var phoneInput = document.getElementById('kp_phone');
+    if(phoneInput){
+      phoneInput.addEventListener('input',function(){
+        var v=this.value.replace(/\D/g,'');
+        if(v.length>10)v=v.slice(0,10);
+        if(v.length>=7)this.value='('+v.slice(0,3)+') '+v.slice(3,6)+'-'+v.slice(6);
+        else if(v.length>=4)this.value='('+v.slice(0,3)+') '+v.slice(3);
+        else if(v.length>0)this.value='('+v;
+      });
+    }
+
+    // Enter key on inputs
+    document.querySelectorAll('.kp-input').forEach(function(inp){
+      inp.addEventListener('keydown',function(e){
+        if(e.key==='Enter'){
+          e.preventDefault();
+          var btn=this.closest('.kp-step').querySelector('.kp-btn');
+          if(btn)btn.click();
+        }
+      });
+    });
+
+    kpUpdateBar();
+  })();
+  </script>
+
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
@@ -1902,6 +2222,9 @@
   if (document.readyState === 'complete') { initSite(); }
   else { window.addEventListener('load', initSite); }
   </script>
+
+  <!-- Tidio Chat Widget -->
+  <script src="//code.tidio.co/3jjsmb1qqwl7lecqbatdzbgqktgqjtdo.js" async></script>
 
 </body>
 </html>
