@@ -116,6 +116,91 @@
     .review-card p {
       font-size: 13.5px; color: #374151; line-height: 1.7; margin-bottom: 0;
     }
+    /* Interactive Case Study Cards */
+    .cs-interactive { cursor: pointer; position: relative; }
+    .cs-interactive:hover { border-color: #2563eb40; }
+    .cs-top-row {
+      display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;
+    }
+    .cs-expand-icon {
+      width: 38px; height: 38px; border-radius: 50%; background: #2563eb10;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    .cs-expand-icon i { font-size: 16px; color: #2563eb; }
+    .cs-interactive:hover .cs-expand-icon { background: #2563eb; }
+    .cs-interactive:hover .cs-expand-icon i { color: #fff; }
+    .cs-interactive.active .cs-expand-icon { background: #2563eb; transform: scale(1.1); }
+    .cs-interactive.active .cs-expand-icon i { color: #fff; }
+    .cs-review {
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, margin-top 0.4s ease;
+      margin-top: 0;
+    }
+    .cs-review.show {
+      max-height: 400px; opacity: 1; margin-top: 20px;
+    }
+    .cs-review-inner {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 1px solid #e2e8f0; border-radius: 10px; padding: 22px;
+      position: relative;
+    }
+    .cs-review-inner::before {
+      content: ''; position: absolute; top: -8px; left: 30px;
+      width: 16px; height: 16px; background: #f8fafc;
+      border-left: 1px solid #e2e8f0; border-top: 1px solid #e2e8f0;
+      transform: rotate(45deg);
+    }
+    .cs-review-header {
+      display: flex; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;
+    }
+    .cs-review-header img {
+      width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+      border: 2px solid #e5e7eb; margin-right: 10px;
+    }
+    .cs-review-header h5 {
+      font-size: 14px; font-weight: 700; margin-bottom: 1px; color: #111827;
+    }
+    .cs-review-header span { font-size: 12px; color: #6b7280; }
+    .cs-review-stars { margin-left: auto; }
+    .cs-review-stars i { color: #f59e0b; font-size: 13px; }
+    .cs-review-text {
+      font-size: 13.5px; color: #374151; line-height: 1.7;
+      margin-bottom: 0; font-style: italic;
+    }
+    .cs-hint {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; color: #9ca3af; margin-top: 12px;
+      animation: pulse-hint 2s ease-in-out infinite;
+    }
+    .cs-hint i { font-size: 14px; }
+    @keyframes pulse-hint {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    /* Stat Cards */
+    .stat-card {
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+      padding: 28px 20px; text-align: center; height: 100%;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    }
+    .stat-icon {
+      font-size: 1.8rem; color: #2563eb; margin-bottom: 10px;
+    }
+    .stat-number {
+      display: block; font-size: 2.4rem; font-weight: 800; color: #111827;
+      line-height: 1.1; margin-bottom: 4px;
+    }
+    .stat-suffix {
+      font-size: 1.4rem; font-weight: 700; color: #111827;
+    }
+    .stat-card p {
+      font-size: 13px; color: #6b7280; margin-bottom: 0; margin-top: 4px;
+    }
   </style>
 </head>
 
@@ -276,19 +361,25 @@
       </div>
     </section>
 
-    <!-- CASE STUDIES -->
+    <!-- CASE STUDIES (Interactive) -->
     <section id="case-studies" class="section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Case Studies</h2>
-        <p>Real automation systems I've built for clients, with measurable results.</p>
+        <p>Real automation systems I've built for clients, with measurable results. Click any card to see what the client had to say.</p>
       </div>
       <div class="container">
         <div class="row gy-4">
 
+          <!-- 1: Apex Dental -->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="case-study-card">
-              <div class="client-name">Apex Dental Group</div>
-              <div class="client-type">Multi-Location Dental Practice, US (GoHighLevel)</div>
+            <div class="case-study-card cs-interactive" data-cs="apex" onclick="toggleReview('apex')">
+              <div class="cs-top-row">
+                <div>
+                  <div class="client-name">Apex Dental Group</div>
+                  <div class="client-type">Multi-Location Dental Practice, US (GoHighLevel)</div>
+                </div>
+                <div class="cs-expand-icon"><i class="bi bi-chat-quote"></i></div>
+              </div>
               <div class="problem-label">Problem</div>
               <p>Facebook Ad leads were falling through the cracks. Nobody was following up fast enough, missed calls went unanswered, and their Google reviews were barely growing.</p>
               <div class="solution-label">What I Built</div>
@@ -297,13 +388,34 @@
               <span class="result-stat">Bookings up 45%</span>
               <span class="result-stat">47 to 210+ reviews</span>
               <span class="result-stat">Zero lost leads</span>
+
+              <!-- Hidden Review -->
+              <div class="cs-review" id="review-apex">
+                <div class="cs-review-inner">
+                  <div class="cs-review-header">
+                    <img src="assets/img/testimonials/marcus.jpg" alt="Dr. Marcus Rivera">
+                    <div>
+                      <h5>Dr. Marcus Rivera</h5>
+                      <span>Owner, Apex Dental Group</span>
+                    </div>
+                    <div class="cs-review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  </div>
+                  <p class="cs-review-text">"Ken completely transformed how we handle leads. Before him, we were losing patients left and right because nobody followed up fast enough. He built our entire GoHighLevel system from scratch. The pipelines, the missed-call text-back, the review automation, all of it. Our Google reviews went from 47 to over 210 in four months."</p>
+                </div>
+              </div>
             </div>
           </div>
 
+          <!-- 2: Vaultline -->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="case-study-card">
-              <div class="client-name">Vaultline Agency</div>
-              <div class="client-type">Performance Marketing Agency, AU (GHL + Make.com)</div>
+            <div class="case-study-card cs-interactive" data-cs="vaultline" onclick="toggleReview('vaultline')">
+              <div class="cs-top-row">
+                <div>
+                  <div class="client-name">Vaultline Agency</div>
+                  <div class="client-type">Performance Marketing Agency, AU (GHL + Make.com)</div>
+                </div>
+                <div class="cs-expand-icon"><i class="bi bi-chat-quote"></i></div>
+              </div>
               <div class="problem-label">Problem</div>
               <p>Managing 12 client sub-accounts with no standardized systems. Reporting took hours every week, onboarding was inconsistent, and workflows kept breaking across accounts.</p>
               <div class="solution-label">What I Built</div>
@@ -312,13 +424,33 @@
               <span class="result-stat">Onboarding: 3 days to 4 hrs</span>
               <span class="result-stat">15+ hrs/week saved</span>
               <span class="result-stat">Retention up 25%</span>
+
+              <div class="cs-review" id="review-vaultline">
+                <div class="cs-review-inner">
+                  <div class="cs-review-header">
+                    <img src="assets/img/testimonials/jake.jpg" alt="Jake Holloway">
+                    <div>
+                      <h5>Jake Holloway</h5>
+                      <span>Founder, Vaultline Agency</span>
+                    </div>
+                    <div class="cs-review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  </div>
+                  <p class="cs-review-text">"Kenneth saved our agency. We were drowning in 12 client sub-accounts with broken workflows everywhere. He audited every single one, built us a standardized template we now clone for new clients, and set up automated weekly reporting through Make.com. Client retention went up 25%. Absolute weapon."</p>
+                </div>
+              </div>
             </div>
           </div>
 
+          <!-- 3: EliteForm -->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="case-study-card">
-              <div class="client-name">EliteForm Coaching</div>
-              <div class="client-type">Online Fitness Coaching, US (GHL + Stripe)</div>
+            <div class="case-study-card cs-interactive" data-cs="eliteform" onclick="toggleReview('eliteform')">
+              <div class="cs-top-row">
+                <div>
+                  <div class="client-name">EliteForm Coaching</div>
+                  <div class="client-type">Online Fitness Coaching, US (GHL + Stripe)</div>
+                </div>
+                <div class="cs-expand-icon"><i class="bi bi-chat-quote"></i></div>
+              </div>
               <div class="problem-label">Problem</div>
               <p>Running everything off DMs and spreadsheets. No CRM, no follow-up system, and no real way to track leads or scale past one-on-one selling.</p>
               <div class="solution-label">What I Built</div>
@@ -326,13 +458,33 @@
               <div class="result-label">Results</div>
               <span class="result-stat">8 to 30+ clients in 90 days</span>
               <span class="result-stat">82% show-up rate</span>
+
+              <div class="cs-review" id="review-eliteform">
+                <div class="cs-review-inner">
+                  <div class="cs-review-header">
+                    <img src="assets/img/testimonials/tyler.jpg" alt="Tyler Briggs">
+                    <div>
+                      <h5>Tyler Briggs</h5>
+                      <span>Founder, EliteForm Coaching</span>
+                    </div>
+                    <div class="cs-review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  </div>
+                  <p class="cs-review-text">"Before Kenneth, I was running my entire coaching business out of Instagram DMs and a Google Sheet. He built me a full GHL funnel with a VSL page, application form, booking calendar, nurture sequences, even a membership area. I went from 8 clients to over 30 in 90 days. Ken doesn't just set things up, he actually thinks about the whole system."</p>
+                </div>
+              </div>
             </div>
           </div>
 
+          <!-- 4: Greenline -->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="case-study-card">
-              <div class="client-name">Greenline Property Management</div>
-              <div class="client-type">Real Estate, UK (GoHighLevel)</div>
+            <div class="case-study-card cs-interactive" data-cs="greenline" onclick="toggleReview('greenline')">
+              <div class="cs-top-row">
+                <div>
+                  <div class="client-name">Greenline Property Management</div>
+                  <div class="client-type">Real Estate, UK (GoHighLevel)</div>
+                </div>
+                <div class="cs-expand-icon"><i class="bi bi-chat-quote"></i></div>
+              </div>
               <div class="problem-label">Problem</div>
               <p>Tenant inquiries were scattered across email, phone, and social media. No centralized system and the average response time was around 6 hours.</p>
               <div class="solution-label">What I Built</div>
@@ -340,13 +492,33 @@
               <div class="result-label">Results</div>
               <span class="result-stat">Response: 6 hrs to under 2 min</span>
               <span class="result-stat">Bookings up 55%</span>
+
+              <div class="cs-review" id="review-greenline">
+                <div class="cs-review-inner">
+                  <div class="cs-review-header">
+                    <img src="assets/img/testimonials/sophie.jpg" alt="Sophie Aldridge">
+                    <div>
+                      <h5>Sophie Aldridge</h5>
+                      <span>Ops Manager, Greenline Property</span>
+                    </div>
+                    <div class="cs-review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  </div>
+                  <p class="cs-review-text">"Our tenant inquiries were all over the place with no central system. Kenneth set up GoHighLevel with a unified inbox, auto-responders, and follow-up sequences for every stage. Response time dropped from 6 hours to under 2 minutes and viewing bookings jumped 55%. Would hire again in a heartbeat."</p>
+                </div>
+              </div>
             </div>
           </div>
 
+          <!-- 5: BrightPath -->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="case-study-card">
-              <div class="client-name">BrightPath Supplements</div>
-              <div class="client-type">DTC Supplement Brand, US (Make.com + AI)</div>
+            <div class="case-study-card cs-interactive" data-cs="brightpath" onclick="toggleReview('brightpath')">
+              <div class="cs-top-row">
+                <div>
+                  <div class="client-name">BrightPath Supplements</div>
+                  <div class="client-type">DTC Supplement Brand, US (Make.com + AI)</div>
+                </div>
+                <div class="cs-expand-icon"><i class="bi bi-chat-quote"></i></div>
+              </div>
               <div class="problem-label">Problem</div>
               <p>Manually managing over 40 UGC creators, constantly losing track of briefs, and spending 10+ hours per week just on content scheduling.</p>
               <div class="solution-label">What I Built</div>
@@ -354,13 +526,33 @@
               <div class="result-label">Results</div>
               <span class="result-stat">Content ops down 70%</span>
               <span class="result-stat">Output doubled in 30 days</span>
+
+              <div class="cs-review" id="review-brightpath">
+                <div class="cs-review-inner">
+                  <div class="cs-review-header">
+                    <img src="assets/img/testimonials/rachel.jpg" alt="Rachel Nguyen">
+                    <div>
+                      <h5>Rachel Nguyen</h5>
+                      <span>CMO, BrightPath Supplements</span>
+                    </div>
+                    <div class="cs-review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  </div>
+                  <p class="cs-review-text">"We manage over 40 UGC creators and it was a total nightmare. Ken built a Make.com automation that handles all of it. Assigns briefs through Airtable, sends Slack reminders, and even has an AI script generator. Content ops time dropped 70% and output literally doubled in a month. He thinks like a systems engineer, not just a VA."</p>
+                </div>
+              </div>
             </div>
           </div>
 
+          <!-- 6: Noma -->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="case-study-card">
-              <div class="client-name">Noma Studios</div>
-              <div class="client-type">Content Agency, UK (Zapier + Notion)</div>
+            <div class="case-study-card cs-interactive" data-cs="noma" onclick="toggleReview('noma')">
+              <div class="cs-top-row">
+                <div>
+                  <div class="client-name">Noma Studios</div>
+                  <div class="client-type">Content Agency, UK (Zapier + Notion)</div>
+                </div>
+                <div class="cs-expand-icon"><i class="bi bi-chat-quote"></i></div>
+              </div>
               <div class="problem-label">Problem</div>
               <p>Onboarding new freelance editors took around 5 days, the process was inconsistent, and it required constant manual follow-ups from the team.</p>
               <div class="solution-label">What I Built</div>
@@ -368,6 +560,20 @@
               <div class="result-label">Results</div>
               <span class="result-stat">Onboarding: 5 days to 8 hrs</span>
               <span class="result-stat">Editor churn down 40%</span>
+
+              <div class="cs-review" id="review-noma">
+                <div class="cs-review-inner">
+                  <div class="cs-review-header">
+                    <img src="assets/img/testimonials/daniel.jpg" alt="Daniel Okoro">
+                    <div>
+                      <h5>Daniel Okoro</h5>
+                      <span>CEO, Noma Studios</span>
+                    </div>
+                    <div class="cs-review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  </div>
+                  <p class="cs-review-text">"Onboarding freelance editors used to take us nearly a week. Kenneth built a Zapier and n8n automation that handles everything from application to Slack, Notion, and DocuSign in under 8 hours. He also built a performance dashboard tracking delivery speed and revision counts. Editor churn dropped 40%. Delivers exactly what he promises."</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -823,43 +1029,142 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS (Original Clients) -->
-    <section id="testimonials" class="testimonials section accent-background">
-      <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            { "loop": true, "speed": 600, "autoplay": { "delay": 5000 }, "slidesPerView": "auto", "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true } }
-          </script>
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><div class="testimonial-item"><img src="assets/img/testimonials/s.jpg" class="testimonial-img" alt="Syntell"><h3>@Syntell</h3><h4>Reaction Channel Creator</h4><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p><i class="bi bi-quote quote-icon-left"></i>Kenneth has been my go-to video editor for years. He understands my brand, keeps my content consistent, and always delivers fast even when I'm behind schedule.<i class="bi bi-quote quote-icon-right"></i></p></div></div>
-            <div class="swiper-slide"><div class="testimonial-item"><img src="assets/img/testimonials/p.jpg" class="testimonial-img" alt="PickCity HQ"><h3>@pickcity.hq</h3><h4>Local Business Content</h4><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p><i class="bi bi-quote quote-icon-left"></i>Kenneth edits all our TikToks and reels. He makes our content punchy, on-brand, and engaging. He's basically our in-house editor except remote!<i class="bi bi-quote quote-icon-right"></i></p></div></div>
-            <div class="swiper-slide"><div class="testimonial-item"><img src="assets/img/testimonials/k.jpg" class="testimonial-img" alt="Karriann Graf"><h3>Karriann Graf</h3><h4>Realtor, Key West</h4><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p><i class="bi bi-quote quote-icon-left"></i>I trusted Kenneth with editing our home tours and listing videos and he made them stand out from the rest! I love how he brings warmth and polish to each video.<i class="bi bi-quote quote-icon-right"></i></p></div></div>
-            <div class="swiper-slide"><div class="testimonial-item"><img src="assets/img/testimonials/n.jpg" class="testimonial-img" alt="Shopify Client"><h3>eComm Brand Owner</h3><h4>Shopify Product Listings</h4><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p><i class="bi bi-quote quote-icon-left"></i>Kenneth took care of our product listings on Shopify. Titles, descriptions, tags, and images. Saved me hours of work and improved our conversion rates!<i class="bi bi-quote quote-icon-right"></i></p></div></div>
-            <div class="swiper-slide"><div class="testimonial-item"><img src="assets/img/testimonials/kj.jpg" class="testimonial-img" alt="Kristin and Jamil"><h3>@KristinandJamil</h3><h4>Food Reaction Channel</h4><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p><i class="bi bi-quote quote-icon-left"></i>We love working with Kenneth! He helps us turn hours of footage into engaging, clean cut content that keeps our viewers coming back.<i class="bi bi-quote quote-icon-right"></i></p></div></div>
-            <div class="swiper-slide"><div class="testimonial-item"><img src="assets/img/testimonials/m.jpg" class="testimonial-img" alt="Mike From Maine"><h3>Mike Thomas</h3><h4>YouTube Creator, Mike From Maine</h4><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p><i class="bi bi-quote quote-icon-left"></i>Kenneth has been instrumental in editing and polishing my content for the Mike From Maine YouTube channel. His turnaround time is fast, and he understands exactly how to structure content that keeps viewers engaged.<i class="bi bi-quote quote-icon-right"></i></p></div></div>
-            <div class="swiper-slide"><div class="testimonial-item"><img src="assets/img/testimonials/d.jpg" class="testimonial-img" alt="DonTownsend"><h3>Don Townsend</h3><h4>YouTube Creator, Reactions & Commentary</h4><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p><i class="bi bi-quote quote-icon-left"></i>Kenneth is a beast when it comes to editing. He gets the pacing, the memes, and the reactions just right. Every video is better because of his work.<i class="bi bi-quote quote-icon-right"></i></p></div></div>
-            <div class="swiper-slide"><div class="testimonial-item"><img src="assets/img/testimonials/a.jpg" class="testimonial-img" alt="Animentog"><h3>Animentog</h3><h4>Anime Edits & YouTube Shorts</h4><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p><i class="bi bi-quote quote-icon-left"></i>Sync, flow, and emotion. Kenneth nails all three in every edit. His anime reels and transitions feel sharp, punchy, and clean every time.<i class="bi bi-quote quote-icon-right"></i></p></div></div>
-            <div class="swiper-slide"><div class="testimonial-item"><img src="assets/img/testimonials/no.jpg" class="testimonial-img" alt="The Nootropic Reviewer"><h3>@thenootropicreviewer</h3><h4>Product Reviews & Supplements</h4><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p><i class="bi bi-quote quote-icon-left"></i>Kenneth makes my reviews look polished and professional. His cuts, captions, and B-roll timing always elevate my content to the next level.<i class="bi bi-quote quote-icon-right"></i></p></div></div>
+    <!-- TESTIMONIALS (Modern Cards) -->
+    <section id="testimonials" class="section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Client Testimonials</h2>
+        <p>What creators and brands say about working with me on video editing and content production.</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4" id="testimonial-grid">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="review-card">
+              <div class="review-header"><img src="assets/img/testimonials/s.jpg" alt="Syntell"><div><h5>@Syntell</h5><span>Reaction Channel Creator</span></div></div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"Kenneth has been my go-to video editor for years. He understands my brand, keeps my content consistent, and always delivers fast even when I'm behind schedule."</p>
+            </div>
           </div>
-          <div class="swiper-pagination"></div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="review-card">
+              <div class="review-header"><img src="assets/img/testimonials/p.jpg" alt="PickCity HQ"><div><h5>@pickcity.hq</h5><span>Local Business Content</span></div></div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"Kenneth edits all our TikToks and reels. He makes our content punchy, on-brand, and engaging. He's basically our in-house editor except remote!"</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="review-card">
+              <div class="review-header"><img src="assets/img/testimonials/k.jpg" alt="Karriann Graf"><div><h5>Karriann Graf</h5><span>Realtor, Key West</span></div></div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"I trusted Kenneth with editing our home tours and listing videos and he made them stand out from the rest! I love how he brings warmth and polish to each video."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="review-card">
+              <div class="review-header"><img src="assets/img/testimonials/kj.jpg" alt="Kristin and Jamil"><div><h5>@KristinandJamil</h5><span>Food Reaction Channel</span></div></div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"We love working with Kenneth! He helps us turn hours of footage into engaging, clean cut content that keeps our viewers coming back."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="review-card">
+              <div class="review-header"><img src="assets/img/testimonials/m.jpg" alt="Mike From Maine"><div><h5>Mike Thomas</h5><span>YouTube, Mike From Maine</span></div></div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"Kenneth has been instrumental in editing and polishing my content. His turnaround time is fast, and he understands exactly how to structure content that keeps viewers engaged."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="review-card">
+              <div class="review-header"><img src="assets/img/testimonials/d.jpg" alt="DonTownsend"><div><h5>Don Townsend</h5><span>Reactions & Commentary</span></div></div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"Kenneth is a beast when it comes to editing. He gets the pacing, the memes, and the reactions just right. Every video is better because of his work."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="review-card">
+              <div class="review-header"><img src="assets/img/testimonials/a.jpg" alt="Animentog"><div><h5>Animentog</h5><span>Anime Edits & Shorts</span></div></div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"Sync, flow, and emotion. Kenneth nails all three in every edit. His anime reels and transitions feel sharp, punchy, and clean every time."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="review-card">
+              <div class="review-header"><img src="assets/img/testimonials/no.jpg" alt="The Nootropic Reviewer"><div><h5>@thenootropicreviewer</h5><span>Product Reviews</span></div></div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"Kenneth makes my reviews look polished and professional. His cuts, captions, and B-roll timing always elevate my content to the next level."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="review-card">
+              <div class="review-header"><img src="assets/img/testimonials/n.jpg" alt="eComm Brand Owner"><div><h5>eComm Brand Owner</h5><span>Shopify Product Listings</span></div></div>
+              <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"Kenneth took care of our product listings on Shopify. Titles, descriptions, tags, and images. Saved me hours of work and improved our conversion rates!"</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- STATS -->
-    <section id="stats" class="stats section accent-background">
-      <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-title text-center"><h2>Performance Highlights</h2><p>Creative, automation, and eCommerce metrics from years of client-focused work.</p></div>
-        <div class="row gy-4">
-          <div class="col-lg-3 col-md-6"><div class="stats-item text-center w-100 h-100"><span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1" class="purecounter">30</span><p>Brands & Creators Served</p></div></div>
-          <div class="col-lg-3 col-md-6"><div class="stats-item text-center w-100 h-100"><span data-purecounter-start="0" data-purecounter-end="4250" data-purecounter-duration="1" class="purecounter">4250</span><p>Videos Edited</p></div></div>
-          <div class="col-lg-3 col-md-6"><div class="stats-item text-center w-100 h-100"><span data-purecounter-start="0" data-purecounter-end="3250" data-purecounter-duration="1" class="purecounter">3250</span><p>Hours Delivered</p></div></div>
-          <div class="col-lg-3 col-md-6"><div class="stats-item text-center w-100 h-100"><span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter">100</span><p>Client Satisfaction Rate (%)</p></div></div>
-          <div class="col-lg-4 col-md-6"><div class="stats-item text-center w-100 h-100"><span data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1" class="purecounter">120</span><p>Shopify Product Listings</p></div></div>
-          <div class="col-lg-4 col-md-6"><div class="stats-item text-center w-100 h-100"><span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter">12</span><p>eCommerce Brands Supported</p></div></div>
-          <div class="col-lg-4 col-md-6"><div class="stats-item text-center w-100 h-100"><span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter">100</span><p>Listing Accuracy Score (%)</p></div></div>
+    <!-- STATS (Modern Cards) -->
+    <section id="stats" class="section" style="background:#f8fafc;">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Performance Highlights</h2>
+        <p>Creative, automation, and eCommerce metrics from years of client-focused work.</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-card">
+              <div class="stat-icon"><i class="bi bi-people"></i></div>
+              <span class="stat-number" data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1">30</span>
+              <p>Brands & Creators Served</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-card">
+              <div class="stat-icon"><i class="bi bi-camera-reels"></i></div>
+              <span class="stat-number" data-purecounter-start="0" data-purecounter-end="4250" data-purecounter-duration="1">4250</span>
+              <p>Videos Edited</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat-card">
+              <div class="stat-icon"><i class="bi bi-clock-history"></i></div>
+              <span class="stat-number" data-purecounter-start="0" data-purecounter-end="3250" data-purecounter-duration="1">3250</span>
+              <p>Hours Delivered</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="stat-card">
+              <div class="stat-icon" style="color:#22c55e;"><i class="bi bi-emoji-smile"></i></div>
+              <span class="stat-number" data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1">100</span>
+              <span class="stat-suffix">%</span>
+              <p>Client Satisfaction</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-card">
+              <div class="stat-icon" style="color:#d97706;"><i class="bi bi-bag-check"></i></div>
+              <span class="stat-number" data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1">120</span>
+              <p>Shopify Product Listings</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-card">
+              <div class="stat-icon" style="color:#7c3aed;"><i class="bi bi-shop"></i></div>
+              <span class="stat-number" data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1">12</span>
+              <p>eCommerce Brands</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -959,7 +1264,6 @@
   <div id="preloader"></div>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
@@ -968,7 +1272,356 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/js/main.js"></script>
+
+  <script>
+  function initSite() {
+    // Safety check - if vendors aren't loaded yet, retry in 100ms
+    if (typeof AOS === 'undefined' || typeof Typed === 'undefined' || typeof PureCounter === 'undefined') {
+      setTimeout(initSite, 100);
+      return;
+    }
+    "use strict";
+
+    /* ========================================
+       UTILITY HELPERS
+    ======================================== */
+    function select(el, all) {
+      el = el.trim();
+      return all ? [...document.querySelectorAll(el)] : document.querySelector(el);
+    }
+
+    function on(type, el, listener, all) {
+      var selectEl = select(el, all);
+      if (selectEl) {
+        if (all) { selectEl.forEach(function(e) { e.addEventListener(type, listener); }); }
+        else { selectEl.addEventListener(type, listener); }
+      }
+    }
+
+    function onscroll(el, listener) {
+      el.addEventListener('scroll', listener);
+    }
+
+    /* ========================================
+       NAVBAR / MOBILE NAV
+    ======================================== */
+    var navbarlinks = select('#navmenu a', true);
+    function navbarlinksActive() {
+      navbarlinks.forEach(function(navbarlink) {
+        if (!navbarlink.hash) return;
+        var section = select(navbarlink.hash);
+        if (!section) return;
+        var position = window.scrollY + 200;
+        if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+          navbarlink.classList.add('active');
+        } else {
+          navbarlink.classList.remove('active');
+        }
+      });
+    }
+    navbarlinksActive();
+    onscroll(document, navbarlinksActive);
+
+    on('click', '.mobile-nav-toggle', function(e) {
+      var body = select('body');
+      body.classList.toggle('mobile-nav-active');
+      this.classList.toggle('bi-list');
+      this.classList.toggle('bi-x');
+    });
+
+    on('click', '#navmenu a', function(e) {
+      var body = select('body');
+      if (body.classList.contains('mobile-nav-active')) {
+        body.classList.remove('mobile-nav-active');
+        var mobileToggle = select('.mobile-nav-toggle');
+        if (mobileToggle) {
+          mobileToggle.classList.toggle('bi-list');
+          mobileToggle.classList.toggle('bi-x');
+        }
+      }
+    }, true);
+
+    /* ========================================
+       HEADER SCROLL CLASS
+    ======================================== */
+    var selectHeader = select('#header');
+    if (selectHeader) {
+      var headerScrolled = function() {
+        if (window.scrollY > 100) { selectHeader.classList.add('header-scrolled'); }
+        else { selectHeader.classList.remove('header-scrolled'); }
+      };
+      headerScrolled();
+      onscroll(document, headerScrolled);
+    }
+
+    /* ========================================
+       SCROLL TOP BUTTON
+    ======================================== */
+    var scrollTop = select('#scroll-top');
+    if (scrollTop) {
+      var toggleScrollTop = function() {
+        window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+      };
+      toggleScrollTop();
+      onscroll(document, toggleScrollTop);
+      scrollTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    /* ========================================
+       PRELOADER
+    ======================================== */
+    var preloader = select('#preloader');
+    if (preloader) {
+      preloader.remove();
+    }
+
+    /* ========================================
+       AOS INIT
+    ======================================== */
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+
+    /* ========================================
+       TYPED.JS
+    ======================================== */
+    var typedEl = document.querySelector('.typed');
+    if (typedEl) {
+      var typed_strings = typedEl.getAttribute('data-typed-items');
+      typed_strings = typed_strings.split(',');
+      new Typed('.typed', {
+        strings: typed_strings,
+        loop: true,
+        typeSpeed: 50,
+        backSpeed: 25,
+        backDelay: 2000
+      });
+    }
+
+    /* ========================================
+       PURECOUNTER
+    ======================================== */
+    new PureCounter();
+
+    /* ========================================
+       GLIGHTBOX
+    ======================================== */
+    GLightbox({ selector: '.glightbox' });
+    GLightbox({ selector: '.preview-link' });
+
+    /* ========================================
+       SKILLS PROGRESS (if present)
+    ======================================== */
+    var skillsContent = select('.skills-content');
+    if (skillsContent) {
+      new Waypoint({
+        element: skillsContent,
+        offset: '80%',
+        handler: function() {
+          var progress = select('.progress .progress-bar', true);
+          progress.forEach(function(el) {
+            el.style.width = el.getAttribute('aria-valuenow') + '%';
+          });
+        }
+      });
+    }
+
+    /* ========================================
+       ISOTOPE PORTFOLIO
+    ======================================== */
+    var isotopeLayouts = select('.isotope-layout', true);
+      isotopeLayouts.forEach(function(isotopeItem) {
+        var layout = isotopeItem.getAttribute('data-layout') || 'masonry';
+        var filter = isotopeItem.getAttribute('data-default-filter') || '*';
+        var sort = isotopeItem.getAttribute('data-sort') || 'original-order';
+
+        imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+          var initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+            itemSelector: '.isotope-item',
+            layoutMode: layout,
+            filter: filter,
+            sortBy: sort
+          });
+
+          var filtersEl = isotopeItem.querySelectorAll('.isotope-filters li');
+          filtersEl.forEach(function(filterEl) {
+            filterEl.addEventListener('click', function() {
+              isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+              this.classList.add('filter-active');
+              initIsotope.arrange({ filter: this.getAttribute('data-filter') });
+              if (typeof AOS !== 'undefined') { AOS.refresh(); }
+            });
+          });
+        });
+      });
+
+    /* ========================================
+       SWIPER INIT
+    ======================================== */
+    var swipers = select('.init-swiper', true);
+    swipers.forEach(function(swiperEl) {
+      var config = JSON.parse(swiperEl.querySelector('.swiper-config').innerHTML.trim());
+      new Swiper(swiperEl, config);
+    });
+
+    /* ========================================
+       FAQ TOGGLE
+    ======================================== */
+    on('click', '.faq-item h3, .faq-item .faq-toggle', function() {
+      var parent = this.closest('.faq-item');
+      parent.classList.toggle('faq-active');
+    }, true);
+
+    /* ========================================
+       INTERACTIVE CASE STUDY REVIEWS
+    ======================================== */
+    window.toggleReview = function(id) {
+      var review = document.getElementById('review-' + id);
+      if (!review) return;
+      var card = review.closest('.cs-interactive');
+      var allReviews = document.querySelectorAll('.cs-review');
+      var allCards = document.querySelectorAll('.cs-interactive');
+
+      if (review.classList.contains('show')) {
+        // Close this one
+        review.classList.remove('show');
+        card.classList.remove('active');
+        // Small bounce on close
+        card.style.transform = 'scale(0.98)';
+        setTimeout(function() { card.style.transform = ''; }, 200);
+      } else {
+        // Close all others first
+        allReviews.forEach(function(r) { r.classList.remove('show'); });
+        allCards.forEach(function(c) { c.classList.remove('active'); });
+        // Open this one
+        review.classList.add('show');
+        card.classList.add('active');
+        // Subtle scale pop
+        card.style.transform = 'scale(1.01)';
+        setTimeout(function() { card.style.transform = ''; }, 300);
+        // Smooth scroll so the review is visible
+        setTimeout(function() {
+          var reviewRect = review.getBoundingClientRect();
+          var cardRect = card.getBoundingClientRect();
+          if (reviewRect.bottom > window.innerHeight) {
+            window.scrollBy({ top: reviewRect.bottom - window.innerHeight + 40, behavior: 'smooth' });
+          }
+        }, 400);
+      }
+    };
+
+    // Auto-open first case study when section scrolls into view
+    var csObserved = false;
+    var csObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !csObserved) {
+          csObserved = true;
+          setTimeout(function() { toggleReview('apex'); }, 1000);
+        }
+      });
+    }, { threshold: 0.25 });
+    var csSection = document.getElementById('case-studies');
+    if (csSection) csObserver.observe(csSection);
+
+    /* ========================================
+       RESULT STAT COUNTER ANIMATION
+    ======================================== */
+    var statObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var stats = entry.target.querySelectorAll('.result-stat');
+          stats.forEach(function(stat, i) {
+            stat.style.opacity = '0';
+            stat.style.transform = 'translateY(10px)';
+            setTimeout(function() {
+              stat.style.transition = 'all 0.4s ease';
+              stat.style.opacity = '1';
+              stat.style.transform = 'translateY(0)';
+            }, 150 * i);
+          });
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.case-study-card').forEach(function(card) {
+      statObserver.observe(card);
+    });
+
+    /* ========================================
+       REVIEW CARD STAGGER ANIMATION
+    ======================================== */
+    var reviewCardObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var cards = entry.target.querySelectorAll('.review-card');
+          cards.forEach(function(card, i) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            setTimeout(function() {
+              card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 150 * i);
+          });
+          reviewCardObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    var reviewSection = document.getElementById('automation-reviews');
+    if (reviewSection) reviewCardObserver.observe(reviewSection);
+
+    /* ========================================
+       CTA SECTION PARALLAX-LIKE FADE
+    ======================================== */
+    var ctaSection = document.getElementById('cta-funnel');
+    if (ctaSection) {
+      var ctaObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var badges = ctaSection.querySelectorAll('.col-auto');
+            badges.forEach(function(badge, i) {
+              badge.style.opacity = '0';
+              badge.style.transform = 'scale(0.9)';
+              setTimeout(function() {
+                badge.style.transition = 'all 0.4s ease';
+                badge.style.opacity = '1';
+                badge.style.transform = 'scale(1)';
+              }, 200 * i);
+            });
+            ctaObserver.unobserve(ctaSection);
+          }
+        });
+      }, { threshold: 0.3 });
+      ctaObserver.observe(ctaSection);
+    }
+
+    /* ========================================
+       SMOOTH SCROLL FOR ALL ANCHOR LINKS
+    ======================================== */
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          var headerOffset = 70;
+          var elementPosition = target.getBoundingClientRect().top;
+          var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
+      });
+    });
+
+  }
+  // Trigger on load, or immediately if already loaded
+  if (document.readyState === 'complete') { initSite(); }
+  else { window.addEventListener('load', initSite); }
+  </script>
 
 </body>
 </html>
