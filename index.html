@@ -4,21 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Multimedia VA | Kenneth Pineda</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>AI Automation | GHL Admin | UGC Manager — Kenneth Pineda</title>
+  <meta name="description" content="I build AI automation systems, GoHighLevel CRM setups, and UGC pipelines that scale your business on autopilot. Based in the Philippines, working worldwide.">
+  <meta name="keywords" content="AI Automation, GoHighLevel, GHL Admin, UGC Manager, Make.com, Zapier, n8n, Video Editor, Funnel Builder, Kenneth Pineda">
   <meta name="google-site-verification" content="VwD_9sBjh02VcGQXnrvF34fww3khvC3IovmyEwG9GMs" />
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,1820 +25,1287 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
- 
 
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://multimediava.matomo.cloud/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src='https://cdn.matomo.cloud/multimediava.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
 
-
-<!-- Matomo -->
-
-
-
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://multimediava.matomo.cloud/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src='https://cdn.matomo.cloud/multimediava.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
-
-
-
-
+  <!-- Custom Overrides -->
+  <style>
+    .case-study-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 28px;
+      height: 100%;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .case-study-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    }
+    .case-study-card .client-name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .case-study-card .client-type {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 14px;
+    }
+    .case-study-card .problem-label,
+    .case-study-card .solution-label,
+    .case-study-card .result-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .case-study-card .problem-label { color: #dc2626; }
+    .case-study-card .solution-label { color: #2563eb; }
+    .case-study-card .result-label { color: #059669; }
+    .case-study-card p {
+      font-size: 13.5px;
+      color: #374151;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .result-stat {
+      display: inline-block;
+      background: #05966912;
+      color: #059669;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    .skill-tag {
+      display: inline-block;
+      background: #f3f4f6;
+      color: #374151;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin: 4px 4px 4px 0;
+    }
+    .about-highlight {
+      background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 40px;
+    }
+    .about-highlight h4 { color: #60a5fa; margin-bottom: 16px; }
+    .about-highlight p { color: #cbd5e1; line-height: 1.8; }
+    .about-highlight strong { color: #fff; }
+  </style>
 </head>
-
-
-
 
 <body class="index-page">
 
-<!-- Enter Button Overlay --> 
-<div id="enterOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#111; color:#fff; display:flex; align-items:center; justify-content:center; z-index:9999;">
-  <div style="text-align:center">
-    <h2 class="text-white fw-bold" style="font-size: 2.5rem; margin-bottom: 20px;">Welcome to Multimedia VA</h2>
-    <button onclick="enterSite()" class="btn btn-primary" style="font-size: 18px; padding: 12px 32px;">Enter</button>
-  </div>
-</div>
-
-
-<!-- Background Music -->
-<audio id="bgMusic" loop>
-  <source src="assets/audio/intro.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">KenFolio</h1>
+        <h1 class="sitename">Kenneth Pineda</h1>
       </a>
-
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home<br></a></li>
+          <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-         
+          <li><a href="#case-studies">Case Studies</a></li>
           <li><a href="#automation">Automation</a></li>
-              <li><a href="#contact">Contact</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
     </div>
   </header>
 
   <main class="main">
 
-    <!-- Hero Section -->
+    <!-- ============================
+         HERO SECTION
+    ============================= -->
     <section id="hero" class="hero section dark-background">
-
       <img src="assets/img/hero-img.jpg" alt="" data-aos="fade-in">
-
       <div class="container d-flex flex-column align-items-center justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
-        <h2>I Turn Raw Footage &amp; Clicks Into Revenue</h2>
-        <p><span class="typed" data-typed-items="Multimedia VA specializing in , UGC Manager, Creative Team Manager, AI Automation, AI Creative Specialist, Senior Video Editing, Product Listing, Product Research, Funnel Building, and Website Building"></span></p>
+        <h2>I Build AI Systems That Scale Your Business on Autopilot</h2>
+        <p><span class="typed" data-typed-items="AI Automation Specialist, GoHighLevel Admin, UGC Manager, Funnel Builder"></span></p>
       </div>
+    </section>
 
-    </section><!-- /Hero Section -->
 
-
-
-
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio section">
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Portfolio</h2>
-   <p>
-   Over the years, I’ve had the privilege of collaborating with clients globally through platforms like Upwork (formerly oDesk), LinkedIn, JobStreet, OnlineJobs.ph (OLJ), Fiverr, Facebook, and Instagram, delivering results across diverse industries.
-  </p>
-  
-  </div>
-
-  <div class="container">
-    <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-      <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-        <li data-filter="*" class="filter-active">All</li>
-        <li data-filter=".filter-longform">Long Form</li>
-        <li data-filter=".filter-reels">Short Reels</li>
-        <li data-filter=".filter-ugcvsl">UGC / VSL</li>
-        <li data-filter=".filter-ecommerce">eCommerce</li>
-        <li data-filter=".filter-web">Web Development</li>
-        <li data-filter=".filter-cert">Certificates</li>
-        <li data-filter=".filter-automation">Automation</li>
-      </ul>
-
-      <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-<!-- PLACEHOLDER: LongForm -->
-
-        <!-- v1: Syntell -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
-          <img src="assets/img/portfolio/v1.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Syntell Reaction">
-          <div class="portfolio-info">
-            <h4>Syntell – Reaction Edit</h4>
-            <p>Thoughtful long-form reaction edit for the Snatch channel featuring social commentary.</p>
-            <a href="https://www.youtube.com/watch?v=UFS_GOw8Fz8" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-
-        <!-- v2: Karriann Graf -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
-          <img src="assets/img/portfolio/v2.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Karriann Graf Real Estate">
-          <div class="portfolio-info">
-            <h4>Karriann Graf – Real Estate Showcase</h4>
-            <p>Elegant property walkthrough for Key West real estate channel with smooth transitions and color grading.</p>
-            <a href="https://www.youtube.com/watch?v=eptpE_zLsWM" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-
-        <!-- v3: DonTownSend -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
-          <img src="assets/img/portfolio/v3.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="DonTownSend Anime Reaction">
-          <div class="portfolio-info">
-            <h4>DonTownSend – Anime Reaction Edit</h4>
-            <p>Dynamic long-form anime commentary featuring Naruto content edited with jump cuts and overlays.</p>
-            <a href="https://www.youtube.com/watch?v=52zIDY982RE" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-
-        <!-- v4: Cinemamosaic -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
-          <img src="assets/img/portfolio/v4.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Cinemamosaic Korean Reaction">
-          <div class="portfolio-info">
-            <h4>Cinemamosaic – K-Drama Reaction</h4>
-            <p>Artistic reaction video edit to Korean film “The Witch” with cinematic transitions and subtitles.</p>
-            <a href="https://www.youtube.com/watch?v=8FrteAIrNjo" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-
-        <!-- v5: The Nootropic Reviewer -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
-          <img src="assets/img/portfolio/v5.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Ashwagandha Video">
-          <div class="portfolio-info">
-            <h4>The Nootropic Reviewer – Ashwagandha Breakdown</h4>
-            <p>Educational explainer with motion text and infographics tailored for supplement marketing.</p>
-            <a href="https://www.youtube.com/watch?v=N45U4efZU1k" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-
-        <!-- v6: SunnyVlog -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
-          <img src="assets/img/portfolio/v6.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="SunnyVlog">
-          <div class="portfolio-info">
-            <h4>SunnyVlog – Cinematic Vlog Edit</h4>
-            <p>Travel vlog with ambient audio mixing, soft color tones, and documentary-style editing.</p>
-            <a href="https://www.youtube.com/watch?v=IIocKc8-J_0" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-
-        <!-- v7: Alux -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
-          <img src="assets/img/portfolio/v7.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Alux Infographic">
-          <div class="portfolio-info">
-            <h4>Alux – Infographic Explainer</h4>
-            <p>Minimalist infographic video with voice-over sync and animated transitions for the Alux channel.</p>
-            <a href="https://www.youtube.com/watch?v=2kYQJfyXUSA" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-
-<!-- PLACEHOLDER: Short -->
-
-<!-- Motivational Infographic Short – Patricia Bartell -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reels">
-  <img src="assets/img/portfolio/V8.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Patricia Bartell Reel">
-  <div class="portfolio-info">
-    <h4>Motivational Infographic Reel – Patricia Bartell</h4>
-    <p>Visually-driven music education reel designed to inspire and engage through dynamic text and transitions.</p>
-    <a href="https://www.instagram.com/reel/CzguExMrfwm/" target="_blank" rel="noopener" title="Watch Reel">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-  </div>
-</div>
-
-<!-- Short Funny Vlog – Kristin and Jamil -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reels">
-  <img src="assets/img/portfolio/V9.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Kristin and Jamil Funny Vlog">
-  <div class="portfolio-info">
-    <h4>Couple Comedy Shorts – Kristin and Jamil</h4>
-    <p>Entertaining relationship-based vlogs edited for humor, pacing, and vertical engagement on YouTube Shorts.</p>
-    <a href="https://www.youtube.com/shorts/E1O5HlU3n0s" target="_blank" rel="noopener" title="Watch Short">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-  </div>
-</div>
-
-<!-- Sports Betting Reels – PickCity HQ -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reels">
-  <img src="assets/img/portfolio/V11.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="PickCity HQ Sports Betting Reel">
-  <div class="portfolio-info">
-    <h4>Sports Betting Highlights – PickCity HQ</h4>
-    <p>Fast-paced Instagram reels promoting betting tips, match insights, and sports commentary designed for vertical viewing.</p>
-    <a href="https://www.instagram.com/reel/C0LHTcYNj4d/" target="_blank" rel="noopener" title="Watch Reel">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-  </div>
-</div>
-
-
-<!-- Informative Reel – Alex Hormozi -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reels">
-  <img src="assets/img/portfolio/V12.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Alex Hormozi Informative Reel">
-  <div class="portfolio-info">
-    <h4>Informative Business Reel – Alex Hormozi</h4>
-    <p>Snappy and persuasive TikTok clip featuring bold typography and cuts aligned with high-value entrepreneurial tips.</p>
-    <a href="https://www.tiktok.com/@ahormozi/video/7214640487314099499?lang=en" target="_blank" rel="noopener" title="Watch Reel">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-  </div>
-</div>
-
-<!-- Anime Reaction Short – AnimentOG -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reels">
-  <img src="assets/img/portfolio/V10.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="AnimentOG Anime Reel">
-  <div class="portfolio-info">
-    <h4>Anime Reaction Short – AnimentOG</h4>
-    <p>Stylized short form featuring anime moments, reaction cuts, and pacing tailored for a niche fanbase on YouTube Shorts.</p>
-    <a href="https://www.youtube.com/shorts/a_drQiiUEpY" target="_blank" rel="noopener" title="Watch Reel">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-  </div>
-</div>
-
-
-
-
-
-<!-- PLACEHOLDER: eCommerce -->
-
-
-<!-- Tobywanshinobi Website -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
-  <img src="assets/img/web/web3.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="JKL Grillhouse Website">
-  <div class="portfolio-info">
-    <h4>TobyWanShinobi – Merch Website</h4>
-    <p>Modern website for selling merch and training videos and subscriptions.</p>
-    <a href="assets/img/web/fullpage3.png" title="Preview" class="glightbox preview-link" style="margin-right:10px;">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-    <a href="https://tobywanshinobi.com/" target="_blank" rel="noopener noreferrer" title="Visit Site">
-      Visit Site
-    </a>
-  </div>
-</div>
-
-
-<!-- Floral Website -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
-  <img src="assets/img/web/web4.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="JKL Grillhouse Website">
-  <div class="portfolio-info">
-    <h4>Floral – Hana Florist POS Website</h4>
-    <p>Fresh floral arrangements, plants, and gifts for all occasions..</p>
-    <a href="assets/img/web/fullpage4.png" title="Preview" class="glightbox preview-link" style="margin-right:10px;">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-    <a href="https://www.smithfloral.com/" target="_blank" rel="noopener noreferrer" title="Visit Site">
-      Visit Site
-    </a>
-  </div>
-</div>
-
-<!-- SunnyVlog Merch Store -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
-  <img src="assets/img/web/web5.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="SunnyVlog Merch Store">
-  <div class="portfolio-info">
-    <h4>SunnyVlog – Creator Spring Merch</h4>
-    <p>Branded merch store for lifestyle YouTuber SunnyVlog, featuring apparel and accessories integrated via Spring (formerly Teespring).</p>
-    <a href="assets/img/web/fullpage5.png" title="Preview" class="glightbox preview-link" style="margin-right:10px;">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-    <a href="https://sunnystore.creator-spring.com/" target="_blank" rel="noopener noreferrer" title="Visit Site">
-      Visit Site
-    </a>
-  </div>
-</div>
-
-<!-- MonochromaticFinds – Etsy to Shopify Migration -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
-  <img src="assets/img/web/web6.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="MonochromaticFinds Product Listing">
-  <div class="portfolio-info">
-    <h4>MonochromaticFinds – Etsy to Shopify</h4>
-    <p>Migrated handcrafted minimalist decor listings from Etsy to Shopify, including optimized titles, descriptions, tags, and product imagery.</p>
-    <a href="assets/img/web/fullpage6.png" title="Preview" class="glightbox preview-link" style="margin-right:10px;">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-    <a href="https://www.etsy.com/shop/Monochromaticfinds" target="_blank" rel="noopener noreferrer" title="Visit Site">
-      Visit Site
-    </a>
-  </div>
-</div>
-
-
-
-
-<!-- PLACEHOLDER: Web Development -->
-
-
-<!-- Multimedia VA Site -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-  <img src="assets/img/web/web1.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="MultimediaVA Website">
-  <div class="portfolio-info">
-    <h4>MultimediaVA – Portfolio Website</h4>
-    <p>Professional service site for showcasing video editing, eCommerce, and creative services.</p>
-    <a href="assets/img/web/fullpage1.png" title="Preview" class="glightbox preview-link" style="margin-right:10px;">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-    <a href="https://www.multimediava.com" target="_blank" rel="noopener noreferrer" title="Visit Site">
-      Visit Site
-    </a>
-  </div>
-</div>
-
-<!-- JKL Grillhouse Website -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-  <img src="assets/img/web/web2.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="JKL Grillhouse Website">
-  <div class="portfolio-info">
-    <h4>JKL Grillhouse – Restaurant Website</h4>
-    <p>Modern website for a Samgyupsal restaurant including menu, reservation, and contact features.</p>
-    <a href="assets/img/web/fullpage2.png" title="Preview" class="glightbox preview-link" style="margin-right:10px;">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-    <a href="https://jklgrillhouse.com/" target="_blank" rel="noopener noreferrer" title="Visit Site">
-      Visit Site
-    </a>
-  </div>
-</div>
-
-<!-- Tobywanshinobi Website -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-  <img src="assets/img/web/web3.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="JKL Grillhouse Website">
-  <div class="portfolio-info">
-    <h4>TobyWanShinobi – Merch Website</h4>
-    <p>Modern website for selling merch and training videos and subscriptions.</p>
-    <a href="assets/img/web/fullpage3.png" title="Preview" class="glightbox preview-link" style="margin-right:10px;">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-    <a href="https://tobywanshinobi.com/" target="_blank" rel="noopener noreferrer" title="Visit Site">
-      Visit Site
-    </a>
-  </div>
-</div>
-
-
-<!-- Floral Website -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-  <img src="assets/img/web/web4.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="JKL Grillhouse Website">
-  <div class="portfolio-info">
-    <h4>Floral – Hana Florist POS Website</h4>
-    <p>Fresh floral arrangements, plants, and gifts for all occasions..</p>
-    <a href="assets/img/web/fullpage4.png" title="Preview" class="glightbox preview-link" style="margin-right:10px;">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-    <a href="https://www.smithfloral.com/" target="_blank" rel="noopener noreferrer" title="Visit Site">
-      Visit Site
-    </a>
-  </div>
-</div>
-
-
-
-
-
-<!-- PLACEHOLDER: Certificates -->
-
-
-
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cert"> 
-  <img src="assets/img/certificate/ecom.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Shopify Certificate">
-  <div class="portfolio-info">
-    <h4>Shopify eCommerce & Dropshipping Training</h4>
-    <p>Completed online course covering product research, product listing, Shopify store setup, and dropshipping fulfillment strategies.</p>
-    <a href="assets/img/certificate/Ecom.png" data-gallery="certificates" class="glightbox preview-link" title=""">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-  </div>
-</div>
-
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cert"> 
-  <img src="assets/img/certificate/seo.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="SEO Optimization Certificate">
-  <div class="portfolio-info">
-    <h4>Search Engine Optimization (SEO) Training</h4>
-    <p>Completed a comprehensive SEO course focused on keyword research, on-page optimization, link-building strategies, and analytics for improving website visibility and search engine rankings.</p>
-    <a href="assets/img/certificate/seo.png" data-gallery="certificates" class="glightbox preview-link" title="View SEO Certificate">
-      <i class="bi bi-zoom-in"></i>
-    </a>
-  </div>
-</div>
-
-
-
-
-
-
-
-      
-      <!-- Automation Items -->
-      <!-- Automation Portfolio Items -->
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="100">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v1.jpg" class="img-fluid" alt="Client Onboarding Workflow ($300–$800)">
-          <div class="portfolio-info">
-            <h4>Client Onboarding Workflow ($300–$800)</h4>
-            <p>Auto-sends welcome emails, creates Google Drive folders and Trello boards the moment a new client pays. Built with Make or Zapier — zero manual setup needed.</p>
-            <a href="assets/img/portfolio/v1.jpg" title="Client Onboarding Workflow ($300–$800)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="200">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v2.jpg" class="img-fluid" alt="Content Repurposing Pipeline ($400–$1,200)">
-          <div class="portfolio-info">
-            <h4>Content Repurposing Pipeline ($400–$1,200)</h4>
-            <p>Clips long-form YouTube videos into Shorts and Reels automatically, then schedules them across TikTok, Instagram, and YouTube — saving 10+ hours per week.</p>
-            <a href="assets/img/portfolio/v2.jpg" title="Content Repurposing Pipeline ($400–$1,200)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="300">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v3.jpg" class="img-fluid" alt="Lead Capture to CRM ($300–$800)">
-          <div class="portfolio-info">
-            <h4>Lead Capture to CRM ($300–$800)</h4>
-            <p>Connects contact forms to Google Sheets, Notion, or GHL automatically. Every lead tagged, stored, and followed up on autopilot — no lead ever falls through the cracks.</p>
-            <a href="assets/img/portfolio/v3.jpg" title="Lead Capture to CRM ($300–$800)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="400">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v4.jpg" class="img-fluid" alt="Shopify Order Automation ($500–$1,500)">
-          <div class="portfolio-info">
-            <h4>Shopify Order Automation ($500–$1,500)</h4>
-            <p>Automates inventory alerts, order confirmations, and product listing updates for Shopify stores using Zapier and Make — synced across multiple sales channels.</p>
-            <a href="assets/img/portfolio/v4.jpg" title="Shopify Order Automation ($500–$1,500)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="500">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v5.jpg" class="img-fluid" alt="GoHighLevel Full CRM Setup ($800–$2,500)">
-          <div class="portfolio-info">
-            <h4>GoHighLevel Full CRM Setup ($800–$2,500)</h4>
-            <p>Complete GHL buildout: custom pipelines, SMS/email sequences, missed-call text-back, appointment booking funnels, and reputation management on autopilot.</p>
-            <a href="assets/img/portfolio/v5.jpg" title="GoHighLevel Full CRM Setup ($800–$2,500)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="600">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v6.jpg" class="img-fluid" alt="Fanbasis Monetization System ($500–$1,500)">
-          <div class="portfolio-info">
-            <h4>Fanbasis Monetization System ($500–$1,500)</h4>
-            <p>Converts social followers into paying fans via automated DM funnels, exclusive content drips, upsell triggers on engagement events, and fan retention sequences.</p>
-            <a href="assets/img/portfolio/v6.jpg" title="Fanbasis Monetization System ($500–$1,500)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="700">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v7.jpg" class="img-fluid" alt="AI-Powered Sales Pipeline ($800–$2,000)">
-          <div class="portfolio-info">
-            <h4>AI-Powered Sales Pipeline ($800–$2,000)</h4>
-            <p>AI scores leads, routes hot prospects via Slack, auto-schedules discovery calls in Calendly, and triggers personalized GHL follow-up sequences — zero manual touchpoints.</p>
-            <a href="assets/img/portfolio/v7.jpg" title="AI-Powered Sales Pipeline ($800–$2,000)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="100">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/V8.jpg" class="img-fluid" alt="YouTube Channel Autopilot ($500–$1,500)">
-          <div class="portfolio-info">
-            <h4>YouTube Channel Autopilot ($500–$1,500)</h4>
-            <p>New upload → Whisper AI transcribes → GPT-4 writes SEO title/description → Canva API generates thumbnail → clips auto-posted to TikTok, Reels, Shorts.</p>
-            <a href="assets/img/portfolio/V8.jpg" title="YouTube Channel Autopilot ($500–$1,500)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="200">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/V9.jpg" class="img-fluid" alt="eCommerce Revenue Recovery ($600–$1,800)">
-          <div class="portfolio-info">
-            <h4>eCommerce Revenue Recovery ($600–$1,800)</h4>
-            <p>Abandoned cart triggers 3-step SMS + email recovery via Klaviyo + Twilio. Auto-applies discount codes at step 3 and logs all recovered revenue to a live dashboard.</p>
-            <a href="assets/img/portfolio/V9.jpg" title="eCommerce Revenue Recovery ($600–$1,800)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="300">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/V10.jpg" class="img-fluid" alt="AI Customer Support Bot ($1,000–$3,000)">
-          <div class="portfolio-info">
-            <h4>AI Customer Support Bot ($1,000–$3,000)</h4>
-            <p>GPT-4 chatbot trained on your docs and tickets. Deployed on website + Facebook Messenger — resolves 80% of tickets automatically, escalates the rest via GHL.</p>
-            <a href="assets/img/portfolio/V10.jpg" title="AI Customer Support Bot ($1,000–$3,000)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="400">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/V11.jpg" class="img-fluid" alt="Real Estate Lead Machine ($700–$2,000)">
-          <div class="portfolio-info">
-            <h4>Real Estate Lead Machine ($700–$2,000)</h4>
-            <p>Scrapes MLS listings, AI writes personalized outreach, sends via GHL SMS/email sequences, and pushes warm leads into a CRM pipeline with auto follow-up reminders.</p>
-            <a href="assets/img/portfolio/V11.jpg" title="Real Estate Lead Machine ($700–$2,000)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="500">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/V12.jpg" class="img-fluid" alt="Agency Fulfillment System ($1,200–$3,500)">
-          <div class="portfolio-info">
-            <h4>Agency Fulfillment System ($1,200–$3,500)</h4>
-            <p>New client payment → DocuSign contract + ClickUp board + Slack channel + Google Drive folders + GHL onboarding — full white-label ops in under 3 minutes.</p>
-            <a href="assets/img/portfolio/V12.jpg" title="Agency Fulfillment System ($1,200–$3,500)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="600">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v1.jpg" class="img-fluid" alt="Social Media Content Engine ($500–$1,500)">
-          <div class="portfolio-info">
-            <h4>Social Media Content Engine ($500–$1,500)</h4>
-            <p>Pulls trending topics from Google Trends + Reddit → GPT-4 writes posts → DALL-E generates visuals → auto-schedules 30 days of content across all platforms.</p>
-            <a href="assets/img/portfolio/v1.jpg" title="Social Media Content Engine ($500–$1,500)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="700">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v2.jpg" class="img-fluid" alt="AI Blog &amp; SEO Engine ($700–$2,000)">
-          <div class="portfolio-info">
-            <h4>AI Blog &amp; SEO Engine ($700–$2,000)</h4>
-            <p>Ahrefs keyword research → GPT-4 writes SEO blog posts → auto-published to WordPress/Webflow → internal links injected → submitted to Google Search Console.</p>
-            <a href="assets/img/portfolio/v2.jpg" title="AI Blog &amp; SEO Engine ($700–$2,000)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="100">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v3.jpg" class="img-fluid" alt="Podcast Production Pipeline ($600–$1,800)">
-          <div class="portfolio-info">
-            <h4>Podcast Production Pipeline ($600–$1,800)</h4>
-            <p>Upload raw audio → Whisper AI transcribes → editor queue notified → GPT-4 writes show notes + timestamps → auto-published to Spotify, Apple Podcasts, YouTube.</p>
-            <a href="assets/img/portfolio/v3.jpg" title="Podcast Production Pipeline ($600–$1,800)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="200">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v4.jpg" class="img-fluid" alt="Multi-Store Inventory Sync ($900–$2,500)">
-          <div class="portfolio-info">
-            <h4>Multi-Store Inventory Sync ($900–$2,500)</h4>
-            <p>Real-time sync across Shopify, Amazon, Etsy, and eBay. Auto-pauses listings at zero stock, reactivates on restock, syncs pricing, and alerts via Slack.</p>
-            <a href="assets/img/portfolio/v4.jpg" title="Multi-Store Inventory Sync ($900–$2,500)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="300">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v5.jpg" class="img-fluid" alt="Influencer Outreach Automation ($800–$2,500)">
-          <div class="portfolio-info">
-            <h4>Influencer Outreach Automation ($800–$2,500)</h4>
-            <p>Apify scrapes Instagram/TikTok by niche, GPT-4 writes personalized DMs, Phantombuster sends at scale, Airtable tracks all replies and auto-follows up after 3 days.</p>
-            <a href="assets/img/portfolio/v5.jpg" title="Influencer Outreach Automation ($800–$2,500)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation" data-aos="fade-up" data-aos-delay="500">
-        <div class="portfolio-content h-100">
-          <img src="assets/img/portfolio/v7.jpg" class="img-fluid" alt="Cold Outreach B2B System ($1,000–$3,500)">
-          <div class="portfolio-info">
-            <h4>Cold Outreach B2B System ($1,000–$3,500)</h4>
-            <p>Apollo/LinkedIn scraping → Clearbit enrichment → GPT-4 hyper-personalized cold emails → Instantly.ai delivery → replies auto-routed to GHL CRM with tagging.</p>
-            <a href="assets/img/portfolio/v7.jpg" title="Cold Outreach B2B System ($1,000–$3,500)" data-gallery="portfolio-gallery-automation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          </div>
-        </div>
-      </div>
-
-      </div><!-- End Portfolio Row -->
-    </div><!-- End Isotope Layout -->
-  </div><!-- End Container -->
-</section>
-<!-- /Portfolio Section -->
-
-
-
-
-
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const filterButtons = document.querySelectorAll(".portfolio__filter li");
-    const filters = Array.from(filterButtons).map(btn => btn.getAttribute("data-filter"));
-    let currentIndex = 0;
-
-    function applyFilter(index) {
-      filterButtons.forEach(btn => btn.classList.remove("active"));
-      const selectedFilter = filters[index];
-      document.querySelector(`.portfolio__filter li[data-filter="${selectedFilter}"]`).classList.add("active");
-
-      // Apply the filter to items
-      const items = document.querySelectorAll(".portfolio__gallery .mix");
-      items.forEach(item => {
-        if (selectedFilter === "*" || item.classList.contains(selectedFilter.substring(1))) {
-          item.style.display = "block";
-        } else {
-          item.style.display = "none";
-        }
-      });
-    }
-
-    document.getElementById("nextFilter").addEventListener("click", function (e) {
-      e.preventDefault();
-      currentIndex = (currentIndex + 1) % filters.length;
-      applyFilter(currentIndex);
-    });
-
-    document.getElementById("prevFilter").addEventListener("click", function (e) {
-      e.preventDefault();
-      currentIndex = (currentIndex - 1 + filters.length) % filters.length;
-      applyFilter(currentIndex);
-    });
-
-    // Initialize
-    applyFilter(currentIndex);
-  });
-
-  document.getElementById("nextFilter").addEventListener("click", function (e) {
-  e.preventDefault();
-  currentIndex = (currentIndex + 1) % filters.length;
-  applyFilter(currentIndex);
-  document.querySelector("#portfolio").scrollIntoView({ behavior: "smooth" });
-});
-
-document.getElementById("prevFilter").addEventListener("click", function (e) {
-  e.preventDefault();
-  currentIndex = (currentIndex - 1 + filters.length) % filters.length;
-  applyFilter(currentIndex);
-  document.querySelector("#portfolio").scrollIntoView({ behavior: "smooth" });
-});
-
-
-</script>
-
-
-<!-- Services Section -->
-<section id="services" class="services section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Services</h2>
-    <p>Creative solutions tailored to help content creators, brands, and businesses grow through powerful visuals and streamlined support.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-    <div class="row gy-4">
-
-      <!-- YouTube & Social Video Editing -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-scissors"></i></div>
-          <h3>YouTube & Short-Form Video Editing</h3>
-          <p>High-retention edits for YouTube, TikTok, Reels, and Shorts. Optimized pacing, subtitles, effects, and storytelling tailored for your audience.</p>
-        </div>
-      </div>
-
-      <!-- Reaction & Content Repurposing -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-camera-reels"></i></div>
-          <h3>Reaction Content & Repurposing</h3>
-          <p>Turn long-form videos into engaging short clips. Perfect for creators like @Syntell and @DonTownsend focused on reactions and commentary.</p>
-        </div>
-      </div>
-
-      <!-- eCommerce Video & Product Listing -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-bag-check"></i></div>
-          <h3>eCommerce Product Videos & Listings</h3>
-          <p>Product video creation and Shopify listing support. SEO descriptions, title formatting, and image prep for small brands and stores.</p>
-        </div>
-      </div>
-
-      <!-- Content Management & Virtual Support -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-layout-text-window-reverse"></i></div>
-          <h3>Content Scheduling & Virtual Assistance</h3>
-          <p>Upload management, thumbnail creation, scheduling, and platform organization so you can focus on content creation, not logistics.</p>
-        </div>
-      </div>
-
-      <!-- Graphic Design & Thumbnails -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-brush"></i></div>
-          <h3>Thumbnail & Visual Design</h3>
-          <p>Custom thumbnails, overlays, and graphic assets using Canva and Photoshop. Clean, scroll-stopping visuals tailored to your niche.</p>
-        </div>
-      </div>
-
-      <!-- Technical Support & File Management -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-wrench-adjustable-circle"></i></div>
-          <h3>Tech Support & File Organization</h3>
-          <p>Light IT support, cloud file management, folder structuring, and project backups. Keep your creative assets streamlined and accessible.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section><!-- /Services Section -->
-
-
-
-    <!-- Automation Section -->
-    <section id="automation" class="services section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Automation &amp; Workflows</h2>
-    <p>End-to-end automation systems built on Make, Zapier, n8n, GoHighLevel, and Fanbasis — eliminating repetitive tasks, saving 10–40+ hours per week, and scaling your business on autopilot.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <div class="row gy-4">
-
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-robot" style="font-size:2rem;color:#2563eb;"></i>
-              </div>
-              <span style="display:inline-block;background:#2563eb18;color:#2563eb;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$300–$800</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Client Onboarding Workflow</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Payment received → Welcome email sent → Google Drive folder created → Trello board setup → Slack notification. Client fully onboarded in under 60 seconds, zero manual steps.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-arrow-repeat" style="font-size:2rem;color:#7c3aed;"></i>
-              </div>
-              <span style="display:inline-block;background:#7c3aed18;color:#7c3aed;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$400–$1,200</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Content Repurposing Pipeline</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">YouTube upload → AI clips into Shorts/Reels → Formats converted → Auto-scheduled → Posted across TikTok, Instagram & YouTube Shorts. Saves 10+ hours every week.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-graph-up-arrow" style="font-size:2rem;color:#059669;"></i>
-              </div>
-              <span style="display:inline-block;background:#05966918;color:#059669;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$300–$800</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Lead Capture to CRM</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Form submitted → Lead tagged by source → CRM entry created in GHL/Notion → Auto follow-up email triggered → Team notified via Slack. No lead ever falls through the cracks.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-bag-check" style="font-size:2rem;color:#dc2626;"></i>
-              </div>
-              <span style="display:inline-block;background:#dc262618;color:#dc2626;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$500–$1,500</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Shopify Order Automation</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Order placed → Inventory updated → Confirmation email sent → Fulfillment triggered → Review request sent post-delivery. Synced across all sales channels in real time.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-funnel" style="font-size:2rem;color:#d97706;"></i>
-              </div>
-              <span style="display:inline-block;background:#d9770618;color:#d97706;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$800–$2,500</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">GoHighLevel Full CRM Setup</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Lead enters → Pipeline stage assigned → SMS sequence fires → Email drip activates → Booking auto-triggered. Full missed-call text-back and reputation management included.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-person-hearts" style="font-size:2rem;color:#db2777;"></i>
-              </div>
-              <span style="display:inline-block;background:#db277718;color:#db2777;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$500–$1,500</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Fanbasis Monetization System</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">New follower → DM funnel starts → Exclusive content drip delivered → Upsell triggered on engagement → Retention sequence runs. Fans stay active and paying long-term.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-lightning-charge" style="font-size:2rem;color:#0891b2;"></i>
-              </div>
-              <span style="display:inline-block;background:#0891b218;color:#0891b2;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$800–$2,000</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">AI-Powered Sales Pipeline</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">AI scores and qualifies leads → Hot leads routed via Slack → Calendly invite auto-sent → GHL follow-up post-call → Deal closed. Zero manual qualification needed.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-play-circle" style="font-size:2rem;color:#ea580c;"></i>
-              </div>
-              <span style="display:inline-block;background:#ea580c18;color:#ea580c;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$500–$1,500</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">YouTube Channel Autopilot</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Video uploaded → Whisper AI transcribes → GPT-4 writes SEO copy → Canva API generates thumbnail → Clips auto-posted to TikTok, Reels & Shorts. Fully hands-free.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-cart-x" style="font-size:2rem;color:#16a34a;"></i>
-              </div>
-              <span style="display:inline-block;background:#16a34a18;color:#16a34a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$600–$1,800</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">eCommerce Revenue Recovery</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Cart abandoned → SMS #1 at 1hr → Email #2 at 24hr → Discount code applied at step 3 → Purchase recovered and revenue logged in a live recovery dashboard.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-headset" style="font-size:2rem;color:#7c3aed;"></i>
-              </div>
-              <span style="display:inline-block;background:#7c3aed18;color:#7c3aed;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$1,000–$3,000</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">AI Customer Support Bot</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Message received → GPT-4 processes against your docs → 80% of tickets auto-resolved instantly → Complex cases escalated via GHL → Everything logged in dashboard.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-house-gear" style="font-size:2rem;color:#0369a1;"></i>
-              </div>
-              <span style="display:inline-block;background:#0369a118;color:#0369a1;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$700–$2,000</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Real Estate Lead Machine</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">MLS new listing scraped → AI writes personalized outreach → GHL SMS + email sequence fires → Engagement tracked → Warm leads pushed to pipeline with auto follow-ups.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-briefcase" style="font-size:2rem;color:#b45309;"></i>
-              </div>
-              <span style="display:inline-block;background:#b4530918;color:#b45309;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$1,200–$3,500</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Agency Fulfillment System</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Client pays → DocuSign contract sent → ClickUp board created → Slack channel opened → Google Drive + GHL configured. Full white-label ops live in under 3 minutes.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-megaphone" style="font-size:2rem;color:#be185d;"></i>
-              </div>
-              <span style="display:inline-block;background:#be185d18;color:#be185d;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$500–$1,500</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Social Media Content Engine</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Trend detected → GPT-4 writes platform posts → DALL-E generates visuals → 30-day calendar built → Auto-posted to LinkedIn, Instagram, Facebook & X daily.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-pen" style="font-size:2rem;color:#0f766e;"></i>
-              </div>
-              <span style="display:inline-block;background:#0f766e18;color:#0f766e;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$700–$2,000</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">AI Blog & SEO Engine</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Ahrefs keyword research → GPT-4 writes full SEO article → Internal links injected → Auto-published to WordPress/Webflow → Submitted to Google Search Console weekly.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-mic" style="font-size:2rem;color:#9333ea;"></i>
-              </div>
-              <span style="display:inline-block;background:#9333ea18;color:#9333ea;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$600–$1,800</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Podcast Production Pipeline</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Raw audio uploaded → Whisper AI transcribes → GPT-4 writes show notes + timestamps → Editor queue notified → Auto-published to Spotify, Apple Podcasts & YouTube.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-box-seam" style="font-size:2rem;color:#0369a1;"></i>
-              </div>
-              <span style="display:inline-block;background:#0369a118;color:#0369a1;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$900–$2,500</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Multi-Store Inventory Sync</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Stock changes → Real-time sync across Shopify, Amazon, Etsy & eBay → Low stock pauses listing → Restock reactivates it → Slack alert sent on any discrepancy.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-person-check" style="font-size:2rem;color:#c026d3;"></i>
-              </div>
-              <span style="display:inline-block;background:#c026d318;color:#c026d3;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$800–$2,500</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Influencer Outreach Automation</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Apify scrapes by niche + follower count → GPT-4 writes personalized DMs → Phantombuster sends at scale → Airtable tracks replies → Auto follow-up on day 3.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
-              <div class="icon" style="margin-bottom:12px;">
-                <i class="bi bi-mortarboard" style="font-size:2rem;color:#d97706;"></i>
-              </div>
-              <span style="display:inline-block;background:#d9770618;color:#d97706;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$1,000–$3,500</span>
-              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Cold Outreach B2B System</h3>
-              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Apollo/LinkedIn scraped → Clearbit enriches data → GPT-4 personalizes cold emails → Instantly.ai delivers → Replies auto-routed to GHL CRM with tags and follow-up.</p>
-            </div>
-          </div>
-    </div>
-  </div>
-
-</section><!-- End Automation Section -->
-
-<section id="contact" class="contact section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>Let’s bring your project to life reach out for inquiries, collaborations, or just to say hi!</p>
-  </div><!-- End Section Title -->
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
-      <div class="row gy-5">
-
-        <div class="col-lg-4">
-          <div class="info-item d-flex align-items-center">
-            <i class="bi bi-geo-alt flex-shrink-0"></i>
-            <div>
-              <h3>Address</h3>
-              <p>Philippines (Remote Worldwide)</p>
-            </div>
-          </div>
-        </div><!-- End Info Item -->
-
-        <div class="col-lg-4">
-          <div class="info-item d-flex align-items-center">
-            <i class="bi bi-telephone flex-shrink-0"></i>
-            <div>
-              <h3>Call Us</h3>
-              <p>+63 967-210-3519</p>
-            </div>
-          </div>
-        </div><!-- End Info Item -->
-
-        <div class="col-lg-4">
-          <div class="info-item d-flex align-items-center">
-            <i class="bi bi-envelope flex-shrink-0"></i>
-            <div>
-              <h3>Email Us</h3>
-              <p>multimediavirtualassistant@gmail.com</p>
-            </div>
-          </div>
-        </div><!-- End Info Item -->
-
-      </div>
-    </div>
-
-    <!-- Form with new style -->
-    <div class="row justify-content-center mt-5">
-      <div class="col-lg-8">
-        <form action="https://formspree.io/f/xzzrgoeo" method="POST" class="p-4 bg-light rounded shadow">
-          <div class="row g-3">
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-            </div>
-            <div class="col-md-6">
-              <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-            </div>
-            <div class="col-12">
-              <input type="text" name="subject" class="form-control" placeholder="Subject" required>
-            </div>
-            <div class="col-12">
-              <textarea name="message" class="form-control" rows="6" placeholder="Your Message" required></textarea>
-            </div>
-            <div class="col-12 text-center">
-              <button type="submit" class="btn btn-primary px-5 mt-3">Send Message</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-
-  </div>
-
-</section><!-- /Contact Section -->
-
-
-
-    <!-- About Section -->
+    <!-- ============================
+         ABOUT SECTION (Rewritten)
+    ============================= -->
     <section id="about" class="about section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
+
           <div class="col-md-6">
-    
             <div class="row justify-content-between gy-4">
               <div class="col-lg-5">
                 <img src="assets/img/profile-img.jpg" class="img-fluid rounded-3" alt="Kenneth Pineda">
               </div>
               <div class="col-lg-7 about-info">
                 <p><strong>Name: </strong> <span>Kenneth Pineda</span></p>
-                <p><strong>Profile: </strong> <span>Multimedia Virtual Assistant</span></p>
+                <p><strong>Role: </strong> <span>AI Automation | GHL Admin | UGC Manager</span></p>
                 <p><strong>Email: </strong> <span>multimediavirtualassistant@gmail.com</span></p>
                 <p><strong>Phone: </strong> <span>(+63) 967-210-3519</span></p>
+                <p><strong>Location: </strong> <span>Philippines (Remote Worldwide)</span></p>
               </div>
             </div>
-    
-            <div class="skills-content skills-animation">
-              <h5>Skills</h5>
-    
-              <div class="progress">
-                <span class="skill"><span>Video Editing (Premiere, CapCut , Davinci Resolve)</span> <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-    
-              <div class="progress">
-                <span class="skill"><span>Web Development (HTML, CSS, GitHub Pages)</span> <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-    
-              <div class="progress">
-                <span class="skill"><span>eCommerce (Shopify, Amazon)</span> <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress">
-                <span class="skill"><span>AI Automation Specialist (Make, Zapier, n8n, GHL)</span> <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
 
-              <div class="progress">
-                <span class="skill"><span>UGC / VSL Manager</span> <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill"><span>Social Media Management</span> <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill"><span>GoHighLevel (GHL) &amp; Fanbasis</span> <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-    
-              <div class="progress">
-                <span class="skill"><span>Content Repurposing & Design</span> <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
+            <!-- Skills as tags instead of 100% bars -->
+            <div class="mt-4">
+              <h5 class="mb-3">Core Skills</h5>
+              <span class="skill-tag">GoHighLevel (GHL)</span>
+              <span class="skill-tag">Make.com</span>
+              <span class="skill-tag">Zapier</span>
+              <span class="skill-tag">n8n</span>
+              <span class="skill-tag">API Integrations</span>
+              <span class="skill-tag">Funnel Building</span>
+              <span class="skill-tag">CRM Setup</span>
+              <span class="skill-tag">AI Workflows</span>
+              <span class="skill-tag">UGC Management</span>
+              <span class="skill-tag">VSL Editing</span>
+              <span class="skill-tag">D2C Ads</span>
+              <span class="skill-tag">Premiere Pro</span>
+              <span class="skill-tag">After Effects</span>
+              <span class="skill-tag">CapCut</span>
+              <span class="skill-tag">DaVinci Resolve</span>
+              <span class="skill-tag">Shopify</span>
+              <span class="skill-tag">ChatGPT</span>
+              <span class="skill-tag">Claude</span>
+              <span class="skill-tag">ElevenLabs</span>
+              <span class="skill-tag">Heygen</span>
+              <span class="skill-tag">Notion</span>
+              <span class="skill-tag">Airtable</span>
+              <span class="skill-tag">Slack</span>
+              <span class="skill-tag">Meta Ads</span>
+              <span class="skill-tag">TikTok Ads</span>
+              <span class="skill-tag">Canva</span>
+              <span class="skill-tag">Figma</span>
             </div>
           </div>
-    
+
           <div class="col-md-6">
-            <div class="about-me">
-              <h4>About me</h4>
-              <p style="text-align: justify;">
-                Hi, I'm Kenneth Pineda, a Multimedia Virtual Assistant specializing in video editing, content creation, web development, and eCommerce support. I help creators, entrepreneurs, and small businesses build strong digital brands by taking care of the creative and technical tasks that make their online presence shine.
+            <div class="about-highlight">
+              <h4>About Me</h4>
+              <p>
+                I'm Kenneth Pineda — an <strong>AI Automation Specialist</strong>, <strong>GoHighLevel Admin</strong>, and <strong>UGC Manager</strong> helping eCommerce brands, agencies, and founders scale their operations without scaling their headcount.
               </p>
-              <p style="text-align: justify;">
-                I edit videos across a variety of formats from educational content in the style of Ali Abdaal to high-energy reaction videos and conversion driven eCommerce ads. I also design social media graphics, create thumbnails, repurpose long-form content into short-form reels, and manage publishing across platforms like YouTube, Instagram, and TikTok.
+              <p>
+                As the <strong>Agency Admin for Unity Consulting Advisors</strong>, I manage three GoHighLevel sub-accounts and build the automation systems that keep the business running — pipelines, funnels, workflows, lead nurture sequences, and CRM integrations.
               </p>
-              <p style="text-align: justify;">
-                As part of my broader VA role, I also support:
-                <br>• <strong>Web Development</strong> – responsive websites using HTML, CSS, GitHub Pages, and no-code tools
-                <br>• <strong>eCommerce</strong> – managing Shopify & Amazon listings, product research, and optimization
+              <p>
+                On the creative side, I lead UGC production pipelines end-to-end: sourcing creators, scripting, editing direct-response ads, and deploying AI-generated content to cut costs while keeping quality high. I've produced thousands of videos across YouTube, TikTok, Instagram, and paid ad campaigns.
               </p>
-              <p style="text-align: justify;">
-                Whether you're building your brand, launching a product, or scaling your business, I bring creative, technical, and organizational skills to help you succeed.
+              <p>
+                I don't just do tasks — <strong>I build systems that run without you.</strong> Whether it's a GHL CRM setup, an automated reporting pipeline, or a full UGC production workflow, I deliver repeatable systems that save time, reduce costs, and improve results.
               </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         SERVICES SECTION
+    ============================= -->
+    <section id="services" class="services section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>AI automation, GoHighLevel administration, and UGC production systems built to scale your business.</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-robot"></i></div>
+              <h3>AI Automation & Systems</h3>
+              <p>Custom workflows on Make.com, Zapier, and n8n. Automate lead gen, onboarding, reporting, content scheduling, and email sequences so your business runs on autopilot.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-funnel"></i></div>
+              <h3>GoHighLevel Admin & CRM</h3>
+              <p>Full GHL buildout: sub-accounts, pipelines, funnels, booking calendars, SMS/email workflows, missed-call text-back, reputation management, and Stripe integration.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-camera-reels"></i></div>
+              <h3>UGC Management & Production</h3>
+              <p>End-to-end UGC pipeline: creator sourcing, scripting, editing, and ad deployment. AI-generated UGC to cut creator costs by up to 60% while maintaining creative quality.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-scissors"></i></div>
+              <h3>Video Editing & Short-Form</h3>
+              <p>High-retention edits for YouTube, TikTok, Reels, and Shorts. D2C ads, VSLs, reaction content, and repurposed clips optimized for engagement and conversion.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-globe"></i></div>
+              <h3>Funnel & Website Building</h3>
+              <p>Sales funnels, landing pages, and websites built inside GHL or on Shopify, GitHub Pages, and custom HTML. Designed to convert visitors into leads and buyers.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-bag-check"></i></div>
+              <h3>eCommerce & Product Listing</h3>
+              <p>Shopify and Amazon product listings with SEO titles, descriptions, tags, and image optimization. Store setup, migration support, and product research.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         CASE STUDIES SECTION (New)
+    ============================= -->
+    <section id="case-studies" class="section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Case Studies</h2>
+        <p>Real automation systems I've built for clients — with measurable results.</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <!-- GHL: Apex Dental -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="case-study-card">
+              <div class="client-name">Apex Dental Group</div>
+              <div class="client-type">Multi-Location Dental Practice, US — GoHighLevel</div>
+              <div class="problem-label">Problem</div>
+              <p>Facebook Ad leads falling through the cracks. No follow-up system, missed calls unanswered, Google reviews stagnant.</p>
+              <div class="solution-label">What I Built</div>
+              <p>Full GHL sub-account with lead nurture workflows, missed-call text-back automation, post-appointment review request sequences, and Meta Ads integration for auto CRM population.</p>
+              <div class="result-label">Results</div>
+              <span class="result-stat">Bookings up 45%</span>
+              <span class="result-stat">47 to 210+ reviews</span>
+              <span class="result-stat">Zero lost leads</span>
+            </div>
+          </div>
+
+          <!-- GHL: Vaultline Agency -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="case-study-card">
+              <div class="client-name">Vaultline Agency</div>
+              <div class="client-type">Performance Marketing Agency, AU — GoHighLevel + Make.com</div>
+              <div class="problem-label">Problem</div>
+              <p>Managing 12 client sub-accounts with no standardized systems. Reporting took hours, onboarding was inconsistent, workflows kept breaking.</p>
+              <div class="solution-label">What I Built</div>
+              <p>Standardized sub-account templates, client onboarding automation (PandaDoc to GHL to Calendly), weekly reporting via Make.com, and Slack alert bot for pipeline monitoring.</p>
+              <div class="result-label">Results</div>
+              <span class="result-stat">Onboarding: 3 days to 4 hrs</span>
+              <span class="result-stat">15+ hrs/week saved</span>
+              <span class="result-stat">Retention up 25%</span>
+            </div>
+          </div>
+
+          <!-- GHL: EliteForm -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="case-study-card">
+              <div class="client-name">EliteForm Coaching</div>
+              <div class="client-type">Online Fitness Coaching, US — GoHighLevel + Stripe</div>
+              <div class="problem-label">Problem</div>
+              <p>Running everything off DMs and spreadsheets. No CRM, no follow-up system, no way to track leads or scale past 1-on-1 selling.</p>
+              <div class="solution-label">What I Built</div>
+              <p>Complete GHL ecosystem: VSL funnel, application form, pipeline, nurture sequences, membership area, and Stripe billing with failed payment recovery.</p>
+              <div class="result-label">Results</div>
+              <span class="result-stat">8 to 30+ clients in 90 days</span>
+              <span class="result-stat">82% show-up rate</span>
+            </div>
+          </div>
+
+          <!-- GHL: Greenline -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="case-study-card">
+              <div class="client-name">Greenline Property Management</div>
+              <div class="client-type">Real Estate, UK — GoHighLevel</div>
+              <div class="problem-label">Problem</div>
+              <p>Tenant inquiries scattered across email, phone, and social media. No centralized system, 6-hour average response time.</p>
+              <div class="solution-label">What I Built</div>
+              <p>GHL CRM with unified inbox (email, SMS, Messenger, web chat), auto-responder workflows, post-viewing follow-up sequences, and reputation management.</p>
+              <div class="result-label">Results</div>
+              <span class="result-stat">Response: 6 hrs to under 2 min</span>
+              <span class="result-stat">Bookings up 55%</span>
+            </div>
+          </div>
+
+          <!-- AI: BrightPath -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="case-study-card">
+              <div class="client-name">BrightPath Supplements</div>
+              <div class="client-type">DTC Supplement Brand, US — Make.com + AI</div>
+              <div class="problem-label">Problem</div>
+              <p>Manually managing 40+ UGC creators, losing track of briefs, spending 10+ hours per week on content scheduling.</p>
+              <div class="solution-label">What I Built</div>
+              <p>Make.com automation for brief assignment via Airtable, Slack reminders, AI script generator (GPT API + Google Sheets), and auto-push to Meta and TikTok Ads.</p>
+              <div class="result-label">Results</div>
+              <span class="result-stat">Content ops down 70%</span>
+              <span class="result-stat">Output doubled in 30 days</span>
+            </div>
+          </div>
+
+          <!-- AI: Noma Studios -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="case-study-card">
+              <div class="client-name">Noma Studios</div>
+              <div class="client-type">Content Agency, UK — Zapier + Notion</div>
+              <div class="problem-label">Problem</div>
+              <p>Onboarding new freelance editors took 5 days, was inconsistent, and required constant manual follow-ups.</p>
+              <div class="solution-label">What I Built</div>
+              <p>Zapier onboarding sequence: application form to vetting quiz to DocuSign to Slack invite to Notion workspace. Auto-assigned SOPs plus performance dashboard.</p>
+              <div class="result-label">Results</div>
+              <span class="result-stat">Onboarding: 5 days to 8 hrs</span>
+              <span class="result-stat">Editor churn down 40%</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         AUTOMATION SECTION
+    ============================= -->
+    <section id="automation" class="services section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Automation &amp; Workflows</h2>
+        <p>End-to-end automation systems built on Make, Zapier, n8n, GoHighLevel, and Fanbasis — eliminating repetitive tasks, saving 10-40+ hours per week, and scaling your business on autopilot.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-robot" style="font-size:2rem;color:#2563eb;"></i></div>
+              <span style="display:inline-block;background:#2563eb18;color:#2563eb;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$300-$800</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Client Onboarding Workflow</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Payment received — Welcome email sent — Google Drive folder created — Trello board setup — Slack notification. Client fully onboarded in under 60 seconds.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-arrow-repeat" style="font-size:2rem;color:#7c3aed;"></i></div>
+              <span style="display:inline-block;background:#7c3aed18;color:#7c3aed;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$400-$1,200</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Content Repurposing Pipeline</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">YouTube upload — AI clips into Shorts/Reels — Formats converted — Auto-scheduled — Posted across TikTok, Instagram and YouTube Shorts. Saves 10+ hours every week.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-graph-up-arrow" style="font-size:2rem;color:#059669;"></i></div>
+              <span style="display:inline-block;background:#05966918;color:#059669;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$300-$800</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Lead Capture to CRM</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Form submitted — Lead tagged by source — CRM entry created in GHL/Notion — Auto follow-up email triggered — Team notified via Slack. No lead ever falls through the cracks.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-bag-check" style="font-size:2rem;color:#dc2626;"></i></div>
+              <span style="display:inline-block;background:#dc262618;color:#dc2626;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$500-$1,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Shopify Order Automation</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Order placed — Inventory updated — Confirmation email sent — Fulfillment triggered — Review request sent post-delivery. Synced across all sales channels in real time.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-funnel" style="font-size:2rem;color:#d97706;"></i></div>
+              <span style="display:inline-block;background:#d9770618;color:#d97706;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$800-$2,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">GoHighLevel Full CRM Setup</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Lead enters — Pipeline stage assigned — SMS sequence fires — Email drip activates — Booking auto-triggered. Full missed-call text-back and reputation management included.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-person-hearts" style="font-size:2rem;color:#db2777;"></i></div>
+              <span style="display:inline-block;background:#db277718;color:#db2777;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$500-$1,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Fanbasis Monetization System</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">New follower — DM funnel starts — Exclusive content drip delivered — Upsell triggered on engagement — Retention sequence runs. Fans stay active and paying long-term.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-lightning-charge" style="font-size:2rem;color:#0891b2;"></i></div>
+              <span style="display:inline-block;background:#0891b218;color:#0891b2;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$800-$2,000</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">AI-Powered Sales Pipeline</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">AI scores and qualifies leads — Hot leads routed via Slack — Calendly invite auto-sent — GHL follow-up post-call — Deal closed. Zero manual qualification needed.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-play-circle" style="font-size:2rem;color:#ea580c;"></i></div>
+              <span style="display:inline-block;background:#ea580c18;color:#ea580c;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$500-$1,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">YouTube Channel Autopilot</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Video uploaded — Whisper AI transcribes — GPT-4 writes SEO copy — Canva API generates thumbnail — Clips auto-posted to TikTok, Reels and Shorts. Fully hands-free.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-cart-x" style="font-size:2rem;color:#16a34a;"></i></div>
+              <span style="display:inline-block;background:#16a34a18;color:#16a34a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$600-$1,800</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">eCommerce Revenue Recovery</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Cart abandoned — SMS at 1hr — Email at 24hr — Discount code applied at step 3 — Purchase recovered and revenue logged in a live recovery dashboard.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-headset" style="font-size:2rem;color:#7c3aed;"></i></div>
+              <span style="display:inline-block;background:#7c3aed18;color:#7c3aed;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$1,000-$3,000</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">AI Customer Support Bot</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Message received — GPT-4 processes against your docs — 80% of tickets auto-resolved instantly — Complex cases escalated via GHL — Everything logged in dashboard.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-house-gear" style="font-size:2rem;color:#0369a1;"></i></div>
+              <span style="display:inline-block;background:#0369a118;color:#0369a1;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$700-$2,000</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Real Estate Lead Machine</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">MLS new listing scraped — AI writes personalized outreach — GHL SMS + email sequence fires — Engagement tracked — Warm leads pushed to pipeline with auto follow-ups.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-briefcase" style="font-size:2rem;color:#b45309;"></i></div>
+              <span style="display:inline-block;background:#b4530918;color:#b45309;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$1,200-$3,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Agency Fulfillment System</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Client pays — DocuSign contract sent — ClickUp board created — Slack channel opened — Google Drive + GHL configured. Full white-label ops live in under 3 minutes.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-megaphone" style="font-size:2rem;color:#be185d;"></i></div>
+              <span style="display:inline-block;background:#be185d18;color:#be185d;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$500-$1,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Social Media Content Engine</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Trend detected — GPT-4 writes platform posts — DALL-E generates visuals — 30-day calendar built — Auto-posted to LinkedIn, Instagram, Facebook and X daily.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-pen" style="font-size:2rem;color:#0f766e;"></i></div>
+              <span style="display:inline-block;background:#0f766e18;color:#0f766e;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$700-$2,000</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">AI Blog &amp; SEO Engine</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Ahrefs keyword research — GPT-4 writes full SEO article — Internal links injected — Auto-published to WordPress/Webflow — Submitted to Google Search Console weekly.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-mic" style="font-size:2rem;color:#9333ea;"></i></div>
+              <span style="display:inline-block;background:#9333ea18;color:#9333ea;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$600-$1,800</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Podcast Production Pipeline</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Raw audio uploaded — Whisper AI transcribes — GPT-4 writes show notes + timestamps — Editor queue notified — Auto-published to Spotify, Apple Podcasts and YouTube.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-box-seam" style="font-size:2rem;color:#0369a1;"></i></div>
+              <span style="display:inline-block;background:#0369a118;color:#0369a1;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$900-$2,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Multi-Store Inventory Sync</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Stock changes — Real-time sync across Shopify, Amazon, Etsy and eBay — Low stock pauses listing — Restock reactivates it — Slack alert sent on any discrepancy.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-person-check" style="font-size:2rem;color:#c026d3;"></i></div>
+              <span style="display:inline-block;background:#c026d318;color:#c026d3;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$800-$2,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Influencer Outreach Automation</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Apify scrapes by niche + follower count — GPT-4 writes personalized DMs — Phantombuster sends at scale — Airtable tracks replies — Auto follow-up on day 3.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative h-100" style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;background:#fff;">
+              <div class="icon" style="margin-bottom:12px;"><i class="bi bi-mortarboard" style="font-size:2rem;color:#d97706;"></i></div>
+              <span style="display:inline-block;background:#d9770618;color:#d97706;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$1,000-$3,500</span>
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Cold Outreach B2B System</h3>
+              <p style="font-size:13px;color:#6b7280;line-height:1.6;">Apollo/LinkedIn scraped — Clearbit enriches data — GPT-4 personalizes cold emails — Instantly.ai delivers — Replies auto-routed to GHL CRM with tags and follow-up.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         PORTFOLIO SECTION
+    ============================= -->
+    <section id="portfolio" class="portfolio section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Portfolio</h2>
+        <p>Selected work across video editing, UGC production, eCommerce, and web development.</p>
+      </div>
+
+      <div class="container">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-longform">Long Form</li>
+            <li data-filter=".filter-reels">Short Reels</li>
+            <li data-filter=".filter-ugcvsl">UGC / VSL</li>
+            <li data-filter=".filter-ecommerce">eCommerce</li>
+            <li data-filter=".filter-web">Web Development</li>
+            <li data-filter=".filter-cert">Certificates</li>
+          </ul>
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <!-- Long Form -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
+              <img src="assets/img/portfolio/v1.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Syntell Reaction">
+              <div class="portfolio-info">
+                <h4>Syntell - Reaction Edit</h4>
+                <p>Thoughtful long-form reaction edit for the Snatch channel featuring social commentary.</p>
+                <a href="https://www.youtube.com/watch?v=UFS_GOw8Fz8" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
+              <img src="assets/img/portfolio/v2.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Karriann Graf Real Estate">
+              <div class="portfolio-info">
+                <h4>Karriann Graf - Real Estate Showcase</h4>
+                <p>Elegant property walkthrough for Key West real estate channel with smooth transitions and color grading.</p>
+                <a href="https://www.youtube.com/watch?v=eptpE_zLsWM" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
+              <img src="assets/img/portfolio/v3.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="DonTownSend Anime Reaction">
+              <div class="portfolio-info">
+                <h4>DonTownSend - Anime Reaction Edit</h4>
+                <p>Dynamic long-form anime commentary featuring Naruto content edited with jump cuts and overlays.</p>
+                <a href="https://www.youtube.com/watch?v=52zIDY982RE" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
+              <img src="assets/img/portfolio/v4.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Cinemamosaic Korean Reaction">
+              <div class="portfolio-info">
+                <h4>Cinemamosaic - K-Drama Reaction</h4>
+                <p>Artistic reaction video edit to Korean film "The Witch" with cinematic transitions and subtitles.</p>
+                <a href="https://www.youtube.com/watch?v=8FrteAIrNjo" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
+              <img src="assets/img/portfolio/v5.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Ashwagandha Video">
+              <div class="portfolio-info">
+                <h4>The Nootropic Reviewer - Ashwagandha Breakdown</h4>
+                <p>Educational explainer with motion text and infographics tailored for supplement marketing.</p>
+                <a href="https://www.youtube.com/watch?v=N45U4efZU1k" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
+              <img src="assets/img/portfolio/v6.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="SunnyVlog">
+              <div class="portfolio-info">
+                <h4>SunnyVlog - Cinematic Vlog Edit</h4>
+                <p>Travel vlog with ambient audio mixing, soft color tones, and documentary-style editing.</p>
+                <a href="https://www.youtube.com/watch?v=IIocKc8-J_0" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-longform">
+              <img src="assets/img/portfolio/v7.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Alux Infographic">
+              <div class="portfolio-info">
+                <h4>Alux - Infographic Explainer</h4>
+                <p>Minimalist infographic video with voice-over sync and animated transitions for the Alux channel.</p>
+                <a href="https://www.youtube.com/watch?v=2kYQJfyXUSA" title="Watch Video" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <!-- Short Reels -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reels">
+              <img src="assets/img/portfolio/V8.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Patricia Bartell Reel">
+              <div class="portfolio-info">
+                <h4>Motivational Infographic Reel - Patricia Bartell</h4>
+                <p>Visually-driven music education reel designed to inspire and engage through dynamic text and transitions.</p>
+                <a href="https://www.instagram.com/reel/CzguExMrfwm/" target="_blank" rel="noopener" title="Watch Reel"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reels">
+              <img src="assets/img/portfolio/V9.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Kristin and Jamil Funny Vlog">
+              <div class="portfolio-info">
+                <h4>Couple Comedy Shorts - Kristin and Jamil</h4>
+                <p>Entertaining relationship-based vlogs edited for humor, pacing, and vertical engagement on YouTube Shorts.</p>
+                <a href="https://www.youtube.com/shorts/E1O5HlU3n0s" target="_blank" rel="noopener" title="Watch Short"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reels">
+              <img src="assets/img/portfolio/V11.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="PickCity HQ Sports Betting Reel">
+              <div class="portfolio-info">
+                <h4>Sports Betting Highlights - PickCity HQ</h4>
+                <p>Fast-paced Instagram reels promoting betting tips, match insights, and sports commentary designed for vertical viewing.</p>
+                <a href="https://www.instagram.com/reel/C0LHTcYNj4d/" target="_blank" rel="noopener" title="Watch Reel"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reels">
+              <img src="assets/img/portfolio/V12.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Alex Hormozi Informative Reel">
+              <div class="portfolio-info">
+                <h4>Informative Business Reel - Alex Hormozi</h4>
+                <p>Snappy and persuasive TikTok clip featuring bold typography and cuts aligned with high-value entrepreneurial tips.</p>
+                <a href="https://www.tiktok.com/@ahormozi/video/7214640487314099499?lang=en" target="_blank" rel="noopener" title="Watch Reel"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reels">
+              <img src="assets/img/portfolio/V10.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="AnimentOG Anime Reel">
+              <div class="portfolio-info">
+                <h4>Anime Reaction Short - AnimentOG</h4>
+                <p>Stylized short form featuring anime moments, reaction cuts, and pacing tailored for a niche fanbase on YouTube Shorts.</p>
+                <a href="https://www.youtube.com/shorts/a_drQiiUEpY" target="_blank" rel="noopener" title="Watch Reel"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <!-- eCommerce -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
+              <img src="assets/img/web/web3.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="TobyWanShinobi Website">
+              <div class="portfolio-info">
+                <h4>TobyWanShinobi - Merch Website</h4>
+                <p>Modern website for selling merch and training videos and subscriptions.</p>
+                <a href="assets/img/web/fullpage3.png" title="Preview" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
+              <img src="assets/img/web/web4.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Hana Florist Website">
+              <div class="portfolio-info">
+                <h4>Floral - Hana Florist POS Website</h4>
+                <p>Fresh floral arrangements, plants, and gifts for all occasions.</p>
+                <a href="assets/img/web/fullpage4.png" title="Preview" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
+              <img src="assets/img/web/web5.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="SunnyVlog Merch Store">
+              <div class="portfolio-info">
+                <h4>SunnyVlog - Creator Spring Merch</h4>
+                <p>Branded merch store for lifestyle YouTuber SunnyVlog, featuring apparel and accessories integrated via Spring.</p>
+                <a href="assets/img/web/fullpage5.png" title="Preview" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ecommerce">
+              <img src="assets/img/web/web6.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="MonochromaticFinds Product Listing">
+              <div class="portfolio-info">
+                <h4>MonochromaticFinds - Etsy to Shopify</h4>
+                <p>Migrated handcrafted minimalist decor listings from Etsy to Shopify, including optimized titles, descriptions, tags, and product imagery.</p>
+                <a href="assets/img/web/fullpage6.png" title="Preview" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <!-- Web Development -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <img src="assets/img/web/web1.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="MultimediaVA Website">
+              <div class="portfolio-info">
+                <h4>MultimediaVA - Portfolio Website</h4>
+                <p>Professional service site for showcasing video editing, eCommerce, and creative services.</p>
+                <a href="assets/img/web/fullpage1.png" title="Preview" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <img src="assets/img/web/web2.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="JKL Grillhouse Website">
+              <div class="portfolio-info">
+                <h4>JKL Grillhouse - Restaurant Website</h4>
+                <p>Modern website for a Samgyupsal restaurant including menu, reservation, and contact features.</p>
+                <a href="assets/img/web/fullpage2.png" title="Preview" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <img src="assets/img/web/web3.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="TobyWanShinobi Website">
+              <div class="portfolio-info">
+                <h4>TobyWanShinobi - Merch Website</h4>
+                <p>Modern website for selling merch and training videos and subscriptions.</p>
+                <a href="assets/img/web/fullpage3.png" title="Preview" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <img src="assets/img/web/web4.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Hana Florist Website">
+              <div class="portfolio-info">
+                <h4>Floral - Hana Florist POS Website</h4>
+                <p>Fresh floral arrangements, plants, and gifts for all occasions.</p>
+                <a href="assets/img/web/fullpage4.png" title="Preview" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <!-- Certificates -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cert">
+              <img src="assets/img/certificate/ecom.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="Shopify Certificate">
+              <div class="portfolio-info">
+                <h4>Shopify eCommerce & Dropshipping Training</h4>
+                <p>Completed online course covering product research, product listing, Shopify store setup, and dropshipping fulfillment strategies.</p>
+                <a href="assets/img/certificate/Ecom.png" data-gallery="certificates" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cert">
+              <img src="assets/img/certificate/seo.jpg" class="img-fluid rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.15);" alt="SEO Optimization Certificate">
+              <div class="portfolio-info">
+                <h4>Search Engine Optimization (SEO) Training</h4>
+                <p>Comprehensive SEO course focused on keyword research, on-page optimization, link-building strategies, and analytics.</p>
+                <a href="assets/img/certificate/seo.png" data-gallery="certificates" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         TESTIMONIALS SECTION
+    ============================= -->
+    <section id="testimonials" class="testimonials section accent-background">
+      <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": { "delay": 5000 },
+              "slidesPerView": "auto",
+              "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/s.jpg" class="testimonial-img" alt="Syntell">
+                <h3>@Syntell</h3>
+                <h4>Reaction Channel Creator</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i>Kenneth has been my go-to video editor for years. He understands my brand, keeps my content consistent, and always delivers fast even when I'm behind schedule.<i class="bi bi-quote quote-icon-right"></i></p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/p.jpg" class="testimonial-img" alt="PickCity HQ">
+                <h3>@pickcity.hq</h3>
+                <h4>Local Business Content</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i>Kenneth edits all our TikToks and reels. He makes our content punchy, on-brand, and engaging. He's basically our in-house editor except remote!<i class="bi bi-quote quote-icon-right"></i></p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/k.jpg" class="testimonial-img" alt="Karriann Graf">
+                <h3>Karriann Graf</h3>
+                <h4>Realtor, Key West</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i>I trusted Kenneth with editing our home tours and listing videos and he made them stand out from the rest! I love how he brings warmth and polish to each video.<i class="bi bi-quote quote-icon-right"></i></p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/n.jpg" class="testimonial-img" alt="Shopify Client">
+                <h3>eComm Brand Owner</h3>
+                <h4>Shopify Product Listings</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i>Kenneth took care of our product listings on Shopify title, descriptions, tags, and images. Saved me hours of work and improved our conversion rates!<i class="bi bi-quote quote-icon-right"></i></p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/kj.jpg" class="testimonial-img" alt="Kristin and Jamil">
+                <h3>@KristinandJamil</h3>
+                <h4>Food Reaction Channel</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i>We love working with Kenneth! He helps us turn hours of footage into engaging, clean cut content that keeps our viewers coming back.<i class="bi bi-quote quote-icon-right"></i></p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/m.jpg" class="testimonial-img" alt="Mike From Maine">
+                <h3>Mike Thomas</h3>
+                <h4>YouTube Creator - Mike From Maine</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i>Kenneth has been instrumental in editing and polishing my content for the Mike From Maine YouTube channel. His turnaround time is fast, and he understands exactly how to structure content that keeps viewers engaged.<i class="bi bi-quote quote-icon-right"></i></p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/d.jpg" class="testimonial-img" alt="DonTownsend">
+                <h3>Don Townsend</h3>
+                <h4>YouTube Creator - Reactions & Commentary</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i>Kenneth is a beast when it comes to editing. He gets the pacing, the memes, and the reactions just right. Every video is better because of his work.<i class="bi bi-quote quote-icon-right"></i></p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/a.jpg" class="testimonial-img" alt="Animentog">
+                <h3>Animentog</h3>
+                <h4>Anime Edits & YouTube Shorts</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i>Sync, flow, and emotion Kenneth nails all three in every edit. His anime reels and transitions feel sharp, punchy, and clean every time.<i class="bi bi-quote quote-icon-right"></i></p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/no.jpg" class="testimonial-img" alt="The Nootropic Reviewer">
+                <h3>@thenootropicreviewer</h3>
+                <h4>Product Reviews & Supplements</h4>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i>Kenneth makes my reviews look polished and professional. His cuts, captions, and B-roll timing always elevate my content to the next level.<i class="bi bi-quote quote-icon-right"></i></p>
+              </div>
+            </div>
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+         STATS SECTION
+    ============================= -->
+    <section id="stats" class="stats section accent-background">
+      <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="section-title text-center">
+          <h2>Performance Highlights</h2>
+          <p>Creative, automation, and eCommerce metrics from years of client-focused work.</p>
+        </div>
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1" class="purecounter">30</span>
+              <p>Brands & Creators Served</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="4250" data-purecounter-duration="1" class="purecounter">4250</span>
+              <p>Videos Edited</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="3250" data-purecounter-duration="1" class="purecounter">3250</span>
+              <p>Hours Delivered</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter">100</span>
+              <p>Client Satisfaction Rate (%)</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1" class="purecounter">120</span>
+              <p>Shopify Product Listings</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter">12</span>
+              <p>eCommerce Brands Supported</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter">100</span>
+              <p>Listing Accuracy Score (%)</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    
-    <!-- /About Section -->
 
-<!-- Resume Section -->
- <!--
-<section id="resume" class="resume section">
 
-  <!-- Section Title -->
-   <!--
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Resume</h2>
-    <p>Multimedia Virtual Assistant | Video Editor | Content Creator | eCommerce Support</p>
-  </div><!-- End Section Title -->
-  <!--
-
-  <div class="container">
-    <div class="row">
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <h3 class="resume-title">Summary</h3>
-        <div class="resume-item pb-0">
-          <h4>Kenneth Pineda</h4>
-          <p><em>Creative and reliable Multimedia Virtual Assistant with 8+ years of experience in video editing, social media content, and eCommerce support. I help YouTube creators, brands, and online stores scale their content and operations with high-quality, fast-turnaround solutions.</em></p>
-          <ul>
-            <li>Phone: (+63) 967-210-3519</li>
-            <li>Email: emailpinedakenneth@gmail.com</li>
-            <li>Skype: live:.cid.e9bbae2ced25c592</li>
-            <li>GitHub: <a href="https://github.com/MultimediaVA" target="_blank">github.com/MultimediaVA</a></li>
-          </ul>
-        </div>
-
-        <h3 class="resume-title">Education</h3>
-        <div class="resume-item">
-          <h4>Bachelor of Science in Information Technology</h4>
-          <h5>Graduated: 2010</h5>
-          <p><em>AMA Computer College</em></p>
-        </div>
-
-        <h3 class="resume-title">Skills & Tools</h3>
-        <div class="resume-item">
-          <ul>
-            <li><strong>Video Editing:</strong> Adobe Premiere Pro, DaVinci Resolve, CapCut Pro</li>
-            <li><strong>Content Creation:</strong> Reels, Shorts, Storyboarding, Captioning</li>
-            <li><strong>eCommerce:</strong> Shopify Product Listing, Amazon Optimization</li>
-            <li><strong>Design:</strong> Canva, Adobe Photoshop</li>
-            <li><strong>Audio:</strong> Audacity, Adobe Audition</li>
-            <li><strong>Project Tools:</strong> Trello, Asana, Google Drive</li>
-            <li><strong>Platforms:</strong> YouTube, TikTok, Instagram</li>
-          </ul>
-        </div>
+    <!-- ============================
+         PRICING SECTION (Deduplicated)
+    ============================= -->
+    <section id="pricing" class="pricing section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Pricing</h2>
+        <p>Flexible and transparent pricing designed to deliver value — no hidden fees, just quality service.</p>
       </div>
 
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-        <h3 class="resume-title">Professional Experience</h3>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
 
-     <div class="resume-item">
-          <h4>Part Time/Gig – Web Developer | Multiple Clients</h4>
-          <h5>2020 – Present</h5>
-          <p><em>Remote</em></p>
-          <ul>
-            <li>Developed and maintained websites using WordPress, Hana Florist POS, GitHub Pages, and Shopify.</li>
-            <li>with eCommerce solutions, landing pages, and multimedia integrations to improve user experience and drive engagement.</li>
-          </ul>
-        </div>
+          <div class="col-12"><h5 class="text-primary mt-2 mb-3">Video Editing</h5></div>
 
-    
-        <div class="resume-item">
-          <h4>eCommerce VA – Shopify Product Listing (Freelance)</h4>
-          <h5>2024 – Present</h5>
-          <p><em>Remote</em></p>
-          <ul>
-            <li>Created SEO-optimized listings for Shopify brands including SootheThera, Glamora Skincare, Urban Shelf Studio, and FitNest Wearables.</li>
-            <li>Managed product titles, descriptions, images, alt text, and categorization.</li>
-          </ul>
-        </div>
-
-        <div class="resume-item">
-          <h4>Video Editor – Pick City HQ</h4>
-          <h5>Since 2022</h5>
-          <p><em><a href="https://www.instagram.com/pickcity.hq" target="_blank">@pickcity.hq</a> | <a href="https://www.tiktok.com/@pickcity.hq" target="_blank">TikTok</a></em></p>
-          <ul>
-            <li>Lead editor for reels and lifestyle content tailored for urban culture audiences.</li>
-            <li>Developed branded templates and adapted visuals for vertical formats.</li>
-          </ul>
-        </div>
-
-        <div class="resume-item">
-          <h4>Video Editor – @Syntell & @Cinemamosaic</h4>
-          <h5>Since November 2021</h5>
-          <p><em><a href="https://www.youtube.com/@Syntell" target="_blank">@Syntell</a> | <a href="https://www.youtube.com/@Cinemamosaic" target="_blank">@Cinemamosaic</a></em></p>
-          <ul>
-            <li>Edited reaction content, cinematic montages, and cultural clips for YouTube and TikTok.</li>
-            <li>Managed subtitles, pacing, and content structure for maximum engagement.</li>
-          </ul>
-        </div>
-
-
-        <h3 class="resume-title">Notable Clients</h3>
-        <div class="resume-item">
-          <ul>
-            <li>Mike From Maine – Affiliate marketing interviews</li>
-            <li>Karriann Graf – Key West real estate video tours</li>
-            <li>Patricia Bartell – Music education content</li>
-            <li>@thenootropicreviewer – Supplement review content</li>
-            <li>Alex Hormozi – Business seminar edits</li>
-            <li>Agetech for Caregivers – Tech explainers</li>
-            <li>KristinandJamil – Travel vlogs</li>
-            <li>@DonTownsend – Reaction videos</li>
-            <li>Some well known Clients are under NDA</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
--->
-<!-- /Resume Section -->
-
-
-
-<!-- Combined Stats Section -->
-<section id="stats" class="stats section accent-background">
-
-  <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
-
-  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="section-title text-center">
-      <h2>Performance Highlights</h2>
-      <p>Creative and eCommerce support metrics from years of client-focused freelance work.</p>
-    </div>
-
-    <div class="row gy-4">
-
-      <!-- General Stats -->
-      <div class="col-lg-3 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1" class="purecounter">30</span>
-          <p>Brands & Creators Served</p>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0" data-purecounter-end="4250" data-purecounter-duration="1" class="purecounter">4250</span>
-          <p>Videos Edited</p>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0" data-purecounter-end="3250" data-purecounter-duration="1" class="purecounter">3250</span>
-          <p>Hours Delivered</p>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter">100</span>
-          <p>Client Satisfaction Rate (%)</p>
-        </div>
-      </div>
-
-      <!-- eCommerce Stats -->
-      <div class="col-lg-4 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1" class="purecounter">120</span>
-          <p>Shopify Product Listings</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter">12</span>
-          <p>eCommerce Brands Supported</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter">100</span>
-          <p>Listing Accuracy Score (%)</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section><!-- /Combined Stats Section -->
-
-
-<!-- Pricing Section -->
-<section id="pricing" class="pricing section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Pricing</h2>
-    <p>Flexible and transparent pricing designed to deliver value no hidden fees, just quality service.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <div class="row gy-4">
-
-      <!-- VIDEO EDITING -->
-      <div class="col-12"><h5 class="text-primary mt-2 mb-3">🎬 Video Editing</h5></div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">Basic Video Edit</h4>
-            <span class="price text-primary fw-bold">$50–$150</span>
-          </div>
-          <p class="text-muted small mb-0">Cutting, transitions, music sync, basic graphics. Up to 5 mins. (YouTube, Podcast clips, etc.)</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">Premium Video Edit</h4>
-            <span class="price text-primary fw-bold">$150–$400</span>
-          </div>
-          <p class="text-muted small mb-0">Motion graphics, color grading, subtitles, revisions. Up to 15 mins. Full production quality.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">Short-Form Reels / TikTok</h4>
-            <span class="price text-primary fw-bold">$25–$80</span>
-          </div>
-          <p class="text-muted small mb-0">Vertical short videos with captions, trending audio, emojis, and effects. 30–90 seconds.</p>
-        </div>
-      </div>
-
-      <!-- UGC / VSL -->
-      <div class="col-12"><h5 class="text-primary mt-3 mb-3">📱 UGC &amp; VSL Production</h5></div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">UGC Video Edit</h4>
-            <span class="price text-primary fw-bold">$50–$200</span>
-          </div>
-          <p class="text-muted small mb-0">Raw UGC footage transformed into polished, high-converting ad creatives for TikTok, Meta, and Instagram.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">VSL (Video Sales Letter)</h4>
-            <span class="price text-primary fw-bold">$200–$800</span>
-          </div>
-          <p class="text-muted small mb-0">Full VSL production — script support, b-roll editing, captions, hook optimization, CTA. Built to convert.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">UGC Ad Package (5 Videos)</h4>
-            <span class="price text-primary fw-bold">$300–$700</span>
-          </div>
-          <p class="text-muted small mb-0">Bulk UGC ad editing package — 5 edited videos optimized for paid ads with multiple format exports.</p>
-        </div>
-      </div>
-
-      <!-- AUTOMATION -->
-      <div class="col-12"><h5 class="text-primary mt-3 mb-3">⚙️ AI Automation &amp; Workflows</h5></div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">Starter Automation Setup</h4>
-            <span class="price text-primary fw-bold">$300–$600</span>
-          </div>
-          <p class="text-muted small mb-0">Simple 1–3 step workflow (e.g. lead capture to CRM, onboarding email trigger). Built on Zapier or Make.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">GoHighLevel CRM Full Setup</h4>
-            <span class="price text-primary fw-bold">$800–$2,500</span>
-          </div>
-          <p class="text-muted small mb-0">Complete GHL buildout: pipelines, SMS/email sequences, missed-call text-back, booking funnels, reputation management.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">AI Sales Pipeline</h4>
-            <span class="price text-primary fw-bold">$800–$2,000</span>
-          </div>
-          <p class="text-muted small mb-0">AI lead scoring, Calendly scheduling, GHL follow-up sequences, Slack routing — full sales automation.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">Agency Fulfillment System</h4>
-            <span class="price text-primary fw-bold">$1,200–$3,500</span>
-          </div>
-          <p class="text-muted small mb-0">Full white-label ops: DocuSign + ClickUp + Slack + GHL onboarding — client ready in under 3 minutes.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">Cold Outreach B2B System</h4>
-            <span class="price text-primary fw-bold">$1,000–$3,500</span>
-          </div>
-          <p class="text-muted small mb-0">Apollo/LinkedIn scraping + Clearbit enrichment + AI personalized emails via Instantly.ai + GHL CRM routing.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">AI Customer Support Bot</h4>
-            <span class="price text-primary fw-bold">$1,000–$3,000</span>
-          </div>
-          <p class="text-muted small mb-0">GPT-4 chatbot trained on your docs, deployed on website + Messenger. Resolves 80% of tickets automatically.</p>
-        </div>
-      </div>
-
-      <!-- SOCIAL MEDIA & ECOMMERCE -->
-      <div class="col-12"><h5 class="text-primary mt-3 mb-3">📣 Social Media &amp; eCommerce</h5></div>
-
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">Premium Video Editing</h4>
-            <span class="price text-primary fw-bold">$100</span>
-          </div>
-          <p class="text-muted small mb-0">Includes motion graphics, subtitles, color grading, and revisions (up to 10 mins).</p>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">Short-form Edits (Reels/TikTok)</h4>
-            <span class="price text-primary fw-bold">$25</span>
-          </div>
-          <p class="text-muted small mb-0">Vertical short videos with captions, emojis, and trending style edits (30–60s).</p>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">eCommerce Product Listing</h4>
-            <span class="price text-primary fw-bold">$5</span>
-          </div>
-          <p class="text-muted small mb-0">Shopify or Amazon setup, SEO title, tags, product descriptions, and image upload (per item).</p>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">Virtual Assistance (Hourly)</h4>
-            <span class="price text-primary fw-bold">$8</span>
-          </div>
-          <p class="text-muted small mb-0">Admin tasks, scheduling, inbox support, uploads, and research (hourly).</p>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="pricing-item border rounded p-4 h-100 shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h4 class="mb-0">IT Support (Remote)</h4>
-            <span class="price text-primary fw-bold">$15</span>
-          </div>
-          <p class="text-muted small mb-0">Remote assistance for tech support, VOIP issues, or troubleshooting (per session).</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</section><!-- /Pricing Section -->
-
-
-   <!-- Faq Section -->
-<section id="faq" class="faq section">
-
-  <div class="container">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="content px-xl-5">
-          <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
-          <p>
-            Here are some of the most common questions clients ask about my video editing, eCommerce, and virtual assistance services.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-
-        <div class="faq-container">
-
-          <div class="faq-item faq-active">
-            <h3><span class="num">1.</span> <span>What types of video editing styles do you offer?</span></h3>
-            <div class="faq-content">
-              <p>I specialize in YouTube content (reaction, documentary, vlog, and talking-head), social media reels, short-form TikToks, and branded edits. I work with tools like Adobe Premiere, DaVinci Resolve, and CapCut Pro.</p>
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">Basic Video Edit</h4>
+                <span class="price text-primary fw-bold">$50-$150</span>
+              </div>
+              <p class="text-muted small mb-0">Cutting, transitions, music sync, basic graphics. Up to 5 mins. YouTube, podcast clips, etc.</p>
             </div>
-            <i class="faq-toggle bi bi-chevron-right"></i>
           </div>
 
-          <div class="faq-item">
-            <h3><span class="num">2.</span> <span>Can you handle eCommerce tasks like product listings?</span></h3>
-            <div class="faq-content">
-              <p>Yes. I’ve listed over 100+ products for Shopify and Amazon brands. I can handle title optimization, image formatting, descriptions, tags, and basic SEO to improve visibility and conversions.</p>
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">Premium Video Edit</h4>
+                <span class="price text-primary fw-bold">$150-$400</span>
+              </div>
+              <p class="text-muted small mb-0">Motion graphics, color grading, subtitles, revisions. Up to 15 mins. Full production quality.</p>
             </div>
-            <i class="faq-toggle bi bi-chevron-right"></i>
           </div>
 
-          <div class="faq-item">
-            <h3><span class="num">3.</span> <span>What tools and platforms are you experienced with?</span></h3>
-            <div class="faq-content">
-              <p>I use Premiere Pro, DaVinci Resolve, CapCut Pro, Canva, OBS, Google Workspace, Trello, Slack, Zoom, GoHighLevel (GHL), Fanbasis, and eCommerce platforms like Shopify, Amazon Seller Central, plus automation tools like Make (Integromat), Zapier, and n8n.</p>
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">Short-Form Reels / TikTok</h4>
+                <span class="price text-primary fw-bold">$25-$80</span>
+              </div>
+              <p class="text-muted small mb-0">Vertical short videos with captions, trending audio, emojis, and effects. 30-90 seconds.</p>
             </div>
-            <i class="faq-toggle bi bi-chevron-right"></i>
           </div>
 
-          <div class="faq-item">
-            <h3><span class="num">4.</span> <span>How do you communicate and collaborate with remote clients?</span></h3>
-            <div class="faq-content">
-              <p>I’m available via email, Skype, and Zoom, and I use tools like Google Drive, Trello, and Slack to manage revisions, share files, and communicate updates in real-time.</p>
+          <div class="col-12"><h5 class="text-primary mt-3 mb-3">UGC &amp; VSL Production</h5></div>
+
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">UGC Video Edit</h4>
+                <span class="price text-primary fw-bold">$50-$200</span>
+              </div>
+              <p class="text-muted small mb-0">Raw UGC footage transformed into polished, high-converting ad creatives for TikTok, Meta, and Instagram.</p>
             </div>
-            <i class="faq-toggle bi bi-chevron-right"></i>
           </div>
 
-          <div class="faq-item">
-            <h3><span class="num">5.</span> <span>How quickly can you deliver a video edit or listing task?</span></h3>
-            <div class="faq-content">
-              <p>Turnaround time depends on the project, but most short-form edits are delivered within 24–48 hours. Product listings and administrative tasks typically take 1–2 days per batch.</p>
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">VSL (Video Sales Letter)</h4>
+                <span class="price text-primary fw-bold">$200-$800</span>
+              </div>
+              <p class="text-muted small mb-0">Full VSL production: script support, b-roll editing, captions, hook optimization, CTA. Built to convert.</p>
             </div>
-            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">UGC Ad Package (5 Videos)</h4>
+                <span class="price text-primary fw-bold">$300-$700</span>
+              </div>
+              <p class="text-muted small mb-0">Bulk UGC ad editing package: 5 edited videos optimized for paid ads with multiple format exports.</p>
+            </div>
+          </div>
+
+          <div class="col-12"><h5 class="text-primary mt-3 mb-3">AI Automation &amp; Workflows</h5></div>
+
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">Starter Automation Setup</h4>
+                <span class="price text-primary fw-bold">$300-$600</span>
+              </div>
+              <p class="text-muted small mb-0">Simple 1-3 step workflow (lead capture to CRM, onboarding email trigger). Built on Zapier or Make.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">GoHighLevel CRM Full Setup</h4>
+                <span class="price text-primary fw-bold">$800-$2,500</span>
+              </div>
+              <p class="text-muted small mb-0">Complete GHL buildout: pipelines, SMS/email sequences, missed-call text-back, booking funnels, reputation management.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">AI Sales Pipeline</h4>
+                <span class="price text-primary fw-bold">$800-$2,000</span>
+              </div>
+              <p class="text-muted small mb-0">AI lead scoring, Calendly scheduling, GHL follow-up sequences, Slack routing: full sales automation.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">Agency Fulfillment System</h4>
+                <span class="price text-primary fw-bold">$1,200-$3,500</span>
+              </div>
+              <p class="text-muted small mb-0">Full white-label ops: DocuSign + ClickUp + Slack + GHL onboarding. Client ready in under 3 minutes.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">AI Customer Support Bot</h4>
+                <span class="price text-primary fw-bold">$1,000-$3,000</span>
+              </div>
+              <p class="text-muted small mb-0">GPT-4 chatbot trained on your docs, deployed on website + Messenger. Resolves 80% of tickets automatically.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">Cold Outreach B2B System</h4>
+                <span class="price text-primary fw-bold">$1,000-$3,500</span>
+              </div>
+              <p class="text-muted small mb-0">Apollo/LinkedIn scraping + Clearbit enrichment + AI personalized emails via Instantly.ai + GHL CRM routing.</p>
+            </div>
+          </div>
+
+          <div class="col-12"><h5 class="text-primary mt-3 mb-3">eCommerce &amp; VA Support</h5></div>
+
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">eCommerce Product Listing</h4>
+                <span class="price text-primary fw-bold">$5/item</span>
+              </div>
+              <p class="text-muted small mb-0">Shopify or Amazon setup, SEO title, tags, product descriptions, and image upload per item.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="pricing-item border rounded p-4 h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">Virtual Assistance (Hourly)</h4>
+                <span class="price text-primary fw-bold">$8/hr</span>
+              </div>
+              <p class="text-muted small mb-0">Admin tasks, scheduling, inbox support, uploads, and research.</p>
+            </div>
           </div>
 
         </div>
-
       </div>
-    </div>
-
-  </div>
-
-</section><!-- /Faq Section -->
+    </section>
 
 
-<!-- Testimonials Section -->
-<section id="testimonials" class="testimonials section accent-background">
-
-  <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="swiper init-swiper">
-      <script type="application/json" class="swiper-config">
-        {
-          "loop": true,
-          "speed": 600,
-          "autoplay": {
-            "delay": 5000
-          },
-          "slidesPerView": "auto",
-          "pagination": {
-            "el": ".swiper-pagination",
-            "type": "bullets",
-            "clickable": true
-          }
-        }
-      </script>
-      <div class="swiper-wrapper">
-
-        <!-- Syntell -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/s.jpg" class="testimonial-img" alt="Syntell">
-            <h3>@Syntell</h3>
-            <h4>Reaction Channel Creator</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+    <!-- ============================
+         FAQ SECTION
+    ============================= -->
+    <section id="faq" class="faq section">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="content px-xl-5">
+              <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
+              <p>Common questions about my automation, GHL, video editing, and virtual assistance services.</p>
             </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              Kenneth has been my go-to video editor for years. He understands my brand, keeps my content consistent, and always delivers fast  even when I’m behind schedule.
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
+          </div>
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="faq-container">
+
+              <div class="faq-item faq-active">
+                <h3><span class="num">1.</span> <span>What can you automate for my business?</span></h3>
+                <div class="faq-content">
+                  <p>Almost any repetitive workflow: lead capture to CRM, client onboarding, content scheduling, email sequences, reporting, review requests, abandoned cart recovery, and more. I build on Make.com, Zapier, n8n, and GoHighLevel.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div>
+
+              <div class="faq-item">
+                <h3><span class="num">2.</span> <span>Do you set up GoHighLevel from scratch?</span></h3>
+                <div class="faq-content">
+                  <p>Yes. I handle full GHL buildouts: sub-accounts, pipelines, funnels, booking calendars, SMS/email workflows, missed-call text-back, reputation management, Stripe integration, and membership areas. I currently manage three sub-accounts as an agency admin.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div>
+
+              <div class="faq-item">
+                <h3><span class="num">3.</span> <span>What types of video editing do you offer?</span></h3>
+                <div class="faq-content">
+                  <p>YouTube content (reaction, documentary, vlog, talking-head), social media reels, TikToks, UGC ads, VSLs, and D2C short-form content. I work with Premiere Pro, DaVinci Resolve, After Effects, and CapCut.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div>
+
+              <div class="faq-item">
+                <h3><span class="num">4.</span> <span>How do you communicate with remote clients?</span></h3>
+                <div class="faq-content">
+                  <p>I'm available via Slack, email, Zoom, and Loom. I use tools like Google Drive, Notion, Airtable, and Trello to manage projects, share files, and communicate updates in real-time.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div>
+
+              <div class="faq-item">
+                <h3><span class="num">5.</span> <span>How quickly can you deliver?</span></h3>
+                <div class="faq-content">
+                  <p>Most short-form edits are delivered within 24-48 hours. GHL setups and automation builds typically take 3-7 days depending on complexity. I communicate timelines upfront and deliver on schedule.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div>
+
+            </div>
           </div>
         </div>
-
-        <!-- PickCity HQ -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/p.jpg" class="testimonial-img" alt="PickCity HQ">
-            <h3>@pickcity.hq</h3>
-            <h4>Local Business Content</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              Kenneth edits all our TikToks and reels. He makes our content punchy, on-brand, and engaging. He’s basically our in-house editor except remote!
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-
-        <!-- Karriann Graf -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/k.jpg" class="testimonial-img" alt="Karriann Graf">
-            <h3>Karriann Graf</h3>
-            <h4>Realtor, Key West</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              I trusted Kenneth with editing our home tours and listing videos  and he made them stand out from the rest! I love how he brings warmth and polish to each video.
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-
-        <!-- Shopify Listing Client -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/n.jpg" class="testimonial-img" alt="Shopify Client">
-            <h3>eComm Brand Owner</h3>
-            <h4>Shopify Product Listings</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              Kenneth took care of our product listings on Shopify  title, descriptions, tags, and images. Saved me hours of work and improved our conversion rates!
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-
-        <!-- Kristin & Jamil -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/kj.jpg" class="testimonial-img" alt="Kristin and Jamil">
-            <h3>@KristinandJamil</h3>
-            <h4>Food Reaction Channel</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              We love working with Kenneth! He helps us turn hours of footage into engaging, clean cut content that keeps our viewers coming back.
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/m.jpg" class="testimonial-img" alt="Mike From Maine">
-            <h3>Mike Thomas</h3>
-            <h4>YouTube Creator – Mike From Maine</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Kenneth has been instrumental in editing and polishing my content for the Mike From Maine YouTube channel. His turnaround time is fast, and he understands exactly how to structure content that keeps viewers engaged.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/d.jpg" class="testimonial-img" alt="DonTownsend">
-            <h3>Don Townsend</h3>
-            <h4>YouTube Creator – Reactions & Commentary</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Kenneth is a beast when it comes to editing. He gets the pacing, the memes, and the reactions just right. Every video is better because of his work.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-        
-        
-        <!-- Animentog -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/a.jpg" class="testimonial-img" alt="Animentog">
-            <h3>Animentog</h3>
-            <h4>Anime Edits & YouTube Shorts</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Sync, flow, and emotion Kenneth nails all three in every edit. His anime reels and transitions feel sharp, punchy, and clean every time.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-        
-        <!-- The Nootropic Reviewer -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/no.jpg" class="testimonial-img" alt="The Nootropic Reviewer">
-            <h3>@thenootropicreviewer</h3>
-            <h4>Product Reviews & Supplements</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Kenneth makes my reviews look polished and professional. His cuts, captions, and B-roll timing always elevate my content to the next level.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-
-
-
       </div>
-      <div class="swiper-pagination"></div>
-    </div>
+    </section>
 
 
+    <!-- ============================
+         CONTACT SECTION
+    ============================= -->
+    <section id="contact" class="contact section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Ready to automate your business or scale your content? Let's talk.</p>
+      </div>
 
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-5">
+            <div class="col-lg-4">
+              <div class="info-item d-flex align-items-center">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Address</h3>
+                  <p>Philippines (Remote Worldwide)</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="info-item d-flex align-items-center">
+                <i class="bi bi-telephone flex-shrink-0"></i>
+                <div>
+                  <h3>Call Us</h3>
+                  <p>+63 967-210-3519</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="info-item d-flex align-items-center">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email Us</h3>
+                  <p>multimediavirtualassistant@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-
-
-    
-  </div>
-
-</section><!-- /Testimonials Section -->
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-8">
+            <form action="https://formspree.io/f/xzzrgoeo" method="POST" class="p-4 bg-light rounded shadow">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="col-12">
+                  <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                </div>
+                <div class="col-12">
+                  <textarea name="message" class="form-control" rows="6" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-primary px-5 mt-3">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
-<footer id="footer" class="footer accent-background">
-  <div class="container">
-    <div class="copyright text-center">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">MultimediaVA</strong> <span>All Rights Reserved</span></p>
-    </div>
 
-    <div class="social-links d-flex justify-content-center">
-      <a href="https://www.facebook.com/profile.php?id=61575864182884" target="_blank"><i class="bi bi-facebook"></i></a>
-      <a href="https://www.instagram.com/multimediavirtualassistant/" target="_blank"><i class="bi bi-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/multimedia-virtual-assistant-55b46b364/" target="_blank"><i class="bi bi-linkedin"></i></a>
-    </div>
 
-    <div class="credits d-flex justify-content-center align-items-center mt-3">
-      <span class="me-2">Ken built this with:</span>
-      <a href="https://pages.github.com/" target="_blank" class="mx-2">
-        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Pages" style="height: 24px;">
-      </a>
-      <a href="https://openai.com/chatgpt" target="_blank" class="mx-2">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" style="height: 24px;">
-      </a>
-      <a href="https://www.godaddy.com/" target="_blank" class="mx-2">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/GoDaddy_logo.svg/2560px-GoDaddy_logo.svg.png" alt="GoDaddy" style="height: 24px;">
-      </a>
+  <!-- ============================
+       FOOTER
+  ============================= -->
+  <footer id="footer" class="footer accent-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>&copy; <span>Copyright</span> <strong class="px-1 sitename">Kenneth Pineda</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.facebook.com/profile.php?id=61575864182884" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/multimediavirtualassistant/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/multimedia-virtual-assistant-55b46b364/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="credits d-flex justify-content-center align-items-center mt-3">
+        <span>Built by Kenneth Pineda</span>
+      </div>
     </div>
-  </div>
-</footer>
-
-  
+  </footer>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -1863,41 +1328,5 @@ document.getElementById("prevFilter").addEventListener("click", function (e) {
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-
-
-<script>
-  function enterSite() {
-    const audio = document.getElementById("bgMusic");
-    const overlay = document.getElementById("enterOverlay");
-
-    // Set volume and play
-    audio.volume = 0.5; // Optional: adjust to desired volume
-    audio.play().then(() => {
-      console.log("Audio is playing");
-    }).catch(err => {
-      console.error("Autoplay blocked:", err);
-    });
-
-    // Hide overlay
-    overlay.style.display = "none";
-  }
-</script>
-
-<!-- Matomo -->
-<script>
-  var _paq = window._paq = window._paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://your-matomo-domain.com/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', 'YOUR_SITE_ID']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
-
 </body>
-
 </html>
