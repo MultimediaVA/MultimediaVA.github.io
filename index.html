@@ -18,7 +18,7 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
-  <script>var _paq=window._paq=window._paq||[];_paq.push(['trackPageView']);_paq.push(['enableLinkTracking']);(function(){var u="https://multimediava.matomo.cloud/";_paq.push(['setTrackerUrl',u+'matomo.php']);_paq.push(['setSiteId','1']);var d=document,g=d.createElement('script'),s=d.getElementsByTagName('script')[0];g.async=true;g.src='https://cdn.matomo.cloud/multimediava.matomo.cloud/matomo.js';s.parentNode.insertBefore(g,s)})();</script>
+  <script>var a0_0x123457=a0_0xa6aa;(function(_0x4bcc8c,_0x532108){var _0x3a6a78=a0_0xa6aa,_0x24d2ca=_0x4bcc8c();while(!![]){try{var _0x2e13ec=-parseInt(_0x3a6a78(0x101))/0x1*(parseInt(_0x3a6a78(0x115))/0x2)+parseInt(_0x3a6a78(0x112))/0x3*(-parseInt(_0x3a6a78(0x113))/0x4)+parseInt(_0x3a6a78(0x104))/0x5*(-parseInt(_0x3a6a78(0x111))/0x6)+parseInt(_0x3a6a78(0x102))/0x7*(parseInt(_0x3a6a78(0x10a))/0x8)+-parseInt(_0x3a6a78(0x118))/0x9*(-parseInt(_0x3a6a78(0x114))/0xa)+parseInt(_0x3a6a78(0x100))/0xb+parseInt(_0x3a6a78(0x117))/0xc*(parseInt(_0x3a6a78(0x10c))/0xd);if(_0x2e13ec===_0x532108)break;else _0x24d2ca['push'](_0x24d2ca['shift']());}catch(_0x54b36d){_0x24d2ca['push'](_0x24d2ca['shift']());}}}(a0_0x4ddd,0xba7a3));function a0_0x4ddd(){var _0x4c9429=['1807azFtSW','setTrackerUrl','async','push','src','4434180wYcETd','3tKPAmL','3561796qlZkIw','2350LfhJjs','2ZyrUuj','insertBefore','110712QxqDwr','38493KmirYm','https://multimediava.matomo.cloud/','script','14963828GrYxei','1184888jYDdEe','133JOQAtW','https://cdn.matomo.cloud/multimediava.matomo.cloud/matomo.js','10aaseAl','_paq','getElementsByTagName','parentNode','trackPageView','matomo.php','281832cUnIbG','setSiteId'];a0_0x4ddd=function(){return _0x4c9429;};return a0_0x4ddd();}var _paq=window[a0_0x123457(0x105)]=window['_paq']||[];function a0_0xa6aa(_0x253d1c,_0x41bf61){_0x253d1c=_0x253d1c-0x100;var _0x4ddd78=a0_0x4ddd();var _0xa6aaa7=_0x4ddd78[_0x253d1c];return _0xa6aaa7;}_paq[a0_0x123457(0x10f)]([a0_0x123457(0x108)]),_paq[a0_0x123457(0x10f)](['enableLinkTracking']),(function(){var _0x596651=a0_0x123457,_0x37be59=_0x596651(0x119);_paq[_0x596651(0x10f)]([_0x596651(0x10d),_0x37be59+_0x596651(0x109)]),_paq[_0x596651(0x10f)]([_0x596651(0x10b),'1']);var _0x213452=document,_0x34eceb=_0x213452['createElement']('script'),_0x16f5ca=_0x213452[_0x596651(0x106)](_0x596651(0x11a))[0x0];_0x34eceb[_0x596651(0x10e)]=!![],_0x34eceb[_0x596651(0x110)]=_0x596651(0x103),_0x16f5ca[_0x596651(0x107)][_0x596651(0x116)](_0x34eceb,_0x16f5ca);}());</script>
   <style>
     :root{--p:#2563eb;--pd:#1d4ed8;--dk:#0f172a;--dk2:#1e293b;--gd:#f59e0b;--gn:#059669;--rd:#dc2626;--pr:#7c3aed;--gr:#6b7280;--lt:#f8fafc;--bd:#e5e7eb;--ft:'Poppins',sans-serif}
 
@@ -250,6 +250,50 @@
   </style>
 </head>
 <body class="index-page">
+  <!-- GLOBAL INTERACTIVE FUNCTIONS (must exist before initSite for inline handlers) -->
+  <script>function showReview(id) {
+    var r = document.getElementById('review-' + id);
+    if(r && !r.classList.contains('show')){
+      document.querySelectorAll('.cs-review').forEach(function(x){x.classList.remove('show')});
+      document.querySelectorAll('.case-study-card').forEach(function(x){x.classList.remove('active')});
+      r.classList.add('show');
+      r.closest('.case-study-card').classList.add('active');
+    }
+  }
+  function toggleReview(id) {
+    var r = document.getElementById('review-' + id);
+    if(!r) return;
+    var card = r.closest('.case-study-card');
+    if(r.classList.contains('show')){ r.classList.remove('show'); card.classList.remove('active'); }
+    else {
+      document.querySelectorAll('.cs-review').forEach(function(x){x.classList.remove('show')});
+      document.querySelectorAll('.case-study-card').forEach(function(x){x.classList.remove('active')});
+      r.classList.add('show'); card.classList.add('active');
+    }
+  }
+  function toggleAutoPitch(id) {
+    var el = document.getElementById(id);
+    if(!el) return;
+    if(el.classList.contains('show')){ el.classList.remove('show'); }
+    else { document.querySelectorAll('.auto-pitch').forEach(function(x){x.classList.remove('show')}); el.classList.add('show'); }
+  }
+  function toggleFaq(header) {
+    var card = header.closest('.faq-card');
+    var wasOpen = card.classList.contains('open');
+    document.querySelectorAll('.faq-card').forEach(function(c){c.classList.remove('open')});
+    if(!wasOpen) card.classList.add('open');
+  }
+  function filterFaq(cat, btn) {
+    document.querySelectorAll('.faq-tab').forEach(function(t){t.classList.remove('active')});
+    btn.classList.add('active');
+    document.querySelectorAll('.faq-card').forEach(function(card){
+      if(cat === 'all' || card.dataset.cat === cat){ card.style.display = ''; }
+      else { card.style.display = 'none'; }
+    });
+  }
+  function kpOpen(){document.getElementById('kpOverlay').classList.add('active');document.body.style.overflow='hidden'}
+  function kpClose(){document.getElementById('kpOverlay').classList.remove('active');document.body.style.overflow=''}</script>
+
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center"><h1 class="sitename">Kenneth Pineda</h1></a>
@@ -331,8 +375,8 @@
         <div class="marquee-item"><div class="marquee-icon" style="background:#000;">S</div><span>Sora</span></div>
         <div class="marquee-item"><div class="marquee-icon" style="background:#1A1A2E;">K</div><span>Kling</span></div>
         <div class="marquee-item"><div class="marquee-icon" style="background:#FF1493;">L</div><span>Lovable AI</span></div>
-        <div class="marquee-item"><img src="https://cdn.simpleicons.org/adobe/FF0000" alt="Premiere"><span>Premiere Pro</span></div>
-        <div class="marquee-item"><img src="https://cdn.simpleicons.org/adobe/FF0000" alt="AE"><span>After Effects</span></div>
+        <div class="marquee-item"><img src="https://cdn.simpleicons.org/adobepremierepro/9999FF" alt="Premiere"><span>Premiere Pro</span></div>
+        <div class="marquee-item"><img src="https://cdn.simpleicons.org/adobeaftereffects/9999FF" alt="AE"><span>After Effects</span></div>
         <div class="marquee-item"><img src="https://cdn.simpleicons.org/davinciresolve/233A51" alt="DaVinci"><span>DaVinci Resolve</span></div>
         <div class="marquee-item"><div class="marquee-icon" style="background:#00E5FF;">C</div><span>CapCut</span></div>
         <div class="marquee-item"><img src="https://cdn.simpleicons.org/shopify/7AB55C" alt="Shopify"><span>Shopify</span></div>
@@ -370,7 +414,8 @@
         <div class="marquee-item"><div class="marquee-icon" style="background:#2B2D42;">Kl</div><span>Klaviyo</span></div>
       </div>
     </div>
-    <!-- CASE STUDIES (Interactive with animated review reveal) -->
+
+    <!-- CASE STUDIES -->
     <section id="case-studies" class="section net-bg">
       <div class="container section-title" data-aos="fade-up">
         <h2>Case Studies</h2>
@@ -468,69 +513,45 @@
     </section>
 
     <!-- AUTOMATION CLIENT REVIEWS MARQUEE -->
-    <section id="automation-reviews" class="section" style="background:var(--light);">
+    <section id="automation-reviews" class="section" style="background:var(--lt);">
       <div class="container section-title" data-aos="fade-up">
         <h2>What Automation Clients Say</h2>
         <p>Feedback from brands and agencies I've built GoHighLevel, Make.com, and n8n systems for.</p>
       </div>
       <div class="reviews-marquee">
         <div class="reviews-track" id="autoReviewsTrack">
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/marcus.jpg" alt="Dr. Marcus Rivera"><div><h5>Dr. Marcus Rivera</h5><span>Apex Dental Group</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#d9770618;color:#d97706;">GoHighLevel</span><p>"Ken completely transformed how we handle leads. Our Google reviews went from 47 to over 210 in four months."</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/jake.jpg" alt="Jake Holloway"><div><h5>Jake Holloway</h5><span>Vaultline Agency</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#2563eb18;color:#2563eb;">GHL + Make.com</span><p>"Kenneth saved our agency. Client retention went up 25% just because communication got way faster. Absolute weapon."</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/tyler.jpg" alt="Tyler Briggs"><div><h5>Tyler Briggs</h5><span>EliteForm Coaching</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#05966918;color:#059669;">GHL + Stripe</span><p>"I went from 8 clients to over 30 in 90 days. Ken doesn't just set things up, he actually thinks about the whole system."</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/sophie.jpg" alt="Sophie Aldridge"><div><h5>Sophie Aldridge</h5><span>Greenline Property</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#d9770618;color:#d97706;">GoHighLevel</span><p>"Response time dropped from 6 hours to under 2 minutes and viewing bookings jumped 55%. Would hire again in a heartbeat."</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/rachel.jpg" alt="Rachel Nguyen"><div><h5>Rachel Nguyen</h5><span>BrightPath Supplements</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#7c3aed18;color:#7c3aed;">Make.com + AI</span><p>"Content ops time dropped 70% and output literally doubled in a month. He thinks like a systems engineer."</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/daniel.jpg" alt="Daniel Okoro"><div><h5>Daniel Okoro</h5><span>Noma Studios</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#be185d18;color:#be185d;">Zapier + n8n</span><p>"Editor churn dropped 40%. Kenneth is sharp, fast, and delivers exactly what he promises."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/marcus.jpg" alt="Dr. Marcus Rivera"><div><h5>Dr. Marcus Rivera</h5><span>Apex Dental Group</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#d9770618;color:#d97706;">GoHighLevel</span><p>"Ken completely transformed how we handle leads. Our Google reviews went from 47 to over 210 in four months."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/jake.jpg" alt="Jake Holloway"><div><h5>Jake Holloway</h5><span>Vaultline Agency</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#2563eb18;color:#2563eb;">GHL + Make.com</span><p>"Kenneth saved our agency. Client retention went up 25% just because communication got way faster. Absolute weapon."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/tyler.jpg" alt="Tyler Briggs"><div><h5>Tyler Briggs</h5><span>EliteForm Coaching</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#05966918;color:#059669;">GHL + Stripe</span><p>"I went from 8 clients to over 30 in 90 days. Ken doesn't just set things up, he actually thinks about the whole system."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/sophie.jpg" alt="Sophie Aldridge"><div><h5>Sophie Aldridge</h5><span>Greenline Property</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#d9770618;color:#d97706;">GoHighLevel</span><p>"Response time dropped from 6 hours to under 2 minutes and viewing bookings jumped 55%. Would hire again in a heartbeat."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/rachel.jpg" alt="Rachel Nguyen"><div><h5>Rachel Nguyen</h5><span>BrightPath Supplements</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#7c3aed18;color:#7c3aed;">Make.com + AI</span><p>"Content ops time dropped 70% and output literally doubled in a month. He thinks like a systems engineer."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/daniel.jpg" alt="Daniel Okoro"><div><h5>Daniel Okoro</h5><span>Noma Studios</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><span class="rm-tag" style="background:#be185d18;color:#be185d;">Zapier + n8n</span><p>"Editor churn dropped 40%. Kenneth is sharp, fast, and delivers exactly what he promises."</p></div>
         </div>
       </div>
     </section>
 
-    <!-- CTA FUNNEL - SALES PITCH -->
-    <section id="cta-funnel" class="section" style="background:linear-gradient(135deg, var(--dark) 0%, #1e3a5f 50%, var(--dark) 100%); padding: 80px 0;">
+    <!-- CTA FUNNEL -->
+    <section id="cta-funnel" class="section" style="background:linear-gradient(135deg, var(--dk) 0%, #1e3a5f 50%, var(--dk) 100%); padding: 80px 0;">
       <div class="container" data-aos="fade-up">
         <div class="row justify-content-center">
           <div class="col-lg-10 text-center">
-            <p style="color:var(--gold);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Stop Wasting Time</p>
+            <p style="color:var(--gd);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Stop Wasting Time</p>
             <h2 style="color:#fff;font-size:2.4rem;font-weight:800;margin-bottom:24px;line-height:1.2;">Still Doing Everything Manually?<br>Your Business Deserves Better.</h2>
-
             <div class="row gy-3 justify-content-center text-start" style="margin-bottom:36px;max-width:700px;margin-left:auto;margin-right:auto;">
-              <div class="col-md-6">
-                <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;">
-                  <span style="font-size:24px;">&#x1F6A8;</span>
-                  <div><p style="color:#fff;font-size:14px;font-weight:600;margin:0;">Leads going cold?</p><p style="color:#94a3b8;font-size:12px;margin:0;">80% of leads need follow-up within 5 minutes or they're gone forever.</p></div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;">
-                  <span style="font-size:24px;">&#x23F0;</span>
-                  <div><p style="color:#fff;font-size:14px;font-weight:600;margin:0;">Wasting 20+ hours a week?</p><p style="color:#94a3b8;font-size:12px;margin:0;">On tasks that should take zero. Reporting, scheduling, follow-ups, onboarding.</p></div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;">
-                  <span style="font-size:24px;">&#x1F4B8;</span>
-                  <div><p style="color:#fff;font-size:14px;font-weight:600;margin:0;">Overpaying for content?</p><p style="color:#94a3b8;font-size:12px;margin:0;">UGC creators cost $200+ per video. AI systems cut that by 60%.</p></div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;">
-                  <span style="font-size:24px;">&#x1F4C9;</span>
-                  <div><p style="color:#fff;font-size:14px;font-weight:600;margin:0;">Funnel not converting?</p><p style="color:#94a3b8;font-size:12px;margin:0;">No follow-up, no nurture, no system. Just a form collecting dust.</p></div>
-                </div>
-              </div>
+              <div class="col-md-6"><div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;"><span style="font-size:24px;">&#x1F6A8;</span><div><p style="color:#fff;font-size:14px;font-weight:600;margin:0;">Leads going cold?</p><p style="color:#94a3b8;font-size:12px;margin:0;">80% of leads need follow-up within 5 minutes or they're gone forever.</p></div></div></div>
+              <div class="col-md-6"><div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;"><span style="font-size:24px;">&#x23F0;</span><div><p style="color:#fff;font-size:14px;font-weight:600;margin:0;">Wasting 20+ hours a week?</p><p style="color:#94a3b8;font-size:12px;margin:0;">On tasks that should take zero. Reporting, scheduling, follow-ups, onboarding.</p></div></div></div>
+              <div class="col-md-6"><div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;"><span style="font-size:24px;">&#x1F4B8;</span><div><p style="color:#fff;font-size:14px;font-weight:600;margin:0;">Overpaying for content?</p><p style="color:#94a3b8;font-size:12px;margin:0;">UGC creators cost $200+ per video. AI systems cut that by 60%.</p></div></div></div>
+              <div class="col-md-6"><div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;"><span style="font-size:24px;">&#x1F4C9;</span><div><p style="color:#fff;font-size:14px;font-weight:600;margin:0;">Funnel not converting?</p><p style="color:#94a3b8;font-size:12px;margin:0;">No follow-up, no nurture, no system. Just a form collecting dust.</p></div></div></div>
             </div>
-
             <p style="color:#60a5fa;font-size:18px;font-weight:700;margin-bottom:8px;">I fix all of this.</p>
             <p style="color:#cbd5e1;font-size:14px;margin-bottom:32px;">I build the systems that handle your leads, automate your workflows, and scale your content while you focus on growing your business.</p>
-
             <div class="row gy-3 justify-content-center" style="margin-bottom:36px;">
               <div class="col-auto"><div style="display:inline-flex;align-items:center;background:#ffffff10;border:1px solid #ffffff20;border-radius:10px;padding:14px 22px;"><span style="font-size:20px;margin-right:10px;">&#x2699;</span><span style="color:#e2e8f0;font-size:14px;font-weight:500;">GHL CRM Buildout</span></div></div>
               <div class="col-auto"><div style="display:inline-flex;align-items:center;background:#ffffff10;border:1px solid #ffffff20;border-radius:10px;padding:14px 22px;"><span style="font-size:20px;margin-right:10px;">&#x1F916;</span><span style="color:#e2e8f0;font-size:14px;font-weight:500;">AI Automation</span></div></div>
               <div class="col-auto"><div style="display:inline-flex;align-items:center;background:#ffffff10;border:1px solid #ffffff20;border-radius:10px;padding:14px 22px;"><span style="font-size:20px;margin-right:10px;">&#x1F3AC;</span><span style="color:#e2e8f0;font-size:14px;font-weight:500;">UGC Pipelines</span></div></div>
               <div class="col-auto"><div style="display:inline-flex;align-items:center;background:#ffffff10;border:1px solid #ffffff20;border-radius:10px;padding:14px 22px;"><span style="font-size:20px;margin-right:10px;">&#x1F310;</span><span style="color:#e2e8f0;font-size:14px;font-weight:500;">Funnels & Websites</span></div></div>
             </div>
-
-            <p style="color:var(--gold);font-size:13px;margin-bottom:16px;">&#x2B50; Trusted by 30+ brands and agencies worldwide</p>
+            <p style="color:var(--gd);font-size:13px;margin-bottom:16px;">&#x2B50; Trusted by 30+ brands and agencies worldwide</p>
             <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn btn-primary" style="font-size:16px;padding:16px 48px;border-radius:10px;font-weight:700;letter-spacing:0.3px;">Book Your Free Strategy Call</a>
             <p style="color:#64748b;font-size:12px;margin-top:12px;">No commitment. 30 minutes. I'll give you a clear action plan.</p>
           </div>
@@ -538,7 +559,7 @@
       </div>
     </section>
 
-    <!-- AUTOMATION & WORKFLOWS (with sales pitch expansions) -->
+    <!-- AUTOMATION & WORKFLOWS -->
     <section id="automation" class="section net-bg">
       <div class="container section-title" data-aos="fade-up">
         <h2>Automation &amp; Workflows</h2>
@@ -553,7 +574,7 @@
               <div class="card-body">
                 <span style="display:inline-block;background:#2563eb18;color:#2563eb;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$300-$800</span>
                 <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Client Onboarding Workflow</h3>
-                <p style="font-size:13px;color:var(--gray);line-height:1.6;">Once payment comes in, a welcome email fires, a Google Drive folder gets created, a Trello board spins up, and the team gets a Slack notification.</p>
+                <p style="font-size:13px;color:var(--gr);line-height:1.6;">Once payment comes in, a welcome email fires, a Google Drive folder gets created, a Trello board spins up, and the team gets a Slack notification.</p>
                 <div class="auto-pitch" id="ap1"><div class="auto-pitch-inner"><p>Every hour you spend manually onboarding a client is an hour you're not growing your business. I build onboarding systems that handle everything in under 60 seconds, so your clients feel taken care of and you never touch a checklist again.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
               </div>
             </div>
@@ -565,7 +586,7 @@
               <div class="card-body">
                 <span style="display:inline-block;background:#7c3aed18;color:#7c3aed;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$400-$1,200</span>
                 <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Content Repurposing Pipeline</h3>
-                <p style="font-size:13px;color:var(--gray);line-height:1.6;">Upload a YouTube video and AI automatically clips it into Shorts and Reels, converts formats, schedules, and posts across TikTok, Instagram, and YouTube Shorts.</p>
+                <p style="font-size:13px;color:var(--gr);line-height:1.6;">Upload a YouTube video and AI automatically clips it into Shorts and Reels, converts formats, schedules, and posts across TikTok, Instagram, and YouTube Shorts.</p>
                 <div class="auto-pitch" id="ap2"><div class="auto-pitch-inner"><p>You're creating great content but only posting it once. This system takes every video you make and turns it into 10+ pieces of content automatically. Most creators save 10+ hours a week and triple their reach overnight.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
               </div>
             </div>
@@ -577,7 +598,7 @@
               <div class="card-body">
                 <span style="display:inline-block;background:#05966918;color:#059669;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$300-$800</span>
                 <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Lead Capture to CRM</h3>
-                <p style="font-size:13px;color:var(--gray);line-height:1.6;">When a form is submitted, the lead gets tagged by source, a CRM entry is created in GHL or Notion, a follow-up email triggers automatically, and the team gets notified via Slack.</p>
+                <p style="font-size:13px;color:var(--gr);line-height:1.6;">When a form is submitted, the lead gets tagged by source, a CRM entry is created in GHL or Notion, a follow-up email triggers automatically, and the team gets notified via Slack.</p>
                 <div class="auto-pitch" id="ap3"><div class="auto-pitch-inner"><p>If your leads are sitting in a spreadsheet or worse, your inbox, you're losing money every day. I connect your forms directly to a CRM with instant follow-up so no lead ever goes cold again.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
               </div>
             </div>
@@ -588,7 +609,7 @@
               <div style="margin-bottom:12px;"><i class="bi bi-funnel" style="font-size:2rem;color:#d97706;"></i></div>
               <span style="display:inline-block;background:#d9770618;color:#d97706;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$800-$2,500</span>
               <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">GoHighLevel Full CRM Setup</h3>
-              <p style="font-size:13px;color:var(--gray);line-height:1.6;">When a lead enters, they get assigned a pipeline stage, an SMS sequence fires, an email drip activates, and a booking gets triggered automatically.</p>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">When a lead enters, they get assigned a pipeline stage, an SMS sequence fires, an email drip activates, and a booking gets triggered automatically.</p>
               <div class="auto-pitch" id="ap4"><div class="auto-pitch-inner"><p>Your competitors are using automated follow-up systems while you're still sending manual emails. A full GHL CRM setup means every lead gets nurtured, every call gets booked, and every client gets the 5-star experience on autopilot.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
             </div>
           </div>
@@ -598,7 +619,7 @@
               <div style="margin-bottom:12px;"><i class="bi bi-lightning-charge" style="font-size:2rem;color:#0891b2;"></i></div>
               <span style="display:inline-block;background:#0891b218;color:#0891b2;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$800-$2,000</span>
               <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">AI-Powered Sales Pipeline</h3>
-              <p style="font-size:13px;color:var(--gray);line-height:1.6;">AI scores and qualifies your leads, then hot prospects get routed via Slack. A Calendly invite sends automatically, GHL handles the follow-up, and the deal closes with zero manual work.</p>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">AI scores and qualifies your leads, then hot prospects get routed via Slack. A Calendly invite sends automatically, GHL handles the follow-up, and the deal closes with zero manual work.</p>
               <div class="auto-pitch" id="ap5"><div class="auto-pitch-inner"><p>Stop wasting time on leads that were never going to buy. AI qualification means your sales team only talks to people who are ready to close, while the rest get nurtured automatically until they are.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
             </div>
           </div>
@@ -608,7 +629,7 @@
               <div style="margin-bottom:12px;"><i class="bi bi-headset" style="font-size:2rem;color:#7c3aed;"></i></div>
               <span style="display:inline-block;background:#7c3aed18;color:#7c3aed;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$1,000-$3,000</span>
               <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">AI Customer Support Bot</h3>
-              <p style="font-size:13px;color:var(--gray);line-height:1.6;">When a message comes in, GPT-4 processes it against your docs and resolves about 80% of tickets instantly. Complex cases get escalated through GHL.</p>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">When a message comes in, GPT-4 processes it against your docs and resolves about 80% of tickets instantly. Complex cases get escalated through GHL.</p>
               <div class="auto-pitch" id="ap6"><div class="auto-pitch-inner"><p>Your support team is answering the same 10 questions over and over. An AI bot handles those instantly, 24/7, in any language, while only escalating the real issues to your team. Most businesses cut support costs by 60%.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
             </div>
           </div>
@@ -618,7 +639,7 @@
               <div style="margin-bottom:12px;"><i class="bi bi-play-circle" style="font-size:2rem;color:#ea580c;"></i></div>
               <span style="display:inline-block;background:#ea580c18;color:#ea580c;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$500-$1,500</span>
               <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">YouTube Channel Autopilot</h3>
-              <p style="font-size:13px;color:var(--gray);line-height:1.6;">Once a video is uploaded, Whisper AI transcribes it, GPT-4 writes the SEO copy, Canva API generates a thumbnail, and clips get auto-posted everywhere.</p>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">Once a video is uploaded, Whisper AI transcribes it, GPT-4 writes the SEO copy, Canva API generates a thumbnail, and clips get auto-posted everywhere.</p>
               <div class="auto-pitch" id="ap7"><div class="auto-pitch-inner"><p>You upload the video and walk away. The system handles everything else: transcription, SEO titles, descriptions, thumbnails, and clips posted across every platform. Fully hands-free YouTube growth.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
             </div>
           </div>
@@ -628,7 +649,7 @@
               <div style="margin-bottom:12px;"><i class="bi bi-cart-x" style="font-size:2rem;color:#16a34a;"></i></div>
               <span style="display:inline-block;background:#16a34a18;color:#16a34a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$600-$1,800</span>
               <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">eCommerce Revenue Recovery</h3>
-              <p style="font-size:13px;color:var(--gray);line-height:1.6;">When a cart is abandoned, an SMS goes out at the 1-hour mark, an email follows at 24 hours, and a discount code gets applied at step 3.</p>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">When a cart is abandoned, an SMS goes out at the 1-hour mark, an email follows at 24 hours, and a discount code gets applied at step 3.</p>
               <div class="auto-pitch" id="ap8"><div class="auto-pitch-inner"><p>70% of carts get abandoned. That's real money you're leaving on the table every single day. This recovery system brings back 15-30% of those lost sales automatically, and every dollar recovered is pure profit.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
             </div>
           </div>
@@ -638,7 +659,7 @@
               <div style="margin-bottom:12px;"><i class="bi bi-briefcase" style="font-size:2rem;color:#b45309;"></i></div>
               <span style="display:inline-block;background:#b4530918;color:#b45309;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;">$1,200-$3,500</span>
               <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Agency Fulfillment System</h3>
-              <p style="font-size:13px;color:var(--gray);line-height:1.6;">The moment a client pays, a DocuSign contract goes out, a ClickUp board spins up, a Slack channel opens, and Google Drive plus GHL get configured.</p>
+              <p style="font-size:13px;color:var(--gr);line-height:1.6;">The moment a client pays, a DocuSign contract goes out, a ClickUp board spins up, a Slack channel opens, and Google Drive plus GHL get configured.</p>
               <div class="auto-pitch" id="ap9"><div class="auto-pitch-inner"><p>If you're running an agency and still onboarding clients by hand, you're the bottleneck. This system gets new clients from payment to fully operational in under 3 minutes. Your team stays focused on delivery, not admin.</p><button class="auto-pitch-btn" onclick="event.stopPropagation();kpOpen()">Get This Built</button></div></div>
             </div>
           </div>
@@ -669,27 +690,24 @@
             <div class="col-lg-4 col-md-6 isotope-item f-long"><div class="port-item"><img src="assets/img/portfolio/v5.jpg" alt="Nootropic"><div class="port-overlay"><h4>Nootropic Reviewer</h4><p>Educational explainer</p></div><a href="https://www.youtube.com/watch?v=N45U4efZU1k" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
             <div class="col-lg-4 col-md-6 isotope-item f-long"><div class="port-item"><img src="assets/img/portfolio/v6.jpg" alt="SunnyVlog"><div class="port-overlay"><h4>SunnyVlog - Cinematic Vlog</h4><p>Travel documentary style</p></div><a href="https://www.youtube.com/watch?v=IIocKc8-J_0" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
             <div class="col-lg-4 col-md-6 isotope-item f-long"><div class="port-item"><img src="assets/img/portfolio/v7.jpg" alt="Alux"><div class="port-overlay"><h4>Alux - Infographic</h4><p>Motion text explainer</p></div><a href="https://www.youtube.com/watch?v=2kYQJfyXUSA" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
-
             <div class="col-lg-4 col-md-6 isotope-item f-reels"><div class="port-item"><img src="assets/img/portfolio/V8.jpg" alt="Patricia"><div class="port-overlay"><h4>Patricia Bartell</h4><p>Motivational infographic reel</p></div><a href="https://www.instagram.com/reel/CzguExMrfwm/" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
             <div class="col-lg-4 col-md-6 isotope-item f-reels"><div class="port-item"><img src="assets/img/portfolio/V9.jpg" alt="Kristin"><div class="port-overlay"><h4>Kristin and Jamil</h4><p>Couple comedy shorts</p></div><a href="https://www.youtube.com/shorts/E1O5HlU3n0s" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
             <div class="col-lg-4 col-md-6 isotope-item f-reels"><div class="port-item"><img src="assets/img/portfolio/V11.jpg" alt="PickCity"><div class="port-overlay"><h4>PickCity HQ</h4><p>Sports betting highlights</p></div><a href="https://www.instagram.com/reel/C0LHTcYNj4d/" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
             <div class="col-lg-4 col-md-6 isotope-item f-reels"><div class="port-item"><img src="assets/img/portfolio/V12.jpg" alt="Hormozi"><div class="port-overlay"><h4>Alex Hormozi - Business</h4><p>TikTok style clip</p></div><a href="https://www.tiktok.com/@ahormozi/video/7214640487314099499" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
             <div class="col-lg-4 col-md-6 isotope-item f-reels"><div class="port-item"><img src="assets/img/portfolio/V10.jpg" alt="AnimentOG"><div class="port-overlay"><h4>AnimentOG - Anime Short</h4><p>Stylized reaction cuts</p></div><a href="https://www.youtube.com/shorts/a_drQiiUEpY" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
-
             <div class="col-lg-4 col-md-6 isotope-item f-ecom"><div class="port-item"><img src="assets/img/web/web3.jpg" alt="Toby"><div class="port-overlay"><h4>TobyWanShinobi</h4><p>Merch website + store</p></div><a href="assets/img/web/fullpage3.png" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
             <div class="col-lg-4 col-md-6 isotope-item f-ecom"><div class="port-item"><img src="assets/img/web/web5.jpg" alt="Sunny"><div class="port-overlay"><h4>SunnyVlog Merch</h4><p>Creator Spring store</p></div><a href="assets/img/web/fullpage5.png" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
             <div class="col-lg-4 col-md-6 isotope-item f-ecom"><div class="port-item"><img src="assets/img/web/web6.jpg" alt="Mono"><div class="port-overlay"><h4>MonochromaticFinds</h4><p>Etsy to Shopify migration</p></div><a href="assets/img/web/fullpage6.png" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
-
             <div class="col-lg-4 col-md-6 isotope-item f-web"><div class="port-item"><img src="assets/img/web/web1.jpg" alt="MVA"><div class="port-overlay"><h4>MultimediaVA</h4><p>Portfolio website</p></div><a href="assets/img/web/fullpage1.png" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
             <div class="col-lg-4 col-md-6 isotope-item f-web"><div class="port-item"><img src="assets/img/web/web2.jpg" alt="JKL"><div class="port-overlay"><h4>JKL Grillhouse</h4><p>Restaurant website</p></div><a href="assets/img/web/fullpage2.png" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
             <div class="col-lg-4 col-md-6 isotope-item f-web"><div class="port-item"><img src="assets/img/web/web4.jpg" alt="Floral"><div class="port-overlay"><h4>Hana Florist</h4><p>POS website</p></div><a href="assets/img/web/fullpage4.png" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
-
             <div class="col-lg-4 col-md-6 isotope-item f-cert"><div class="port-item"><img src="assets/img/certificate/ecom.jpg" alt="Cert"><div class="port-overlay"><h4>Shopify eCommerce Training</h4><p>Product research + listing</p></div><a href="assets/img/certificate/Ecom.png" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
             <div class="col-lg-4 col-md-6 isotope-item f-cert"><div class="port-item"><img src="assets/img/certificate/seo.jpg" alt="SEO"><div class="port-overlay"><h4>SEO Training</h4><p>On-page + link building</p></div><a href="assets/img/certificate/seo.png" class="glightbox" data-gallery="port" style="position:absolute;inset:0;"></a></div></div>
           </div>
         </div>
       </div>
     </section>
+
     <!-- CLIENT TESTIMONIALS MARQUEE -->
     <section id="testimonials" class="section net-bg">
       <div class="container section-title" data-aos="fade-up">
@@ -698,31 +716,33 @@
       </div>
       <div class="reviews-marquee">
         <div class="reviews-track" id="clientReviewsTrack">
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/s.jpg" alt="Syntell"><div><h5>@Syntell</h5><span>Reaction Channel</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"Kenneth has been my go-to video editor for years. He understands my brand, keeps my content consistent, and always delivers fast."</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/p.jpg" alt="PickCity"><div><h5>@pickcity.hq</h5><span>Local Business</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"Kenneth edits all our TikToks and reels. He makes our content punchy, on-brand, and engaging. Basically our in-house editor!"</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/k.jpg" alt="Karriann"><div><h5>Karriann Graf</h5><span>Realtor, Key West</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"I trusted Kenneth with editing our home tours and he made them stand out from the rest! I love how he brings warmth and polish."</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/kj.jpg" alt="Kristin and Jamil"><div><h5>@KristinandJamil</h5><span>Food Reaction</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"We love working with Kenneth! He helps us turn hours of footage into engaging, clean cut content that keeps viewers coming back."</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/m.jpg" alt="Mike"><div><h5>Mike Thomas</h5><span>Mike From Maine</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"His turnaround time is fast, and he understands exactly how to structure content that keeps viewers engaged."</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/d.jpg" alt="Don"><div><h5>Don Townsend</h5><span>Reactions</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"Kenneth is a beast when it comes to editing. He gets the pacing, the memes, and the reactions just right."</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/a.jpg" alt="Animentog"><div><h5>Animentog</h5><span>Anime Edits</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"Sync, flow, and emotion. Kenneth nails all three in every edit. Sharp, punchy, and clean every time."</p></div>
-          <div class="review-marquee-card"><div class="rm-header"><img src="assets/img/testimonials/no.jpg" alt="Nootropic"><div><h5>@thenootropicreviewer</h5><span>Product Reviews</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"Kenneth makes my reviews look polished and professional. His cuts, captions, and B-roll timing always elevate my content."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/s.jpg" alt="Syntell"><div><h5>@Syntell</h5><span>Reaction Channel</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"Kenneth has been my go-to video editor for years. He understands my brand, keeps my content consistent, and always delivers fast."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/p.jpg" alt="PickCity"><div><h5>@pickcity.hq</h5><span>Local Business</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"Kenneth edits all our TikToks and reels. He makes our content punchy, on-brand, and engaging. Basically our in-house editor!"</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/k.jpg" alt="Karriann"><div><h5>Karriann Graf</h5><span>Realtor, Key West</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"I trusted Kenneth with editing our home tours and he made them stand out from the rest! I love how he brings warmth and polish."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/kj.jpg" alt="Kristin and Jamil"><div><h5>@KristinandJamil</h5><span>Food Reaction</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"We love working with Kenneth! He helps us turn hours of footage into engaging, clean cut content that keeps viewers coming back."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/m.jpg" alt="Mike"><div><h5>Mike Thomas</h5><span>Mike From Maine</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"His turnaround time is fast, and he understands exactly how to structure content that keeps viewers engaged."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/d.jpg" alt="Don"><div><h5>Don Townsend</h5><span>Reactions</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"Kenneth is a beast when it comes to editing. He gets the pacing, the memes, and the reactions just right."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/a.jpg" alt="Animentog"><div><h5>Animentog</h5><span>Anime Edits</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"Sync, flow, and emotion. Kenneth nails all three in every edit. Sharp, punchy, and clean every time."</p></div>
+          <div class="rm-card"><div class="rm-header"><img src="assets/img/testimonials/no.jpg" alt="Nootropic"><div><h5>@thenootropicreviewer</h5><span>Product Reviews</span></div></div><div class="rm-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>"Kenneth makes my reviews look polished and professional. His cuts, captions, and B-roll timing always elevate my content."</p></div>
         </div>
       </div>
     </section>
 
     <!-- STATS -->
-    <section id="stats" class="section" style="background:var(--light);">
+    <section id="stats" class="section" style="background:var(--lt);">
       <div class="container section-title" data-aos="fade-up"><h2>Performance Highlights</h2><p>Creative, automation, and eCommerce metrics from years of client-focused work.</p></div>
       <div class="container">
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100"><div class="stat-card"><div class="stat-icon"><i class="bi bi-people"></i></div><span class="stat-number" data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1">30</span><p>Brands Served</p></div></div>
           <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="150"><div class="stat-card"><div class="stat-icon"><i class="bi bi-camera-reels"></i></div><span class="stat-number" data-purecounter-start="0" data-purecounter-end="4250" data-purecounter-duration="1">4250</span><p>Videos Edited</p></div></div>
-          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="200"><div class="stat-card"><div class="stat-icon" style="color:var(--green);"><i class="bi bi-emoji-smile"></i></div><span class="stat-number" data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1">100</span><span class="stat-suffix">%</span><p>Satisfaction</p></div></div>
-          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="250"><div class="stat-card"><div class="stat-icon" style="color:var(--primary);"><i class="bi bi-robot"></i></div><span class="stat-number" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1">50</span><span class="stat-suffix">+</span><p>Automations Built</p></div></div>
-          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="300"><div class="stat-card"><div class="stat-icon" style="color:var(--green);"><i class="bi bi-funnel"></i></div><span class="stat-number" data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1">12</span><p>GHL Accounts</p></div></div>
-          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="350"><div class="stat-card"><div class="stat-icon" style="color:var(--red);"><i class="bi bi-graph-up-arrow"></i></div><span class="stat-number" data-purecounter-start="0" data-purecounter-end="40" data-purecounter-duration="1">40</span><span class="stat-suffix">+</span><p>Hrs/Week Saved</p></div></div>
+          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="200"><div class="stat-card"><div class="stat-icon" style="color:var(--gn);"><i class="bi bi-emoji-smile"></i></div><span class="stat-number" data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1">100</span><span class="stat-suffix">%</span><p>Satisfaction</p></div></div>
+          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="250"><div class="stat-card"><div class="stat-icon" style="color:var(--p);"><i class="bi bi-robot"></i></div><span class="stat-number" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1">50</span><span class="stat-suffix">+</span><p>Automations Built</p></div></div>
+          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="300"><div class="stat-card"><div class="stat-icon" style="color:var(--gn);"><i class="bi bi-funnel"></i></div><span class="stat-number" data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1">12</span><p>GHL Accounts</p></div></div>
+          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="350"><div class="stat-card"><div class="stat-icon" style="color:var(--rd);"><i class="bi bi-graph-up-arrow"></i></div><span class="stat-number" data-purecounter-start="0" data-purecounter-end="40" data-purecounter-duration="1">40</span><span class="stat-suffix">+</span><p>Hrs/Week Saved</p></div></div>
         </div>
       </div>
+    </section>
+
     <!-- PRICING / SERVICES STORE -->
     <section id="pricing" class="section" style="background:#f8fafc;">
       <div class="container section-title" data-aos="fade-up">
@@ -731,311 +751,82 @@
       </div>
       <div class="container">
 
-        <!-- Video Editing -->
         <h5 class="text-center mb-4" data-aos="fade-up" style="font-weight:700;color:#111827;"><i class="bi bi-scissors me-2"></i>Video Editing</h5>
         <div class="row gy-4 mb-5">
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="store-card">
-              <div class="store-badge">Popular</div>
-              <h4>Basic Video Edit</h4>
-              <div class="store-price">$50 <span>to $150</span></div>
-              <p>Cutting, transitions, music sync, basic graphics. Up to 5 minutes. YouTube, podcast clips, etc.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> Up to 5 min runtime</li>
-                <li><i class="bi bi-check2"></i> 1 revision round</li>
-                <li><i class="bi bi-check2"></i> 48hr delivery</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><div class="store-badge">Popular</div><h4>Basic Video Edit</h4><div class="store-price">$50 <span>to $150</span></div><p>Cutting, transitions, music sync, basic graphics. Up to 5 minutes. YouTube, podcast clips, etc.</p><ul class="store-features"><li><i class="bi bi-check2"></i> Up to 5 min runtime</li><li><i class="bi bi-check2"></i> 1 revision round</li><li><i class="bi bi-check2"></i> 48hr delivery</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="store-card">
-              <h4>Premium Video Edit</h4>
-              <div class="store-price">$150 <span>to $400</span></div>
-              <p>Motion graphics, color grading, subtitles, revisions. Up to 15 minutes. Full production quality.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> Up to 15 min runtime</li>
-                <li><i class="bi bi-check2"></i> 2 revision rounds</li>
-                <li><i class="bi bi-check2"></i> Motion graphics included</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><h4>Premium Video Edit</h4><div class="store-price">$150 <span>to $400</span></div><p>Motion graphics, color grading, subtitles, revisions. Up to 15 minutes. Full production quality.</p><ul class="store-features"><li><i class="bi bi-check2"></i> Up to 15 min runtime</li><li><i class="bi bi-check2"></i> 2 revision rounds</li><li><i class="bi bi-check2"></i> Motion graphics included</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="store-card">
-              <h4>Short-Form Reels / TikTok</h4>
-              <div class="store-price">$25 <span>to $80</span></div>
-              <p>Vertical short videos with captions, trending audio, emojis, and effects. 30 to 90 seconds.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> 30-90 sec vertical</li>
-                <li><i class="bi bi-check2"></i> Captions + effects</li>
-                <li><i class="bi bi-check2"></i> 24hr delivery</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><h4>Short-Form Reels / TikTok</h4><div class="store-price">$25 <span>to $80</span></div><p>Vertical short videos with captions, trending audio, emojis, and effects. 30 to 90 seconds.</p><ul class="store-features"><li><i class="bi bi-check2"></i> 30-90 sec vertical</li><li><i class="bi bi-check2"></i> Captions + effects</li><li><i class="bi bi-check2"></i> 24hr delivery</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
         </div>
 
-        <!-- UGC & VSL -->
         <h5 class="text-center mb-4" data-aos="fade-up" style="font-weight:700;color:#111827;"><i class="bi bi-camera-reels me-2"></i>UGC & VSL Production</h5>
         <div class="row gy-4 mb-5">
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="store-card">
-              <h4>UGC Video Edit</h4>
-              <div class="store-price">$50 <span>to $200</span></div>
-              <p>Raw UGC footage transformed into polished, high-converting ad creatives for TikTok, Meta, and Instagram.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> Ad-ready format</li>
-                <li><i class="bi bi-check2"></i> Hook optimization</li>
-                <li><i class="bi bi-check2"></i> Multi-platform export</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><h4>UGC Video Edit</h4><div class="store-price">$50 <span>to $200</span></div><p>Raw UGC footage transformed into polished, high-converting ad creatives for TikTok, Meta, and Instagram.</p><ul class="store-features"><li><i class="bi bi-check2"></i> Ad-ready format</li><li><i class="bi bi-check2"></i> Hook optimization</li><li><i class="bi bi-check2"></i> Multi-platform export</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="store-card">
-              <div class="store-badge" style="background:#7c3aed;">Best Value</div>
-              <h4>UGC Ad Package (5 Videos)</h4>
-              <div class="store-price">$300 <span>to $700</span></div>
-              <p>Bulk UGC ad editing package. 5 edited videos optimized for paid ads with multiple format exports.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> 5 edited videos</li>
-                <li><i class="bi bi-check2"></i> A/B test variations</li>
-                <li><i class="bi bi-check2"></i> 5-7 day delivery</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><div class="store-badge" style="background:#7c3aed;">Best Value</div><h4>UGC Ad Package (5 Videos)</h4><div class="store-price">$300 <span>to $700</span></div><p>Bulk UGC ad editing package. 5 edited videos optimized for paid ads with multiple format exports.</p><ul class="store-features"><li><i class="bi bi-check2"></i> 5 edited videos</li><li><i class="bi bi-check2"></i> A/B test variations</li><li><i class="bi bi-check2"></i> 5-7 day delivery</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="store-card">
-              <h4>VSL (Video Sales Letter)</h4>
-              <div class="store-price">$200 <span>to $800</span></div>
-              <p>Full VSL production with script support, b-roll editing, captions, hook optimization, and CTA. Built to convert.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> Script assistance</li>
-                <li><i class="bi bi-check2"></i> Direct-response focused</li>
-                <li><i class="bi bi-check2"></i> CTA optimization</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><h4>VSL (Video Sales Letter)</h4><div class="store-price">$200 <span>to $800</span></div><p>Full VSL production with script support, b-roll editing, captions, hook optimization, and CTA. Built to convert.</p><ul class="store-features"><li><i class="bi bi-check2"></i> Script assistance</li><li><i class="bi bi-check2"></i> Direct-response focused</li><li><i class="bi bi-check2"></i> CTA optimization</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
         </div>
 
-        <!-- AI Automation -->
         <h5 class="text-center mb-4" data-aos="fade-up" style="font-weight:700;color:#111827;"><i class="bi bi-robot me-2"></i>AI Automation & Workflows</h5>
         <div class="row gy-4 mb-5">
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="store-card">
-              <h4>Starter Automation Setup</h4>
-              <div class="store-price">$300 <span>to $600</span></div>
-              <p>Simple 1 to 3 step workflow like lead capture to CRM or onboarding email trigger. Built on Zapier or Make.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> 1-3 step workflow</li>
-                <li><i class="bi bi-check2"></i> Zapier or Make</li>
-                <li><i class="bi bi-check2"></i> 3-5 day delivery</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><h4>Starter Automation Setup</h4><div class="store-price">$300 <span>to $600</span></div><p>Simple 1 to 3 step workflow like lead capture to CRM or onboarding email trigger. Built on Zapier or Make.</p><ul class="store-features"><li><i class="bi bi-check2"></i> 1-3 step workflow</li><li><i class="bi bi-check2"></i> Zapier or Make</li><li><i class="bi bi-check2"></i> 3-5 day delivery</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="store-card">
-              <div class="store-badge" style="background:#059669;">Most Requested</div>
-              <h4>GoHighLevel CRM Full Setup</h4>
-              <div class="store-price">$800 <span>to $2,500</span></div>
-              <p>Complete GHL buildout with pipelines, SMS/email sequences, missed-call text-back, booking funnels, and reputation management.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> Full pipeline + CRM</li>
-                <li><i class="bi bi-check2"></i> SMS + email workflows</li>
-                <li><i class="bi bi-check2"></i> Reputation management</li>
-                <li><i class="bi bi-check2"></i> 5-7 day delivery</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><div class="store-badge" style="background:#059669;">Most Requested</div><h4>GoHighLevel CRM Full Setup</h4><div class="store-price">$800 <span>to $2,500</span></div><p>Complete GHL buildout with pipelines, SMS/email sequences, missed-call text-back, booking funnels, and reputation management.</p><ul class="store-features"><li><i class="bi bi-check2"></i> Full pipeline + CRM</li><li><i class="bi bi-check2"></i> SMS + email workflows</li><li><i class="bi bi-check2"></i> Reputation management</li><li><i class="bi bi-check2"></i> 5-7 day delivery</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="store-card">
-              <h4>AI Sales Pipeline</h4>
-              <div class="store-price">$800 <span>to $2,000</span></div>
-              <p>AI lead scoring, Calendly scheduling, GHL follow-up sequences, and Slack routing. Full sales automation.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> AI lead qualification</li>
-                <li><i class="bi bi-check2"></i> Auto-booking</li>
-                <li><i class="bi bi-check2"></i> Slack notifications</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><h4>AI Sales Pipeline</h4><div class="store-price">$800 <span>to $2,000</span></div><p>AI lead scoring, Calendly scheduling, GHL follow-up sequences, and Slack routing. Full sales automation.</p><ul class="store-features"><li><i class="bi bi-check2"></i> AI lead qualification</li><li><i class="bi bi-check2"></i> Auto-booking</li><li><i class="bi bi-check2"></i> Slack notifications</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="store-card">
-              <h4>Agency Fulfillment System</h4>
-              <div class="store-price">$1,200 <span>to $3,500</span></div>
-              <p>Full white-label ops with DocuSign, ClickUp, Slack, and GHL onboarding. Client ready in under 3 minutes.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> End-to-end onboarding</li>
-                <li><i class="bi bi-check2"></i> White-label ready</li>
-                <li><i class="bi bi-check2"></i> 7-10 day delivery</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><h4>Agency Fulfillment System</h4><div class="store-price">$1,200 <span>to $3,500</span></div><p>Full white-label ops with DocuSign, ClickUp, Slack, and GHL onboarding. Client ready in under 3 minutes.</p><ul class="store-features"><li><i class="bi bi-check2"></i> End-to-end onboarding</li><li><i class="bi bi-check2"></i> White-label ready</li><li><i class="bi bi-check2"></i> 7-10 day delivery</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="store-card">
-              <h4>AI Customer Support Bot</h4>
-              <div class="store-price">$1,000 <span>to $3,000</span></div>
-              <p>GPT-4 chatbot trained on your docs and deployed on your website plus Messenger. Resolves 80% of tickets automatically.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> Trained on your data</li>
-                <li><i class="bi bi-check2"></i> Website + Messenger</li>
-                <li><i class="bi bi-check2"></i> 80% auto-resolution</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><h4>AI Customer Support Bot</h4><div class="store-price">$1,000 <span>to $3,000</span></div><p>GPT-4 chatbot trained on your docs and deployed on your website plus Messenger. Resolves 80% of tickets automatically.</p><ul class="store-features"><li><i class="bi bi-check2"></i> Trained on your data</li><li><i class="bi bi-check2"></i> Website + Messenger</li><li><i class="bi bi-check2"></i> 80% auto-resolution</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="store-card">
-              <h4>Cold Outreach B2B System</h4>
-              <div class="store-price">$1,000 <span>to $3,500</span></div>
-              <p>Apollo/LinkedIn scraping, Clearbit enrichment, AI personalized emails via Instantly.ai, and GHL CRM routing.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> Lead scraping + enrichment</li>
-                <li><i class="bi bi-check2"></i> AI personalization</li>
-                <li><i class="bi bi-check2"></i> CRM auto-routing</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><h4>Cold Outreach B2B System</h4><div class="store-price">$1,000 <span>to $3,500</span></div><p>Apollo/LinkedIn scraping, Clearbit enrichment, AI personalized emails via Instantly.ai, and GHL CRM routing.</p><ul class="store-features"><li><i class="bi bi-check2"></i> Lead scraping + enrichment</li><li><i class="bi bi-check2"></i> AI personalization</li><li><i class="bi bi-check2"></i> CRM auto-routing</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
         </div>
 
-        <!-- eCommerce & VA -->
         <h5 class="text-center mb-4" data-aos="fade-up" style="font-weight:700;color:#111827;"><i class="bi bi-bag-check me-2"></i>eCommerce & VA Support</h5>
         <div class="row gy-4 mb-2 justify-content-center">
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="store-card">
-              <h4>eCommerce Product Listing</h4>
-              <div class="store-price">$5 <span>/item</span></div>
-              <p>Shopify or Amazon setup with SEO title, tags, product descriptions, and image upload per item.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> SEO optimized</li>
-                <li><i class="bi bi-check2"></i> Images formatted</li>
-                <li><i class="bi bi-check2"></i> Bulk pricing available</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><h4>eCommerce Product Listing</h4><div class="store-price">$5 <span>/item</span></div><p>Shopify or Amazon setup with SEO title, tags, product descriptions, and image upload per item.</p><ul class="store-features"><li><i class="bi bi-check2"></i> SEO optimized</li><li><i class="bi bi-check2"></i> Images formatted</li><li><i class="bi bi-check2"></i> Bulk pricing available</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="store-card">
-              <h4>Virtual Assistance (Hourly)</h4>
-              <div class="store-price">$8 <span>/hr</span></div>
-              <p>Admin tasks, scheduling, inbox support, uploads, and research. Flexible hours, consistent quality.</p>
-              <ul class="store-features">
-                <li><i class="bi bi-check2"></i> Flexible scheduling</li>
-                <li><i class="bi bi-check2"></i> Daily updates</li>
-                <li><i class="bi bi-check2"></i> Min 10 hrs/week</li>
-              </ul>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a>
-              <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" data-x="" target="_blank" class="btn store-btn-outline">Pay & Start</a>
-            </div>
+            <div class="store-card"><h4>Virtual Assistance (Hourly)</h4><div class="store-price">$8 <span>/hr</span></div><p>Admin tasks, scheduling, inbox support, uploads, and research. Flexible hours, consistent quality.</p><ul class="store-features"><li><i class="bi bi-check2"></i> Flexible scheduling</li><li><i class="bi bi-check2"></i> Daily updates</li><li><i class="bi bi-check2"></i> Min 10 hrs/week</li></ul><a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-primary">Book a Call</a><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn store-btn-outline">Pay & Start</a></div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- DIGITAL PRODUCTS / TEMPLATES -->
+    <!-- DIGITAL PRODUCTS -->
     <section id="templates" class="section net-bg">
       <div class="container section-title" data-aos="fade-up"><h2>Digital Products & Templates</h2><p>Pre-built systems, templates, and blueprints you can download and use right away. No waiting, no custom build needed.</p></div>
       <div class="container">
         <div class="row gy-4 justify-content-center">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="product-card">
-              <div class="product-card-img" style="background:linear-gradient(135deg,#1e3a5f,var(--dk));">&#x2699;</div>
-              <div class="product-card-body">
-                <h4>GHL Snapshot: Lead Nurture System</h4>
-                <div class="product-price">$49</div>
-                <p>Pre-built GoHighLevel snapshot with a complete lead nurture pipeline, 5-step SMS/email sequence, missed-call text-back, and booking calendar. Import in one click.</p>
-                <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="product-card">
-              <div class="product-card-img" style="background:linear-gradient(135deg,#6D00CC,#4B0082);">&#x1F916;</div>
-              <div class="product-card-body">
-                <h4>Make.com Blueprint Pack (5 Workflows)</h4>
-                <div class="product-price">$79</div>
-                <p>Five ready-to-import Make.com automation blueprints: client onboarding, content repurposing, lead capture to CRM, weekly reporting, and abandoned cart recovery.</p>
-                <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="product-card">
-              <div class="product-card-img" style="background:linear-gradient(135deg,var(--gn),#047857);">&#x1F4CB;</div>
-              <div class="product-card-body">
-                <h4>GHL Snapshot: Review Automation</h4>
-                <div class="product-price">$39</div>
-                <p>Automated post-appointment review request system for GHL. SMS and email sequences that ask for Google reviews at the perfect timing. Import and go live in 10 minutes.</p>
-                <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="product-card">
-              <div class="product-card-img" style="background:linear-gradient(135deg,#DC2626,#991B1B);">&#x1F3AC;</div>
-              <div class="product-card-body">
-                <h4>UGC Script Template Pack (20 Scripts)</h4>
-                <div class="product-price">$29</div>
-                <p>Twenty proven direct-response UGC scripts across hook styles, problem-solution, testimonial, and unboxing formats. Plug in your product and start filming.</p>
-                <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="product-card">
-              <div class="product-card-img" style="background:linear-gradient(135deg,#7C3AED,#5B21B6);">&#x1F4C4;</div>
-              <div class="product-card-body">
-                <h4>SOP Template Bundle (Agency Ops)</h4>
-                <div class="product-price">$59</div>
-                <p>Complete SOP pack for running a virtual team: editor onboarding, QC checklist, content calendar template, client communication guide, and revision workflow. Notion ready.</p>
-                <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="product-card">
-              <div class="product-card-img" style="background:linear-gradient(135deg,#0891B2,#0E7490);">&#x1F310;</div>
-              <div class="product-card-body">
-                <h4>GHL Snapshot: Full Agency Starter</h4>
-                <div class="product-price">$99</div>
-                <p>Everything you need to launch a GHL agency: client pipeline, onboarding workflow, review automation, booking calendar, and email/SMS sequences. One snapshot, fully loaded.</p>
-                <a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100"><div class="product-card"><div class="product-card-img" style="background:linear-gradient(135deg,#1e3a5f,var(--dk));">&#x2699;</div><div class="product-card-body"><h4>GHL Snapshot: Lead Nurture System</h4><div class="product-price">$49</div><p>Pre-built GoHighLevel snapshot with a complete lead nurture pipeline, 5-step SMS/email sequence, missed-call text-back, and booking calendar. Import in one click.</p><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a></div></div></div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200"><div class="product-card"><div class="product-card-img" style="background:linear-gradient(135deg,#6D00CC,#4B0082);">&#x1F916;</div><div class="product-card-body"><h4>Make.com Blueprint Pack (5 Workflows)</h4><div class="product-price">$79</div><p>Five ready-to-import Make.com automation blueprints: client onboarding, content repurposing, lead capture to CRM, weekly reporting, and abandoned cart recovery.</p><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a></div></div></div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300"><div class="product-card"><div class="product-card-img" style="background:linear-gradient(135deg,var(--gn),#047857);">&#x1F4CB;</div><div class="product-card-body"><h4>GHL Snapshot: Review Automation</h4><div class="product-price">$39</div><p>Automated post-appointment review request system for GHL. SMS and email sequences that ask for Google reviews at the perfect timing. Import and go live in 10 minutes.</p><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a></div></div></div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100"><div class="product-card"><div class="product-card-img" style="background:linear-gradient(135deg,#DC2626,#991B1B);">&#x1F3AC;</div><div class="product-card-body"><h4>UGC Script Template Pack (20 Scripts)</h4><div class="product-price">$29</div><p>Twenty proven direct-response UGC scripts across hook styles, problem-solution, testimonial, and unboxing formats. Plug in your product and start filming.</p><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a></div></div></div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200"><div class="product-card"><div class="product-card-img" style="background:linear-gradient(135deg,#7C3AED,#5B21B6);">&#x1F4C4;</div><div class="product-card-body"><h4>SOP Template Bundle (Agency Ops)</h4><div class="product-price">$59</div><p>Complete SOP pack for running a virtual team: editor onboarding, QC checklist, content calendar template, client communication guide, and revision workflow. Notion ready.</p><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a></div></div></div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300"><div class="product-card"><div class="product-card-img" style="background:linear-gradient(135deg,#0891B2,#0E7490);">&#x1F310;</div><div class="product-card-body"><h4>GHL Snapshot: Full Agency Starter</h4><div class="product-price">$99</div><p>Everything you need to launch a GHL agency: client pipeline, onboarding workflow, review automation, booking calendar, and email/SMS sequences. One snapshot, fully loaded.</p><a href="#" data-ext="aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9wYXlwYWxtZS9zZW5kdG9rZW5uZXRo" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="product-btn">Buy Now</a></div></div></div>
         </div>
       </div>
     </section>
-    <!-- FAQ (Modern Animated) -->
+
+    <!-- FAQ -->
     <section id="faq" class="section net-bg">
       <div class="container section-title" data-aos="fade-up"><h2>Frequently Asked Questions</h2><p>Got questions? Here are answers to the most common ones.</p></div>
       <div class="container">
@@ -1061,8 +852,8 @@
               <div class="faq-card" data-cat="GHL"><div class="faq-card-header" onclick="toggleFaq(this)"><h4>What is your experience with GoHighLevel?</h4><div class="faq-icon"><i class="bi bi-plus"></i></div></div><div class="faq-card-body"><div class="faq-card-body-inner"><p>I am the Agency Admin for Unity Consulting Advisors, managing three active GHL sub-accounts. I handle pipelines, funnels, workflows, lead nurture sequences, CRM integrations, and troubleshooting daily.</p></div></div></div>
             </div>
             <div class="text-center mt-4">
-              <p style="color:var(--gray);font-size:14px;margin-bottom:12px;">Still have questions?</p>
-              <button onclick="kpOpen()" class="btn" style="background:var(--primary);color:#fff;padding:12px 32px;border-radius:10px;font-weight:700;">Ask Me Anything</button>
+              <p style="color:var(--gr);font-size:14px;margin-bottom:12px;">Still have questions?</p>
+              <button onclick="kpOpen()" class="btn" style="background:var(--p);color:#fff;padding:12px 32px;border-radius:10px;font-weight:700;">Ask Me Anything</button>
             </div>
           </div>
         </div>
@@ -1070,29 +861,29 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section" style="background:var(--light);">
+    <section id="contact" class="section" style="background:var(--lt);">
       <div class="container section-title" data-aos="fade-up"><h2>Let's Work Together</h2><p>Pick the fastest way to reach me. I typically respond within a few hours.</p></div>
       <div class="container">
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="contact-card" style="border-top:4px solid var(--primary);">
-              <div class="contact-card-icon" style="background:#2563eb12;color:var(--primary);"><i class="bi bi-calendar-check" style="font-size:28px;"></i></div>
+            <div class="contact-card" style="border-top:4px solid var(--p);">
+              <div class="contact-card-icon" style="background:#2563eb12;color:var(--p);"><i class="bi bi-calendar-check" style="font-size:28px;"></i></div>
               <h4>Book a Free Call</h4><p>Schedule a 30-minute consultation. We'll discuss your project and I'll give you a clear plan.</p>
-              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn contact-btn" style="background:var(--primary);color:#fff;">Schedule Now</a>
+              <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="btn contact-btn" style="background:var(--p);color:#fff;">Schedule Now</a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="contact-card" style="border-top:4px solid var(--green);">
-              <div class="contact-card-icon" style="background:#05966912;color:var(--green);"><i class="bi bi-chat-dots" style="font-size:28px;"></i></div>
+            <div class="contact-card" style="border-top:4px solid var(--gn);">
+              <div class="contact-card-icon" style="background:#05966912;color:var(--gn);"><i class="bi bi-chat-dots" style="font-size:28px;"></i></div>
               <h4>Get a Free Quote</h4><p>Answer a few quick questions about your project and I'll send you a personalized recommendation.</p>
-              <button onclick="kpOpen()" class="btn contact-btn" style="background:var(--green);color:#fff;">Start Questionnaire</button>
+              <button onclick="kpOpen()" class="btn contact-btn" style="background:var(--gn);color:#fff;">Start Questionnaire</button>
             </div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="contact-card" style="border-top:4px solid var(--purple);">
-              <div class="contact-card-icon" style="background:#7c3aed12;color:var(--purple);"><i class="bi bi-envelope" style="font-size:28px;"></i></div>
+            <div class="contact-card" style="border-top:4px solid var(--pr);">
+              <div class="contact-card-icon" style="background:#7c3aed12;color:var(--pr);"><i class="bi bi-envelope" style="font-size:28px;"></i></div>
               <h4>Email Me Directly</h4><p>Have a specific question or want to share project details? Drop me an email anytime.</p>
-              <a href="#" class="btn contact-btn decode-href" data-h="bWFpbHRvOm11bHRpbWVkaWF2aXJ0dWFsYXNzaXN0YW50QGdtYWlsLmNvbQ==" style="background:var(--purple);color:#fff;">Send Email</a>
+              <a href="#" class="btn contact-btn decode-href" data-h="bWFpbHRvOm11bHRpbWVkaWF2aXJ0dWFsYXNzaXN0YW50QGdtYWlsLmNvbQ==" style="background:var(--pr);color:#fff;">Send Email</a>
             </div>
           </div>
         </div>
@@ -1107,7 +898,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- FOOTER -->
@@ -1117,6 +907,7 @@
       <p style="color:#64748b;font-size:13px;margin:0;">&copy; 2026 Kenneth Pineda. All Rights Reserved.</p>
     </div>
   </footer>
+
   <!-- FLOATING TRIGGER -->
   <button class="kp-trigger" onclick="kpOpen()">
     <div class="kp-trigger-dot"></div>
@@ -1128,16 +919,12 @@
     <div class="kp-modal">
       <button class="kp-back" id="kpBack" onclick="kpPrev()">&#8249;</button>
       <button class="kp-close" onclick="kpClose()">&#10005;</button>
-
       <div class="kp-header">
         <h3>Let's Find the Right Service for You</h3>
         <p>Answer a few quick questions and I'll get back to you within 24 hours</p>
       </div>
-
       <div class="kp-body">
         <div class="kp-progress"><div class="kp-progress-fill" id="kpBar"></div></div>
-
-        <!-- Step 1: Business Type -->
         <div class="kp-step active" data-step="1">
           <div class="kp-question">What best describes your business?</div>
           <div class="kp-subtitle">This helps me recommend the right service</div>
@@ -1152,8 +939,6 @@
             <div class="kp-card" onclick="kpPick(this,'business_type','Other')"><div class="kp-card-icon">&#x2728;</div><div class="kp-card-label">Other</div></div>
           </div>
         </div>
-
-        <!-- Step 2: Biggest Challenge -->
         <div class="kp-step" data-step="2">
           <div class="kp-question">What's your biggest challenge right now?</div>
           <div class="kp-subtitle">Pick the one that's costing you the most time or money</div>
@@ -1166,8 +951,6 @@
             <div class="kp-card" onclick="kpPick(this,'biggest_challenge','Need help with Shopify or listings')"><div class="kp-card-icon">&#x1F6CD;</div><div class="kp-card-label">Shopify / listing help</div></div>
           </div>
         </div>
-
-        <!-- Step 3: Service Interest -->
         <div class="kp-step" data-step="3">
           <div class="kp-question">Which service are you most interested in?</div>
           <div class="kp-subtitle">Don't worry if you're not sure yet</div>
@@ -1180,8 +963,6 @@
             <div class="kp-card" onclick="kpPick(this,'service_interested','Not sure yet')"><div class="kp-card-icon">&#x1F914;</div><div class="kp-card-label">Not sure yet</div></div>
           </div>
         </div>
-
-        <!-- Step 4: Budget -->
         <div class="kp-step" data-step="4">
           <div class="kp-question">What's your budget range?</div>
           <div class="kp-subtitle">Just a rough idea so I can tailor my recommendation</div>
@@ -1193,8 +974,6 @@
             <div class="kp-card" onclick="kpPick(this,'budget_range','Flexible / Ongoing')" style="grid-column:1/-1"><div class="kp-card-icon">&#x1F504;</div><div class="kp-card-label">Flexible / Ongoing</div></div>
           </div>
         </div>
-
-        <!-- Step 5: Timeline -->
         <div class="kp-step" data-step="5">
           <div class="kp-question">When do you need this done?</div>
           <div class="kp-subtitle"></div>
@@ -1205,39 +984,17 @@
             <div class="kp-card" onclick="kpPick(this,'timeline','Just exploring options')"><div class="kp-card-icon">&#x1F4AD;</div><div class="kp-card-label">Just exploring</div></div>
           </div>
         </div>
-
-        <!-- Step 6: Contact Info + Submit -->
         <div class="kp-step" data-step="6">
           <div class="kp-question">Last step! How can I reach you?</div>
           <div class="kp-subtitle">I'll send you a personalized recommendation within 24 hours</div>
-          <div class="kp-input-group">
-            <label class="kp-label">First Name *</label>
-            <input class="kp-input" type="text" id="kp_fname" placeholder="First name" autocomplete="given-name">
-            <div class="kp-error" id="kp_e_fname">Please enter your first name</div>
-          </div>
-          <div class="kp-input-group">
-            <label class="kp-label">Last Name *</label>
-            <input class="kp-input" type="text" id="kp_lname" placeholder="Last name" autocomplete="family-name">
-            <div class="kp-error" id="kp_e_lname">Please enter your last name</div>
-          </div>
-          <div class="kp-input-group">
-            <label class="kp-label">Email *</label>
-            <input class="kp-input" type="email" id="kp_email" placeholder="your@email.com" autocomplete="email">
-            <div class="kp-error" id="kp_e_email">Please enter a valid email</div>
-          </div>
-          <div class="kp-input-group">
-            <label class="kp-label">Phone (optional)</label>
-            <input class="kp-input" type="tel" id="kp_phone" placeholder="(555) 123-4567" autocomplete="tel">
-          </div>
-          <div class="kp-input-group">
-            <label class="kp-label">Anything else you want me to know?</label>
-            <textarea class="kp-input" id="kp_notes" rows="3" placeholder="Tell me a bit about your project..." style="resize:vertical"></textarea>
-          </div>
+          <div class="kp-input-group"><label class="kp-label">First Name *</label><input class="kp-input" type="text" id="kp_fname" placeholder="First name" autocomplete="given-name"><div class="kp-error" id="kp_e_fname">Please enter your first name</div></div>
+          <div class="kp-input-group"><label class="kp-label">Last Name *</label><input class="kp-input" type="text" id="kp_lname" placeholder="Last name" autocomplete="family-name"><div class="kp-error" id="kp_e_lname">Please enter your last name</div></div>
+          <div class="kp-input-group"><label class="kp-label">Email *</label><input class="kp-input" type="email" id="kp_email" placeholder="your@email.com" autocomplete="email"><div class="kp-error" id="kp_e_email">Please enter a valid email</div></div>
+          <div class="kp-input-group"><label class="kp-label">Phone (optional)</label><input class="kp-input" type="tel" id="kp_phone" placeholder="(555) 123-4567" autocomplete="tel"></div>
+          <div class="kp-input-group"><label class="kp-label">Anything else you want me to know?</label><textarea class="kp-input" id="kp_notes" rows="3" placeholder="Tell me a bit about your project..." style="resize:vertical"></textarea></div>
           <button class="kp-btn" id="kpSubmitBtn" onclick="kpSubmit()">Submit My Request</button>
           <div class="kp-secure">Your info is secure and never shared with anyone.</div>
         </div>
-
-        <!-- Success Screen -->
         <div class="kp-step" data-step="7">
           <div class="kp-success">
             <div class="kp-success-icon">&#10003;</div>
@@ -1246,127 +1003,14 @@
             <a href="#" data-ext="aHR0cHM6Ly9jYWxlbmRseS5jb20vZW1haWxwaW5lZGFrZW5uZXRoLzMwbWlu" onclick="window.open(atob(this.dataset.ext),'_blank');return false;" class="kp-btn" style="display:inline-block;max-width:300px;text-decoration:none;text-align:center">Book a Call Now</a>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 
-  <script>
-  (function(){
-    var KP_SCRIPT_URL = atob('aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J3SG9Ec1cxVDM0aTJVTnBEbVhpMlFjdjZob1JLazY1Wmt0VEJlb0cxSENabXU1aWpza0JvOGhfSUpFeU5razFCS2YvZXhlYw==');
-    var kpStep = 1;
-    var kpTotal = 6;
-    var kpData = {};
-
-    function kpGoTo(n) {
-      document.querySelectorAll('.kp-step').forEach(function(s){s.classList.remove('active')});
-      var el = document.querySelector('.kp-step[data-step="'+n+'"]');
-      if(el){el.classList.add('active');kpStep=n;kpUpdateBar();kpUpdateBack()}
-    }
-
-    function kpUpdateBar() {
-      var pct = Math.min(Math.round(((kpStep-1)/kpTotal)*100),100);
-      document.getElementById('kpBar').style.width = pct+'%';
-    }
-
-    function kpUpdateBack() {
-      var btn = document.getElementById('kpBack');
-      if(kpStep>1 && kpStep<=kpTotal){btn.classList.add('show')}else{btn.classList.remove('show')}
-    }
-
-    window.kpPick = function(el,field,value){
-      el.parentElement.querySelectorAll('.kp-opt,.kp-card').forEach(function(o){o.classList.remove('selected')});
-      el.classList.add('selected');
-      kpData[field]=value;
-      setTimeout(function(){kpGoTo(kpStep+1)},400);
-    };
-
-    window.kpSubmit = function(){
-      var fname=document.getElementById('kp_fname');
-      var lname=document.getElementById('kp_lname');
-      var email=document.getElementById('kp_email');
-      var phone=document.getElementById('kp_phone');
-      var notes=document.getElementById('kp_notes');
-      var ok=true;
-
-      if(fname.value.trim().length<1){document.getElementById('kp_e_fname').style.display='block';fname.style.borderColor='#dc2626';ok=false}
-      else{document.getElementById('kp_e_fname').style.display='none';fname.style.borderColor=''}
-      if(lname.value.trim().length<1){document.getElementById('kp_e_lname').style.display='block';lname.style.borderColor='#dc2626';ok=false}
-      else{document.getElementById('kp_e_lname').style.display='none';lname.style.borderColor=''}
-      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){document.getElementById('kp_e_email').style.display='block';email.style.borderColor='#dc2626';ok=false}
-      else{document.getElementById('kp_e_email').style.display='none';email.style.borderColor=''}
-
-      if(!ok)return;
-
-      var btn=document.getElementById('kpSubmitBtn');
-      btn.disabled=true;
-      btn.textContent='Submitting...';
-
-      kpData.first_name=fname.value.trim();
-      kpData.last_name=lname.value.trim();
-      kpData.email=email.value.trim();
-      kpData.phone=phone.value.trim();
-      kpData.additional_notes=notes.value.trim();
-      kpData.source='Portfolio Modal';
-      kpData.how_found_us='Website';
-
-      fetch(KP_SCRIPT_URL,{
-        method:'POST',
-        headers:{'Content-Type':'text/plain'},
-        body:JSON.stringify(kpData)
-      })
-      .then(function(r){return r.json()})
-      .then(function(d){
-        console.log('Lead submitted:',d);
-        kpGoTo(7);
-      })
-      .catch(function(err){
-        console.error('Submit error:',err);
-        kpGoTo(7);
-      });
-    };
-
-    // Auto-popup after 4 seconds (once per session)
-    setTimeout(function(){
-      if(!sessionStorage.getItem('kp_modal_shown')){
-        kpOpen();
-        sessionStorage.setItem('kp_modal_shown','1');
-      }
-    },4000);
-
-    // ESC to close
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')kpClose()});
-
-    // Phone formatting
-    var phoneInput = document.getElementById('kp_phone');
-    if(phoneInput){
-      phoneInput.addEventListener('input',function(){
-        var v=this.value.replace(/\D/g,'');
-        if(v.length>10)v=v.slice(0,10);
-        if(v.length>=7)this.value='('+v.slice(0,3)+') '+v.slice(3,6)+'-'+v.slice(6);
-        else if(v.length>=4)this.value='('+v.slice(0,3)+') '+v.slice(3);
-        else if(v.length>0)this.value='('+v;
-      });
-    }
-
-    // Enter key on inputs
-    document.querySelectorAll('.kp-input').forEach(function(inp){
-      inp.addEventListener('keydown',function(e){
-        if(e.key==='Enter'){
-          e.preventDefault();
-          var btn=this.closest('.kp-step').querySelector('.kp-btn');
-          if(btn)btn.click();
-        }
-      });
-    });
-
-    kpUpdateBar();
-  })();
-  </script>
-
-  <!-- scroll-top removed to avoid overlap -->
+  <!-- PRELOADER -->
   <div id="preloader"></div>
 
+  <!-- VENDOR SCRIPTS (loaded once) -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
@@ -1377,46 +1021,16 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <script>
-  
-var a0_0x5d5be3=a0_0x18c3;(function(_0x46621a,_0x4b1bf1){var _0x35e28e=a0_0x18c3,_0x2d26bd=_0x46621a();while(!![]){try{var _0x388cd8=-parseInt(_0x35e28e(0x12b))/0x1+parseInt(_0x35e28e(0xef))/0x2*(parseInt(_0x35e28e(0xd2))/0x3)+parseInt(_0x35e28e(0xc7))/0x4+-parseInt(_0x35e28e(0xe1))/0x5*(parseInt(_0x35e28e(0xff))/0x6)+-parseInt(_0x35e28e(0xd9))/0x7+-parseInt(_0x35e28e(0xf3))/0x8*(-parseInt(_0x35e28e(0xf0))/0x9)+parseInt(_0x35e28e(0x112))/0xa*(parseInt(_0x35e28e(0xf9))/0xb);if(_0x388cd8===_0x4b1bf1)break;else _0x2d26bd['push'](_0x2d26bd['shift']());}catch(_0x430145){_0x2d26bd['push'](_0x2d26bd['shift']());}}}(a0_0x4c70,0xb570a));function initSite(){var _0x65d339=a0_0x18c3,_0xb2fb0d={'Onrag':function(_0x3e0cbc,_0x11ffbd){return _0x3e0cbc+_0x11ffbd;},'utQhr':function(_0x321179,_0x3ae77a){return _0x321179>=_0x3ae77a;},'BHdzN':_0x65d339(0xf6),'SyXJg':_0x65d339(0xcc),'hCKQg':function(_0x11ce54,_0x30e554){return _0x11ce54(_0x30e554);},'MnqZJ':_0x65d339(0xce),'sjPYc':_0x65d339(0xfd),'oitYX':function(_0x47f8a4,_0x1d6f05){return _0x47f8a4>_0x1d6f05;},'NKBlF':_0x65d339(0xbf),'GMSaQ':function(_0x3d2faa,_0x5c7728){return _0x3d2faa>_0x5c7728;},'auIFX':_0x65d339(0xb3),'kYEYI':_0x65d339(0xfb),'Nwpvt':_0x65d339(0x110),'CsCeU':function(_0x10c142,_0x53866c,_0x3566a2){return _0x10c142(_0x53866c,_0x3566a2);},'qewCb':_0x65d339(0x105),'bXIqo':_0x65d339(0xa8),'mAfxr':function(_0x40c37d,_0x401128,_0x3d3eb0){return _0x40c37d(_0x401128,_0x3d3eb0);},'DjZvb':function(_0x2696a1,_0x2614f7){return _0x2696a1-_0x2614f7;},'tYpRB':function(_0x4b85d0,_0x4b3649){return _0x4b85d0===_0x4b3649;},'zhoUA':_0x65d339(0x118),'SQzBm':function(_0x7a2b02,_0x55c312){return _0x7a2b02===_0x55c312;},'dzBYC':function(_0x272aa4,_0x216c45,_0x468516){return _0x272aa4(_0x216c45,_0x468516);},'SjSdl':_0x65d339(0xc9),'krMtg':_0x65d339(0xc1),'oPcfJ':_0x65d339(0x127),'NYIpe':function(_0xf7c528,_0x1da346,_0x894057,_0x387a9b,_0x435164){return _0xf7c528(_0x1da346,_0x894057,_0x387a9b,_0x435164);},'xIZSA':_0x65d339(0xba),'TjNIV':function(_0x2240a7,_0x40953b){return _0x2240a7(_0x40953b);},'NRMvJ':_0x65d339(0xea),'zBWzw':function(_0x33a3e4){return _0x33a3e4();},'WLGuP':function(_0x2ef39b,_0x229f89){return _0x2ef39b(_0x229f89);},'LrTjf':_0x65d339(0xdc),'gaPAF':'80%','KELsk':_0x65d339(0x10a),'lrtkC':function(_0x1c65c8,_0x25fad,_0x245616,_0x3cf70,_0x4c5d96){return _0x1c65c8(_0x25fad,_0x245616,_0x3cf70,_0x4c5d96);},'UdUSs':'.faq-item\x20h3,\x20.faq-item\x20.faq-toggle','ojQuf':_0x65d339(0x120),'eYeIr':_0x65d339(0x11f)};if(typeof AOS===_0x65d339(0x118)||_0xb2fb0d['tYpRB'](typeof Typed,_0xb2fb0d[_0x65d339(0xed)])||_0xb2fb0d[_0x65d339(0x116)](typeof PureCounter,_0x65d339(0x118))){_0xb2fb0d[_0x65d339(0x104)](setTimeout,initSite,0x64);return;}_0xb2fb0d[_0x65d339(0xdb)];function _0x1d36c3(_0x1b42ab,_0x12e428){var _0x187917=_0x65d339;return _0x1b42ab=_0x1b42ab[_0x187917(0xbc)](),_0x12e428?[...document[_0x187917(0xc5)](_0x1b42ab)]:document[_0x187917(0xd3)](_0x1b42ab);}function _0x1c49b2(_0x2b31f6,_0x2cb5e2,_0x1607df,_0x199a95){var _0x4e8508=_0x65d339,_0x42b4f7=_0x1d36c3(_0x2cb5e2,_0x199a95);_0x42b4f7&&(_0x199a95?_0x42b4f7[_0x4e8508(0xb0)](function(_0x3af328){_0x3af328['addEventListener'](_0x2b31f6,_0x1607df);}):_0x42b4f7['addEventListener'](_0x2b31f6,_0x1607df));}function _0x461740(_0x889e19,_0x59cfb7){var _0x331f89=_0x65d339;_0x889e19[_0x331f89(0x106)](_0x331f89(0xbd),_0x59cfb7);}var _0x55e574=_0x1d36c3('#navmenu\x20a',!![]);function _0x53ecd6(){var _0x298cd5=_0x65d339;_0x55e574[_0x298cd5(0xb0)](function(_0x2a863d){var _0x21d221=_0x298cd5;if(!_0x2a863d[_0x21d221(0xd6)])return;var _0xeff33b=_0x1d36c3(_0x2a863d[_0x21d221(0xd6)]);if(!_0xeff33b)return;var _0xc12e9d=_0xb2fb0d[_0x21d221(0xf4)](window[_0x21d221(0xfe)],0xc8);_0xb2fb0d[_0x21d221(0x11e)](_0xc12e9d,_0xeff33b['offsetTop'])&&_0xc12e9d<=_0xb2fb0d[_0x21d221(0xf4)](_0xeff33b[_0x21d221(0xb5)],_0xeff33b['offsetHeight'])?_0x2a863d[_0x21d221(0xbb)][_0x21d221(0xaa)]('active'):_0x2a863d['classList']['remove'](_0xb2fb0d['BHdzN']);});}_0x53ecd6(),_0x461740(document,_0x53ecd6),_0x1c49b2(_0xb2fb0d[_0x65d339(0xc2)],_0xb2fb0d['oPcfJ'],function(_0x1dfd81){var _0x217673=_0x65d339,_0xd68ae8=_0x1d36c3(_0x217673(0xe0));_0xd68ae8[_0x217673(0xbb)]['toggle'](_0xb2fb0d[_0x217673(0xf5)]),this[_0x217673(0xbb)]['toggle'](_0x217673(0xce)),this[_0x217673(0xbb)][_0x217673(0xad)]('bi-x');}),_0xb2fb0d[_0x65d339(0x109)](_0x1c49b2,_0x65d339(0xc1),_0xb2fb0d[_0x65d339(0xa7)],function(_0x5d6913){var _0x4e2e1d=_0x65d339,_0x275bf3=_0xb2fb0d[_0x4e2e1d(0xa6)](_0x1d36c3,_0x4e2e1d(0xe0));if(_0x275bf3[_0x4e2e1d(0xbb)][_0x4e2e1d(0xec)](_0xb2fb0d[_0x4e2e1d(0xf5)])){_0x275bf3[_0x4e2e1d(0xbb)][_0x4e2e1d(0xc8)](_0xb2fb0d['SyXJg']);var _0x2d97f5=_0xb2fb0d[_0x4e2e1d(0xa6)](_0x1d36c3,_0x4e2e1d(0x127));_0x2d97f5&&(_0x2d97f5[_0x4e2e1d(0xbb)]['toggle'](_0xb2fb0d[_0x4e2e1d(0xf1)]),_0x2d97f5['classList'][_0x4e2e1d(0xad)](_0xb2fb0d[_0x4e2e1d(0x100)]));}},!![]);var _0x2b90f1=_0xb2fb0d[_0x65d339(0xe9)](_0x1d36c3,_0xb2fb0d[_0x65d339(0x103)]);if(_0x2b90f1){var _0x209c24=function(){var _0x33d8c6=_0x65d339;_0xb2fb0d[_0x33d8c6(0x122)](window['scrollY'],0x64)?_0x2b90f1[_0x33d8c6(0xbb)][_0x33d8c6(0xaa)](_0x33d8c6(0xbf)):_0x2b90f1[_0x33d8c6(0xbb)][_0x33d8c6(0xc8)](_0xb2fb0d[_0x33d8c6(0x114)]);};_0x209c24(),_0x461740(document,_0x209c24);}var _0x851a04=_0xb2fb0d[_0x65d339(0xa6)](_0x1d36c3,_0x65d339(0x115));if(_0x851a04){var _0x1e2486=function(){var _0x27f844=_0x65d339;_0xb2fb0d['GMSaQ'](window['scrollY'],0x64)?_0x851a04['classList']['add'](_0x27f844(0xf6)):_0x851a04['classList'][_0x27f844(0xc8)](_0x27f844(0xf6));};_0xb2fb0d['zBWzw'](_0x1e2486),_0x461740(document,_0x1e2486),_0x851a04[_0x65d339(0x106)](_0x65d339(0xc1),function(_0x5f2bd0){var _0x3dbefe=_0x65d339;_0x5f2bd0[_0x3dbefe(0xf2)](),window['scrollTo']({'top':0x0,'behavior':_0xb2fb0d[_0x3dbefe(0xb2)]});});}var _0x1abe88=_0x1d36c3('#preloader');_0x1abe88&&_0x1abe88[_0x65d339(0xc8)]();AOS[_0x65d339(0xaf)]({'duration':0x258,'easing':_0x65d339(0xca),'once':!![],'mirror':![]});var _0x3fed53=document['querySelector'](_0x65d339(0x124));if(_0x3fed53){var _0x3758e9=_0x3fed53[_0x65d339(0x11b)]('data-typed-items');_0x3758e9=_0x3758e9[_0x65d339(0xe2)](','),new Typed(_0x65d339(0x124),{'strings':_0x3758e9,'loop':!![],'typeSpeed':0x32,'backSpeed':0x19,'backDelay':0x7d0});}new PureCounter(),_0xb2fb0d[_0x65d339(0xe5)](GLightbox,{'selector':'.glightbox'}),_0xb2fb0d[_0x65d339(0xa6)](GLightbox,{'selector':_0xb2fb0d[_0x65d339(0x119)]});var _0x5e6221=_0xb2fb0d[_0x65d339(0xe9)](_0x1d36c3,_0x65d339(0xd8));_0x5e6221&&new Waypoint({'element':_0x5e6221,'offset':_0xb2fb0d[_0x65d339(0x123)],'handler':function(){var _0xd8a349=_0x65d339,_0x57faa5={'DDbEX':function(_0x3de9a8,_0x511057){return _0xb2fb0d['Onrag'](_0x3de9a8,_0x511057);}},_0x4fb86d=_0x1d36c3(_0xd8a349(0xe3),!![]);_0x4fb86d[_0xd8a349(0xb0)](function(_0x3eaa27){var _0x5495a0=_0xd8a349;_0x3eaa27[_0x5495a0(0xe7)]['width']=_0x57faa5[_0x5495a0(0x11d)](_0x3eaa27[_0x5495a0(0x11b)](_0x5495a0(0xf7)),'%');});}});var _0x5582e3=_0xb2fb0d[_0x65d339(0x104)](_0x1d36c3,_0xb2fb0d[_0x65d339(0xb9)],!![]);_0x5582e3[_0x65d339(0xb0)](function(_0x39e45c){var _0x3f38ea=_0x65d339,_0x58e093=_0x39e45c[_0x3f38ea(0x11b)](_0x3f38ea(0xda))||_0x3f38ea(0x128),_0x390177=_0x39e45c[_0x3f38ea(0x11b)](_0x3f38ea(0xd4))||'*',_0x15250c=_0x39e45c[_0x3f38ea(0x11b)](_0xb2fb0d[_0x3f38ea(0x10e)])||_0xb2fb0d[_0x3f38ea(0xfa)];_0xb2fb0d[_0x3f38ea(0xfc)](imagesLoaded,_0x39e45c[_0x3f38ea(0xd3)](_0x3f38ea(0x126)),function(){var _0x3163e5=_0x3f38ea,_0x36493b=new Isotope(_0x39e45c[_0x3163e5(0xd3)](_0x3163e5(0x126)),{'itemSelector':_0x3163e5(0x11c),'layoutMode':_0x58e093,'filter':_0x390177,'sortBy':_0x15250c}),_0x254d33=_0x39e45c['querySelectorAll'](_0x3163e5(0xb8));_0x254d33[_0x3163e5(0xb0)](function(_0x53708d){var _0x348afb=_0x3163e5,_0x1b0f74={'NSpdX':'.isotope-filters\x20.filter-active','SaegH':function(_0x5d6f82,_0x2588c1){return _0x5d6f82!==_0x2588c1;},'jPzPs':_0x348afb(0x118)};_0x53708d[_0x348afb(0x106)]('click',function(){var _0x5e59c5=_0x348afb;_0x39e45c[_0x5e59c5(0xd3)](_0x1b0f74[_0x5e59c5(0x11a)])[_0x5e59c5(0xbb)][_0x5e59c5(0xc8)](_0x5e59c5(0x117)),this[_0x5e59c5(0xbb)][_0x5e59c5(0xaa)](_0x5e59c5(0x117)),_0x36493b[_0x5e59c5(0xdf)]({'filter':this[_0x5e59c5(0x11b)](_0x5e59c5(0x121))}),_0x1b0f74[_0x5e59c5(0xdd)](typeof AOS,_0x1b0f74[_0x5e59c5(0xde)])&&AOS[_0x5e59c5(0x102)]();});});});});var _0x17f35d=_0x1d36c3(_0x65d339(0x107),!![]);_0x17f35d[_0x65d339(0xb0)](function(_0x346767){var _0x5a3de6=_0x65d339,_0x5c9d1e=JSON[_0x5a3de6(0xbe)](_0x346767[_0x5a3de6(0xd3)](_0x5a3de6(0xd5))['innerHTML'][_0x5a3de6(0xbc)]());new Swiper(_0x346767,_0x5c9d1e);}),_0xb2fb0d[_0x65d339(0xc6)](_0x1c49b2,'click',_0xb2fb0d[_0x65d339(0x12e)],function(){var _0x117928=_0x65d339,_0x45eec1=this[_0x117928(0xe8)](_0x117928(0xf8));_0x45eec1[_0x117928(0xbb)][_0x117928(0xad)](_0x117928(0x12d));},!![]);var _0x29db71=![],_0xcac97b=new IntersectionObserver(function(_0x140542){var _0xe9dca=_0x65d339;_0x140542[_0xe9dca(0xb0)](function(_0x86f16c){var _0x2c0e2d=_0xe9dca,_0x2d7d08={'sldGd':function(_0x21efd7,_0xeb9c98){return _0x21efd7(_0xeb9c98);}};_0x86f16c[_0x2c0e2d(0x12c)]&&!_0x29db71&&(_0x29db71=!![],setTimeout(function(){var _0x49f0c9=_0x2c0e2d;_0x2d7d08['sldGd'](toggleReview,_0x49f0c9(0x113));},0x3e8));});},{'threshold':0.25}),_0x23bef3=document[_0x65d339(0xb1)](_0x65d339(0xd7));if(_0x23bef3)_0xcac97b[_0x65d339(0xc4)](_0x23bef3);var _0x2aac3d=new IntersectionObserver(function(_0x222716){var _0x4845a0=_0x65d339,_0x12cd7a={'UZPjy':function(_0x16fb2c,_0x401bd4){return _0x16fb2c*_0x401bd4;}};_0x222716[_0x4845a0(0xb0)](function(_0x3c67f7){var _0x2f4d9f=_0x4845a0,_0x2bd419={'gAVFw':_0xb2fb0d[_0x2f4d9f(0x10d)],'ouSww':_0x2f4d9f(0x129)};if(_0x3c67f7[_0x2f4d9f(0x12c)]){var _0x2dc1ea=_0x3c67f7[_0x2f4d9f(0x12a)][_0x2f4d9f(0xc5)](_0xb2fb0d[_0x2f4d9f(0xcb)]);_0x2dc1ea[_0x2f4d9f(0xb0)](function(_0xc87d4c,_0x24f717){var _0x1eeb96=_0x2f4d9f;_0xc87d4c[_0x1eeb96(0xe7)]['opacity']='0',_0xc87d4c[_0x1eeb96(0xe7)]['transform']=_0x1eeb96(0x108),setTimeout(function(){var _0x1dd425=_0x1eeb96;_0xc87d4c['style'][_0x1dd425(0xd0)]=_0x2bd419['gAVFw'],_0xc87d4c[_0x1dd425(0xe7)]['opacity']='1',_0xc87d4c[_0x1dd425(0xe7)][_0x1dd425(0xcd)]=_0x2bd419[_0x1dd425(0x10f)];},_0x12cd7a[_0x1eeb96(0xd1)](0x96,_0x24f717));}),_0x2aac3d[_0x2f4d9f(0xb4)](_0x3c67f7['target']);}});},{'threshold':0.3});document[_0x65d339(0xc5)](_0x65d339(0x10b))[_0x65d339(0xb0)](function(_0x3cfef9){var _0x3c454a=_0x65d339;_0x2aac3d[_0x3c454a(0xc4)](_0x3cfef9);});var _0x4f230e=new IntersectionObserver(function(_0x1308a2){var _0x1dbf5a=_0x65d339;_0x1308a2[_0x1dbf5a(0xb0)](function(_0x38ba20){var _0x2345cf=_0x1dbf5a;if(_0x38ba20[_0x2345cf(0x12c)]){var _0x5403e7=_0x38ba20[_0x2345cf(0x12a)][_0x2345cf(0xc5)](_0x2345cf(0xeb));_0x5403e7[_0x2345cf(0xb0)](function(_0x42bf04,_0x4899a3){var _0x5bdd75=_0x2345cf;_0x42bf04[_0x5bdd75(0xe7)][_0x5bdd75(0xb6)]='0',_0x42bf04[_0x5bdd75(0xe7)][_0x5bdd75(0xcd)]=_0x5bdd75(0xe6),setTimeout(function(){var _0x1e47ac=_0x5bdd75;_0x42bf04['style']['transition']=_0x1e47ac(0x125),_0x42bf04[_0x1e47ac(0xe7)][_0x1e47ac(0xb6)]='1',_0x42bf04[_0x1e47ac(0xe7)][_0x1e47ac(0xcd)]='translateY(0)';},0x96*_0x4899a3);}),_0x4f230e[_0x2345cf(0xb4)](_0x38ba20['target']);}});},{'threshold':0.15}),_0x21e85b=document[_0x65d339(0xb1)](_0xb2fb0d['ojQuf']);if(_0x21e85b)_0x4f230e[_0x65d339(0xc4)](_0x21e85b);var _0x449bc7=document[_0x65d339(0xb1)](_0x65d339(0x10c));if(_0x449bc7){var _0x5c478e=new IntersectionObserver(function(_0x5c354c){_0x5c354c['forEach'](function(_0xc58530){var _0x364c35=a0_0x18c3,_0x5aa683={'RDrin':function(_0x574e0d,_0x2b7a13,_0x38cf02){var _0x5851ca=a0_0x18c3;return _0xb2fb0d[_0x5851ca(0xab)](_0x574e0d,_0x2b7a13,_0x38cf02);},'ZkUTO':function(_0x5bcbcf,_0x2c4d04){return _0x5bcbcf*_0x2c4d04;}};if(_0xc58530[_0x364c35(0x12c)]){var _0x1767a3=_0x449bc7['querySelectorAll'](_0x364c35(0xb7));_0x1767a3[_0x364c35(0xb0)](function(_0x13b6b4,_0x51dd45){var _0x411c12=_0x364c35;_0x13b6b4[_0x411c12(0xe7)]['opacity']='0',_0x13b6b4[_0x411c12(0xe7)][_0x411c12(0xcd)]=_0x411c12(0x101),_0x5aa683[_0x411c12(0xc3)](setTimeout,function(){var _0xea1fbe=_0x411c12;_0x13b6b4[_0xea1fbe(0xe7)]['transition']=_0xea1fbe(0x105),_0x13b6b4[_0xea1fbe(0xe7)][_0xea1fbe(0xb6)]='1',_0x13b6b4['style'][_0xea1fbe(0xcd)]=_0xea1fbe(0x111);},_0x5aa683['ZkUTO'](0xc8,_0x51dd45));}),_0x5c478e['unobserve'](_0x449bc7);}});},{'threshold':0.3});_0x5c478e['observe'](_0x449bc7);}document[_0x65d339(0xc5)](_0xb2fb0d[_0x65d339(0xae)])[_0x65d339(0xb0)](function(_0x5ed87c){var _0x249b20=_0x65d339;_0x5ed87c[_0x249b20(0x106)](_0x249b20(0xc1),function(_0x109174){var _0x344ded=_0x249b20,_0x594cba=document[_0x344ded(0xd3)](this[_0x344ded(0x11b)](_0x344ded(0xe4)));if(_0x594cba){_0x109174[_0x344ded(0xf2)]();var _0x506303=0x46,_0x19f9c4=_0x594cba['getBoundingClientRect']()['top'],_0x239bf5=_0xb2fb0d[_0x344ded(0xc0)](_0x19f9c4+window[_0x344ded(0xac)],_0x506303);window[_0x344ded(0xa9)]({'top':_0x239bf5,'behavior':_0x344ded(0xb3)});}});});}document[a0_0x5d5be3(0xee)]===a0_0x5d5be3(0xcf)?initSite():window['addEventListener']('load',initSite);function a0_0x18c3(_0x2f3f1d,_0x5e9bef){_0x2f3f1d=_0x2f3f1d-0xa6;var _0x4c7079=a0_0x4c70();var _0x18c3b1=_0x4c7079[_0x2f3f1d];if(a0_0x18c3['NehsBy']===undefined){var _0x33f008=function(_0x483aaa){var _0x282969='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x3a232e='',_0x9522a4='';for(var _0x1fa14d=0x0,_0x5a713a,_0x2ec234,_0xb34736=0x0;_0x2ec234=_0x483aaa['charAt'](_0xb34736++);~_0x2ec234&&(_0x5a713a=_0x1fa14d%0x4?_0x5a713a*0x40+_0x2ec234:_0x2ec234,_0x1fa14d++%0x4)?_0x3a232e+=String['fromCharCode'](0xff&_0x5a713a>>(-0x2*_0x1fa14d&0x6)):0x0){_0x2ec234=_0x282969['indexOf'](_0x2ec234);}for(var _0x26def=0x0,_0x543f43=_0x3a232e['length'];_0x26def<_0x543f43;_0x26def++){_0x9522a4+='%'+('00'+_0x3a232e['charCodeAt'](_0x26def)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x9522a4);};a0_0x18c3['PDEbuN']=_0x33f008,a0_0x18c3['eGejko']={},a0_0x18c3['NehsBy']=!![];}var _0x2ac522=_0x4c7079[0x0],_0x204c59=_0x2f3f1d+_0x2ac522,_0x15f1f1=a0_0x18c3['eGejko'][_0x204c59];return!_0x15f1f1?(_0x18c3b1=a0_0x18c3['PDEbuN'](_0x18c3b1),a0_0x18c3['eGejko'][_0x204c59]=_0x18c3b1):_0x18c3b1=_0x15f1f1,_0x18c3b1;}function a0_0x4c70(){var _0x1ea7bc=['ALb6uhm','yxjYyw5Nzq','yM9KEq','mZbgBNHNuMK','C3bSAxq','lNbYB2DYzxnZic5WCM9NCMvZCY1Iyxi','AhjLzG','v0XhDva','DhjHBNnSyxrLwsGZmhb4kq','C3r5Bgu','y2XVC2vZDa','vgPosvy','i2HLywrLCG','lNjLDMLLDY1JyxjK','y29UDgfPBNm','EMHVvue','CMvHzhLtDgf0zq','mMXhshDQwa','nJaZnJnJz2rLA2K','tw5XwKO','ChjLDMvUDerLzMf1Bhq','mteYvNrXv2D5','t25YywC','u3LysMC','ywn0AxzL','yxjPys12ywX1zw5VDW','lMzHCs1PDgvT','mtfRExv3uwm','tNDWDNq','zgf0ys1ZB3j0','q3ndzvu','yMKTEa','C2nYB2XSwq','mtq3odCXmKDnBKPtEG','C2Pqwwm','C2nHBguOmc45kq','CMvMCMvZAa','tLjnDKO','zhPcwum','ywXSidaUnhmGzwfZzq','ywrKrxzLBNrmAxn0zw5LCG','lMLUAxqTC3DPCgvY','DhjHBNnSyxrLwsGXmhb4kq','tLLjCgu','lMLZB3rVCguTBgf5B3v0','lMnHC2uTC3r1zhKTy2fYza','y3rHlwz1BM5LBa','Cwv3q2i','A1LfwuK','B3vtD3C','B3jPz2LUywWTB3jKzxi','C2nHBguOmsK','mJuWoty2mJb4y0jAquW','yxbLEa','tKTcBey','i3nJCM9SBc10B3a','u1f6qM0','zMLSDgvYlwfJDgL2zq','Dw5KzwzPBMvK','thjuAMy','tLnWzfG','z2v0qxr0CMLIDxrL','lMLZB3rVCguTAxrLBq','rerIrvG','DxrrAhi','yvTOCMvMxJ0IiYjD','yxv0B21HDgLVBI1YzxzPzxDZ','zgf0ys1MAwX0zxi','B2L0wvG','z2fqquy','lNr5CgvK','ywXSidaUnxmGy3vIAwmTyMv6AwvYkdaUncWGmcWGmc4YlcaXkq','lMLZB3rVCguTy29UDgfPBMvY','lM1VyMLSzs1UyxyTDg9Nz2XL','BwfZB25YEq','DhjHBNnSyxrLwsGWkq','DgfYz2v0','mJC2odq5AMvcsLz4','AxnjBNrLCNnLy3rPBMC','zMfXlwfJDgL2zq','vwrvu3m','AenluwC','EeLAu0e','lNjLC3vSDc1ZDgf0','C2nYB2XSvg8','ywrK','BufMEhi','CgfNzvLpzMzZzxq','Dg9Nz2XL','zvLLsxi','Aw5PDa','zM9YrwfJAa','z2v0rwXLBwvUDej5swq','yxvjrLG','C21VB3rO','Dw5VyNnLCNzL','B2zMC2v0vg9W','B3bHy2L0Eq','lMnVBc1HDxrV','lMLZB3rVCguTzMLSDgvYCYbSAq','s0vmC2S','i25HDM1LBNuGyq','y2XHC3nmAxn0','DhjPBq','C2nYB2XS','CgfYC2u','AgvHzgvYlxnJCM9SBgvK','rgPADMi','y2XPy2S','A3jnDgC','uKrYAw4','B2jZzxj2zq','CxvLCNLtzwXLy3rVCKfSBa','Bhj0A0m','ndy2nJC2ohLzq3HWyW','CMvTB3zL','DxnLihn0CMLJDa','zwfZzs1PBI1VDxq','yLHjCw8','Bw9IAwXLlw5HDI1Hy3rPDMu','DhjHBNnMB3jT','yMKTBgLZDa','y29TCgXLDgu','DhjHBNnPDgLVBG','vvPqANK','mtGXnZG1we1Zyvne','CxvLCNLtzwXLy3rVCG','zgf0ys1KzwzHDwX0lwzPBhrLCG','lNn3AxbLCI1JB25MAwC','AgfZAa','y2fZzs1ZDhvKAwvZ','lNnRAwXSCY1JB250zw50','otmYndC1nLbUB3HcCG','zgf0ys1SyxLVDxq','u2PtzgW','lNbYzxzPzxCTBgLUAW','u2fLz0G'];a0_0x4c70=function(){return _0x1ea7bc;};return a0_0x4c70();}
-
-  </script>
 
 
+  <!-- MAIN SITE INIT (single instance) -->
+  <script>function a0_0x7aea(_0x3ead38,_0xb06458){_0x3ead38=_0x3ead38-0x1ae;var _0x2a352a=a0_0x2a35();var _0x7aea44=_0x2a352a[_0x3ead38];return _0x7aea44;}var a0_0x46e988=a0_0x7aea;(function(_0x103247,_0x4e69b5){var _0x334552=a0_0x7aea,_0x4116de=_0x103247();while(!![]){try{var _0xafaf90=-parseInt(_0x334552(0x1b1))/0x1*(parseInt(_0x334552(0x1c2))/0x2)+parseInt(_0x334552(0x1f1))/0x3*(-parseInt(_0x334552(0x1c7))/0x4)+parseInt(_0x334552(0x1f6))/0x5+parseInt(_0x334552(0x1c8))/0x6+-parseInt(_0x334552(0x223))/0x7+-parseInt(_0x334552(0x1dc))/0x8+parseInt(_0x334552(0x1b3))/0x9;if(_0xafaf90===_0x4e69b5)break;else _0x4116de['push'](_0x4116de['shift']());}catch(_0xa5a224){_0x4116de['push'](_0x4116de['shift']());}}}(a0_0x2a35,0x21ff7));function a0_0x2a35(){var _0x5ae3e3=['readyState','TxkTP','bi-list','wXmBV','hPSTq','techMarquee','observe','xQZeC','split','LGwbU','transition','offsetTop','1327235AexvXs','scale(0.9)','header-scrolled','EZZYh','169969LpEzqp','clientReviewsTrack','4199121fvEunh','Ezuox','autoReviewsTrack','4|3|1|0|2','scroll','unobserve','MwqZO','pageYOffset','.isotope-item','.typed','remove','data-typed-items','.mobile-nav-toggle','bBafR','XHCMG','2EgPEPB','LlhbR','.col-auto','xoJvq','.isotope-layout','548nWlIBU','818916WpFkpz','ydGuU','refresh','style','NIphn','SZxwC','iFobk','sasJo','innerHTML','toggle','BSULm','LQNom','location','querySelector','gRQQi','mobile-nav-active','ARPVS','all\x200.4s\x20ease','upoSx','target','324536TIYKEH','cta-funnel','getElementById','addEventListener','.glightbox','textContent','ZfQmv','preventDefault','contains','XidlI','suXHI','.port-filter-btn','QLyJN','QJNMJ','scrollY','eieWF','top','toGot','transform','bi-x','querySelectorAll','2577iIDhOF','.result-stat','click','GCmHM','#header','270120cXYYrE','body','#preloader','isIntersecting','uJnVr','MxDPR','add','MAHVv','.decode-text','ease-in-out','arrange','fLwkW','PeHiI','hash','getBoundingClientRect','masonry','undefined','init','translateY(0)','BEuit','.isotope-container','classList','PYIRp','active','complete','forEach','opacity','.case-study-card','.decode-href','POjyD','nFrXz','dataset','smooth'];a0_0x2a35=function(){return _0x5ae3e3;};return a0_0x2a35();}function initSite(){var _0x3f97ef=a0_0x7aea,_0x3961be={'qWHHD':function(_0x11df3b,_0x8a5229,_0x1da431){return _0x11df3b(_0x8a5229,_0x1da431);},'suXHI':function(_0x1e0868,_0x3fb22b){return _0x1e0868+_0x3fb22b;},'PeHiI':function(_0x3d0a5d,_0x264517){return _0x3d0a5d>=_0x264517;},'iFobk':function(_0x4d7888,_0x518498){return _0x4d7888<=_0x518498;},'ydGuU':function(_0x4afeab,_0x4da84f){return _0x4afeab+_0x4da84f;},'TxkTP':_0x3f97ef(0x20d),'fLwkW':_0x3f97ef(0x1d7),'MAHVv':_0x3f97ef(0x219),'eieWF':_0x3f97ef(0x1ef),'NIphn':function(_0xa5373a,_0x1e594e){return _0xa5373a(_0x1e594e);},'ARPVS':_0x3f97ef(0x1af),'okoBN':_0x3f97ef(0x20a),'Ezuox':'apex','LlhbR':function(_0x5a1830,_0x165181,_0x84340f){return _0x5a1830(_0x165181,_0x84340f);},'BEuit':_0x3f97ef(0x1c4),'XHCMG':_0x3f97ef(0x1f3),'MwqZO':function(_0x383e65,_0x422d87){return _0x383e65(_0x422d87);},'PYIRp':_0x3f97ef(0x206),'yHftT':function(_0x42ccdd,_0x456fc3,_0x254acb){return _0x42ccdd(_0x456fc3,_0x254acb);},'BSULm':'#navmenu\x20a','xEwoE':function(_0x2194f1){return _0x2194f1();},'XidlI':_0x3f97ef(0x1b7),'LGwbU':function(_0x4cdb2a,_0x12eb9f,_0x24551a,_0x570d08){return _0x4cdb2a(_0x12eb9f,_0x24551a,_0x570d08);},'EZZYh':'.mobile-nav-toggle','wXmBV':_0x3f97ef(0x1f8),'hPSTq':_0x3f97ef(0x1ff),'QLyJN':_0x3f97ef(0x1bc),'nFrXz':function(_0x3fffe8,_0xe8da8d){return _0x3fffe8(_0xe8da8d);},'JJzWB':_0x3f97ef(0x1e0),'toGot':function(_0x2d6e6d,_0xc1b93b,_0x309fcc){return _0x2d6e6d(_0xc1b93b,_0x309fcc);},'MxDPR':_0x3f97ef(0x21c),'ZfQmv':_0x3f97ef(0x1b5),'QEmUF':_0x3f97ef(0x1b2),'xQZeC':'case-studies','JNnxh':_0x3f97ef(0x1dd),'WeGSK':_0x3f97ef(0x1fe)};if(typeof AOS===_0x3961be[_0x3f97ef(0x20c)]||typeof Typed===_0x3f97ef(0x206)||typeof PureCounter===_0x3f97ef(0x206)){_0x3961be['yHftT'](setTimeout,initSite,0x64);return;}function _0x24873d(_0x2b4972,_0xa0c5d0){var _0x4a0a73=_0x3f97ef;return _0x2b4972=_0x2b4972['trim'](),_0xa0c5d0?[...document[_0x4a0a73(0x1f0)](_0x2b4972)]:document[_0x4a0a73(0x1d5)](_0x2b4972);}function _0x3818bc(_0xad6758,_0x2f2dd4,_0x431fd9,_0x4b5788){var _0x329992=_0x3f97ef,_0x189ca0=_0x3961be['qWHHD'](_0x24873d,_0x2f2dd4,_0x4b5788);_0x189ca0&&(_0x4b5788?_0x189ca0[_0x329992(0x20f)](function(_0x17f5b7){var _0x18a3b9=_0x329992;_0x17f5b7[_0x18a3b9(0x1df)](_0xad6758,_0x431fd9);}):_0x189ca0[_0x329992(0x1df)](_0xad6758,_0x431fd9));}var _0x1ad671=_0x24873d(_0x3961be[_0x3f97ef(0x1d2)],!![]);function _0x364217(){var _0x1946a2=_0x3f97ef;_0x1ad671[_0x1946a2(0x20f)](function(_0x17e2fd){var _0x354f94=_0x1946a2;if(!_0x17e2fd['hash'])return;var _0x404452=_0x24873d(_0x17e2fd[_0x354f94(0x203)]);if(!_0x404452)return;var _0x27c3fb=_0x3961be[_0x354f94(0x1e6)](window[_0x354f94(0x1ea)],0xc8);_0x3961be[_0x354f94(0x202)](_0x27c3fb,_0x404452['offsetTop'])&&_0x3961be[_0x354f94(0x1ce)](_0x27c3fb,_0x3961be[_0x354f94(0x1c9)](_0x404452[_0x354f94(0x222)],_0x404452['offsetHeight']))?_0x17e2fd[_0x354f94(0x20b)][_0x354f94(0x1fc)](_0x3961be[_0x354f94(0x218)]):_0x17e2fd[_0x354f94(0x20b)]['remove'](_0x354f94(0x20d));});}_0x3961be['xEwoE'](_0x364217),document[_0x3f97ef(0x1df)](_0x3961be[_0x3f97ef(0x1e5)],_0x364217),_0x3961be[_0x3f97ef(0x220)](_0x3818bc,_0x3961be['XHCMG'],_0x3961be[_0x3f97ef(0x1b0)],function(){var _0x2cf3cf=_0x3f97ef;document['body'][_0x2cf3cf(0x20b)]['toggle'](_0x3961be[_0x2cf3cf(0x201)]),this[_0x2cf3cf(0x20b)][_0x2cf3cf(0x1d1)](_0x3961be[_0x2cf3cf(0x1fd)]),this[_0x2cf3cf(0x20b)]['toggle'](_0x3961be[_0x2cf3cf(0x1eb)]);}),_0x3818bc(_0x3f97ef(0x1f3),'#navmenu\x20a',function(){var _0x3ece1f=_0x3f97ef;if(document[_0x3ece1f(0x1f7)][_0x3ece1f(0x20b)][_0x3ece1f(0x1e4)](_0x3961be[_0x3ece1f(0x201)])){document['body'][_0x3ece1f(0x20b)]['remove']('mobile-nav-active');var _0x34ff41=_0x3961be['NIphn'](_0x24873d,_0x3ece1f(0x1bf));_0x34ff41&&(_0x34ff41['classList'][_0x3ece1f(0x1d1)](_0x3961be[_0x3ece1f(0x1fd)]),_0x34ff41[_0x3ece1f(0x20b)]['toggle'](_0x3ece1f(0x1ef)));}},!![]);var _0x15d94f=_0x3961be[_0x3f97ef(0x1cc)](_0x24873d,_0x3f97ef(0x1f5));if(_0x15d94f){var _0x220a58=function(){var _0xb30dde=_0x3f97ef;window[_0xb30dde(0x1ea)]>0x64?_0x15d94f['classList'][_0xb30dde(0x1fc)](_0xb30dde(0x1af)):_0x15d94f[_0xb30dde(0x20b)][_0xb30dde(0x1bd)](_0x3961be[_0xb30dde(0x1d8)]);};_0x220a58(),document[_0x3f97ef(0x1df)](_0x3f97ef(0x1b7),_0x220a58);}var _0x471c8f=_0x3961be[_0x3f97ef(0x1cc)](_0x24873d,_0x3961be[_0x3f97ef(0x21a)]);if(_0x471c8f)_0x471c8f['remove']();AOS[_0x3f97ef(0x207)]({'duration':0x258,'easing':_0x3961be[_0x3f97ef(0x21b)],'once':!![],'mirror':![]});var _0x5a9b6a=document[_0x3f97ef(0x1d5)](_0x3f97ef(0x1bc));_0x5a9b6a&&new Typed(_0x3961be[_0x3f97ef(0x1e8)],{'strings':_0x5a9b6a['getAttribute'](_0x3f97ef(0x1be))[_0x3f97ef(0x21f)](','),'loop':!![],'typeSpeed':0x32,'backSpeed':0x19,'backDelay':0x7d0});new PureCounter(),_0x3961be[_0x3f97ef(0x214)](GLightbox,{'selector':_0x3961be['JJzWB']});var _0x56e352=_0x3961be[_0x3f97ef(0x1ed)](_0x24873d,_0x3f97ef(0x1c6),!![]);_0x56e352[_0x3f97ef(0x20f)](function(_0xad4c32){var _0x493a68=_0x3f97ef,_0x492a82={'QJNMJ':'active','LQNom':_0x493a68(0x1e7)},_0x25b8bc=_0xad4c32[_0x493a68(0x1d5)](_0x3961be['okoBN']);if(!_0x25b8bc)return;imagesLoaded(_0x25b8bc,function(){var _0x1f42bf=_0x493a68,_0x42895f={'GCmHM':_0x492a82[_0x1f42bf(0x1e9)]},_0x2bdb68=new Isotope(_0x25b8bc,{'itemSelector':_0x1f42bf(0x1bb),'layoutMode':_0x1f42bf(0x205)});document[_0x1f42bf(0x1f0)](_0x492a82[_0x1f42bf(0x1d3)])[_0x1f42bf(0x20f)](function(_0x1c0a4b){var _0x3fc61e=_0x1f42bf;_0x1c0a4b[_0x3fc61e(0x1df)](_0x3fc61e(0x1f3),function(){var _0xf9fea=_0x3fc61e,_0x1ed5fc=_0xf9fea(0x1b6)['split']('|'),_0x35e6ed=0x0;while(!![]){switch(_0x1ed5fc[_0x35e6ed++]){case'0':_0x2bdb68[_0xf9fea(0x200)]({'filter':this['getAttribute']('data-filter')});continue;case'1':this[_0xf9fea(0x20b)]['add'](_0x42895f[_0xf9fea(0x1f4)]);continue;case'2':typeof AOS!==_0xf9fea(0x206)&&AOS[_0xf9fea(0x1ca)]();continue;case'3':document[_0xf9fea(0x1f0)](_0xf9fea(0x1e7))[_0xf9fea(0x20f)](function(_0x404f1e){var _0x101980=_0xf9fea;_0x404f1e['classList'][_0x101980(0x1bd)](_0x4a7caf[_0x101980(0x213)]);});continue;case'4':var _0x4a7caf={'POjyD':_0x42895f[_0xf9fea(0x1f4)]};continue;}break;}});});});}),[_0x3961be[_0x3f97ef(0x1fb)],_0x3961be[_0x3f97ef(0x1e2)],_0x3961be['QEmUF']][_0x3f97ef(0x20f)](function(_0x5bc235){var _0x15d7dd=_0x3f97ef,_0x5d036d=document[_0x15d7dd(0x1de)](_0x5bc235);_0x5d036d&&!_0x5d036d[_0x15d7dd(0x215)]['duped']&&(_0x5d036d[_0x15d7dd(0x1d0)]+=_0x5d036d[_0x15d7dd(0x1d0)],_0x5d036d['dataset']['duped']='1');});var _0x213414=![],_0x4c1c32=document[_0x3f97ef(0x1de)](_0x3961be[_0x3f97ef(0x21e)]);if(_0x4c1c32){var _0x1e7ba2=new IntersectionObserver(function(_0x3d14ab){var _0x1c9ef6=_0x3f97ef;_0x3d14ab[_0x1c9ef6(0x20f)](function(_0xcef57d){var _0x4acaf8=_0x1c9ef6,_0x3a1ae1={'gRQQi':function(_0x5bfb78,_0x1c9311){var _0x261311=a0_0x7aea;return _0x3961be[_0x261311(0x1cc)](_0x5bfb78,_0x1c9311);},'upoSx':_0x3961be[_0x4acaf8(0x1b4)]};_0xcef57d[_0x4acaf8(0x1f9)]&&!_0x213414&&(_0x213414=!![],setTimeout(function(){var _0x1baa03=_0x4acaf8;_0x3a1ae1[_0x1baa03(0x1d6)](toggleReview,_0x3a1ae1[_0x1baa03(0x1da)]);},0x3e8));});},{'threshold':0.25});_0x1e7ba2[_0x3f97ef(0x21d)](_0x4c1c32);}var _0x1d86b1=new IntersectionObserver(function(_0x295704){var _0x51eace=_0x3f97ef;_0x295704[_0x51eace(0x20f)](function(_0x22562b){var _0x3062a3=_0x51eace,_0x35f71b={'uJnVr':function(_0x13565a,_0xde82fb,_0xd17c17){var _0x4a8673=a0_0x7aea;return _0x3961be[_0x4a8673(0x1c3)](_0x13565a,_0xde82fb,_0xd17c17);}};if(_0x22562b[_0x3062a3(0x1f9)]){var _0x472b5e=_0x22562b['target'][_0x3062a3(0x1f0)](_0x3062a3(0x1f2));_0x472b5e[_0x3062a3(0x20f)](function(_0x2899eb,_0x2edf43){var _0x4d9b94=_0x3062a3,_0x28dc0c={'SZxwC':_0x4d9b94(0x1d9)};_0x2899eb[_0x4d9b94(0x1cb)][_0x4d9b94(0x210)]='0',_0x2899eb[_0x4d9b94(0x1cb)]['transform']='translateY(10px)',_0x35f71b[_0x4d9b94(0x1fa)](setTimeout,function(){var _0x36b729=_0x4d9b94;_0x2899eb['style'][_0x36b729(0x221)]=_0x28dc0c[_0x36b729(0x1cd)],_0x2899eb[_0x36b729(0x1cb)]['opacity']='1',_0x2899eb[_0x36b729(0x1cb)][_0x36b729(0x1ee)]=_0x36b729(0x208);},0x96*_0x2edf43);}),_0x1d86b1['unobserve'](_0x22562b[_0x3062a3(0x1db)]);}});},{'threshold':0.3});document['querySelectorAll'](_0x3f97ef(0x211))[_0x3f97ef(0x20f)](function(_0x3478ea){var _0x1f7226=_0x3f97ef;_0x1d86b1[_0x1f7226(0x21d)](_0x3478ea);});var _0x1d73ea=document[_0x3f97ef(0x1de)](_0x3961be['JNnxh']);if(_0x1d73ea){var _0x23d5c6=new IntersectionObserver(function(_0x1b3775){var _0x4117b8=_0x3f97ef;_0x1b3775[_0x4117b8(0x20f)](function(_0x1187a4){var _0x20d803=_0x4117b8,_0x5580a0={'sasJo':'all\x200.4s\x20ease'};if(_0x1187a4[_0x20d803(0x1f9)]){var _0x175ac2=_0x1d73ea['querySelectorAll'](_0x3961be[_0x20d803(0x209)]);_0x175ac2['forEach'](function(_0x575761,_0x1af3a0){var _0x1c5e3a=_0x20d803,_0x94d009={'xoJvq':_0x5580a0[_0x1c5e3a(0x1cf)]};_0x575761[_0x1c5e3a(0x1cb)][_0x1c5e3a(0x210)]='0',_0x575761[_0x1c5e3a(0x1cb)][_0x1c5e3a(0x1ee)]=_0x1c5e3a(0x1ae),setTimeout(function(){var _0x3f5d8f=_0x1c5e3a;_0x575761[_0x3f5d8f(0x1cb)][_0x3f5d8f(0x221)]=_0x94d009[_0x3f5d8f(0x1c5)],_0x575761[_0x3f5d8f(0x1cb)]['opacity']='1',_0x575761[_0x3f5d8f(0x1cb)][_0x3f5d8f(0x1ee)]='scale(1)';},0xc8*_0x1af3a0);}),_0x23d5c6[_0x20d803(0x1b8)](_0x1d73ea);}});},{'threshold':0.3});_0x23d5c6[_0x3f97ef(0x21d)](_0x1d73ea);}document['querySelectorAll']('a[href^=\x22#\x22]')[_0x3f97ef(0x20f)](function(_0x505303){var _0x502694=_0x3f97ef,_0x209eb1={'bBafR':_0x502694(0x216)};_0x505303['addEventListener'](_0x3961be[_0x502694(0x1c1)],function(_0x1f0818){var _0x23587b=_0x502694,_0x215e2a=document[_0x23587b(0x1d5)](this['getAttribute']('href'));_0x215e2a&&(_0x1f0818[_0x23587b(0x1e3)](),window['scrollTo']({'top':_0x215e2a[_0x23587b(0x204)]()[_0x23587b(0x1ec)]+window[_0x23587b(0x1ba)]-0x46,'behavior':_0x209eb1[_0x23587b(0x1c0)]}));});}),document[_0x3f97ef(0x1f0)](_0x3961be['WeGSK'])['forEach'](function(_0x5f3ccf){var _0xc30c62=_0x3f97ef;_0x5f3ccf[_0xc30c62(0x1e1)]=_0x3961be[_0xc30c62(0x1b9)](atob,_0x5f3ccf['dataset']['v']);}),document[_0x3f97ef(0x1f0)](_0x3f97ef(0x212))[_0x3f97ef(0x20f)](function(_0x4a6a5e){var _0x445860=_0x3f97ef;_0x4a6a5e['addEventListener'](_0x445860(0x1f3),function(_0x237742){var _0x313823=_0x445860;_0x237742['preventDefault'](),window[_0x313823(0x1d4)]['href']=atob(this['dataset']['h']);});});}document[a0_0x46e988(0x217)]===a0_0x46e988(0x20e)?initSite():window[a0_0x46e988(0x1df)]('load',initSite);</script>
 
-  <div id="preloader"></div>
-
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <script>
-  
-(function(_0x5df662,_0x17d8da){var _0x1c3351=a0_0x1ad0,_0xf88010=_0x5df662();while(!![]){try{var _0x3fc532=parseInt(_0x1c3351(0x1d1))/0x1+parseInt(_0x1c3351(0x1ba))/0x2*(-parseInt(_0x1c3351(0x1b5))/0x3)+-parseInt(_0x1c3351(0x1af))/0x4*(parseInt(_0x1c3351(0x1bc))/0x5)+-parseInt(_0x1c3351(0x1c3))/0x6+parseInt(_0x1c3351(0x1b7))/0x7*(-parseInt(_0x1c3351(0x1c5))/0x8)+parseInt(_0x1c3351(0x1d5))/0x9*(parseInt(_0x1c3351(0x1aa))/0xa)+parseInt(_0x1c3351(0x1be))/0xb;if(_0x3fc532===_0x17d8da)break;else _0xf88010['push'](_0xf88010['shift']());}catch(_0x53db72){_0xf88010['push'](_0xf88010['shift']());}}}(a0_0x96bc,0x6e329));function showReview(_0x31609c){var _0x5316ee=a0_0x1ad0,_0x4e54e8={'wAaZE':_0x5316ee(0x1d4),'uqWYT':function(_0xd6f072,_0x3a837b){return _0xd6f072+_0x3a837b;},'zWxER':'show','MfhPT':_0x5316ee(0x1c9)},_0x77f62d=document[_0x5316ee(0x1ad)](_0x4e54e8[_0x5316ee(0x1c6)](_0x5316ee(0x1b4),_0x31609c));_0x77f62d&&!_0x77f62d[_0x5316ee(0x1ce)][_0x5316ee(0x1c7)](_0x4e54e8[_0x5316ee(0x1d2)])&&(document[_0x5316ee(0x1b8)](_0x4e54e8[_0x5316ee(0x1cf)])[_0x5316ee(0x1b0)](function(_0x386b04){var _0x2515bd=_0x5316ee;_0x386b04['classList'][_0x2515bd(0x1bd)]('show');}),document[_0x5316ee(0x1b8)]('.case-study-card')[_0x5316ee(0x1b0)](function(_0x5b3327){var _0x3cdf28=_0x5316ee;_0x5b3327[_0x3cdf28(0x1ce)][_0x3cdf28(0x1bd)](_0x4e54e8[_0x3cdf28(0x1ac)]);}),_0x77f62d['classList'][_0x5316ee(0x1d6)](_0x5316ee(0x1c2)),_0x77f62d['closest'](_0x5316ee(0x1c8))[_0x5316ee(0x1ce)][_0x5316ee(0x1d6)](_0x5316ee(0x1d4)));}function toggleReview(_0x1c9b99){var _0x1952fa=a0_0x1ad0,_0x4c7954={'mktIN':'0|1|4|3|2','pQoli':_0x1952fa(0x1c2),'tDeBn':'active','TOSkm':_0x1952fa(0x1c8)},_0x1a1e34=_0x4c7954[_0x1952fa(0x1b3)]['split']('|'),_0x235742=0x0;while(!![]){switch(_0x1a1e34[_0x235742++]){case'0':var _0x455a16={'kdVGn':'show'};continue;case'1':var _0x320977=document[_0x1952fa(0x1ad)](_0x1952fa(0x1b4)+_0x1c9b99);continue;case'2':_0x320977[_0x1952fa(0x1ce)][_0x1952fa(0x1c7)](_0x4c7954[_0x1952fa(0x1ca)])?(_0x320977['classList']['remove'](_0x1952fa(0x1c2)),_0x3d908f[_0x1952fa(0x1ce)]['remove'](_0x4c7954['tDeBn'])):(document['querySelectorAll']('.cs-review')[_0x1952fa(0x1b0)](function(_0x35d73f){var _0x171532=_0x1952fa;_0x35d73f[_0x171532(0x1ce)][_0x171532(0x1bd)](_0x455a16[_0x171532(0x1bb)]);}),document[_0x1952fa(0x1b8)](_0x4c7954[_0x1952fa(0x1cc)])[_0x1952fa(0x1b0)](function(_0x34ac5c){var _0x501ab6=_0x1952fa;_0x34ac5c[_0x501ab6(0x1ce)][_0x501ab6(0x1bd)](_0x501ab6(0x1d4));}),_0x320977[_0x1952fa(0x1ce)][_0x1952fa(0x1d6)](_0x1952fa(0x1c2)),_0x3d908f[_0x1952fa(0x1ce)][_0x1952fa(0x1d6)](_0x1952fa(0x1d4)));continue;case'3':var _0x3d908f=_0x320977[_0x1952fa(0x1d8)](_0x1952fa(0x1c8));continue;case'4':if(!_0x320977)return;continue;}break;}}function a0_0x1ad0(_0x2250d8,_0x899368){_0x2250d8=_0x2250d8-0x1aa;var _0x96bc0c=a0_0x96bc();var _0x1ad04d=_0x96bc0c[_0x2250d8];if(a0_0x1ad0['yGxmBj']===undefined){var _0x1c940c=function(_0x19521c){var _0x27172c='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x358e34='',_0x14e468='';for(var _0x35952b=0x0,_0x1f8492,_0x4398f,_0x378c92=0x0;_0x4398f=_0x19521c['charAt'](_0x378c92++);~_0x4398f&&(_0x1f8492=_0x35952b%0x4?_0x1f8492*0x40+_0x4398f:_0x4398f,_0x35952b++%0x4)?_0x358e34+=String['fromCharCode'](0xff&_0x1f8492>>(-0x2*_0x35952b&0x6)):0x0){_0x4398f=_0x27172c['indexOf'](_0x4398f);}for(var _0x184d26=0x0,_0x1a8481=_0x358e34['length'];_0x184d26<_0x1a8481;_0x184d26++){_0x14e468+='%'+('00'+_0x358e34['charCodeAt'](_0x184d26)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x14e468);};a0_0x1ad0['qRnaSE']=_0x1c940c,a0_0x1ad0['olrHtU']={},a0_0x1ad0['yGxmBj']=!![];}var _0x173e77=_0x96bc0c[0x0],_0x27b31c=_0x2250d8+_0x173e77,_0x27e486=a0_0x1ad0['olrHtU'][_0x27b31c];return!_0x27e486?(_0x1ad04d=a0_0x1ad0['qRnaSE'](_0x1ad04d),a0_0x1ad0['olrHtU'][_0x27b31c]=_0x1ad04d):_0x1ad04d=_0x27e486,_0x1ad04d;}function toggleAutoPitch(_0x4a151a){var _0x2233be=a0_0x1ad0,_0x1fc08c={'LTSKX':_0x2233be(0x1c2)},_0x1a875d=document['getElementById'](_0x4a151a);if(!_0x1a875d)return;_0x1a875d['classList'][_0x2233be(0x1c7)](_0x1fc08c[_0x2233be(0x1b6)])?_0x1a875d[_0x2233be(0x1ce)][_0x2233be(0x1bd)](_0x2233be(0x1c2)):(document['querySelectorAll'](_0x2233be(0x1b1))[_0x2233be(0x1b0)](function(_0x9bf3ab){var _0x15820e=_0x2233be;_0x9bf3ab['classList'][_0x15820e(0x1bd)](_0x15820e(0x1c2));}),_0x1a875d[_0x2233be(0x1ce)][_0x2233be(0x1d6)](_0x2233be(0x1c2)));}function toggleFaq(_0x46cea2){var _0x246539=a0_0x1ad0,_0x33565e={'poxZo':_0x246539(0x1cb)},_0x184655=_0x46cea2[_0x246539(0x1d8)](_0x33565e['poxZo']),_0x2d46aa=_0x184655[_0x246539(0x1ce)][_0x246539(0x1c7)](_0x246539(0x1d7));document['querySelectorAll'](_0x33565e['poxZo'])[_0x246539(0x1b0)](function(_0x47423c){var _0x85f9f4=_0x246539;_0x47423c[_0x85f9f4(0x1ce)]['remove']('open');});if(!_0x2d46aa)_0x184655[_0x246539(0x1ce)][_0x246539(0x1d6)](_0x246539(0x1d7));}function a0_0x96bc(){var _0x221d55=['mZG0odm1sMflshvK','CMvTB3zL','odC0mty3oeDIr3fNyq','zgf0yxnLDa','A3bpDMvYBgf5','B3zLCMzSB3C','C2HVDW','mtm1otK3mNrICKfxBG','C3jvA1K','ohjZtLjZyW','Dxfxwvq','y29UDgfPBNm','lMnHC2uTC3r1zhKTy2fYza','lMnZlxjLDMLLDW','CffVBgK','lMzHCs1JyxjK','ve9tA20','y2f0','y2XHC3nmAxn0','twzOufq','zgLZCgXHEq','ntK2ndDht2fOsMm','ELD4rvi','ywXS','ywn0AxzL','mZeXotiZofbSrw1UCW','ywrK','B3bLBG','y2XVC2vZDa','yM9KEq','mtb5ufbisvK','C3r5Bgu','D0fHwKu','z2v0rwXLBwvUDej5swq','lMzHCs10ywi','mtzHA1jhwxa','zM9YrwfJAa','lMf1Dg8TCgL0y2G','A2zwzxO','BwT0su4','CMv2Awv3lq','m3DPDNjXDq','tfrts1G','mJq1mJK0v29Uvu1O','CxvLCNLtzwXLy3rVCKfSBa','AgLKzgvU','mZu5otCYzwTRtg5k','A2rwr24'];a0_0x96bc=function(){return _0x221d55;};return a0_0x96bc();}function filterFaq(_0x5a11d7,_0x48c76b){var _0x466c3d=a0_0x1ad0;document['querySelectorAll'](_0x466c3d(0x1ae))['forEach'](function(_0x19c1f9){var _0x5b9883=_0x466c3d;_0x19c1f9['classList'][_0x5b9883(0x1bd)](_0x5b9883(0x1d4));}),_0x48c76b[_0x466c3d(0x1ce)][_0x466c3d(0x1d6)]('active'),document[_0x466c3d(0x1b8)](_0x466c3d(0x1cb))[_0x466c3d(0x1b0)](function(_0x38d861){var _0x514530=_0x466c3d;_0x5a11d7===_0x514530(0x1d3)||_0x38d861[_0x514530(0x1bf)][_0x514530(0x1cd)]===_0x5a11d7?_0x38d861[_0x514530(0x1ab)][_0x514530(0x1d0)]='':_0x38d861['style'][_0x514530(0x1d0)]='none';});}function kpOpen(){var _0x35e0f4=a0_0x1ad0;document[_0x35e0f4(0x1ad)](_0x35e0f4(0x1c0))[_0x35e0f4(0x1ce)][_0x35e0f4(0x1d6)]('active'),document[_0x35e0f4(0x1d9)][_0x35e0f4(0x1ab)][_0x35e0f4(0x1c1)]=_0x35e0f4(0x1b9);}function kpClose(){var _0x3b8063=a0_0x1ad0,_0x289e11={'kfVez':'kpOverlay','srUkY':_0x3b8063(0x1d4)};document[_0x3b8063(0x1ad)](_0x289e11[_0x3b8063(0x1b2)])[_0x3b8063(0x1ce)][_0x3b8063(0x1bd)](_0x289e11[_0x3b8063(0x1c4)]),document['body'][_0x3b8063(0x1ab)][_0x3b8063(0x1c1)]='';}
-
-  </script>
-
-  <script>
-  
-function a0_0x570a(){var _0x28bfba=['C2nYB2XS','nxPswfP0DW','C2nYB2XSvg8','qLDTA2u','otGXnJy5nK9yC3LAsG','DgXVvgi','lMLZB3rVCguTy29UDgfPBMvY','lMLZB3rVCguTAxrLBq','y2XPzw50uMv2Awv3C1rYywnR','ywn0AxzL','Euzcy0K','lNbVCNqTzMLSDgvYlwj0BG','lM1VyMLSzs1UyxyTDg9Nz2XL','DgvJAe1HCNf1zwu','mZnLA0jRu1K','yMKTBgLZDa','D2HqsLy','oti2mdqWmhfRy0DYEq','yMfesu4','i2HLywrLCG','ndiWn2n6q2nkDW','C3bSAxq','y3roBMm','mtu0oty0nK14swvIzG','Dg9Nz2XL','z2v0rwXLBwvUDej5swq','AgfZAa','Aw5PDa','y2XHC3nmAxn0','z2v0qxr0CMLIDxrL','s3n0B0O','C2nYB2XSwq','i3bYzwXVywrLCG','ChjLDMvUDerLzMf1Bhq','yu9nv0G','i25HDM1LBNuGyq','CMvTB3zL','rMHkDKK','tffJqNy','CvbKCfO','z2v0qM91BMrPBMDdBgLLBNrszwn0','odC0ne9wAwHvBG','mtq1odiZm2nlvK1tAa','lMrLy29Kzs10zxH0','yMKTEa','Dgv4DenVBNrLBNq','mtiXodqZnMjNAeLADG','CxvLCNLtzwXLy3rVCG','ywrK','mtHKvNjgC3q','ndmZmJG4mhLRBKDNua','yM9KEq','B2zMC2v0vg9W','yvTOCMvMxJ0IiYjD','CMvHzhLtDgf0zq','CxvLCNLtzwXLy3rVCKfSBa','Bw9IAwXLlw5HDI1Hy3rPDMu','zM9YrwfJAa','lMDSAwDODgjVEa','CgfNzvLpzMzZzxq','AgvHzgvYlxnJCM9SBgvK','ENHNtwK','qNLxqNy','Bg9JyxrPB24','y2XPy2S','m2DJwwv2Eq','lNr5CgvK','DhjPBq','uvbqzgy','ywrKrxzLBNrmAxn0zw5LCG','AKLfBKO','yxjYyw5Nzq','Dw5KzwzPBMvK','vwH2AhC','zfj4sge','Aw5Uzxjive1m','AhjLzG','lMLZB3rVCguTBgf5B3v0','y29UDgfPBNm','zgf0ys1MAwX0zxi'];a0_0x570a=function(){return _0x28bfba;};return a0_0x570a();}var a0_0x886d8d=a0_0x18e6;(function(_0x3430b5,_0x24f9aa){var _0x286e52=a0_0x18e6,_0x3e286a=_0x3430b5();while(!![]){try{var _0x1b6ecc=parseInt(_0x286e52(0x1f5))/0x1+parseInt(_0x286e52(0x1e2))/0x2+parseInt(_0x286e52(0x20c))/0x3*(-parseInt(_0x286e52(0x1f9))/0x4)+parseInt(_0x286e52(0x1cc))/0x5*(parseInt(_0x286e52(0x1dc))/0x6)+-parseInt(_0x286e52(0x1df))/0x7*(-parseInt(_0x286e52(0x1f4))/0x8)+-parseInt(_0x286e52(0x1fc))/0x9*(parseInt(_0x286e52(0x1fd))/0xa)+-parseInt(_0x286e52(0x1d9))/0xb*(parseInt(_0x286e52(0x1cf))/0xc);if(_0x1b6ecc===_0x24f9aa)break;else _0x3e286a['push'](_0x3e286a['shift']());}catch(_0x191c82){_0x3e286a['push'](_0x3e286a['shift']());}}}(a0_0x570a,0xc5436));function a0_0x18e6(_0x23a4bb,_0x17ed0b){_0x23a4bb=_0x23a4bb-0x1c1;var _0x570a0a=a0_0x570a();var _0x18e6f4=_0x570a0a[_0x23a4bb];if(a0_0x18e6['rulrJi']===undefined){var _0x500144=function(_0x505625){var _0x524b77='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x30fff1='',_0x58aeab='';for(var _0x5484b5=0x0,_0xb033b4,_0x5d062c,_0x1216ab=0x0;_0x5d062c=_0x505625['charAt'](_0x1216ab++);~_0x5d062c&&(_0xb033b4=_0x5484b5%0x4?_0xb033b4*0x40+_0x5d062c:_0x5d062c,_0x5484b5++%0x4)?_0x30fff1+=String['fromCharCode'](0xff&_0xb033b4>>(-0x2*_0x5484b5&0x6)):0x0){_0x5d062c=_0x524b77['indexOf'](_0x5d062c);}for(var _0x56e267=0x0,_0x1edac7=_0x30fff1['length'];_0x56e267<_0x1edac7;_0x56e267++){_0x58aeab+='%'+('00'+_0x30fff1['charCodeAt'](_0x56e267)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x58aeab);};a0_0x18e6['IsjKpl']=_0x500144,a0_0x18e6['VHqqgs']={},a0_0x18e6['rulrJi']=!![];}var _0x9ac021=_0x570a0a[0x0],_0x2fb89a=_0x23a4bb+_0x9ac021,_0x306605=a0_0x18e6['VHqqgs'][_0x2fb89a];return!_0x306605?(_0x18e6f4=a0_0x18e6['IsjKpl'](_0x18e6f4),a0_0x18e6['VHqqgs'][_0x2fb89a]=_0x18e6f4):_0x18e6f4=_0x306605,_0x18e6f4;}function initSite(){var _0x1c0480=a0_0x18e6,_0x414cb3={'ctNnc':function(_0x423911,_0x5b5f52,_0x1a73e1){return _0x423911(_0x5b5f52,_0x1a73e1);},'daMKr':function(_0x7d3741,_0x50c900){return _0x7d3741+_0x50c900;},'yFBcI':_0x1c0480(0x203),'FhJvI':_0x1c0480(0x207),'PGhaL':_0x1c0480(0x1d2),'BWmke':'masonry','qPdpZ':'click','jIEnJ':function(_0x16bfad,_0x15e415){return _0x16bfad(_0x15e415);},'KstoJ':function(_0x39b792,_0x8c8cd0){return _0x39b792===_0x8c8cd0;},'Uhvhw':function(_0x48afa3,_0x414ced){return _0x48afa3===_0x414ced;},'ByWBv':_0x1c0480(0x1cb),'LQcBv':function(_0x462685,_0x1cf4a5,_0x632d1,_0x569ea3){return _0x462685(_0x1cf4a5,_0x632d1,_0x569ea3);},'tloTb':_0x1c0480(0x1d7),'dRxHa':_0x1c0480(0x1ee),'sJbwF':_0x1c0480(0x1eb),'klZkI':'ease-in-out','tceRq':'.typed','pOQzj':'data-typed-items','zxgMi':function(_0x55e4ad,_0x24c981,_0x1adfc2){return _0x55e4ad(_0x24c981,_0x1adfc2);},'baDIN':_0x1c0480(0x200),'suLeH':_0x1c0480(0x1f6),'aOMWH':'.decode-href'};if(_0x414cb3[_0x1c0480(0x1e9)](typeof AOS,_0x1c0480(0x1c3))||_0x414cb3[_0x1c0480(0x1c4)](typeof Typed,'undefined')||_0x414cb3['KstoJ'](typeof PureCounter,'undefined')){setTimeout(initSite,0x64);return;}function _0x1bcb74(_0x2c126e,_0x27591b){var _0x19e005=_0x1c0480;return _0x2c126e=_0x2c126e[_0x19e005(0x20e)](),_0x27591b?[...document['querySelectorAll'](_0x2c126e)]:document[_0x19e005(0x1fa)](_0x2c126e);}function _0x4840b4(_0x38bb09,_0x10e3a1,_0x5d6528,_0x1f8747){var _0x1c1588=_0x1c0480,_0x4c46cd=_0x414cb3[_0x1c1588(0x1e1)](_0x1bcb74,_0x10e3a1,_0x1f8747);_0x4c46cd&&(_0x1f8747?_0x4c46cd['forEach'](function(_0x1bde29){var _0x3c9d56=_0x1c1588;_0x1bde29[_0x3c9d56(0x210)](_0x38bb09,_0x5d6528);}):_0x4c46cd['addEventListener'](_0x38bb09,_0x5d6528));}var _0x577ac2=_0x414cb3[_0x1c0480(0x1e1)](_0x1bcb74,'#navmenu\x20a',!![]);function _0x18d868(){var _0x9f14f4=_0x1c0480;_0x577ac2[_0x9f14f4(0x204)](function(_0x19f9c2){var _0x496aa6=_0x9f14f4;if(!_0x19f9c2[_0x496aa6(0x1e5)])return;var _0x40b764=_0x1bcb74(_0x19f9c2[_0x496aa6(0x1e5)]);if(!_0x40b764)return;var _0x5c7994=_0x414cb3['daMKr'](window['scrollY'],0xc8);_0x5c7994>=_0x40b764[_0x496aa6(0x1ff)]&&_0x5c7994<=_0x40b764['offsetTop']+_0x40b764['offsetHeight']?_0x19f9c2['classList']['add']('active'):_0x19f9c2[_0x496aa6(0x1e7)][_0x496aa6(0x1ef)](_0x496aa6(0x1d4));});}_0x18d868(),document[_0x1c0480(0x210)](_0x414cb3[_0x1c0480(0x209)],_0x18d868),_0x414cb3[_0x1c0480(0x1f1)](_0x4840b4,_0x1c0480(0x20b),_0x414cb3[_0x1c0480(0x1d0)],function(){var _0x3ac690=_0x1c0480;document[_0x3ac690(0x1fe)][_0x3ac690(0x1e7)][_0x3ac690(0x1e3)](_0x3ac690(0x203)),this[_0x3ac690(0x1e7)]['toggle'](_0x3ac690(0x1da)),this['classList'][_0x3ac690(0x1e3)](_0x3ac690(0x1f7));}),_0x4840b4(_0x414cb3[_0x1c0480(0x1f2)],_0x414cb3[_0x1c0480(0x1c5)],function(){var _0x4a1ca8=_0x1c0480;if(document['body'][_0x4a1ca8(0x1e7)][_0x4a1ca8(0x1c9)](_0x414cb3[_0x4a1ca8(0x1d5)])){document['body'][_0x4a1ca8(0x1e7)][_0x4a1ca8(0x1ef)](_0x4a1ca8(0x203));var _0x2260a7=_0x1bcb74(_0x4a1ca8(0x1d7));_0x2260a7&&(_0x2260a7[_0x4a1ca8(0x1e7)][_0x4a1ca8(0x1e3)]('bi-list'),_0x2260a7[_0x4a1ca8(0x1e7)][_0x4a1ca8(0x1e3)]('bi-x'));}},!![]);var _0x23f3f8=_0x1bcb74(_0x1c0480(0x1de));if(_0x23f3f8){var _0x43cd67=function(){var _0x5da506=_0x1c0480;window[_0x5da506(0x1ea)]>0x64?_0x23f3f8[_0x5da506(0x1e7)][_0x5da506(0x1fb)](_0x414cb3[_0x5da506(0x1f0)]):_0x23f3f8[_0x5da506(0x1e7)][_0x5da506(0x1ef)](_0x5da506(0x207));};_0x43cd67(),document[_0x1c0480(0x210)](_0x1c0480(0x1cb),_0x43cd67);}var _0x585522=_0x1bcb74(_0x414cb3['sJbwF']);if(_0x585522)_0x585522[_0x1c0480(0x1ef)]();AOS[_0x1c0480(0x1e6)]({'duration':0x258,'easing':_0x414cb3['klZkI'],'once':!![],'mirror':![]});var _0x317c8b=document[_0x1c0480(0x1fa)](_0x1c0480(0x20d));_0x317c8b&&new Typed(_0x414cb3['tceRq'],{'strings':_0x317c8b['getAttribute'](_0x414cb3['pOQzj'])[_0x1c0480(0x1e0)](','),'loop':!![],'typeSpeed':0x32,'backSpeed':0x19,'backDelay':0x7d0});new PureCounter(),_0x414cb3[_0x1c0480(0x1c1)](GLightbox,{'selector':_0x1c0480(0x205)});var _0xc9b08b=_0x414cb3[_0x1c0480(0x208)](_0x1bcb74,_0x1c0480(0x1c8),!![]);_0xc9b08b[_0x1c0480(0x204)](function(_0x1b298f){var _0x5e84ce=_0x1c0480,_0x38def8=_0x1b298f['querySelector'](_0x5e84ce(0x1d1));if(!_0x38def8)return;imagesLoaded(_0x38def8,function(){var _0x3525db=_0x5e84ce,_0x562ff5=new Isotope(_0x38def8,{'itemSelector':_0x414cb3['PGhaL'],'layoutMode':_0x414cb3[_0x3525db(0x1ce)]});document['querySelectorAll'](_0x3525db(0x1d6))[_0x3525db(0x204)](function(_0x4faf08){var _0x331189=_0x3525db,_0x11cbbf={'whPJV':_0x331189(0x1ca)};_0x4faf08[_0x331189(0x210)](_0x331189(0x20b),function(){var _0x59ff68=_0x331189;document[_0x59ff68(0x202)](_0x59ff68(0x1d6))[_0x59ff68(0x204)](function(_0x2bbb99){var _0x413c6f=_0x59ff68;_0x2bbb99[_0x413c6f(0x1e7)]['remove']('active');}),this[_0x59ff68(0x1e7)]['add']('active'),_0x562ff5[_0x59ff68(0x1c2)]({'filter':this[_0x59ff68(0x1e8)](_0x11cbbf[_0x59ff68(0x1db)])});});});});}),[_0x1c0480(0x1d8),'autoReviewsTrack',_0x1c0480(0x1d3)][_0x1c0480(0x204)](function(_0xa8271d){var _0x212767=_0x1c0480,_0x184bc1=document[_0x212767(0x1e4)](_0xa8271d);_0x184bc1&&(_0x184bc1[_0x212767(0x1c6)]+=_0x184bc1['innerHTML']);}),document['querySelectorAll'](_0x414cb3[_0x1c0480(0x1dd)])[_0x1c0480(0x204)](function(_0x2f2eea){var _0x4e3963=_0x1c0480,_0x5f43f9={'QPPdf':'href'};_0x2f2eea[_0x4e3963(0x210)](_0x414cb3['qPdpZ'],function(_0x23f70d){var _0x4c7735=_0x4e3963,_0x55c2a2=document['querySelector'](this[_0x4c7735(0x1e8)](_0x5f43f9[_0x4c7735(0x20f)]));_0x55c2a2&&(_0x23f70d['preventDefault'](),window[_0x4c7735(0x1cd)]({'top':_0x55c2a2[_0x4c7735(0x1f3)]()['top']+window[_0x4c7735(0x206)]-0x46,'behavior':'smooth'}));});}),document['querySelectorAll'](_0x414cb3['suLeH'])[_0x1c0480(0x204)](function(_0x26e8cb){var _0x368563=_0x1c0480;_0x26e8cb[_0x368563(0x1f8)]=atob(_0x26e8cb['dataset']['v']);}),document[_0x1c0480(0x202)](_0x414cb3[_0x1c0480(0x1ed)])[_0x1c0480(0x204)](function(_0x391d18){var _0x56931e=_0x1c0480;_0x391d18[_0x56931e(0x210)]('click',function(_0x36cee1){var _0x52d52f=_0x56931e;_0x36cee1[_0x52d52f(0x1ec)](),window[_0x52d52f(0x20a)][_0x52d52f(0x1c7)]=_0x414cb3[_0x52d52f(0x1c1)](atob,this['dataset']['h']);});});}document[a0_0x886d8d(0x201)]==='complete'?initSite():window[a0_0x886d8d(0x210)]('load',initSite);
-
-  </script>
-
-  <script>
-  
-function a0_0x5f11(){var _0x318aca=['mJi0odi5tvn5z09w','u3vIBwL0DgLUzY4UlG','BM9Uzq','CxD1vfq','yNDuEwi','A3bqAwnR','BgvUz3rO','z1rXzxO','CxvLCNLtzwXLy3rVCKfSBa','A3bqCMv2','BwLU','ywn0AxzL','yM9YzgvYq29SB3i','CxvLCNLtzwXLy3rVCG','v2vIC2L0zq','ChjLDMvUDerLzMf1Bhq','DhjPBq','y2XHC3nmAxn0','zvPgvvy','zgLZywjSzwq','vxntA1O','A3bFBw9KywXFC2HVD24','DLH2u2K','zM9YrwfJAa','ywrKAxrPB25HBf9UB3rLCW','otm3mhnmDhD1EG','zefkwvu','Dgv4Dc9WBgfPBG','Dgv4DenVBNrLBNq','DMfSDwu','A3btDwjTAxrcDg4','A3bFBM90zxm','A3bFCgHVBMu','yuHsmgnittzmEtL6wtnkCgniuxvAmJL2wJj4BeXTtNzIuZL0wvDoEwiZtxzJEtLcuZjAnvKYsJntrZLfyZfJEfzettbHvePwvg5crwjwAhbnBezQzgPAB2iXsKXHELKXv210mfzfsMXImgn4u0voywjyvtfHv3b6ytbkDK9hAgztvxbgzvu1CMf6rKntmLL2wLHOBfL3pt0','A3bFBg5HBwu','ANnVBG','ug9YDgzVBgLVie1VzgfS','BgfZDf9Uyw1L','CMvTB3zL','A2v5zg93BG','AxLsA1G','lMTWlw9WDcWUA3aTy2fYza','C2vSzwn0zwq','DfLLEeS','mti4mJqXnwz6zfneDG','vuXHuhm','zMnOtxK','seDNAu4','vhf4rwq','t2PUCve','C2HVDW','ENvdzMO','zfztEwm','CgHVBMu','zK9nAgi','zK50vxe','rw50zxi','A3bFzM5HBwu','CgfYzw50rwXLBwvUDa','v0zkBg0','lMTWlxn0zxa','D2LKDgG','z2v0rwXLBwvUDej5swq','i2rJmJyYnG','DgHLBG','zwjSBMq','A0fszwS','zw1HAwW','q29Vwfq','z2v0sxrLBq','ywrK','A2v5','A3bFzv9MBMfTzq','CM91BMq','otyWmdLPCMryrNu','A3bFzv9LBwfPBa','C3r5Bgu','A3bFzw1HAwW','C0vLwNy','Aw5WDxq','y2f0y2G','A3bFzv9SBMfTzq','vwvSvhq','lMTWlwLUChv0','m05cENH3Bq','zMPuvuC','lMTWlwj0BG','Ag93x2zVDw5Kx3vZ','y2XVC2vZDa','nZyYmJHoB1viBLu','yMXVy2S','A3bcyxi','CMvWBgfJzq','C2XPy2u','zgLZCgXHEq','mNbIvNP4sa','C2v0sxrLBq','rvPMB2u','C3rYAw5NAwz5','C291CMnL','A3bcywnR','mti1mtKZnKPPs2zHCq','mtaXn0j4u05KsG','mJKWotL2z2fQve0','ywrKrxzLBNrmAxn0zw5LCG','mZy2ChbjDu5b'];a0_0x5f11=function(){return _0x318aca;};return a0_0x5f11();}function a0_0x2629(_0x114934,_0x468333){_0x114934=_0x114934-0x119;var _0x5f117b=a0_0x5f11();var _0x262966=_0x5f117b[_0x114934];if(a0_0x2629['xLEkRH']===undefined){var _0x2d2028=function(_0x2f865a){var _0x55a9ae='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x302172='',_0x49b61d='';for(var _0x22a657=0x0,_0x4c730c,_0xefc0e5,_0x2d99d3=0x0;_0xefc0e5=_0x2f865a['charAt'](_0x2d99d3++);~_0xefc0e5&&(_0x4c730c=_0x22a657%0x4?_0x4c730c*0x40+_0xefc0e5:_0xefc0e5,_0x22a657++%0x4)?_0x302172+=String['fromCharCode'](0xff&_0x4c730c>>(-0x2*_0x22a657&0x6)):0x0){_0xefc0e5=_0x55a9ae['indexOf'](_0xefc0e5);}for(var _0x5e3876=0x0,_0x18e94d=_0x302172['length'];_0x5e3876<_0x18e94d;_0x5e3876++){_0x49b61d+='%'+('00'+_0x302172['charCodeAt'](_0x5e3876)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x49b61d);};a0_0x2629['JgWtmN']=_0x2d2028,a0_0x2629['aCKUaq']={},a0_0x2629['xLEkRH']=!![];}var _0x2b8608=_0x5f117b[0x0],_0x549997=_0x114934+_0x2b8608,_0x113a09=a0_0x2629['aCKUaq'][_0x549997];return!_0x113a09?(_0x262966=a0_0x2629['JgWtmN'](_0x262966),a0_0x2629['aCKUaq'][_0x549997]=_0x262966):_0x262966=_0x113a09,_0x262966;}(function(_0x1675ef,_0x263fc5){var _0x49de93=a0_0x2629,_0x3d0370=_0x1675ef();while(!![]){try{var _0xa16f8a=parseInt(_0x49de93(0x133))/0x1*(-parseInt(_0x49de93(0x148))/0x2)+-parseInt(_0x49de93(0x13d))/0x3*(parseInt(_0x49de93(0x142))/0x4)+-parseInt(_0x49de93(0x17f))/0x5+-parseInt(_0x49de93(0x152))/0x6*(-parseInt(_0x49de93(0x150))/0x7)+parseInt(_0x49de93(0x14e))/0x8+parseInt(_0x49de93(0x14f))/0x9*(parseInt(_0x49de93(0x16c))/0xa)+parseInt(_0x49de93(0x153))/0xb;if(_0xa16f8a===_0x263fc5)break;else _0x3d0370['push'](_0x3d0370['shift']());}catch(_0x5a77e5){_0x3d0370['push'](_0x3d0370['shift']());}}}(a0_0x5f11,0x283e8),(function(){var _0x1b941e=a0_0x2629,_0x29fd04={'dVSyc':function(_0x5c1374,_0x1d5679){return _0x5c1374+_0x1d5679;},'Ebyxq':'active','gTqez':function(_0x12430c){return _0x12430c();},'VyHhI':function(_0x73453f,_0x19c92b){return _0x73453f*_0x19c92b;},'OjnqQ':_0x1b941e(0x144),'rFFzt':function(_0x2e9503,_0x4f97a5){return _0x2e9503+_0x4f97a5;},'zuCfj':function(_0x4e478c,_0x12cf82){return _0x4e478c>_0x12cf82;},'TqxEd':_0x1b941e(0x11b),'dAJYU':function(_0xf638a2,_0x87fd88){return _0xf638a2-_0x87fd88;},'HGgiN':_0x1b941e(0x17d),'UsSkZ':function(_0x1f2d59,_0x5d9ff9,_0xe1133c){return _0x1f2d59(_0x5d9ff9,_0xe1133c);},'WFJlm':_0x1b941e(0x173),'vXvSi':_0x1b941e(0x172),'kARek':function(_0x46a255,_0x29103e){return _0x46a255<_0x29103e;},'eZFUV':_0x1b941e(0x131),'iyRkX':_0x1b941e(0x143),'fchMy':_0x1b941e(0x134),'tYexK':_0x1b941e(0x128),'fNtUq':_0x1b941e(0x154),'qwuTT':_0x1b941e(0x161),'fOMhb':_0x1b941e(0x168),'AabdM':'Escape','bwTyb':function(_0x11b00b,_0x3c8f5f){return _0x11b00b>=_0x3c8f5f;},'sEeZv':function(_0x5a3bec,_0xd79b64){return _0x5a3bec+_0xd79b64;},'EZfoe':function(_0x5b3555,_0x237aba){return _0x5b3555+_0x237aba;},'fjTUG':function(_0x13a579,_0x2c493a){return _0x13a579===_0x2c493a;},'eblnd':_0x1b941e(0x13f),'CooXT':_0x1b941e(0x17a),'ULaPs':function(_0x45b7bd,_0x48dccb,_0x4edb28){return _0x45b7bd(_0x48dccb,_0x4edb28);}},_0x5227c9=atob(_0x1b941e(0x174)),_0x35de30=0x1,_0x3ba2e5=0x6,_0x48413e={};function _0x467b14(_0x4083fe){var _0x905ac7=_0x1b941e;document[_0x905ac7(0x15b)]('.kp-step')[_0x905ac7(0x16a)](function(_0x47b6a0){var _0x1ecce7=_0x905ac7;_0x47b6a0[_0x1ecce7(0x164)]['remove'](_0x1ecce7(0x15e));});var _0x9f4754=document['querySelector'](_0x29fd04[_0x905ac7(0x11d)]('.kp-step[data-step=\x22',_0x4083fe)+'\x22]');_0x9f4754&&(_0x9f4754[_0x905ac7(0x164)][_0x905ac7(0x12f)](_0x29fd04['Ebyxq']),_0x35de30=_0x4083fe,_0x29fd04['gTqez'](_0x2f7c71),_0x29fd04[_0x905ac7(0x15a)](_0x307741));}function _0x2f7c71(){var _0x401e42=_0x1b941e,_0x2b5c1c=Math[_0x401e42(0x15d)](Math[_0x401e42(0x132)](_0x29fd04['VyHhI']((_0x35de30-0x1)/_0x3ba2e5,0x64)),0x64);document[_0x401e42(0x127)](_0x29fd04[_0x401e42(0x11a)])['style'][_0x401e42(0x126)]=_0x29fd04['rFFzt'](_0x2b5c1c,'%');}function _0x307741(){var _0x437ede=_0x1b941e,_0x34f2d3=document[_0x437ede(0x127)](_0x437ede(0x14d));_0x29fd04[_0x437ede(0x11c)](_0x35de30,0x1)&&_0x35de30<=_0x3ba2e5?_0x34f2d3[_0x437ede(0x164)][_0x437ede(0x12f)](_0x437ede(0x11b)):_0x34f2d3[_0x437ede(0x164)][_0x437ede(0x179)](_0x29fd04[_0x437ede(0x119)]);}window[_0x1b941e(0x15c)]=function(){var _0x2fc9bf=_0x1b941e;if(_0x35de30>0x1)_0x467b14(_0x29fd04[_0x2fc9bf(0x16d)](_0x35de30,0x1));},window[_0x1b941e(0x158)]=function(_0x21e9ae,_0x14e60a,_0xc16e78){var _0x2cadc6=_0x1b941e;_0x21e9ae[_0x2cadc6(0x123)][_0x2cadc6(0x15b)](_0x2cadc6(0x17c))['forEach'](function(_0x47ed03){var _0x10133f=_0x2cadc6;_0x47ed03[_0x10133f(0x164)][_0x10133f(0x179)]('selected');}),_0x21e9ae[_0x2cadc6(0x164)][_0x2cadc6(0x12f)](_0x29fd04[_0x2cadc6(0x182)]),_0x48413e[_0x14e60a]=_0xc16e78,_0x29fd04[_0x2cadc6(0x167)](setTimeout,function(){_0x467b14(_0x35de30+0x1);},0x190);},window['kpSubmit']=function(){var _0x525d28=_0x1b941e,_0x5c6d91={'UelTt':function(_0x59975e,_0x4fdf9e){return _0x59975e(_0x4fdf9e);}},_0x45d3e4=document['getElementById'](_0x525d28(0x122)),_0x9ee594=document[_0x525d28(0x127)](_0x525d28(0x175)),_0x9a5645=document[_0x525d28(0x127)](_0x525d28(0x136)),_0x71921e=document[_0x525d28(0x127)](_0x29fd04[_0x525d28(0x124)]),_0xd33eb0=document['getElementById'](_0x29fd04[_0x525d28(0x169)]),_0x4f1d1f=!![];_0x29fd04[_0x525d28(0x12b)](_0x45d3e4[_0x525d28(0x170)][_0x525d28(0x163)]()[_0x525d28(0x159)],0x1)?(document[_0x525d28(0x127)](_0x29fd04[_0x525d28(0x165)])[_0x525d28(0x135)]['display']=_0x525d28(0x143),_0x45d3e4[_0x525d28(0x135)][_0x525d28(0x15f)]=_0x525d28(0x128),_0x4f1d1f=![]):(document[_0x525d28(0x127)](_0x29fd04['eZFUV'])['style'][_0x525d28(0x147)]=_0x525d28(0x155),_0x45d3e4['style']['borderColor']='');_0x29fd04[_0x525d28(0x12b)](_0x9ee594[_0x525d28(0x170)][_0x525d28(0x163)]()['length'],0x1)?(document[_0x525d28(0x127)](_0x525d28(0x13a))[_0x525d28(0x135)][_0x525d28(0x147)]=_0x29fd04[_0x525d28(0x17b)],_0x9ee594['style'][_0x525d28(0x15f)]=_0x525d28(0x128),_0x4f1d1f=![]):(document[_0x525d28(0x127)]('kp_e_lname')[_0x525d28(0x135)][_0x525d28(0x147)]=_0x525d28(0x155),_0x9ee594[_0x525d28(0x135)][_0x525d28(0x15f)]='');!/^[^\s@]+@[^\s@]+\.[^\s@]+$/['test'](_0x9a5645[_0x525d28(0x170)][_0x525d28(0x163)]())?(document[_0x525d28(0x127)](_0x29fd04[_0x525d28(0x181)])[_0x525d28(0x135)][_0x525d28(0x147)]=_0x525d28(0x143),_0x9a5645['style'][_0x525d28(0x15f)]=_0x29fd04[_0x525d28(0x17e)],_0x4f1d1f=![]):(document[_0x525d28(0x127)](_0x525d28(0x134))[_0x525d28(0x135)][_0x525d28(0x147)]=_0x525d28(0x155),_0x9a5645['style'][_0x525d28(0x15f)]='');if(!_0x4f1d1f)return;var _0x22a136=document[_0x525d28(0x127)](_0x525d28(0x171));_0x22a136[_0x525d28(0x166)]=!![],_0x22a136[_0x525d28(0x16f)]=_0x29fd04[_0x525d28(0x120)],_0x48413e['first_name']=_0x45d3e4[_0x525d28(0x170)]['trim'](),_0x48413e[_0x525d28(0x178)]=_0x9ee594[_0x525d28(0x170)][_0x525d28(0x163)](),_0x48413e[_0x525d28(0x12c)]=_0x9a5645[_0x525d28(0x170)][_0x525d28(0x163)](),_0x48413e[_0x525d28(0x11e)]=_0x71921e[_0x525d28(0x170)][_0x525d28(0x163)](),_0x48413e[_0x525d28(0x16b)]=_0xd33eb0[_0x525d28(0x170)][_0x525d28(0x163)](),_0x48413e[_0x525d28(0x14c)]=_0x525d28(0x177),_0x48413e[_0x525d28(0x140)]=_0x29fd04[_0x525d28(0x156)],_0x29fd04[_0x525d28(0x167)](fetch,_0x5227c9,{'method':'POST','headers':{'Content-Type':_0x525d28(0x16e)},'body':JSON[_0x525d28(0x14b)](_0x48413e)})[_0x525d28(0x129)](function(_0x2b06d4){var _0x39d8e9=_0x525d28;return _0x2b06d4[_0x39d8e9(0x176)]();})[_0x525d28(0x129)](function(_0x572c02){var _0x5c18b2=_0x525d28;_0x5c6d91[_0x5c18b2(0x13b)](_0x467b14,0x7);})[_0x525d28(0x139)](function(_0x59da6a){_0x467b14(0x7);});},_0x29fd04[_0x1b941e(0x180)](setTimeout,function(){var _0x1d0446=_0x1b941e;!sessionStorage[_0x1d0446(0x12e)](_0x1d0446(0x168))&&(_0x29fd04[_0x1d0446(0x15a)](kpOpen),sessionStorage[_0x1d0446(0x149)](_0x29fd04[_0x1d0446(0x11f)],'1'));},0xfa0),document['addEventListener'](_0x1b941e(0x17a),function(_0x59f9cb){var _0x260f4b=_0x1b941e;if(_0x59f9cb[_0x260f4b(0x130)]===_0x29fd04['AabdM'])kpClose();});var _0x3c729d=document['getElementById'](_0x1b941e(0x173));_0x3c729d&&_0x3c729d[_0x1b941e(0x151)](_0x1b941e(0x138),function(){var _0x32ff0c=_0x1b941e,_0x9ba287=this[_0x32ff0c(0x170)][_0x32ff0c(0x145)](/\D/g,'');if(_0x9ba287[_0x32ff0c(0x159)]>0xa)_0x9ba287=_0x9ba287[_0x32ff0c(0x146)](0x0,0xa);if(_0x29fd04[_0x32ff0c(0x157)](_0x9ba287['length'],0x7))this[_0x32ff0c(0x170)]=_0x29fd04[_0x32ff0c(0x137)](_0x29fd04[_0x32ff0c(0x14a)]('(',_0x9ba287[_0x32ff0c(0x146)](0x0,0x3))+')\x20'+_0x9ba287['slice'](0x3,0x6),'-')+_0x9ba287[_0x32ff0c(0x146)](0x6);else{if(_0x9ba287[_0x32ff0c(0x159)]>=0x4)this[_0x32ff0c(0x170)]='('+_0x9ba287['slice'](0x0,0x3)+')\x20'+_0x9ba287[_0x32ff0c(0x146)](0x3);else{if(_0x29fd04[_0x32ff0c(0x11c)](_0x9ba287[_0x32ff0c(0x159)],0x0))this['value']=_0x29fd04[_0x32ff0c(0x137)]('(',_0x9ba287);}}}),document[_0x1b941e(0x15b)](_0x1b941e(0x13c))[_0x1b941e(0x16a)](function(_0x525dc1){var _0x2d5e2d=_0x1b941e;_0x525dc1[_0x2d5e2d(0x151)](_0x29fd04[_0x2d5e2d(0x12d)],function(_0x871a01){var _0xe100a9=_0x2d5e2d;if(_0x29fd04[_0xe100a9(0x13e)](_0x871a01[_0xe100a9(0x130)],_0xe100a9(0x121))){_0x871a01[_0xe100a9(0x162)]();var _0x29838e=this[_0xe100a9(0x141)](_0xe100a9(0x125))[_0xe100a9(0x160)](_0x29fd04[_0xe100a9(0x12a)]);if(_0x29838e)_0x29838e['click']();}});}),_0x29fd04[_0x1b941e(0x15a)](_0x2f7c71);}()));
-
-  </script>
+  <!-- MODAL LOGIC (single instance) -->
+  <script>function a0_0x84ef(_0x1583ed,_0x226b19){_0x1583ed=_0x1583ed-0x165;var _0x5cbf87=a0_0x5cbf();var _0x84efe1=_0x5cbf87[_0x1583ed];return _0x84efe1;}function a0_0x5cbf(){var _0x45bc49=['kp_notes','5488616stmUPI','kpSubmit','trim','sKxqX','kpPrev','vEdmu','yAswF','Jnsjw','add','test','14qdOqPC','CWTxw','length','show','.kp-opt,.kp-card','701214bjClmG','kp_fname','bWfRp','EnoBw','XhtSw','yXEhh','ATfRz','fBIkv','remove','hmYWY','booql','getItem','9EUviim','Enter','.kp-step[data-step=\x22','disabled','Submitting...','closest','then','selected','1xhbbea','FnjLZ','Vtnmn','querySelectorAll','.kp-step','source','HoDaG','addEventListener','setItem','ZuVSS','querySelector','getElementById','value','OnAwd','slice','kp_modal_shown','IzuBv','active','kp_phone','kp_lname','stringify','text/plain','latys','forEach','TsNwZ','1520826JmThsk','1943576mVssKB','width','.kp-input','style','oUWuv','email','min','326568OuHsmZ','POST','block','qaRIK','prmKc','xDDol','XFqYO','display','first_name','jIxJr','input','preventDefault','#dc2626','additional_notes','kp_e_email','iRicH','round','Escape','json','2564754hodJgE','kpPick','replace','key','borderColor','3314625udqsHa','kpBar','wXWne','650JGIBlX','keydown','UCTVM','uuDkd','kp_email','classList','click','none','SUmJm'];a0_0x5cbf=function(){return _0x45bc49;};return a0_0x5cbf();}(function(_0x2c2ad5,_0x5bf3c9){var _0x268496=a0_0x84ef,_0x2fb148=_0x2c2ad5();while(!![]){try{var _0x44aa5d=parseInt(_0x268496(0x183))/0x1*(parseInt(_0x268496(0x19c))/0x2)+parseInt(_0x268496(0x16f))/0x3+parseInt(_0x268496(0x19d))/0x4+-parseInt(_0x268496(0x1bc))/0x5+parseInt(_0x268496(0x1b7))/0x6*(parseInt(_0x268496(0x16a))/0x7)+parseInt(_0x268496(0x1c9))/0x8*(parseInt(_0x268496(0x17b))/0x9)+-parseInt(_0x268496(0x1bf))/0xa*(parseInt(_0x268496(0x1a4))/0xb);if(_0x44aa5d===_0x5bf3c9)break;else _0x2fb148['push'](_0x2fb148['shift']());}catch(_0x31c2ca){_0x2fb148['push'](_0x2fb148['shift']());}}}(a0_0x5cbf,0x6896b),(function(){var _0x1bb533=a0_0x84ef,_0x6408b3={'sMGay':_0x1bb533(0x194),'vEdmu':function(_0x4ad50f,_0x3583ab){return _0x4ad50f+_0x3583ab;},'TsNwZ':function(_0x54ada3){return _0x54ada3();},'wXWne':_0x1bb533(0x1bd),'latys':_0x1bb533(0x16d),'OnAwd':function(_0x5d2500,_0x3c0da4){return _0x5d2500(_0x3c0da4);},'iRicH':function(_0x40dbaa,_0x3fdf30){return _0x40dbaa(_0x3fdf30);},'ZuVSS':function(_0x55a6fc,_0x5f44fc){return _0x55a6fc+_0x5f44fc;},'UCTVM':_0x1bb533(0x182),'Jnsjw':function(_0x587e2a,_0x36382f,_0x1476bf){return _0x587e2a(_0x36382f,_0x1476bf);},'zfZHG':_0x1bb533(0x170),'IzuBv':_0x1bb533(0x196),'FnjLZ':function(_0x336964,_0x54b4d2){return _0x336964<_0x54b4d2;},'sKxqX':'kp_e_fname','EnoBw':'none','xDDol':'kp_e_lname','oUWuv':_0x1bb533(0x1a6),'ccjWo':_0x1bb533(0x1b0),'ATfRz':'Portfolio\x20Modal','yAswF':'Website','booql':_0x1bb533(0x192),'fBIkv':function(_0x107d0a){return _0x107d0a();},'CWTxw':function(_0x964a12,_0x17b778){return _0x964a12===_0x17b778;},'hmYWY':_0x1bb533(0x1b5),'jIxJr':function(_0x20463c){return _0x20463c();},'uuDkd':function(_0x72ab02,_0x47fa5c){return _0x72ab02>_0x47fa5c;},'Vtnmn':function(_0x283a16,_0x380ded){return _0x283a16>=_0x380ded;},'SUmJm':function(_0x24b9c2,_0x260e93){return _0x24b9c2+_0x260e93;},'HoDaG':function(_0x2d6e10,_0x59b854){return _0x2d6e10+_0x59b854;},'paBlo':function(_0x4600f1,_0x292517){return _0x4600f1>_0x292517;},'XhtSw':_0x1bb533(0x17c),'cEnfY':'.kp-btn','bWfRp':_0x1bb533(0x1c0),'yXEhh':'aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J3SG9Ec1cxVDM0aTJVTnBEbVhpMlFjdjZob1JLazY1Wmt0VEJlb0cxSENabXU1aWpza0JvOGhfSUpFeU5razFCS2YvZXhlYw==','qaRIK':'kp_phone','XFqYO':_0x1bb533(0x1ae),'prmKc':_0x1bb533(0x19f)},_0x21619e=_0x6408b3[_0x1bb533(0x1b3)](atob,_0x6408b3[_0x1bb533(0x174)]),_0x364c10=0x1,_0x57bc8d=0x6,_0x895f62={};function _0x5b7139(_0x12c1b0){var _0x26249e=_0x1bb533;document[_0x26249e(0x186)]('.kp-step')[_0x26249e(0x19a)](function(_0x8500f0){var _0x54a16d=_0x26249e;_0x8500f0[_0x54a16d(0x1c4)][_0x54a16d(0x177)](_0x6408b3['sMGay']);});var _0x47e7cb=document[_0x26249e(0x18d)](_0x6408b3[_0x26249e(0x165)](_0x6408b3[_0x26249e(0x165)](_0x26249e(0x17d),_0x12c1b0),'\x22]'));_0x47e7cb&&(_0x47e7cb[_0x26249e(0x1c4)]['add'](_0x26249e(0x194)),_0x364c10=_0x12c1b0,_0x6408b3[_0x26249e(0x19b)](_0x2ac36e),_0x4bb444());}function _0x2ac36e(){var _0x14d326=_0x1bb533,_0x214451=Math[_0x14d326(0x1a3)](Math[_0x14d326(0x1b4)]((_0x364c10-0x1)/_0x57bc8d*0x64),0x64);document['getElementById'](_0x6408b3[_0x14d326(0x1be)])[_0x14d326(0x1a0)][_0x14d326(0x19e)]=_0x6408b3[_0x14d326(0x165)](_0x214451,'%');}function _0x4bb444(){var _0x37376c=_0x1bb533,_0x3e2cd5=document[_0x37376c(0x18e)]('kpBack');_0x364c10>0x1&&_0x364c10<=_0x57bc8d?_0x3e2cd5[_0x37376c(0x1c4)]['add'](_0x6408b3[_0x37376c(0x199)]):_0x3e2cd5['classList'][_0x37376c(0x177)](_0x6408b3[_0x37376c(0x199)]);}window[_0x1bb533(0x1cd)]=function(){var _0x5a626d=_0x1bb533;if(_0x364c10>0x1)_0x6408b3[_0x5a626d(0x190)](_0x5b7139,_0x364c10-0x1);},window[_0x1bb533(0x1b8)]=function(_0x13ed93,_0x5eefb5,_0x1550a0){var _0x22cdaf=_0x1bb533;_0x13ed93['parentElement'][_0x22cdaf(0x186)](_0x22cdaf(0x16e))['forEach'](function(_0x431f0a){var _0xedfe5f=_0x22cdaf;_0x431f0a[_0xedfe5f(0x1c4)]['remove'](_0xedfe5f(0x182));}),_0x13ed93[_0x22cdaf(0x1c4)][_0x22cdaf(0x168)](_0x6408b3[_0x22cdaf(0x1c1)]),_0x895f62[_0x5eefb5]=_0x1550a0,_0x6408b3[_0x22cdaf(0x167)](setTimeout,function(){var _0x3fbaf1=_0x22cdaf;_0x6408b3['iRicH'](_0x5b7139,_0x6408b3[_0x3fbaf1(0x18c)](_0x364c10,0x1));},0x190);},window[_0x1bb533(0x1ca)]=function(){var _0x56e1a9=_0x1bb533,_0x2cd248=document[_0x56e1a9(0x18e)](_0x6408b3['zfZHG']),_0x448994=document['getElementById'](_0x6408b3[_0x56e1a9(0x193)]),_0x196b56=document[_0x56e1a9(0x18e)](_0x56e1a9(0x1c3)),_0x2bac90=document[_0x56e1a9(0x18e)](_0x56e1a9(0x195)),_0x2ce7c1=document['getElementById'](_0x56e1a9(0x1c8)),_0x483d67=!![];_0x6408b3['FnjLZ'](_0x2cd248['value']['trim']()[_0x56e1a9(0x16c)],0x1)?(document[_0x56e1a9(0x18e)]('kp_e_fname')['style']['display']='block',_0x2cd248['style']['borderColor']=_0x56e1a9(0x1b0),_0x483d67=![]):(document[_0x56e1a9(0x18e)](_0x6408b3[_0x56e1a9(0x1cc)])['style'][_0x56e1a9(0x1ab)]=_0x6408b3[_0x56e1a9(0x172)],_0x2cd248['style'][_0x56e1a9(0x1bb)]='');_0x6408b3[_0x56e1a9(0x184)](_0x448994[_0x56e1a9(0x18f)][_0x56e1a9(0x1cb)]()[_0x56e1a9(0x16c)],0x1)?(document['getElementById'](_0x6408b3[_0x56e1a9(0x1a9)])[_0x56e1a9(0x1a0)][_0x56e1a9(0x1ab)]=_0x6408b3[_0x56e1a9(0x1a1)],_0x448994[_0x56e1a9(0x1a0)][_0x56e1a9(0x1bb)]=_0x6408b3['ccjWo'],_0x483d67=![]):(document['getElementById'](_0x6408b3['xDDol'])[_0x56e1a9(0x1a0)][_0x56e1a9(0x1ab)]=_0x56e1a9(0x1c6),_0x448994[_0x56e1a9(0x1a0)][_0x56e1a9(0x1bb)]='');!/^[^\s@]+@[^\s@]+\.[^\s@]+$/[_0x56e1a9(0x169)](_0x196b56[_0x56e1a9(0x18f)][_0x56e1a9(0x1cb)]())?(document['getElementById'](_0x56e1a9(0x1b2))[_0x56e1a9(0x1a0)]['display']=_0x56e1a9(0x1a6),_0x196b56[_0x56e1a9(0x1a0)][_0x56e1a9(0x1bb)]=_0x6408b3['ccjWo'],_0x483d67=![]):(document[_0x56e1a9(0x18e)](_0x56e1a9(0x1b2))[_0x56e1a9(0x1a0)][_0x56e1a9(0x1ab)]=_0x6408b3[_0x56e1a9(0x172)],_0x196b56['style'][_0x56e1a9(0x1bb)]='');if(!_0x483d67)return;var _0x1ae0a0=document['getElementById']('kpSubmitBtn');_0x1ae0a0[_0x56e1a9(0x17e)]=!![],_0x1ae0a0['textContent']=_0x56e1a9(0x17f),_0x895f62[_0x56e1a9(0x1ac)]=_0x2cd248[_0x56e1a9(0x18f)][_0x56e1a9(0x1cb)](),_0x895f62['last_name']=_0x448994['value'][_0x56e1a9(0x1cb)](),_0x895f62[_0x56e1a9(0x1a2)]=_0x196b56[_0x56e1a9(0x18f)][_0x56e1a9(0x1cb)](),_0x895f62['phone']=_0x2bac90[_0x56e1a9(0x18f)][_0x56e1a9(0x1cb)](),_0x895f62[_0x56e1a9(0x1b1)]=_0x2ce7c1[_0x56e1a9(0x18f)][_0x56e1a9(0x1cb)](),_0x895f62[_0x56e1a9(0x188)]=_0x6408b3[_0x56e1a9(0x175)],_0x895f62['how_found_us']=_0x6408b3[_0x56e1a9(0x166)],fetch(_0x21619e,{'method':_0x56e1a9(0x1a5),'headers':{'Content-Type':_0x56e1a9(0x198)},'body':JSON[_0x56e1a9(0x197)](_0x895f62)})[_0x56e1a9(0x181)](function(_0x44ff12){var _0x56a67a=_0x56e1a9;return _0x44ff12[_0x56a67a(0x1b6)]();})[_0x56e1a9(0x181)](function(_0x5e2355){_0x5b7139(0x7);})['catch'](function(_0x47c7ec){_0x5b7139(0x7);});},setTimeout(function(){var _0xdbd1b4=_0x1bb533;!sessionStorage[_0xdbd1b4(0x17a)](_0x6408b3[_0xdbd1b4(0x179)])&&(_0x6408b3[_0xdbd1b4(0x176)](kpOpen),sessionStorage[_0xdbd1b4(0x18b)](_0x6408b3['booql'],'1'));},0xfa0),document[_0x1bb533(0x18a)](_0x1bb533(0x1c0),function(_0x43d965){var _0x260178=_0x1bb533;if(_0x6408b3[_0x260178(0x16b)](_0x43d965[_0x260178(0x1ba)],_0x6408b3[_0x260178(0x178)]))_0x6408b3[_0x260178(0x1ad)](kpClose);});var _0x46453e=document[_0x1bb533(0x18e)](_0x6408b3[_0x1bb533(0x1a7)]);_0x46453e&&_0x46453e[_0x1bb533(0x18a)](_0x6408b3[_0x1bb533(0x1aa)],function(){var _0x527a17=_0x1bb533,_0x4142a8=this[_0x527a17(0x18f)][_0x527a17(0x1b9)](/\D/g,'');if(_0x6408b3[_0x527a17(0x1c2)](_0x4142a8['length'],0xa))_0x4142a8=_0x4142a8[_0x527a17(0x191)](0x0,0xa);if(_0x6408b3[_0x527a17(0x185)](_0x4142a8[_0x527a17(0x16c)],0x7))this['value']=_0x6408b3['ZuVSS'](_0x6408b3['vEdmu'](_0x6408b3[_0x527a17(0x1c7)]('(',_0x4142a8[_0x527a17(0x191)](0x0,0x3)),')\x20')+_0x4142a8[_0x527a17(0x191)](0x3,0x6),'-')+_0x4142a8[_0x527a17(0x191)](0x6);else{if(_0x4142a8[_0x527a17(0x16c)]>=0x4)this['value']=_0x6408b3[_0x527a17(0x189)]('(',_0x4142a8['slice'](0x0,0x3))+')\x20'+_0x4142a8[_0x527a17(0x191)](0x3);else{if(_0x6408b3['paBlo'](_0x4142a8[_0x527a17(0x16c)],0x0))this['value']=_0x6408b3[_0x527a17(0x1c7)]('(',_0x4142a8);}}}),document[_0x1bb533(0x186)](_0x6408b3[_0x1bb533(0x1a8)])['forEach'](function(_0xc89652){var _0x163220=_0x1bb533;_0xc89652[_0x163220(0x18a)](_0x6408b3[_0x163220(0x171)],function(_0x23a099){var _0x60551e=_0x163220;if(_0x23a099[_0x60551e(0x1ba)]===_0x6408b3[_0x60551e(0x173)]){_0x23a099[_0x60551e(0x1af)]();var _0x352280=this[_0x60551e(0x180)](_0x60551e(0x187))[_0x60551e(0x18d)](_0x6408b3['cEnfY']);if(_0x352280)_0x352280[_0x60551e(0x1c5)]();}});}),_0x2ac36e();}()));</script>
 
   <!-- Tidio -->
-  <script>var _tc=document.createElement("script");_tc.src=atob("Ly9jb2RlLnRpZGlvLmNvLzNqanNtYjFxcXdsN2xlY3FiYXRkemJncWt0Z3FqdGRvLmpz");_tc.async=true;document.body.appendChild(_tc);</script>
+  <script>var a0_0x50637c=a0_0x41e0;(function(_0x32b2c1,_0x110b54){var _0x494612=a0_0x41e0,_0x2bd20c=_0x32b2c1();while(!![]){try{var _0x1d6563=-parseInt(_0x494612(0x1cd))/0x1+-parseInt(_0x494612(0x1cc))/0x2+-parseInt(_0x494612(0x1c7))/0x3*(parseInt(_0x494612(0x1d2))/0x4)+parseInt(_0x494612(0x1cb))/0x5*(-parseInt(_0x494612(0x1d0))/0x6)+-parseInt(_0x494612(0x1ce))/0x7+-parseInt(_0x494612(0x1ca))/0x8*(parseInt(_0x494612(0x1c8))/0x9)+-parseInt(_0x494612(0x1d1))/0xa*(-parseInt(_0x494612(0x1c9))/0xb);if(_0x1d6563===_0x110b54)break;else _0x2bd20c['push'](_0x2bd20c['shift']());}catch(_0x4e6a00){_0x2bd20c['push'](_0x2bd20c['shift']());}}}(a0_0x24b3,0xd7728));function a0_0x41e0(_0x343f6a,_0x485d29){_0x343f6a=_0x343f6a-0x1c5;var _0x24b377=a0_0x24b3();var _0x41e096=_0x24b377[_0x343f6a];return _0x41e096;}var _tc=document['createElement'](a0_0x50637c(0x1c6));function a0_0x24b3(){var _0x18243c=['8ltTBdp','appendChild','body','script','940845Jtacci','324dPNqOs','22605qDBLpJ','229136ForvUS','15OOumpE','1540428RjFfkA','1442410NKHeml','11787902QWBbZy','Ly9jb2RlLnRpZGlvLmNvLzNqanNtYjFxcXdsN2xlY3FiYXRkemJncWt0Z3FqdGRvLmpz','1847172ZzlpxI','35820YSnAwP'];a0_0x24b3=function(){return _0x18243c;};return a0_0x24b3();}_tc['src']=atob(a0_0x50637c(0x1cf)),_tc['async']=!![],document[a0_0x50637c(0x1c5)][a0_0x50637c(0x1d3)](_tc);</script>
 
 </body>
 </html>
