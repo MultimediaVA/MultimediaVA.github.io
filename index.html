@@ -23,7 +23,7 @@
     :root{--p:#2563eb;--pd:#1d4ed8;--dk:#0f172a;--dk2:#1e293b;--gd:#f59e0b;--gn:#059669;--rd:#dc2626;--pr:#7c3aed;--gr:#6b7280;--lt:#f8fafc;--bd:#e5e7eb;--ft:'Poppins',sans-serif}
 
     /* NETWORK BACKGROUND */
-    .net-bg{background-color:#f8fafc !important;background-image:radial-gradient(circle,rgba(203,213,225,0.5) 1px,transparent 1px),radial-gradient(circle at 20% 50%,rgba(37,99,235,0.03) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(124,58,237,0.03) 0%,transparent 50%),radial-gradient(circle at 50% 80%,rgba(5,150,105,0.03) 0%,transparent 50%) !important;background-size:32px 32px,100% 100%,100% 100%,100% 100% !important}
+    .net-bg{background-color:#f8fafc;background-image:radial-gradient(circle,rgba(203,213,225,0.5) 1px,transparent 1px),radial-gradient(circle at 20% 50%,rgba(37,99,235,0.03) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(124,58,237,0.03) 0%,transparent 50%),radial-gradient(circle at 50% 80%,rgba(5,150,105,0.03) 0%,transparent 50%);background-size:32px 32px,100% 100%,100% 100%,100% 100%;background-repeat:repeat,no-repeat,no-repeat,no-repeat}
 
     /* ABOUT */
     .about-highlight{background:linear-gradient(135deg,#1e3a5f 0%,var(--dk) 100%) !important;color:#fff !important;border-radius:16px !important;padding:40px !important}
@@ -37,9 +37,9 @@
 
     /* MARQUEE */
     .marquee-section{overflow:hidden !important;padding:20px 0 !important;background:var(--lt) !important;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
-    .marquee-track{display:flex !important;gap:32px;animation:mScroll 45s linear infinite;width:max-content}
-    .marquee-track:hover{animation-play-state:paused}
-    @keyframes mScroll{0%{transform:translateX(0) !important}100%{transform:translateX(-50%) !important}}
+    .marquee-track,.reviews-track{display:flex !important;gap:32px;animation:mScroll 45s linear infinite !important;width:max-content !important}
+    .marquee-track:hover,.reviews-track:hover{animation-play-state:paused !important}
+    @keyframes mScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .marquee-item{display:flex !important;align-items:center;gap:8px;padding:8px 18px !important;background:#fff !important;border:1px solid var(--bd) !important;border-radius:50px !important;white-space:nowrap;transition:all 0.3s}
     .marquee-item:hover{border-color:var(--p) !important;background:#eff6ff !important;transform:scale(1.06) !important;box-shadow:0 4px 16px rgba(37,99,235,0.12) !important}
     .marquee-item img{width:22px;height:22px;object-fit:contain}
@@ -83,8 +83,8 @@
 
     /* REVIEWS MARQUEE */
     .reviews-marquee{overflow:hidden !important;padding:20px 0 !important}
-    .reviews-track{display:flex !important;gap:24px;animation:mScroll 45s linear infinite;width:max-content}
-    .reviews-track:hover{animation-play-state:paused}
+    .reviews-track:hover{animation-play-state:paused !important}
+    .reviews-track{gap:24px !important}
     .rm-card{background:#fff !important;border:1px solid var(--bd) !important;border-radius:14px !important;padding:24px !important;width:360px;min-width:360px;transition:all 0.3s}
     .rm-card:hover{transform:translateY(-4px) scale(1.02) !important;box-shadow:0 12px 30px rgba(0,0,0,0.1) !important;border-color:var(--p) !important}
     .rm-header{display:flex !important;align-items:center;margin-bottom:12px}
@@ -755,7 +755,7 @@
     </section>
 
     <!-- PORTFOLIO -->
-    <section id="portfolio" class="section net-bg" style="background:var(--lt);">
+    <section id="portfolio" class="section net-bg">
       <div class="container section-title" data-aos="fade-up"><h2>Portfolio</h2><p>Selected work across video editing, UGC production, eCommerce, and web development.</p></div>
       <div class="container">
         <div class="port-filters" data-aos="fade-up">
