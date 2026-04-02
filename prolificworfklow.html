@@ -40,12 +40,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
 .stack-pill:hover{transform:translateY(-2px)}
 .stack-pill.ghl{background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.25);color:var(--blue)}
 .stack-pill.rm{background:rgba(239,108,71,.08);border-color:rgba(239,108,71,.25);color:var(--coral)}
-.stack-pill.vapi{background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.25);color:var(--purple)}
+.stack-pill.voice{background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.25);color:var(--purple)}
 .stack-pill.n8n{background:rgba(236,72,153,.08);border-color:rgba(236,72,153,.25);color:var(--pink)}
 .stack-pill.active{transform:translateY(-2px) scale(1.05)}
 .stack-pill.ghl.active{box-shadow:0 4px 20px rgba(37,99,235,.3)}
 .stack-pill.rm.active{box-shadow:0 4px 20px rgba(239,108,71,.3)}
-.stack-pill.vapi.active{box-shadow:0 4px 20px rgba(124,58,237,.3)}
+.stack-pill.voice.active{box-shadow:0 4px 20px rgba(124,58,237,.3)}
 .stack-pill.n8n.active{box-shadow:0 4px 20px rgba(236,72,153,.3)}
 .stats-bar{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:40px;padding:24px 0}
 .stat-item{text-align:center}
@@ -101,7 +101,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
 .detail-table tbody tr:hover td{background:var(--bg3)}
 .detail-table tr.row-highlight td{background:var(--bg3)}
 .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;font-family:var(--mono)}
-.tag.hot{background:rgba(239,68,68,.15);color:var(--red)}.tag.warm{background:rgba(245,158,11,.15);color:var(--amber)}.tag.cold{background:rgba(37,99,235,.15);color:var(--blue)}.tag.engaged{background:rgba(13,148,136,.15);color:var(--teal)}.tag.dead{background:rgba(107,114,128,.15);color:#9ca3af}.tag.instant{background:rgba(34,197,94,.15);color:var(--green)}
+.tag.hot{background:rgba(239,68,68,.15);color:var(--red)}.tag.warm{background:rgba(245,158,11,.15);color:var(--amber)}.tag.cold{background:rgba(37,99,235,.15);color:var(--blue)}.tag.engaged{background:rgba(13,148,136,.15);color:var(--teal)}.tag.dead{background:rgba(107,114,128,.15);color:#9ca3af}.tag.instant{background:rgba(34,197,94,.15);color:var(--green)}.tag.compliant{background:rgba(124,58,237,.15);color:var(--purple)}
 .failsafe-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .failsafe-card{border-radius:12px;padding:20px;border:1px solid var(--border);background:var(--card);transition:all .4s;cursor:pointer;position:relative;overflow:hidden}
 .failsafe-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .4s}
@@ -111,6 +111,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
 .failsafe-card.fc-amber::before{background:radial-gradient(circle at 0% 50%,rgba(245,158,11,.08),transparent 60%)}
 .failsafe-card.fc-coral::before{background:radial-gradient(circle at 0% 50%,rgba(239,108,71,.08),transparent 60%)}
 .failsafe-card.fc-pink::before{background:radial-gradient(circle at 0% 50%,rgba(236,72,153,.08),transparent 60%)}
+.failsafe-card.fc-purple::before{background:radial-gradient(circle at 0% 50%,rgba(124,58,237,.08),transparent 60%)}
 .failsafe-card .node-label,.failsafe-card .node-sub,.failsafe-card .trigger,.failsafe-card .node-expand{position:relative;z-index:1}
 .failsafe-card .trigger{font-size:12px;font-family:var(--mono);color:var(--text-dim);margin-top:8px}
 .failsafe-card .node-expand{max-height:0;overflow:hidden;transition:max-height .5s,opacity .3s;opacity:0}
@@ -131,6 +132,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
 .loop-arrow{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-family:var(--mono);color:var(--text-dim)}
 .loop-arrow .arr{display:inline-block;animation:loopPulse 2s ease-in-out infinite}
 @keyframes loopPulse{0%,100%{opacity:.3;transform:translateX(0)}50%{opacity:1;transform:translateX(4px)}}
+.compliance-banner{border-radius:12px;padding:20px 24px;border:1px solid rgba(124,58,237,.25);background:rgba(124,58,237,.05);margin-bottom:24px;display:flex;align-items:flex-start;gap:12px}
+.compliance-banner .icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.compliance-banner .content{font-size:13px;color:var(--text-muted);line-height:1.6}
+.compliance-banner .content strong{color:var(--purple);font-weight:700}
 .footer{text-align:center;padding:60px 24px;border-top:1px solid var(--border);margin-top:80px}
 .footer a{color:var(--blue);text-decoration:none;font-weight:600;transition:opacity .2s}
 .footer a:hover{opacity:.7}
@@ -161,18 +166,18 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
 <section class="hero">
   <div class="hero-badge"><span class="dot"></span> System architecture</div>
   <h1>Prolific Home Solutions</h1>
-  <p>GHL + ReadyMode + VAPI + n8n — a fully automated lead acquisition, follow-up, and qualification engine for real estate.</p>
+  <p>GHL + ReadyMode + n8n — a fully automated lead acquisition, follow-up, and qualification engine for real estate. All voice AI handled natively inside GoHighLevel.</p>
   <div class="stack-bar">
     <span class="stack-pill ghl" onclick="highlightStack('blue',this)">GoHighLevel</span>
     <span class="stack-pill rm" onclick="highlightStack('coral',this)">ReadyMode</span>
-    <span class="stack-pill vapi" onclick="highlightStack('purple',this)">VAPI</span>
+    <span class="stack-pill voice" onclick="highlightStack('purple',this)">GHL Voice AI</span>
     <span class="stack-pill n8n" onclick="highlightStack('pink',this)">n8n</span>
   </div>
   <div class="stats-bar">
     <div class="stat-item"><div class="stat-num blue" data-target="30" data-prefix="<" data-suffix="s">0</div><div class="stat-label">Response time</div></div>
     <div class="stat-item"><div class="stat-num green" data-target="0" data-display="0%">0</div><div class="stat-label">Lead leakage</div></div>
     <div class="stat-item"><div class="stat-num amber" data-target="10" data-suffix=" stages">0</div><div class="stat-label">Pipeline depth</div></div>
-    <div class="stat-item"><div class="stat-num coral" data-target="4" data-suffix=" platforms">0</div><div class="stat-label">Integrated</div></div>
+    <div class="stat-item"><div class="stat-num coral" data-target="500" data-prefix="<" data-suffix="ms">0</div><div class="stat-label">Voice AI latency</div></div>
   </div>
 </section>
 
@@ -193,19 +198,19 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
 <section class="section fade-in">
   <div class="section-header"><span class="section-num">02</span><h2 class="section-title">New lead intake</h2></div>
   <div class="flow-row">
-    <div class="node teal wide" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">New lead enters GHL</div><div class="node-sub">Auto-tagged by source, status, and campaign. Zero manual entry.</div><div class="node-expand"><div class="node-expand-content">Every lead is automatically tagged with source, campaign name, entry date, and initial status. Contact record created with all available data fields populated. No human touches the lead at this stage.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node teal wide" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">New lead enters GHL</div><div class="node-sub">Auto-tagged by source, status, and campaign. Zero manual entry.</div><div class="node-expand"><div class="node-expand-content">Every lead is automatically tagged with source, campaign name, entry date, and initial status. Contact record created with all available data fields populated.</div></div><span class="expand-indicator">▼</span></div>
   </div>
   <div class="flow-line-container"><div class="flow-line"><div class="flow-dot active"></div></div></div>
   <div class="flow-arrow">▼</div>
   <div class="flow-row">
-    <div class="node amber wide" onclick="toggleExpand(this)"><div class="node-label">⚡ Instant SMS &lt; 30 seconds</div><div class="node-sub">First touch before the lead forgets they inquired.</div><div class="node-expand"><div class="node-expand-content">GHL workflow triggers immediately on contact creation. Dynamic SMS personalizes with lead name and property address. Every open, click, and reply is logged and scored.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node amber wide" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">⚡ Instant SMS &lt; 30 seconds</div><div class="node-sub">First touch before the lead forgets they inquired.</div><div class="node-expand"><div class="node-expand-content">GHL workflow triggers immediately on contact creation. Dynamic SMS personalizes with lead name and property address. Every open, click, and reply is logged and scored.</div></div><span class="expand-indicator">▼</span></div>
   </div>
   <div class="flow-line-container"><div class="flow-line"><div class="flow-dot active"></div></div></div>
   <div class="flow-arrow">▼</div>
   <div class="split-label">System splits into two channels</div>
   <div class="flow-row stagger-children">
-    <div class="node coral wide" data-stack="coral" onclick="toggleExpand(this)"><div class="node-icon">📞</div><div class="node-label">ReadyMode</div><div class="node-sub">VA agents power-dial outbound. Dispositions sync to GHL via n8n webhooks.</div><div class="node-expand"><div class="node-expand-content">Agents dial through lists in ReadyMode. Each call outcome triggers a webhook to n8n which updates the GHL contact record and moves them to the correct pipeline stage automatically.</div></div><span class="expand-indicator">▼</span></div>
-    <div class="node purple wide" data-stack="purple" onclick="toggleExpand(this)"><div class="node-icon">🤖</div><div class="node-label">VAPI voice agent</div><div class="node-sub">Inbound calls, missed call callbacks, after-hours qualification.</div><div class="node-expand"><div class="node-expand-content">VAPI AI picks up inbound calls, asks qualifying questions, captures responses, and triggers the appropriate GHL workflow. Transfers to human when the lead is hot.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node coral wide" data-stack="coral" onclick="toggleExpand(this)"><div class="node-icon">📞</div><div class="node-label">ReadyMode</div><div class="node-sub">VA agents power-dial outbound. Dispositions sync to GHL via n8n webhooks. Human agents = TCPA compliant.</div><div class="node-expand"><div class="node-expand-content">Agents dial through lists in ReadyMode. Each call outcome triggers a webhook to n8n which updates GHL contact records and pipeline stages automatically. Human agents making live calls keeps outbound cold calling fully TCPA compliant.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node purple wide" data-stack="purple" onclick="toggleExpand(this)"><div class="node-icon">🤖</div><div class="node-label">GHL Voice AI</div><div class="node-sub">Native voice agent. Inbound calls, missed callbacks, after-hours. Sub-500ms latency. Built-in TCPA compliance.</div><div class="node-expand"><div class="node-expand-content">GHL's native Voice AI agent handles all inbound calls with ElevenLabs-quality voices. Qualifies leads, captures info, books appointments, and triggers workflows — all inside one platform. Built-in compliance guardrails: KYC verification, time-zone call-hour limits, DND checking, and automatic consent validation.</div></div><span class="expand-indicator">▼</span></div>
   </div>
 </section>
 
@@ -239,7 +244,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
   </div>
   <div class="flow-line-container"><div class="flow-line"><div class="flow-dot active"></div></div></div><div class="flow-arrow">▼</div>
   <div class="detail-card fade-in">
-    <h3>AI qualification <span class="badge" style="background:rgba(124,58,237,.1);color:var(--purple)">Conversation AI</span></h3>
+    <h3>AI qualification <span class="badge" style="background:rgba(124,58,237,.1);color:var(--purple)">GHL Conversation AI</span></h3>
     <table class="detail-table"><thead><tr><th>Class</th><th>Criteria</th><th>Action</th></tr></thead><tbody>
       <tr onclick="highlightRow(this)"><td><span class="tag hot">HOT</span></td><td>Motivated seller, short timeline, clear intent</td><td>Immediate alert, human follows up</td></tr>
       <tr onclick="highlightRow(this)"><td><span class="tag warm">WARM</span></td><td>Interested but not urgent</td><td>Aggressive nurture, call task assigned</td></tr>
@@ -252,9 +257,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
   <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Follow-up system</h2></div>
   <div class="detail-card">
     <table class="detail-table"><thead><tr><th>Scenario</th><th>Response</th><th>Timing</th></tr></thead><tbody>
-      <tr onclick="highlightRow(this)"><td>Missed call</td><td>Instant SMS text-back + multi-touch</td><td><span class="tag instant">&lt; 30 sec</span></td></tr>
+      <tr onclick="highlightRow(this)"><td>Missed call</td><td>GHL Voice AI calls back + SMS text-back</td><td><span class="tag instant">&lt; 60 sec</span></td></tr>
       <tr onclick="highlightRow(this)"><td>No answer (3x)</td><td>Shift to long-term nurture</td><td><span class="tag dead">After 3rd</span></td></tr>
-      <tr onclick="highlightRow(this)"><td>Engaged</td><td>AI qualifies and routes</td><td><span class="tag instant">Immediate</span></td></tr>
+      <tr onclick="highlightRow(this)"><td>Engaged</td><td>Conversation AI qualifies and routes</td><td><span class="tag instant">Immediate</span></td></tr>
       <tr onclick="highlightRow(this)"><td>Warm lead</td><td>Aggressive multi-channel</td><td><span class="tag warm">Daily 7d</span></td></tr>
       <tr onclick="highlightRow(this)"><td>Hot lead</td><td>Human follow-up + alert</td><td><span class="tag hot">&lt; 2 min</span></td></tr>
       <tr onclick="highlightRow(this)"><td>Cold / dead</td><td>Monthly value nurture</td><td><span class="tag cold">Every 30d</span></td></tr>
@@ -264,30 +269,47 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
 </section>
 
 <section class="section fade-in">
-  <div class="section-header"><span class="section-num">06</span><h2 class="section-title">VAPI voice agent</h2></div>
+  <div class="section-header"><span class="section-num">06</span><h2 class="section-title">GHL Voice AI agent</h2></div>
+  <div class="compliance-banner">
+    <div class="icon">🛡️</div>
+    <div class="content"><strong>TCPA compliant by design.</strong> GHL Voice AI includes built-in KYC verification, time-zone call-hour guardrails (10AM-6PM), DND flag checking, consent validation, and automatic call rejection for non-compliant contacts. Outbound cold calling stays with human agents on ReadyMode.</div>
+  </div>
   <div class="flow-row stagger-children">
-    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">Inbound calls</div><div class="node-sub">Qualifies and triggers workflow</div><div class="node-expand"><div class="node-expand-content">AI picks up, asks qualifying questions about property, determines motivation, routes into correct GHL stage. All data logged.</div></div><span class="expand-indicator">▼</span></div>
-    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">Missed callback</div><div class="node-sub">Within 60 seconds</div><div class="node-expand"><div class="node-expand-content">VAPI calls back within 60 seconds. Qualifies and books appointment if ready. No lead waits for a human.</div></div><span class="expand-indicator">▼</span></div>
-    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">After-hours</div><div class="node-sub">24/7 coverage</div><div class="node-expand"><div class="node-expand-content">All calls outside working hours handled. Qualifies and routes for next-day follow-up.</div></div><span class="expand-indicator">▼</span></div>
-    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">Live transfer</div><div class="node-sub">Hot leads get a human</div><div class="node-expand"><div class="node-expand-content">Motivated leads or human requests get transferred live with full context passed along.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">Inbound calls</div><div class="node-sub">Qualifies and triggers workflow</div><div class="node-expand"><div class="node-expand-content">AI picks up, asks qualifying questions about property, determines motivation, routes into correct GHL stage. All data logged. No TCPA concerns — customer initiated the call.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">Missed callback</div><div class="node-sub">Within 60 seconds</div><div class="node-expand"><div class="node-expand-content">Lead opted in via form or ad, then called and missed. GHL Voice AI calls back within 60 seconds. Consent already captured on intake — fully compliant.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">After-hours</div><div class="node-sub">24/7 coverage</div><div class="node-expand"><div class="node-expand-content">All calls outside working hours handled by AI. Qualifies and routes for next-day follow-up. No lead goes cold overnight.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">Live transfer</div><div class="node-sub">Hot leads get a human</div><div class="node-expand"><div class="node-expand-content">Motivated leads or human requests get transferred live to an available agent. Full context passed along. Seamless handoff.</div></div><span class="expand-indicator">▼</span></div>
+  </div>
+  <div style="margin-top:20px">
+    <div class="detail-card">
+      <h3>Why native GHL Voice AI <span class="badge" style="background:rgba(34,197,94,.1);color:var(--green)">no third-party needed</span></h3>
+      <table class="detail-table"><thead><tr><th>Feature</th><th>GHL Voice AI</th><th>Third-party (VAPI etc.)</th></tr></thead><tbody>
+        <tr onclick="highlightRow(this)"><td>Voice quality</td><td><span class="tag instant">ElevenLabs-level</span></td><td>ElevenLabs-level</td></tr>
+        <tr onclick="highlightRow(this)"><td>Latency</td><td><span class="tag instant">&lt; 500ms</span></td><td>~536ms</td></tr>
+        <tr onclick="highlightRow(this)"><td>TCPA compliance</td><td><span class="tag compliant">Built-in</span></td><td>Build it yourself</td></tr>
+        <tr onclick="highlightRow(this)"><td>CRM integration</td><td><span class="tag instant">Native</span></td><td>Webhook required</td></tr>
+        <tr onclick="highlightRow(this)"><td>Extra account needed</td><td><span class="tag instant">No</span></td><td>Yes + separate billing</td></tr>
+        <tr onclick="highlightRow(this)"><td>Cost</td><td><span class="tag instant">~$0.06/min</span></td><td>$0.18-$0.33/min</td></tr>
+      </tbody></table>
+    </div>
   </div>
 </section>
 
 <section class="section fade-in">
   <div class="section-header"><span class="section-num">07</span><h2 class="section-title">Fail-safes</h2></div>
   <div class="failsafe-grid stagger-children">
-    <div class="failsafe-card fc-red" data-stack="pink" style="border-left:3px solid var(--red)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--red)">Hot lead alert</div><div class="node-sub">SMS + email alert to team lead</div><div class="trigger">trigger: not contacted within 15 min</div><div class="node-expand"><div class="node-expand-content">n8n monitors every hot lead. If no agent activity within 15 minutes, emergency alert fires to team lead via SMS and email.</div></div></div>
-    <div class="failsafe-card fc-amber" data-stack="pink" style="border-left:3px solid var(--amber)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--amber)">Stuck lead detection</div><div class="node-sub">Auto-trigger next follow-up</div><div class="trigger">trigger: same stage > 48 hours</div><div class="node-expand"><div class="node-expand-content">If a lead sits in any stage for 48+ hours without activity, n8n triggers next follow-up or escalates to team member.</div></div></div>
-    <div class="failsafe-card fc-coral" data-stack="pink" style="border-left:3px solid var(--coral)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--coral)">Zero leakage check</div><div class="node-sub">Emergency follow-up fires</div><div class="trigger">trigger: no activity > 1 hour</div><div class="node-expand"><div class="node-expand-content">Every new lead must have a touchpoint within 1 hour. If zero activity detected, emergency follow-up fires immediately.</div></div></div>
-    <div class="failsafe-card fc-pink" data-stack="pink" style="border-left:3px solid var(--pink)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--pink)">Workflow failure</div><div class="node-sub">Error log + admin alert</div><div class="trigger">trigger: webhook or workflow fails</div><div class="node-expand"><div class="node-expand-content">n8n monitors all connections. Failures logged with details, alert sent to admin. Auto-retry for transient failures.</div></div></div>
+    <div class="failsafe-card fc-red" data-stack="pink" style="border-left:3px solid var(--red)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--red)">Hot lead alert</div><div class="node-sub">SMS + email alert to team lead</div><div class="trigger">trigger: not contacted within 15 min</div><div class="node-expand"><div class="node-expand-content">n8n monitors every hot lead. No agent activity within 15 minutes triggers emergency alert to team lead.</div></div></div>
+    <div class="failsafe-card fc-amber" data-stack="pink" style="border-left:3px solid var(--amber)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--amber)">Stuck lead detection</div><div class="node-sub">Auto-trigger next follow-up</div><div class="trigger">trigger: same stage > 48 hours</div><div class="node-expand"><div class="node-expand-content">Lead sits in any stage 48+ hours without activity — n8n triggers next follow-up or escalates.</div></div></div>
+    <div class="failsafe-card fc-coral" data-stack="pink" style="border-left:3px solid var(--coral)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--coral)">Zero leakage check</div><div class="node-sub">Emergency follow-up fires</div><div class="trigger">trigger: no activity > 1 hour</div><div class="node-expand"><div class="node-expand-content">New lead with zero logged activity within 1 hour triggers emergency follow-up workflow.</div></div></div>
+    <div class="failsafe-card fc-purple" data-stack="pink" style="border-left:3px solid var(--purple)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--purple)">TCPA compliance check</div><div class="node-sub">Auto-block non-compliant calls</div><div class="trigger">trigger: missing consent or DND flag</div><div class="node-expand"><div class="node-expand-content">GHL Voice AI automatically rejects outbound calls to contacts without documented opt-in, active DND flags, or previous opt-outs. Built-in KYC and time-zone guardrails enforced.</div></div></div>
   </div>
 </section>
 
 <section class="section fade-in">
   <div class="section-header"><span class="section-num">08</span><h2 class="section-title">Dead lead recovery loop</h2></div>
-  <div class="flow-row"><div class="node gray" onclick="toggleExpand(this)"><div class="node-label">Dead / not interested</div><div class="node-sub">Removed from active sequences</div><div class="node-expand"><div class="node-expand-content">Marked unresponsive after all attempts. Removed from aggressive sequences but enters the long-term nurture pool.</div></div><span class="expand-indicator">▼</span></div></div>
+  <div class="flow-row"><div class="node gray" onclick="toggleExpand(this)"><div class="node-label">Dead / not interested</div><div class="node-sub">Removed from active sequences</div><div class="node-expand"><div class="node-expand-content">Marked unresponsive after all attempts. Enters the long-term nurture pool.</div></div><span class="expand-indicator">▼</span></div></div>
   <div class="flow-line-container"><div class="flow-line"><div class="flow-dot active"></div></div></div><div class="flow-arrow">▼</div>
-  <div class="flow-row"><div class="node purple wide" onclick="toggleExpand(this)"><div class="node-label">Monthly nurture sequence</div><div class="node-sub">Value-based messages. Market updates, educational content, soft check-ins.</div><div class="node-expand"><div class="node-expand-content">Every 30 days, a value touchpoint goes out. Helpful tone, not pushy. Goal: stay top of mind until their situation changes.</div></div><span class="expand-indicator">▼</span></div></div>
+  <div class="flow-row"><div class="node purple wide" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Monthly nurture sequence</div><div class="node-sub">Value-based messages. Market updates, educational content, soft check-ins.</div><div class="node-expand"><div class="node-expand-content">Every 30 days, a value touchpoint goes out. Helpful tone, not pushy. Goal: stay top of mind until their situation changes.</div></div><span class="expand-indicator">▼</span></div></div>
   <div class="flow-line-container"><div class="flow-line"><div class="flow-dot active"></div></div></div><div class="flow-arrow">▼</div>
   <div class="flow-row"><div class="node teal wide" onclick="toggleExpand(this)"><div class="node-label">Lead re-engages</div><div class="node-sub">Opens SMS, replies, clicks → auto-moves back into active pipeline</div><div class="node-expand"><div class="node-expand-content">Any action from a dead lead automatically moves them back into the active pipeline. The cycle continues.</div></div><span class="expand-indicator">▼</span></div></div>
   <div class="loop-visual">
@@ -302,9 +324,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
 <section class="section fade-in">
   <div class="section-header"><span class="section-num">09</span><h2 class="section-title">Implementation phases</h2></div>
   <div class="phase-timeline">
-    <div class="phase-item phase-open" onclick="togglePhase(this)"><h4 style="color:var(--blue)">Phase 1 — Core build</h4><div class="timeline">Days 1–5</div><p>Pipeline setup, ReadyMode webhook integration, all GHL workflows, SMS/email sequences, Conversation AI, tagging logic, missed call text-back, contact routing.</p></div>
-    <div class="phase-item" onclick="togglePhase(this)"><h4 style="color:var(--green)">Phase 2 — VAPI + n8n</h4><div class="timeline">Days 5–7</div><p>VAPI voice agent setup, n8n fail-safes, alert system, stuck lead detection, zero leakage checks, full end-to-end testing.</p></div>
-    <div class="phase-item" onclick="togglePhase(this)"><h4 style="color:var(--amber)">Phase 3 — Optimization</h4><div class="timeline">Post-launch (retainer)</div><p>Monitor conversions, tune AI prompts, adjust sequences, refine routing for maximum deal flow.</p></div>
+    <div class="phase-item phase-open" onclick="togglePhase(this)"><h4 style="color:var(--blue)">Phase 1 — Core build</h4><div class="timeline">Days 1–5</div><p>Pipeline setup, ReadyMode webhook integration via n8n, all GHL workflows, SMS/email sequences, Conversation AI, tagging logic, missed call text-back, contact routing.</p></div>
+    <div class="phase-item" onclick="togglePhase(this)"><h4 style="color:var(--green)">Phase 2 — GHL Voice AI + fail-safes</h4><div class="timeline">Days 5–7</div><p>GHL Voice AI agent configuration (inbound, missed callback, after-hours, live transfer), n8n fail-safes, alert system, stuck lead detection, TCPA compliance verification, full testing.</p></div>
+    <div class="phase-item" onclick="togglePhase(this)"><h4 style="color:var(--amber)">Phase 3 — Optimization</h4><div class="timeline">Post-launch (retainer)</div><p>Monitor conversions, tune AI prompts and voice scripts, adjust sequences, refine routing for maximum deal flow.</p></div>
   </div>
 </section>
 
@@ -313,9 +335,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
   <div class="flow-row stagger-children">
     <div class="node green" onclick="toggleExpand(this)"><div class="node-label">Zero leakage</div><div class="node-sub">Every lead touched</div><div class="node-expand"><div class="node-expand-content">No lead enters without a touchpoint within 30 seconds. Fail-safes catch everything.</div></div><span class="expand-indicator">▼</span></div>
     <div class="node green" onclick="toggleExpand(this)"><div class="node-label">Automation-first</div><div class="node-sub">No manual work</div><div class="node-expand"><div class="node-expand-content">Tagging, routing, follow-up, qualification, scheduling — all autonomous.</div></div><span class="expand-indicator">▼</span></div>
-    <div class="node green" onclick="toggleExpand(this)"><div class="node-label">Team efficiency</div><div class="node-sub">Warm + hot only</div><div class="node-expand"><div class="node-expand-content">Agents only handle leads worth their time. Everything else is system-managed.</div></div><span class="expand-indicator">▼</span></div>
-    <div class="node green" onclick="toggleExpand(this)"><div class="node-label">Predictable flow</div><div class="node-sub">Consistent pipeline</div><div class="node-expand"><div class="node-expand-content">Steady flow of qualified leads. No feast-or-famine cycles.</div></div><span class="expand-indicator">▼</span></div>
-    <div class="node green" onclick="toggleExpand(this)"><div class="node-label">Scalable</div><div class="node-sub">Volume ready</div><div class="node-expand"><div class="node-expand-content">More sources, agents, campaigns — system handles growth without new workflows.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node green" onclick="toggleExpand(this)"><div class="node-label">TCPA compliant</div><div class="node-sub">Protected by design</div><div class="node-expand"><div class="node-expand-content">Human agents handle cold outbound. AI handles inbound and opted-in leads only. GHL enforces compliance guardrails automatically.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node green" onclick="toggleExpand(this)"><div class="node-label">One platform</div><div class="node-sub">No third-party voice tools</div><div class="node-expand"><div class="node-expand-content">Voice AI, CRM, workflows, SMS, email, calendar — everything runs inside GHL. Clean, simple, scalable.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node green" onclick="toggleExpand(this)"><div class="node-label">Scalable</div><div class="node-sub">Volume ready</div><div class="node-expand"><div class="node-expand-content">More sources, agents, campaigns — system handles growth without new workflows or tools.</div></div><span class="expand-indicator">▼</span></div>
   </div>
 </section>
 
@@ -328,15 +350,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:h
 
 <script>
 function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeBtn');if(h.dataset.theme==='dark'){h.dataset.theme='light';b.textContent='☀️'}else{h.dataset.theme='dark';b.textContent='🌙'}}
-
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.fade-in,.stagger-children').forEach(el=>obs.observe(el));
-
 let counted=false;
 new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting&&!counted){counted=true;document.querySelectorAll('.stat-num').forEach(s=>{const t=parseInt(s.dataset.target),p=s.dataset.prefix||'',sf=s.dataset.suffix||'',d=s.dataset.display;if(d){s.textContent=d;return}let c=0;const st=Math.max(1,Math.floor(t/30)),tm=setInterval(()=>{c+=st;if(c>=t){c=t;clearInterval(tm)}s.textContent=p+c+sf},40)})}})},{threshold:.5}).observe(document.querySelector('.stats-bar'));
-
 function toggleExpand(el){if(el.classList.contains('expanded'))el.classList.remove('expanded');else{document.querySelectorAll('.expanded').forEach(n=>{if(n!==el)n.classList.remove('expanded')});el.classList.add('expanded')}}
-
 let activeStack=null;
 function highlightStack(color,pill){
   document.querySelectorAll('.stack-pill').forEach(p=>p.classList.remove('active'));
@@ -344,15 +362,10 @@ function highlightStack(color,pill){
   activeStack=color;pill.classList.add('active');
   document.querySelectorAll('[data-stack]').forEach(n=>{if(n.dataset.stack===color){n.classList.add('highlighted');n.classList.remove('dimmed')}else{n.classList.add('dimmed');n.classList.remove('highlighted')}});
 }
-
 function highlightRow(tr){const w=tr.classList.contains('row-highlight');tr.closest('tbody').querySelectorAll('tr').forEach(r=>r.classList.remove('row-highlight'));if(!w)tr.classList.add('row-highlight')}
-
 function togglePhase(el){const w=el.classList.contains('phase-open');document.querySelectorAll('.phase-item').forEach(p=>p.classList.remove('phase-open'));if(!w)el.classList.add('phase-open')}
-
 const sb=document.getElementById('scrollTop');
 window.addEventListener('scroll',()=>{sb.classList.toggle('show',window.scrollY>400)});
-
-new IntersectionObserver(e=>{e.forEach(el=>{const d=el.target.querySelector('.flow-dot');if(d){d.classList.toggle('active',el.isIntersecting)}})},{threshold:.5}).observe(document.querySelector('.flow-line-container'));
 document.querySelectorAll('.flow-line-container').forEach(el=>new IntersectionObserver(e=>{e.forEach(en=>{const d=en.target.querySelector('.flow-dot');if(d)d.classList.toggle('active',en.isIntersecting)})},{threshold:.5}).observe(el));
 </script>
 </body>
