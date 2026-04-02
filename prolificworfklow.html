@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prolific Home Solutions — Automation Workflow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a0f;--bg2:#111118;--bg3:#1a1a24;--card:#15151f;
+--border:#2a2a3a;--border-hover:#3a3a5a;
+--text:#e8e6f0;--text-muted:#8a889a;--text-dim:#5a586a;
+--blue:#2563eb;--teal:#0d9488;--amber:#f59e0b;--coral:#ef6c47;
+--purple:#7c3aed;--green:#22c55e;--red:#ef4444;--pink:#ec4899;
+--font:'Plus Jakarta Sans',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+[data-theme="light"]{
+--bg:#f8f8fc;--bg2:#ffffff;--bg3:#eeeef4;--card:#ffffff;
+--border:#d8d8e4;--border-hover:#b8b8c8;
+--text:#1a1a2e;--text-muted:#5a5870;--text-dim:#8a88a0;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:hidden;min-height:100vh;transition:background .4s,color .4s}
+.grain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.theme-toggle{position:fixed;top:20px;right:20px;z-index:1000;width:48px;height:48px;border-radius:50%;border:1px solid var(--border);background:var(--card);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;transition:all .3s;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.theme-toggle:hover{transform:scale(1.1);border-color:var(--border-hover)}
+.hero{position:relative;padding:80px 24px 60px;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(37,99,235,.15) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;background:var(--bg3);border:1px solid var(--border);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;font-family:var(--mono)}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
+[data-theme="dark"] .hero h1{background:linear-gradient(135deg,#fff 0%,#8a889a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+[data-theme="light"] .hero h1{background:linear-gradient(135deg,#1a1a2e 0%,#4a4870 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:18px;color:var(--text-muted);max-width:600px;margin:0 auto 32px;line-height:1.6}
+.stack-bar{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.stack-pill{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;border:1px solid;cursor:pointer;transition:all .3s;user-select:none}
+.stack-pill:hover{transform:translateY(-2px)}
+.stack-pill.ghl{background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.25);color:var(--blue)}
+.stack-pill.rm{background:rgba(239,108,71,.08);border-color:rgba(239,108,71,.25);color:var(--coral)}
+.stack-pill.vapi{background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.25);color:var(--purple)}
+.stack-pill.n8n{background:rgba(236,72,153,.08);border-color:rgba(236,72,153,.25);color:var(--pink)}
+.stack-pill.active{transform:translateY(-2px) scale(1.05)}
+.stack-pill.ghl.active{box-shadow:0 4px 20px rgba(37,99,235,.3)}
+.stack-pill.rm.active{box-shadow:0 4px 20px rgba(239,108,71,.3)}
+.stack-pill.vapi.active{box-shadow:0 4px 20px rgba(124,58,237,.3)}
+.stack-pill.n8n.active{box-shadow:0 4px 20px rgba(236,72,153,.3)}
+.stats-bar{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:40px;padding:24px 0}
+.stat-item{text-align:center}
+.stat-num{font-size:32px;font-weight:800;font-family:var(--mono);letter-spacing:-.02em}
+.stat-num.blue{color:var(--blue)}.stat-num.green{color:var(--green)}.stat-num.amber{color:var(--amber)}.stat-num.coral{color:var(--coral)}
+.stat-label{font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.section{margin-bottom:80px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:32px}
+.section-num{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--blue);padding:4px 10px;border-radius:6px;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2)}
+.section-title{font-size:24px;font-weight:700;letter-spacing:-.02em}
+.flow-line-container{position:relative;display:flex;justify-content:center;margin:4px 0;height:40px}
+.flow-line{position:relative;width:2px;height:100%;background:var(--border)}
+.flow-dot{position:absolute;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--blue);animation:flowDot 2s ease-in-out infinite;opacity:0}
+.flow-dot.active{opacity:1}
+@keyframes flowDot{0%{top:-4px;opacity:0}20%{opacity:1}80%{opacity:1}100%{top:calc(100% - 4px);opacity:0}}
+.flow-arrow{display:flex;justify-content:center;font-size:16px;color:var(--text-dim);opacity:.5}
+.flow-row{position:relative;z-index:1;display:flex;justify-content:center;gap:16px;margin-bottom:8px;flex-wrap:wrap}
+.node{position:relative;border-radius:12px;padding:20px 24px;border:1px solid var(--border);background:var(--card);transition:all .4s cubic-bezier(.2,.8,.2,1);cursor:pointer;min-width:140px;text-align:center;overflow:hidden}
+.node::before{content:'';position:absolute;inset:0;border-radius:12px;opacity:0;transition:opacity .4s}
+.node:hover{transform:translateY(-4px)}
+.node-label{font-size:15px;font-weight:700;margin-bottom:4px;position:relative;z-index:1}
+.node-sub{font-size:12px;color:var(--text-muted);font-weight:400;line-height:1.4;position:relative;z-index:1}
+.node-icon{font-size:20px;margin-bottom:8px;position:relative;z-index:1}
+.node-expand{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.2,.8,.2,1),opacity .3s,margin .3s;opacity:0;margin-top:0;position:relative;z-index:1}
+.node.expanded .node-expand{max-height:300px;opacity:1;margin-top:12px}
+.node-expand-content{padding-top:12px;border-top:1px solid var(--border);text-align:left;font-size:13px;color:var(--text-muted);line-height:1.7}
+.expand-indicator{position:absolute;bottom:6px;right:10px;font-size:10px;color:var(--text-dim);opacity:0;transition:all .3s;font-family:var(--mono)}
+.node:hover .expand-indicator{opacity:1}
+.node.expanded .expand-indicator{transform:rotate(180deg)}
+.node.blue{border-color:rgba(37,99,235,.25)}.node.blue::before{background:radial-gradient(circle at 50% 0%,rgba(37,99,235,.1),transparent 70%)}.node.blue:hover,.node.blue.highlighted{border-color:var(--blue);box-shadow:0 8px 40px rgba(37,99,235,.2)}.node.blue:hover::before,.node.blue.highlighted::before{opacity:1}.node.blue .node-label{color:var(--blue)}
+.node.teal{border-color:rgba(13,148,136,.25)}.node.teal::before{background:radial-gradient(circle at 50% 0%,rgba(13,148,136,.1),transparent 70%)}.node.teal:hover,.node.teal.highlighted{border-color:var(--teal);box-shadow:0 8px 40px rgba(13,148,136,.2)}.node.teal:hover::before,.node.teal.highlighted::before{opacity:1}.node.teal .node-label{color:var(--teal)}
+.node.amber{border-color:rgba(245,158,11,.25)}.node.amber::before{background:radial-gradient(circle at 50% 0%,rgba(245,158,11,.1),transparent 70%)}.node.amber:hover,.node.amber.highlighted{border-color:var(--amber);box-shadow:0 8px 40px rgba(245,158,11,.2)}.node.amber:hover::before,.node.amber.highlighted::before{opacity:1}.node.amber .node-label{color:var(--amber)}
+.node.coral{border-color:rgba(239,108,71,.25)}.node.coral::before{background:radial-gradient(circle at 50% 0%,rgba(239,108,71,.1),transparent 70%)}.node.coral:hover,.node.coral.highlighted{border-color:var(--coral);box-shadow:0 8px 40px rgba(239,108,71,.2)}.node.coral:hover::before,.node.coral.highlighted::before{opacity:1}.node.coral .node-label{color:var(--coral)}
+.node.purple{border-color:rgba(124,58,237,.25)}.node.purple::before{background:radial-gradient(circle at 50% 0%,rgba(124,58,237,.1),transparent 70%)}.node.purple:hover,.node.purple.highlighted{border-color:var(--purple);box-shadow:0 8px 40px rgba(124,58,237,.2)}.node.purple:hover::before,.node.purple.highlighted::before{opacity:1}.node.purple .node-label{color:var(--purple)}
+.node.green{border-color:rgba(34,197,94,.25)}.node.green::before{background:radial-gradient(circle at 50% 0%,rgba(34,197,94,.1),transparent 70%)}.node.green:hover,.node.green.highlighted{border-color:var(--green);box-shadow:0 8px 40px rgba(34,197,94,.2)}.node.green:hover::before,.node.green.highlighted::before{opacity:1}.node.green .node-label{color:var(--green)}
+.node.red{border-color:rgba(239,68,68,.25)}.node.red::before{background:radial-gradient(circle at 50% 0%,rgba(239,68,68,.1),transparent 70%)}.node.red:hover,.node.red.highlighted{border-color:var(--red);box-shadow:0 8px 40px rgba(239,68,68,.2)}.node.red:hover::before,.node.red.highlighted::before{opacity:1}.node.red .node-label{color:var(--red)}
+.node.pink{border-color:rgba(236,72,153,.25)}.node.pink::before{background:radial-gradient(circle at 50% 0%,rgba(236,72,153,.1),transparent 70%)}.node.pink:hover,.node.pink.highlighted{border-color:var(--pink);box-shadow:0 8px 40px rgba(236,72,153,.2)}.node.pink:hover::before,.node.pink.highlighted::before{opacity:1}.node.pink .node-label{color:var(--pink)}
+.node.gray{border-color:rgba(107,114,128,.25)}.node.gray::before{background:radial-gradient(circle at 50% 0%,rgba(107,114,128,.08),transparent 70%)}.node.gray:hover{border-color:rgba(107,114,128,.5);box-shadow:0 8px 40px rgba(107,114,128,.1)}.node.gray .node-label{color:#9ca3af}
+.node.wide{flex:1;min-width:280px;max-width:100%}
+.node.dimmed{opacity:.25;transform:scale(.97);pointer-events:none}
+.split-label{text-align:center;font-size:12px;font-family:var(--mono);color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;margin:16px 0 8px}
+.pipeline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:24px}
+.pipeline-grid .node{padding:16px}
+.detail-card{border-radius:16px;padding:28px;border:1px solid var(--border);background:var(--card);margin-bottom:24px;transition:all .3s}
+.detail-card h3{font-size:18px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.detail-card h3 .badge{font-size:11px;font-family:var(--mono);padding:3px 8px;border-radius:6px;font-weight:600}
+.detail-table{width:100%;border-collapse:separate;border-spacing:0}
+.detail-table th{text-align:left;font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;padding:10px 16px;border-bottom:1px solid var(--border);font-family:var(--mono)}
+.detail-table td{padding:12px 16px;border-bottom:1px solid rgba(42,42,58,.3);font-size:14px;line-height:1.5;transition:background .2s}
+.detail-table tr:last-child td{border-bottom:none}
+.detail-table tbody tr{cursor:pointer;transition:all .3s}
+.detail-table tbody tr:hover td{background:var(--bg3)}
+.detail-table tr.row-highlight td{background:var(--bg3)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;font-family:var(--mono)}
+.tag.hot{background:rgba(239,68,68,.15);color:var(--red)}.tag.warm{background:rgba(245,158,11,.15);color:var(--amber)}.tag.cold{background:rgba(37,99,235,.15);color:var(--blue)}.tag.engaged{background:rgba(13,148,136,.15);color:var(--teal)}.tag.dead{background:rgba(107,114,128,.15);color:#9ca3af}.tag.instant{background:rgba(34,197,94,.15);color:var(--green)}
+.failsafe-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.failsafe-card{border-radius:12px;padding:20px;border:1px solid var(--border);background:var(--card);transition:all .4s;cursor:pointer;position:relative;overflow:hidden}
+.failsafe-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .4s}
+.failsafe-card:hover{transform:translateY(-4px)}
+.failsafe-card:hover::before{opacity:1}
+.failsafe-card.fc-red::before{background:radial-gradient(circle at 0% 50%,rgba(239,68,68,.08),transparent 60%)}
+.failsafe-card.fc-amber::before{background:radial-gradient(circle at 0% 50%,rgba(245,158,11,.08),transparent 60%)}
+.failsafe-card.fc-coral::before{background:radial-gradient(circle at 0% 50%,rgba(239,108,71,.08),transparent 60%)}
+.failsafe-card.fc-pink::before{background:radial-gradient(circle at 0% 50%,rgba(236,72,153,.08),transparent 60%)}
+.failsafe-card .node-label,.failsafe-card .node-sub,.failsafe-card .trigger,.failsafe-card .node-expand{position:relative;z-index:1}
+.failsafe-card .trigger{font-size:12px;font-family:var(--mono);color:var(--text-dim);margin-top:8px}
+.failsafe-card .node-expand{max-height:0;overflow:hidden;transition:max-height .5s,opacity .3s;opacity:0}
+.failsafe-card.expanded .node-expand{max-height:200px;opacity:1;margin-top:12px}
+.failsafe-card .node-expand-content{padding-top:12px;border-top:1px solid var(--border);font-size:13px;color:var(--text-muted);line-height:1.7}
+.phase-timeline{position:relative;padding-left:32px}
+.phase-timeline::before{content:'';position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--blue),var(--green),var(--amber))}
+.phase-item{position:relative;margin-bottom:32px;cursor:pointer;transition:all .3s}
+.phase-item:hover{transform:translateX(8px)}
+.phase-item::before{content:'';position:absolute;left:-25px;top:6px;width:12px;height:12px;border-radius:50%;border:2px solid;background:var(--bg);transition:all .3s}
+.phase-item:nth-child(1)::before{border-color:var(--blue)}.phase-item:nth-child(2)::before{border-color:var(--green)}.phase-item:nth-child(3)::before{border-color:var(--amber)}
+.phase-item:hover::before{transform:scale(1.4)}
+.phase-item h4{font-size:16px;font-weight:700;margin-bottom:4px}
+.phase-item .timeline{font-size:12px;font-family:var(--mono);color:var(--text-dim);margin-bottom:8px}
+.phase-item p{font-size:14px;color:var(--text-muted);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .5s,opacity .3s;opacity:0}
+.phase-item.phase-open p{max-height:200px;opacity:1}
+.loop-visual{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;padding:16px;border-radius:12px;border:1px dashed var(--border);flex-wrap:wrap}
+.loop-arrow{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-family:var(--mono);color:var(--text-dim)}
+.loop-arrow .arr{display:inline-block;animation:loopPulse 2s ease-in-out infinite}
+@keyframes loopPulse{0%,100%{opacity:.3;transform:translateX(0)}50%{opacity:1;transform:translateX(4px)}}
+.footer{text-align:center;padding:60px 24px;border-top:1px solid var(--border);margin-top:80px}
+.footer a{color:var(--blue);text-decoration:none;font-weight:600;transition:opacity .2s}
+.footer a:hover{opacity:.7}
+.footer p{color:var(--text-dim);font-size:13px;margin-top:8px}
+.fade-in{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.2,.8,.2,1)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.stagger-children .node,.stagger-children .failsafe-card{opacity:0;transform:translateY(20px);transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.stagger-children.visible .node,.stagger-children.visible .failsafe-card{opacity:1;transform:translateY(0)}
+.stagger-children.visible .node:nth-child(1),.stagger-children.visible .failsafe-card:nth-child(1){transition-delay:.05s}
+.stagger-children.visible .node:nth-child(2),.stagger-children.visible .failsafe-card:nth-child(2){transition-delay:.1s}
+.stagger-children.visible .node:nth-child(3),.stagger-children.visible .failsafe-card:nth-child(3){transition-delay:.15s}
+.stagger-children.visible .node:nth-child(4),.stagger-children.visible .failsafe-card:nth-child(4){transition-delay:.2s}
+.stagger-children.visible .node:nth-child(5){transition-delay:.25s}
+.stagger-children.visible .node:nth-child(6){transition-delay:.3s}
+.stagger-children.visible .node:nth-child(7){transition-delay:.35s}
+.stagger-children.visible .node:nth-child(8){transition-delay:.4s}
+.scroll-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transform:translateY(20px);transition:all .3s;z-index:100;box-shadow:0 4px 20px rgba(37,99,235,.3)}
+.scroll-top.show{opacity:1;transform:translateY(0)}
+.scroll-top:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,99,235,.4)}
+@media(max-width:768px){.flow-row{flex-direction:column;align-items:center}.node{min-width:auto;width:100%;max-width:380px}.pipeline-grid{grid-template-columns:1fr 1fr}.failsafe-grid{grid-template-columns:1fr}.hero{padding:60px 20px 40px}.stats-bar{gap:24px}.stat-num{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">🌙</button>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> System architecture</div>
+  <h1>Prolific Home Solutions</h1>
+  <p>GHL + ReadyMode + VAPI + n8n — a fully automated lead acquisition, follow-up, and qualification engine for real estate.</p>
+  <div class="stack-bar">
+    <span class="stack-pill ghl" onclick="highlightStack('blue',this)">GoHighLevel</span>
+    <span class="stack-pill rm" onclick="highlightStack('coral',this)">ReadyMode</span>
+    <span class="stack-pill vapi" onclick="highlightStack('purple',this)">VAPI</span>
+    <span class="stack-pill n8n" onclick="highlightStack('pink',this)">n8n</span>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num blue" data-target="30" data-prefix="<" data-suffix="s">0</div><div class="stat-label">Response time</div></div>
+    <div class="stat-item"><div class="stat-num green" data-target="0" data-display="0%">0</div><div class="stat-label">Lead leakage</div></div>
+    <div class="stat-item"><div class="stat-num amber" data-target="10" data-suffix=" stages">0</div><div class="stat-label">Pipeline depth</div></div>
+    <div class="stat-item"><div class="stat-num coral" data-target="4" data-suffix=" platforms">0</div><div class="stat-label">Integrated</div></div>
+  </div>
+</section>
+
+<div class="container">
+
+<section class="section fade-in">
+  <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Lead sources</h2></div>
+  <div class="flow-row stagger-children">
+    <div class="node blue" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Cold lists</div><div class="node-sub">Purchased / skip-traced</div><div class="node-expand"><div class="node-expand-content">Bulk lists of property owners imported into ReadyMode for outbound dialing. Tagged by list source and date for tracking ROI per list.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node blue" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Ads / funnels</div><div class="node-sub">Facebook, Google, landing pages</div><div class="node-expand"><div class="node-expand-content">Inbound leads from paid campaigns land directly in GHL. Auto-tagged by campaign, ad set, and source for attribution tracking.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node blue" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Referrals</div><div class="node-sub">Agent and partner network</div><div class="node-expand"><div class="node-expand-content">Warm leads from your network. Tagged as referral with referring agent name for commission tracking.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node blue" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Skip tracing</div><div class="node-sub">PropStream, BatchLeads</div><div class="node-expand"><div class="node-expand-content">Property owner data enriched with phone numbers and emails. Synced into ReadyMode with property details for agent context.</div></div><span class="expand-indicator">▼</span></div>
+  </div>
+  <div class="flow-line-container"><div class="flow-line"><div class="flow-dot active"></div></div></div>
+  <div class="flow-arrow">▼</div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-header"><span class="section-num">02</span><h2 class="section-title">New lead intake</h2></div>
+  <div class="flow-row">
+    <div class="node teal wide" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">New lead enters GHL</div><div class="node-sub">Auto-tagged by source, status, and campaign. Zero manual entry.</div><div class="node-expand"><div class="node-expand-content">Every lead is automatically tagged with source, campaign name, entry date, and initial status. Contact record created with all available data fields populated. No human touches the lead at this stage.</div></div><span class="expand-indicator">▼</span></div>
+  </div>
+  <div class="flow-line-container"><div class="flow-line"><div class="flow-dot active"></div></div></div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-row">
+    <div class="node amber wide" onclick="toggleExpand(this)"><div class="node-label">⚡ Instant SMS &lt; 30 seconds</div><div class="node-sub">First touch before the lead forgets they inquired.</div><div class="node-expand"><div class="node-expand-content">GHL workflow triggers immediately on contact creation. Dynamic SMS personalizes with lead name and property address. Every open, click, and reply is logged and scored.</div></div><span class="expand-indicator">▼</span></div>
+  </div>
+  <div class="flow-line-container"><div class="flow-line"><div class="flow-dot active"></div></div></div>
+  <div class="flow-arrow">▼</div>
+  <div class="split-label">System splits into two channels</div>
+  <div class="flow-row stagger-children">
+    <div class="node coral wide" data-stack="coral" onclick="toggleExpand(this)"><div class="node-icon">📞</div><div class="node-label">ReadyMode</div><div class="node-sub">VA agents power-dial outbound. Dispositions sync to GHL via n8n webhooks.</div><div class="node-expand"><div class="node-expand-content">Agents dial through lists in ReadyMode. Each call outcome triggers a webhook to n8n which updates the GHL contact record and moves them to the correct pipeline stage automatically.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node purple wide" data-stack="purple" onclick="toggleExpand(this)"><div class="node-icon">🤖</div><div class="node-label">VAPI voice agent</div><div class="node-sub">Inbound calls, missed call callbacks, after-hours qualification.</div><div class="node-expand"><div class="node-expand-content">VAPI AI picks up inbound calls, asks qualifying questions, captures responses, and triggers the appropriate GHL workflow. Transfers to human when the lead is hot.</div></div><span class="expand-indicator">▼</span></div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-header"><span class="section-num">03</span><h2 class="section-title">ReadyMode call dispositions</h2></div>
+  <div class="detail-card">
+    <h3>Disposition routing <span class="badge" style="background:rgba(236,72,153,.1);color:var(--pink)">via n8n webhooks</span></h3>
+    <table class="detail-table"><thead><tr><th>Disposition</th><th>Stage</th><th>Automated action</th></tr></thead><tbody>
+      <tr onclick="highlightRow(this)"><td>No answer</td><td><span class="tag engaged">Attempted</span></td><td>Instant SMS + multi-touch follow-up sequence</td></tr>
+      <tr onclick="highlightRow(this)"><td>Not interested</td><td><span class="tag dead">Nurture</span></td><td>Remove from active, enter monthly nurture</td></tr>
+      <tr onclick="highlightRow(this)"><td>Maybe</td><td><span class="tag engaged">Engaged</span></td><td>AI follow-up qualifies motivation and timeline</td></tr>
+      <tr onclick="highlightRow(this)"><td>Interested</td><td><span class="tag warm">Warm</span></td><td>Aggressive follow-up, call task, human handoff</td></tr>
+      <tr onclick="highlightRow(this)"><td>Very interested</td><td><span class="tag hot">Hot</span></td><td>Immediate alert, priority call task</td></tr>
+      <tr onclick="highlightRow(this)"><td>Appointment set</td><td><span class="tag instant">Appt set</span></td><td>Confirmation + reminders + no-show workflow</td></tr>
+      <tr onclick="highlightRow(this)"><td>Bad data</td><td><span class="tag dead">Removed</span></td><td>Remove from all workflows, do not contact</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-header"><span class="section-num">04</span><h2 class="section-title">GHL pipeline stages</h2></div>
+  <div class="pipeline-grid stagger-children">
+    <div class="node gray" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">New lead</div><div class="node-sub">Auto-tagged</div><div class="node-expand"><div class="node-expand-content">Entry point. Source and campaign tags applied. Instant SMS sent within 30 seconds.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node blue" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Attempted</div><div class="node-sub">SMS + follow-up</div><div class="node-expand"><div class="node-expand-content">Called but no answer. Multi-touch sequence: SMS, email, voicemail drop. Up to 3 attempts.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node teal" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Engaged</div><div class="node-sub">AI qualifies</div><div class="node-expand"><div class="node-expand-content">Lead responded. Conversation AI qualifies intent, motivation, timeline, property details.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node amber" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Warm</div><div class="node-sub">Aggressive nurture</div><div class="node-expand"><div class="node-expand-content">Interested but not ready. Daily multi-channel touchpoints for 7 days. Call task assigned.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node coral" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Hot</div><div class="node-sub">Human takes over</div><div class="node-expand"><div class="node-expand-content">High intent. Immediate alert. Priority call task. Agent follows up within 2 minutes.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node green" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Appt set</div><div class="node-sub">Confirm + remind</div><div class="node-expand"><div class="node-expand-content">Meeting booked. Reminders at 24h, 1h, 15min. No-show triggers re-engagement.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node teal" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Offer made</div><div class="node-sub">Follow-up status</div><div class="node-expand"><div class="node-expand-content">Offer presented. Follow-up reminders. Counter-offer workflow. Negotiation tracked.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node green" data-stack="blue" onclick="toggleExpand(this)"><div class="node-label">Closed</div><div class="node-sub">Deal won</div><div class="node-expand"><div class="node-expand-content">Deal done. Removed from sequences. Tagged closed-won. Data feeds ROI reporting.</div></div><span class="expand-indicator">▼</span></div>
+  </div>
+  <div class="flow-line-container"><div class="flow-line"><div class="flow-dot active"></div></div></div><div class="flow-arrow">▼</div>
+  <div class="detail-card fade-in">
+    <h3>AI qualification <span class="badge" style="background:rgba(124,58,237,.1);color:var(--purple)">Conversation AI</span></h3>
+    <table class="detail-table"><thead><tr><th>Class</th><th>Criteria</th><th>Action</th></tr></thead><tbody>
+      <tr onclick="highlightRow(this)"><td><span class="tag hot">HOT</span></td><td>Motivated seller, short timeline, clear intent</td><td>Immediate alert, human follows up</td></tr>
+      <tr onclick="highlightRow(this)"><td><span class="tag warm">WARM</span></td><td>Interested but not urgent</td><td>Aggressive nurture, call task assigned</td></tr>
+      <tr onclick="highlightRow(this)"><td><span class="tag cold">COLD</span></td><td>Low interest, long timeline</td><td>Monthly value-based re-engagement</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Follow-up system</h2></div>
+  <div class="detail-card">
+    <table class="detail-table"><thead><tr><th>Scenario</th><th>Response</th><th>Timing</th></tr></thead><tbody>
+      <tr onclick="highlightRow(this)"><td>Missed call</td><td>Instant SMS text-back + multi-touch</td><td><span class="tag instant">&lt; 30 sec</span></td></tr>
+      <tr onclick="highlightRow(this)"><td>No answer (3x)</td><td>Shift to long-term nurture</td><td><span class="tag dead">After 3rd</span></td></tr>
+      <tr onclick="highlightRow(this)"><td>Engaged</td><td>AI qualifies and routes</td><td><span class="tag instant">Immediate</span></td></tr>
+      <tr onclick="highlightRow(this)"><td>Warm lead</td><td>Aggressive multi-channel</td><td><span class="tag warm">Daily 7d</span></td></tr>
+      <tr onclick="highlightRow(this)"><td>Hot lead</td><td>Human follow-up + alert</td><td><span class="tag hot">&lt; 2 min</span></td></tr>
+      <tr onclick="highlightRow(this)"><td>Cold / dead</td><td>Monthly value nurture</td><td><span class="tag cold">Every 30d</span></td></tr>
+      <tr onclick="highlightRow(this)"><td>Re-engagement</td><td>Back to active pipeline</td><td><span class="tag engaged">On trigger</span></td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-header"><span class="section-num">06</span><h2 class="section-title">VAPI voice agent</h2></div>
+  <div class="flow-row stagger-children">
+    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">Inbound calls</div><div class="node-sub">Qualifies and triggers workflow</div><div class="node-expand"><div class="node-expand-content">AI picks up, asks qualifying questions about property, determines motivation, routes into correct GHL stage. All data logged.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">Missed callback</div><div class="node-sub">Within 60 seconds</div><div class="node-expand"><div class="node-expand-content">VAPI calls back within 60 seconds. Qualifies and books appointment if ready. No lead waits for a human.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">After-hours</div><div class="node-sub">24/7 coverage</div><div class="node-expand"><div class="node-expand-content">All calls outside working hours handled. Qualifies and routes for next-day follow-up.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node purple" data-stack="purple" onclick="toggleExpand(this)"><div class="node-label">Live transfer</div><div class="node-sub">Hot leads get a human</div><div class="node-expand"><div class="node-expand-content">Motivated leads or human requests get transferred live with full context passed along.</div></div><span class="expand-indicator">▼</span></div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-header"><span class="section-num">07</span><h2 class="section-title">Fail-safes</h2></div>
+  <div class="failsafe-grid stagger-children">
+    <div class="failsafe-card fc-red" data-stack="pink" style="border-left:3px solid var(--red)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--red)">Hot lead alert</div><div class="node-sub">SMS + email alert to team lead</div><div class="trigger">trigger: not contacted within 15 min</div><div class="node-expand"><div class="node-expand-content">n8n monitors every hot lead. If no agent activity within 15 minutes, emergency alert fires to team lead via SMS and email.</div></div></div>
+    <div class="failsafe-card fc-amber" data-stack="pink" style="border-left:3px solid var(--amber)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--amber)">Stuck lead detection</div><div class="node-sub">Auto-trigger next follow-up</div><div class="trigger">trigger: same stage > 48 hours</div><div class="node-expand"><div class="node-expand-content">If a lead sits in any stage for 48+ hours without activity, n8n triggers next follow-up or escalates to team member.</div></div></div>
+    <div class="failsafe-card fc-coral" data-stack="pink" style="border-left:3px solid var(--coral)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--coral)">Zero leakage check</div><div class="node-sub">Emergency follow-up fires</div><div class="trigger">trigger: no activity > 1 hour</div><div class="node-expand"><div class="node-expand-content">Every new lead must have a touchpoint within 1 hour. If zero activity detected, emergency follow-up fires immediately.</div></div></div>
+    <div class="failsafe-card fc-pink" data-stack="pink" style="border-left:3px solid var(--pink)" onclick="toggleExpand(this)"><div class="node-label" style="color:var(--pink)">Workflow failure</div><div class="node-sub">Error log + admin alert</div><div class="trigger">trigger: webhook or workflow fails</div><div class="node-expand"><div class="node-expand-content">n8n monitors all connections. Failures logged with details, alert sent to admin. Auto-retry for transient failures.</div></div></div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-header"><span class="section-num">08</span><h2 class="section-title">Dead lead recovery loop</h2></div>
+  <div class="flow-row"><div class="node gray" onclick="toggleExpand(this)"><div class="node-label">Dead / not interested</div><div class="node-sub">Removed from active sequences</div><div class="node-expand"><div class="node-expand-content">Marked unresponsive after all attempts. Removed from aggressive sequences but enters the long-term nurture pool.</div></div><span class="expand-indicator">▼</span></div></div>
+  <div class="flow-line-container"><div class="flow-line"><div class="flow-dot active"></div></div></div><div class="flow-arrow">▼</div>
+  <div class="flow-row"><div class="node purple wide" onclick="toggleExpand(this)"><div class="node-label">Monthly nurture sequence</div><div class="node-sub">Value-based messages. Market updates, educational content, soft check-ins.</div><div class="node-expand"><div class="node-expand-content">Every 30 days, a value touchpoint goes out. Helpful tone, not pushy. Goal: stay top of mind until their situation changes.</div></div><span class="expand-indicator">▼</span></div></div>
+  <div class="flow-line-container"><div class="flow-line"><div class="flow-dot active"></div></div></div><div class="flow-arrow">▼</div>
+  <div class="flow-row"><div class="node teal wide" onclick="toggleExpand(this)"><div class="node-label">Lead re-engages</div><div class="node-sub">Opens SMS, replies, clicks → auto-moves back into active pipeline</div><div class="node-expand"><div class="node-expand-content">Any action from a dead lead automatically moves them back into the active pipeline. The cycle continues.</div></div><span class="expand-indicator">▼</span></div></div>
+  <div class="loop-visual">
+    <span class="loop-arrow"><span class="arr">→</span> Attempted</span>
+    <span class="loop-arrow"><span class="arr">→</span> Engaged</span>
+    <span class="loop-arrow"><span class="arr">→</span> Warm</span>
+    <span class="loop-arrow"><span class="arr">→</span> Hot</span>
+    <span class="loop-arrow"><span class="arr">→</span> Close</span>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-header"><span class="section-num">09</span><h2 class="section-title">Implementation phases</h2></div>
+  <div class="phase-timeline">
+    <div class="phase-item phase-open" onclick="togglePhase(this)"><h4 style="color:var(--blue)">Phase 1 — Core build</h4><div class="timeline">Days 1–5</div><p>Pipeline setup, ReadyMode webhook integration, all GHL workflows, SMS/email sequences, Conversation AI, tagging logic, missed call text-back, contact routing.</p></div>
+    <div class="phase-item" onclick="togglePhase(this)"><h4 style="color:var(--green)">Phase 2 — VAPI + n8n</h4><div class="timeline">Days 5–7</div><p>VAPI voice agent setup, n8n fail-safes, alert system, stuck lead detection, zero leakage checks, full end-to-end testing.</p></div>
+    <div class="phase-item" onclick="togglePhase(this)"><h4 style="color:var(--amber)">Phase 3 — Optimization</h4><div class="timeline">Post-launch (retainer)</div><p>Monitor conversions, tune AI prompts, adjust sequences, refine routing for maximum deal flow.</p></div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-header"><span class="section-num">10</span><h2 class="section-title">End goal</h2></div>
+  <div class="flow-row stagger-children">
+    <div class="node green" onclick="toggleExpand(this)"><div class="node-label">Zero leakage</div><div class="node-sub">Every lead touched</div><div class="node-expand"><div class="node-expand-content">No lead enters without a touchpoint within 30 seconds. Fail-safes catch everything.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node green" onclick="toggleExpand(this)"><div class="node-label">Automation-first</div><div class="node-sub">No manual work</div><div class="node-expand"><div class="node-expand-content">Tagging, routing, follow-up, qualification, scheduling — all autonomous.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node green" onclick="toggleExpand(this)"><div class="node-label">Team efficiency</div><div class="node-sub">Warm + hot only</div><div class="node-expand"><div class="node-expand-content">Agents only handle leads worth their time. Everything else is system-managed.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node green" onclick="toggleExpand(this)"><div class="node-label">Predictable flow</div><div class="node-sub">Consistent pipeline</div><div class="node-expand"><div class="node-expand-content">Steady flow of qualified leads. No feast-or-famine cycles.</div></div><span class="expand-indicator">▼</span></div>
+    <div class="node green" onclick="toggleExpand(this)"><div class="node-label">Scalable</div><div class="node-sub">Volume ready</div><div class="node-expand"><div class="node-expand-content">More sources, agents, campaigns — system handles growth without new workflows.</div></div><span class="expand-indicator">▼</span></div>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <p style="font-size:14px;color:var(--text-muted)">Built by <a href="https://multimediava.github.io/" target="_blank">Kenneth Pineda</a></p>
+  <p>AI Automation Specialist · GoHighLevel Admin</p>
+</footer>
+
+<script>
+function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeBtn');if(h.dataset.theme==='dark'){h.dataset.theme='light';b.textContent='☀️'}else{h.dataset.theme='dark';b.textContent='🌙'}}
+
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fade-in,.stagger-children').forEach(el=>obs.observe(el));
+
+let counted=false;
+new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting&&!counted){counted=true;document.querySelectorAll('.stat-num').forEach(s=>{const t=parseInt(s.dataset.target),p=s.dataset.prefix||'',sf=s.dataset.suffix||'',d=s.dataset.display;if(d){s.textContent=d;return}let c=0;const st=Math.max(1,Math.floor(t/30)),tm=setInterval(()=>{c+=st;if(c>=t){c=t;clearInterval(tm)}s.textContent=p+c+sf},40)})}})},{threshold:.5}).observe(document.querySelector('.stats-bar'));
+
+function toggleExpand(el){if(el.classList.contains('expanded'))el.classList.remove('expanded');else{document.querySelectorAll('.expanded').forEach(n=>{if(n!==el)n.classList.remove('expanded')});el.classList.add('expanded')}}
+
+let activeStack=null;
+function highlightStack(color,pill){
+  document.querySelectorAll('.stack-pill').forEach(p=>p.classList.remove('active'));
+  if(activeStack===color){activeStack=null;document.querySelectorAll('[data-stack]').forEach(n=>{n.classList.remove('dimmed','highlighted')});return}
+  activeStack=color;pill.classList.add('active');
+  document.querySelectorAll('[data-stack]').forEach(n=>{if(n.dataset.stack===color){n.classList.add('highlighted');n.classList.remove('dimmed')}else{n.classList.add('dimmed');n.classList.remove('highlighted')}});
+}
+
+function highlightRow(tr){const w=tr.classList.contains('row-highlight');tr.closest('tbody').querySelectorAll('tr').forEach(r=>r.classList.remove('row-highlight'));if(!w)tr.classList.add('row-highlight')}
+
+function togglePhase(el){const w=el.classList.contains('phase-open');document.querySelectorAll('.phase-item').forEach(p=>p.classList.remove('phase-open'));if(!w)el.classList.add('phase-open')}
+
+const sb=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{sb.classList.toggle('show',window.scrollY>400)});
+
+new IntersectionObserver(e=>{e.forEach(el=>{const d=el.target.querySelector('.flow-dot');if(d){d.classList.toggle('active',el.isIntersecting)}})},{threshold:.5}).observe(document.querySelector('.flow-line-container'));
+document.querySelectorAll('.flow-line-container').forEach(el=>new IntersectionObserver(e=>{e.forEach(en=>{const d=en.target.querySelector('.flow-dot');if(d)d.classList.toggle('active',en.isIntersecting)})},{threshold:.5}).observe(el));
+</script>
+</body>
+</html>
